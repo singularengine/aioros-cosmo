@@ -1,0 +1,77 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo"
+             a:Page.Title="Components" a:Page.Description="Every component of Aioros.Cosmo, written in XAML for the web and the desktop: 65 of them.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Components" />
+      <TextBlock Classes="lead" Text="Every component of Aioros.Cosmo, written in XAML for the web and the desktop: 65 of them." />
+    </StackPanel>
+    <WrapPanel a:Web.Id="components" ItemSpacing="32" LineSpacing="16">
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/accordion" Content="Accordion" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/alert" Content="Alert" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/alert-dialog" Content="Alert Dialog" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/aspect-ratio" Content="Aspect Ratio" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/attachment" Content="Attachment" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/avatar" Content="Avatar" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/badge" Content="Badge" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/breadcrumb" Content="Breadcrumb" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/bubble" Content="Bubble" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/button" Content="Button" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/button-group" Content="Button Group" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/calendar" Content="Calendar" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/card" Content="Card" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/carousel" Content="Carousel" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/chart" Content="Chart" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/checkbox" Content="Checkbox" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/code-block" Content="Code Block" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/collapsible" Content="Collapsible" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/combobox" Content="Combobox" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/command" Content="Command" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/context-menu" Content="Context Menu" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/data-table" Content="Data Table" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/date-picker" Content="Date Picker" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/dialog" Content="Dialog" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/drawer" Content="Drawer" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/dropdown-menu" Content="Dropdown Menu" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/empty" Content="Empty" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/field" Content="Field" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/hover-card" Content="Hover Card" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/input" Content="Input" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/input-group" Content="Input Group" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/input-otp" Content="Input OTP" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/item" Content="Item" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/kbd" Content="Kbd" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/label" Content="Label" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/marker" Content="Marker" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/menubar" Content="Menubar" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/message" Content="Message" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/message-scroller" Content="Message Scroller" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/native-select" Content="Native Select" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/navigation-menu" Content="Navigation Menu" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/pagination" Content="Pagination" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/popover" Content="Popover" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/progress" Content="Progress" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/questionnaire" Content="Questionnaire" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/radio-group" Content="Radio Group" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/resizable" Content="Resizable" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/scroll-area" Content="Scroll Area" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/select" Content="Select" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/separator" Content="Separator" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/sheet" Content="Sheet" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/sidebar" Content="Sidebar" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/skeleton" Content="Skeleton" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/slider" Content="Slider" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/sonner" Content="Sonner" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/spinner" Content="Spinner" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/switch" Content="Switch" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/table" Content="Table" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/tabs" Content="Tabs" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/textarea" Content="Textarea" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/toggle" Content="Toggle" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/toggle-group" Content="Toggle Group" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/tooltip" Content="Tooltip" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/trace" Content="Trace" />
+      <HyperlinkButton Classes="link" Width="196" Padding="0" Height="NaN" MinHeight="0" FontSize="16" HorizontalContentAlignment="Left" NavigateUri="/components/typography" Content="Typography" />
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

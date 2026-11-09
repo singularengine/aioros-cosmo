@@ -1,0 +1,114 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:CompositeExamples"
+             a:Page.Title="Resizable" a:Page.Description="Accessible resizable panel groups and layouts with keyboard support.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Resizable" />
+      <TextBlock Classes="lead" Text="Accessible resizable panel groups and layouts with keyboard support." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: resizable" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:ResizablePanelGroup, c:ResizablePanel, c:ResizableHandle" />
+        <c:Badge Classes="secondary" Content="Avalonia: Grid, GridSplitter" />
+        <c:Badge Classes="secondary" Content="Web: CSS grid" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="A group is a Grid; drag a handle, or focus it and use the arrows (5%), Home and End." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="450" Height="202" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+            <c:ResizablePanelGroup>
+              <c:ResizablePanel DefaultSize="50">
+                <TextBlock Text="One" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </c:ResizablePanel>
+              <c:ResizableHandle />
+              <c:ResizablePanel DefaultSize="50">
+                <c:ResizablePanelGroup Orientation="Vertical">
+                  <c:ResizablePanel DefaultSize="25">
+                    <TextBlock Text="Two" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                  </c:ResizablePanel>
+                  <c:ResizableHandle />
+                  <c:ResizablePanel DefaultSize="75">
+                    <TextBlock Text="Three" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                  </c:ResizablePanel>
+                </c:ResizablePanelGroup>
+              </c:ResizablePanel>
+            </c:ResizablePanelGroup>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;450&quot; Height=&quot;202&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;  &lt;c:ResizablePanelGroup&gt;&#10;    &lt;c:ResizablePanel DefaultSize=&quot;50&quot;&gt;&#10;      &lt;TextBlock Text=&quot;One&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;/c:ResizablePanel&gt;&#10;    &lt;c:ResizableHandle /&gt;&#10;    &lt;c:ResizablePanel DefaultSize=&quot;50&quot;&gt;&#10;      &lt;c:ResizablePanelGroup Orientation=&quot;Vertical&quot;&gt;&#10;        &lt;c:ResizablePanel DefaultSize=&quot;25&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Two&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;/c:ResizablePanel&gt;&#10;        &lt;c:ResizableHandle /&gt;&#10;        &lt;c:ResizablePanel DefaultSize=&quot;75&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Three&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;/c:ResizablePanel&gt;&#10;      &lt;/c:ResizablePanelGroup&gt;&#10;    &lt;/c:ResizablePanel&gt;&#10;  &lt;/c:ResizablePanelGroup&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Vertical" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="450" Height="200" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+            <c:ResizablePanelGroup Orientation="Vertical">
+              <c:ResizablePanel DefaultSize="25">
+                <TextBlock Text="Header" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </c:ResizablePanel>
+              <c:ResizableHandle />
+              <c:ResizablePanel DefaultSize="75">
+                <TextBlock Text="Content" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </c:ResizablePanel>
+            </c:ResizablePanelGroup>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;450&quot; Height=&quot;200&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;  &lt;c:ResizablePanelGroup Orientation=&quot;Vertical&quot;&gt;&#10;    &lt;c:ResizablePanel DefaultSize=&quot;25&quot;&gt;&#10;      &lt;TextBlock Text=&quot;Header&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;/c:ResizablePanel&gt;&#10;    &lt;c:ResizableHandle /&gt;&#10;    &lt;c:ResizablePanel DefaultSize=&quot;75&quot;&gt;&#10;      &lt;TextBlock Text=&quot;Content&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;/c:ResizablePanel&gt;&#10;  &lt;/c:ResizablePanelGroup&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Handle" />
+      <TextBlock Classes="sm muted" Text="WithHandle draws the grip on the line." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="450" Height="200" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+            <c:ResizablePanelGroup>
+              <c:ResizablePanel DefaultSize="25">
+                <TextBlock Text="Sidebar" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </c:ResizablePanel>
+              <c:ResizableHandle WithHandle="True" />
+              <c:ResizablePanel DefaultSize="75">
+                <TextBlock Text="Content" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </c:ResizablePanel>
+            </c:ResizablePanelGroup>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;450&quot; Height=&quot;200&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;  &lt;c:ResizablePanelGroup&gt;&#10;    &lt;c:ResizablePanel DefaultSize=&quot;25&quot;&gt;&#10;      &lt;TextBlock Text=&quot;Sidebar&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;/c:ResizablePanel&gt;&#10;    &lt;c:ResizableHandle WithHandle=&quot;True&quot; /&gt;&#10;    &lt;c:ResizablePanel DefaultSize=&quot;75&quot;&gt;&#10;      &lt;TextBlock Text=&quot;Content&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;/c:ResizablePanel&gt;&#10;  &lt;/c:ResizablePanelGroup&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Size binds two way: dragging updates the model, the command resizes the panel; MinSize and MaxSize keep it between 15% and 50%, Enter collapses it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="450">
+            <Border Height="160" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+              <c:ResizablePanelGroup>
+                <c:ResizablePanel Size="{Binding SidebarSize}" MinSize="15" MaxSize="50" IsCollapsible="True">
+                  <TextBlock Text="{Binding SizeText}" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </c:ResizablePanel>
+                <c:ResizableHandle WithHandle="True" />
+                <c:ResizablePanel>
+                  <TextBlock Text="Content" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </c:ResizablePanel>
+              </c:ResizablePanelGroup>
+            </Border>
+            <Button Classes="outline sm" Content="Reset to 25%" Command="{Binding ResetSizeCommand}" HorizontalAlignment="Left" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;450&quot;&gt;&#10;  &lt;Border Height=&quot;160&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;    &lt;c:ResizablePanelGroup&gt;&#10;      &lt;c:ResizablePanel Size=&quot;{Binding SidebarSize}&quot; MinSize=&quot;15&quot; MaxSize=&quot;50&quot; IsCollapsible=&quot;True&quot;&gt;&#10;        &lt;TextBlock Text=&quot;{Binding SizeText}&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/c:ResizablePanel&gt;&#10;      &lt;c:ResizableHandle WithHandle=&quot;True&quot; /&gt;&#10;      &lt;c:ResizablePanel&gt;&#10;        &lt;TextBlock Text=&quot;Content&quot; FontWeight=&quot;SemiBold&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/c:ResizablePanel&gt;&#10;    &lt;/c:ResizablePanelGroup&gt;&#10;  &lt;/Border&gt;&#10;  &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Reset to 25%&quot; Command=&quot;{Binding ResetSizeCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:ResizablePanelGroup" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Orientation (Horizontal, Vertical): a Grid of panels and handles." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:ResizablePanel" /><TextBlock Grid.Column="1" Classes="sm muted" Text="DefaultSize, Size (two way), MinSize, MaxSize, IsCollapsible, CollapsedSize: percentages of the group." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:ResizableHandle" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A GridSplitter: WithHandle; arrows by 5%, Home, End, Enter to collapse, F6 to the next handle." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,133 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Item" a:Page.Description="A versatile component that you can use to display any content.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Item" />
+      <TextBlock Classes="lead" Text="A versatile component that you can use to display any content." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: item" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Item, c:ItemMedia, c:ItemGroup, c:ItemHeader, c:ItemFooter, c:ItemSeparator" />
+        <c:Badge Classes="secondary" Content="Web: &lt;div&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Media, Title, Description and Actions are properties; link gives an item that navigates its hover look." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="24" MaxWidth="448">
+            <c:Item Classes="outline" Title="Basic Item" Description="A simple item with title and description.">
+              <c:Item.Actions>
+                <Button Classes="outline sm" Content="Action" />
+              </c:Item.Actions>
+            </c:Item>
+            <c:Item Classes="outline sm link" Title="Your profile has been verified." a:Web.Href="/components/avatar">
+              <c:Item.Media>
+                <c:ItemMedia><a:Icon Kind="badge-check" Size="20" /></c:ItemMedia>
+              </c:Item.Media>
+              <c:Item.Actions>
+                <a:Icon Kind="chevron-right" Size="16" />
+              </c:Item.Actions>
+            </c:Item>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;24&quot; MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Item Classes=&quot;outline&quot; Title=&quot;Basic Item&quot; Description=&quot;A simple item with title and description.&quot;&gt;&#10;    &lt;c:Item.Actions&gt;&#10;      &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Action&quot; /&gt;&#10;    &lt;/c:Item.Actions&gt;&#10;  &lt;/c:Item&gt;&#10;  &lt;c:Item Classes=&quot;outline sm link&quot; Title=&quot;Your profile has been verified.&quot; a:Web.Href=&quot;/components/avatar&quot;&gt;&#10;    &lt;c:Item.Media&gt;&#10;      &lt;c:ItemMedia&gt;&lt;a:Icon Kind=&quot;badge-check&quot; Size=&quot;20&quot; /&gt;&lt;/c:ItemMedia&gt;&#10;    &lt;/c:Item.Media&gt;&#10;    &lt;c:Item.Actions&gt;&#10;      &lt;a:Icon Kind=&quot;chevron-right&quot; Size=&quot;16&quot; /&gt;&#10;    &lt;/c:Item.Actions&gt;&#10;  &lt;/c:Item&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Header and footer" />
+      <TextBlock Classes="sm muted" Text="Header and Footer are full rows above and below the item; c:ItemHeader and c:ItemFooter put their first and last children at their ends." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel MaxWidth="448">
+            <c:Item Classes="outline" Title="Acme Inc." Description="Design system subscription, October.">
+              <c:Item.Header>
+                <c:ItemHeader>
+                  <TextBlock Classes="sm" FontWeight="Medium" Text="Invoice #1042" />
+                  <c:Badge Classes="secondary" Content="Paid" />
+                </c:ItemHeader>
+              </c:Item.Header>
+              <c:Item.Actions><Button Classes="outline sm" Content="View" /></c:Item.Actions>
+              <c:Item.Footer>
+                <c:ItemFooter>
+                  <TextBlock Classes="sm muted" Text="Due Oct 31" />
+                  <TextBlock Classes="sm" FontWeight="Medium" Text="$249.00" />
+                </c:ItemFooter>
+              </c:Item.Footer>
+            </c:Item>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Item Classes=&quot;outline&quot; Title=&quot;Acme Inc.&quot; Description=&quot;Design system subscription, October.&quot;&gt;&#10;    &lt;c:Item.Header&gt;&#10;      &lt;c:ItemHeader&gt;&#10;        &lt;TextBlock Classes=&quot;sm&quot; FontWeight=&quot;Medium&quot; Text=&quot;Invoice #1042&quot; /&gt;&#10;        &lt;c:Badge Classes=&quot;secondary&quot; Content=&quot;Paid&quot; /&gt;&#10;      &lt;/c:ItemHeader&gt;&#10;    &lt;/c:Item.Header&gt;&#10;    &lt;c:Item.Actions&gt;&lt;Button Classes=&quot;outline sm&quot; Content=&quot;View&quot; /&gt;&lt;/c:Item.Actions&gt;&#10;    &lt;c:Item.Footer&gt;&#10;      &lt;c:ItemFooter&gt;&#10;        &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Due Oct 31&quot; /&gt;&#10;        &lt;TextBlock Classes=&quot;sm&quot; FontWeight=&quot;Medium&quot; Text=&quot;$249.00&quot; /&gt;&#10;      &lt;/c:ItemFooter&gt;&#10;    &lt;/c:Item.Footer&gt;&#10;  &lt;/c:Item&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Group with separators" />
+      <TextBlock Classes="sm muted" Text="A c:ItemSeparator is a separator with no margin between grouped items." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:ItemGroup MaxWidth="448">
+            <c:Item Title="Inbox" Description="12 unread messages." />
+            <c:ItemSeparator />
+            <c:Item Title="Archive" Description="Everything you kept." />
+          </c:ItemGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:ItemGroup MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Item Title=&quot;Inbox&quot; Description=&quot;12 unread messages.&quot; /&gt;&#10;  &lt;c:ItemSeparator /&gt;&#10;  &lt;c:Item Title=&quot;Archive&quot; Description=&quot;Everything you kept.&quot; /&gt;&#10;&lt;/c:ItemGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Variants" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="24" MaxWidth="560">
+            <c:Item Title="Default Variant" Description="Standard styling with subtle background and borders.">
+              <c:Item.Actions><Button Classes="outline sm" Content="Open" /></c:Item.Actions>
+            </c:Item>
+            <c:Item Classes="outline" Title="Outline Variant" Description="Outlined style with clear borders and transparent background.">
+              <c:Item.Actions><Button Classes="outline sm" Content="Open" /></c:Item.Actions>
+            </c:Item>
+            <c:Item Classes="muted" Title="Muted Variant" Description="Subdued appearance with muted colors for secondary content.">
+              <c:Item.Actions><Button Classes="outline sm" Content="Open" /></c:Item.Actions>
+            </c:Item>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;24&quot; MaxWidth=&quot;560&quot;&gt;&#10;  &lt;c:Item Title=&quot;Default Variant&quot; Description=&quot;Standard styling with subtle background and borders.&quot;&gt;&#10;    &lt;c:Item.Actions&gt;&lt;Button Classes=&quot;outline sm&quot; Content=&quot;Open&quot; /&gt;&lt;/c:Item.Actions&gt;&#10;  &lt;/c:Item&gt;&#10;  &lt;c:Item Classes=&quot;outline&quot; Title=&quot;Outline Variant&quot; Description=&quot;Outlined style with clear borders and transparent background.&quot;&gt;&#10;    &lt;c:Item.Actions&gt;&lt;Button Classes=&quot;outline sm&quot; Content=&quot;Open&quot; /&gt;&lt;/c:Item.Actions&gt;&#10;  &lt;/c:Item&gt;&#10;  &lt;c:Item Classes=&quot;muted&quot; Title=&quot;Muted Variant&quot; Description=&quot;Subdued appearance with muted colors for secondary content.&quot;&gt;&#10;    &lt;c:Item.Actions&gt;&lt;Button Classes=&quot;outline sm&quot; Content=&quot;Open&quot; /&gt;&lt;/c:Item.Actions&gt;&#10;  &lt;/c:Item&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Items come from the model through an item template; each action runs a command with its item. The template binds each item&#x27;s Title and Description." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="448">
+            <ItemsControl ItemsSource="{Binding Projects}">
+              <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate><c:ItemGroup Spacing="8" /></ItemsPanelTemplate>
+              </ItemsControl.ItemsPanel>
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="m:Project">
+                  <c:Item Classes="outline sm" Title="{Binding Name}" Description="{Binding Updated}">
+                    <c:Item.Actions>
+                      <Button Classes="outline sm" Content="Remove" Command="{Binding $parent[ItemsControl].((m:DisplayExamples)DataContext).RemoveCommand}" CommandParameter="{Binding}" />
+                    </c:Item.Actions>
+                  </c:Item>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <TextBlock Classes="sm muted" Text="{Binding ProjectCount}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;448&quot;&gt;&#10;  &lt;ItemsControl ItemsSource=&quot;{Binding Projects}&quot;&gt;&#10;    &lt;ItemsControl.ItemsPanel&gt;&#10;      &lt;ItemsPanelTemplate&gt;&lt;c:ItemGroup Spacing=&quot;8&quot; /&gt;&lt;/ItemsPanelTemplate&gt;&#10;    &lt;/ItemsControl.ItemsPanel&gt;&#10;    &lt;ItemsControl.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;m:Project&quot;&gt;&#10;        &lt;c:Item Classes=&quot;outline sm&quot; Title=&quot;{Binding Name}&quot; Description=&quot;{Binding Updated}&quot;&gt;&#10;          &lt;c:Item.Actions&gt;&#10;            &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Remove&quot; Command=&quot;{Binding $parent[ItemsControl].((m:DisplayExamples)DataContext).RemoveCommand}&quot; CommandParameter=&quot;{Binding}&quot; /&gt;&#10;          &lt;/c:Item.Actions&gt;&#10;        &lt;/c:Item&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/ItemsControl.ItemTemplate&gt;&#10;  &lt;/ItemsControl&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding ProjectCount}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Media, Title, Description, Actions" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The item&#x27;s parts; Content takes the title&#x27;s and description&#x27;s place when set." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Classes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="outline, muted, sm, link; c:ItemMedia takes icon or image." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:ItemGroup" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A StackPanel of items; c:ItemSeparator between them." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Header, Footer" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Full rows above and below the item: c:ItemHeader and c:ItemFooter, their first and last children at their ends." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

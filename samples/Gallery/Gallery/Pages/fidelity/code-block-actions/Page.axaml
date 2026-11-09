@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-actions">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Collapsible IsOpen="True" Width="448" HorizontalAlignment="Left"><c:CodeBlock>
+      <c:CodeBlock.Title><StackPanel Orientation="Horizontal" Spacing="6"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox><TextBlock Text="Terminal" VerticalAlignment="Center" /></StackPanel></c:CodeBlock.Title><c:CodeBlock.Actions><StackPanel Orientation="Horizontal" Spacing="4"><c:CollapsibleTrigger Classes="code-block" AutomationProperties.Name="Wrap lines"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[Button].Foreground}" Data="M3,6 L21,6 M3 12h15a3 3 0 1 1 0 6h-4 M16,16 L14,18 L16,20 M3,18 L10,18" /></Viewbox></c:CollapsibleTrigger><Button Classes="code-block" AutomationProperties.Name="Download"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[Button].Foreground}" Data="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M7,10 L12,15 L17,10 M12,15 L12,3" /></Viewbox></Button><c:CodeBlockCopyButton Value="$ pnpm lint&#10;apps/web/components/message-list.tsx&#10;  18:22  error  'messages' is possibly 'undefined'. Add a guard before calling map  @typescript-eslint/no-unsafe-call&#10;  42:7   warning  React Hook React.useEffect has a missing dependency: 'scrollToBottom'  react-hooks/exhaustive-deps&#10;&#10;✖ 2 problems (1 error, 1 warning)" /></StackPanel></c:CodeBlock.Actions>
+      <c:CodeBlockContent Classes="wrap-toggle">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="$ pnpm lint" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="apps/web/components/message-list.tsx" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  18:22  error  'messages' is possibly 'undefined'. Add a guard before calling map  @typescript-eslint/no-unsafe-call" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  42:7   warning  React Hook React.useEffect has a missing dependency: 'scrollToBottom'  react-hooks/exhaustive-deps" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" " /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="✖ 2 problems (1 error, 1 warning)" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock></c:Collapsible>
+  </Border>
+</UserControl>

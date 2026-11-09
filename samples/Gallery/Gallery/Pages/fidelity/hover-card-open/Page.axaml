@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: hover-card-open">
+  <UserControl.Styles>
+    <Style Selector="FlyoutPresenter.hover-card">
+      <Setter Property="Width" Value="320" />
+    </Style>
+  </UserControl.Styles>
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="180">
+      <HyperlinkButton Classes="link" Content="@nextjs" NavigateUri="https://nextjs.org" HorizontalAlignment="Left" VerticalAlignment="Top" c:HoverCard.Placement="BottomEdgeAlignedLeft">
+        <c:HoverCard.Card>
+          <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+            <Border Width="32" Height="32" CornerRadius="16" Background="{DynamicResource CosmoMutedBrush}" VerticalAlignment="Top">
+              <TextBlock Text="VC" FontSize="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <StackPanel Grid.Column="1" Spacing="4">
+              <TextBlock Text="@nextjs" FontSize="14" LineHeight="20" FontWeight="SemiBold" />
+              <TextBlock Text="The React Framework – created and maintained by @vercel." FontSize="14" LineHeight="20" TextWrapping="Wrap" />
+              <TextBlock Text="Joined December 2021" FontSize="12" LineHeight="16" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+            </StackPanel>
+          </Grid>
+        </c:HoverCard.Card>
+      </HyperlinkButton>
+    </Panel>
+  </Border>
+</UserControl>

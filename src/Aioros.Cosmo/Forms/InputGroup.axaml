@@ -1,0 +1,60 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo">
+  <ItemsPanelTemplate x:Key="CosmoInputGroupPanel">
+    <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="*,Auto" />
+  </ItemsPanelTemplate>
+
+  <ControlTheme x:Key="{x:Type c:InputGroup}" TargetType="c:InputGroup">
+    <Setter Property="Background" Value="{DynamicResource CosmoInputBackgroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="MinHeight" Value="36" />
+    <Setter Property="ItemsPanel" Value="{StaticResource CosmoInputGroupPanel}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"
+                BoxShadow="{DynamicResource CosmoShadowXs}" MinHeight="{TemplateBinding MinHeight}">
+          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:focus-within /template/ Border#PART_Border">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineFocusShadow}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:InputGroupAddon}" TargetType="c:InputGroupAddon">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Padding" Value="12,6,0,6" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Grid.Column" Value="0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Padding="{TemplateBinding Padding}" Background="Transparent" TextBlock.LineHeight="20"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.inline-end">
+      <Setter Property="Grid.Column" Value="2" />
+      <Setter Property="Padding" Value="0,6,12,6" />
+    </Style>
+    <Style Selector="^.block-end">
+      <Setter Property="Grid.Column" Value="0" />
+      <Setter Property="Grid.ColumnSpan" Value="3" />
+      <Setter Property="Grid.Row" Value="1" />
+      <Setter Property="Padding" Value="12,6,12,12" />
+      <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

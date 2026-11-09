@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: dropdown-menu-checkboxes">
+  <UserControl.Styles>
+    <Style Selector="MenuFlyoutPresenter.w-56">
+      <Setter Property="Width" Value="224" />
+    </Style>
+  </UserControl.Styles>
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="200">
+      <Button Classes="outline" Content="Open" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button.Flyout>
+          <MenuFlyout Placement="BottomEdgeAlignedLeft" FlyoutPresenterClasses="w-56">
+            <MenuItem Classes="label" Header="Appearance" />
+            <Separator />
+            <MenuItem Header="Status Bar" ToggleType="CheckBox" IsChecked="True" />
+            <MenuItem Header="Activity Bar" ToggleType="CheckBox" IsEnabled="False" />
+            <MenuItem Header="Panel" ToggleType="CheckBox" />
+          </MenuFlyout>
+        </Button.Flyout>
+      </Button>
+    </Panel>
+  </Border>
+</UserControl>

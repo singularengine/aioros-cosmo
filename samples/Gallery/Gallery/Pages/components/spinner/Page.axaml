@@ -1,0 +1,84 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Spinner" a:Page.Description="An indicator that can be used to show a loading state.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Spinner" />
+      <TextBlock Classes="lead" Text="An indicator that can be used to show a loading state." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: spinner" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Spinner" />
+        <c:Badge Classes="secondary" Content="Web: &lt;svg&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Lucide&#x27;s loader-circle turning once a second in its parent&#x27;s text color, named Loading for assistive technologies." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="24">
+            <c:Spinner Width="12" Height="12" VerticalAlignment="Center" />
+            <c:Spinner VerticalAlignment="Center" />
+            <c:Spinner Width="24" Height="24" VerticalAlignment="Center" />
+            <c:Spinner Width="32" Height="32" VerticalAlignment="Center" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;24&quot;&gt;&#10;  &lt;c:Spinner Width=&quot;12&quot; Height=&quot;12&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;c:Spinner VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;c:Spinner Width=&quot;24&quot; Height=&quot;24&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;c:Spinner Width=&quot;32&quot; Height=&quot;32&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Button" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="16">
+            <Button Classes="sm has-icon" IsEnabled="False">
+              <StackPanel><c:Spinner /><TextBlock Text="Loading..." /></StackPanel>
+            </Button>
+            <Button Classes="outline sm has-icon" IsEnabled="False">
+              <StackPanel><c:Spinner /><TextBlock Text="Please wait" /></StackPanel>
+            </Button>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;16&quot;&gt;&#10;  &lt;Button Classes=&quot;sm has-icon&quot; IsEnabled=&quot;False&quot;&gt;&#10;    &lt;StackPanel&gt;&lt;c:Spinner /&gt;&lt;TextBlock Text=&quot;Loading...&quot; /&gt;&lt;/StackPanel&gt;&#10;  &lt;/Button&gt;&#10;  &lt;Button Classes=&quot;outline sm has-icon&quot; IsEnabled=&quot;False&quot;&gt;&#10;    &lt;StackPanel&gt;&lt;c:Spinner /&gt;&lt;TextBlock Text=&quot;Please wait&quot; /&gt;&lt;/StackPanel&gt;&#10;  &lt;/Button&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Badge" />
+      <TextBlock Classes="sm muted" Text="In a badge the spinner is 12 px." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="16">
+            <c:Badge><StackPanel><c:Spinner /><TextBlock Text="Syncing" /></StackPanel></c:Badge>
+            <c:Badge Classes="secondary"><StackPanel><c:Spinner /><TextBlock Text="Updating" /></StackPanel></c:Badge>
+            <c:Badge Classes="outline"><StackPanel><c:Spinner /><TextBlock Text="Processing" /></StackPanel></c:Badge>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;16&quot;&gt;&#10;  &lt;c:Badge&gt;&lt;StackPanel&gt;&lt;c:Spinner /&gt;&lt;TextBlock Text=&quot;Syncing&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:Badge&gt;&#10;  &lt;c:Badge Classes=&quot;secondary&quot;&gt;&lt;StackPanel&gt;&lt;c:Spinner /&gt;&lt;TextBlock Text=&quot;Updating&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:Badge&gt;&#10;  &lt;c:Badge Classes=&quot;outline&quot;&gt;&lt;StackPanel&gt;&lt;c:Spinner /&gt;&lt;TextBlock Text=&quot;Processing&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:Badge&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="The spinner follows the model&#x27;s state; the label comes through a converter." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <Button Classes="outline has-icon" Command="{Binding LoadCommand}">
+              <StackPanel>
+                <c:Spinner IsVisible="{Binding Loading}" />
+                <TextBlock Text="{Binding Loading, Converter={x:Static m:DisplayExamples.LoadingText}}" />
+              </StackPanel>
+            </Button>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline has-icon&quot; Command=&quot;{Binding LoadCommand}&quot;&gt;&#10;    &lt;StackPanel&gt;&#10;      &lt;c:Spinner IsVisible=&quot;{Binding Loading}&quot; /&gt;&#10;      &lt;TextBlock Text=&quot;{Binding Loading, Converter={x:Static m:DisplayExamples.LoadingText}}&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/Button&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Width, Height" /><TextBlock Grid.Column="1" Classes="sm muted" Text="16 px by default." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Foreground" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Inherited from its parent (the button&#x27;s or badge&#x27;s text)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

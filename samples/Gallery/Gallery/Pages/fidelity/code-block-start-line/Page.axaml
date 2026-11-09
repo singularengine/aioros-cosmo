@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-start-line">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left" Title="app/dashboard/page.tsx">
+
+      <c:CodeBlockContent LineNumbers="True" StartLine="995">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock><Run Text="  " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="if" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=" (" Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="!" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text="session) {" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="    " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="redirect" Foreground="{DynamicResource CosmoCodeFunctionBrush}" /><Run Text="(" Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;/login&quot;" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text=")" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  }" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" " /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="const" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="projects" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="=" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="await" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=" db.project." Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="findMany" Foreground="{DynamicResource CosmoCodeFunctionBrush}" /><Run Text="({" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="    where: { ownerId: session.user.id }," Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="    orderBy: { updatedAt: " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;desc&quot;" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text=" }," Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  })" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" " /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="return" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=" &lt;" Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="ProjectList" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="projects" Foreground="{DynamicResource CosmoCodeFunctionBrush}" /><Run Text="=" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text="{}{projects} /&gt;" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="}" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

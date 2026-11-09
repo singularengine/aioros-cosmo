@@ -1,0 +1,181 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:ButtonExamples"
+             a:Page.Title="Button" a:Page.Description="Displays a button or a component that looks like a button.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Button" />
+      <TextBlock Classes="lead" Text="Displays a button or a component that looks like a button." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: button" />
+        <c:Badge Classes="secondary" Content="Avalonia: Button, HyperlinkButton" />
+        <c:Badge Classes="secondary" Content="Web: &lt;button&gt;, &lt;a&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Content="Button" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Content=&quot;Button&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Outline" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline" Content="Outline" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline&quot; Content=&quot;Outline&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Secondary" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="secondary" Content="Secondary" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;secondary&quot; Content=&quot;Secondary&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Ghost" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="ghost" Content="Ghost" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;ghost&quot; Content=&quot;Ghost&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Destructive" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="destructive" Content="Destructive" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;destructive&quot; Content=&quot;Destructive&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Link" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="link" Content="Link" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;link&quot; Content=&quot;Link&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Icon" />
+      <TextBlock Classes="sm muted" Text="An icon-only button is square; name it for assistive technologies." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline icon" AutomationProperties.Name="Next">
+            <a:Icon Kind="chevron-right" />
+          </Button>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline icon&quot; AutomationProperties.Name=&quot;Next&quot;&gt;&#10;  &lt;a:Icon Kind=&quot;chevron-right&quot; /&gt;&#10;&lt;/Button&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="With icon" />
+      <TextBlock Classes="sm muted" Text="Content in a StackPanel is laid out in a row with shadcn&#x27;s gap (8 px, 6 px for sm, 4 px for xs). The has-icon class gives the tighter padding shadcn applies when a button holds an icon." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <Button Classes="has-icon">
+              <StackPanel>
+                <a:Icon Kind="mail" />
+                <TextBlock Text="Login with Email" />
+              </StackPanel>
+            </Button>
+            <Button Classes="outline sm has-icon">
+              <StackPanel>
+                <a:Icon Kind="plus" />
+                <TextBlock Text="New project" />
+              </StackPanel>
+            </Button>
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;Button Classes=&quot;has-icon&quot;&gt;&#10;    &lt;StackPanel&gt;&#10;      &lt;a:Icon Kind=&quot;mail&quot; /&gt;&#10;      &lt;TextBlock Text=&quot;Login with Email&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/Button&gt;&#10;  &lt;Button Classes=&quot;outline sm has-icon&quot;&gt;&#10;    &lt;StackPanel&gt;&#10;      &lt;a:Icon Kind=&quot;plus&quot; /&gt;&#10;      &lt;TextBlock Text=&quot;New project&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/Button&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Sizes" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+              <Button Classes="outline xs" Content="Extra small" />
+              <Button Classes="outline sm" Content="Small" />
+              <Button Classes="outline" Content="Default" />
+              <Button Classes="outline lg" Content="Large" />
+            </WrapPanel>
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+              <Button Classes="outline icon-xs" AutomationProperties.Name="Add"><a:Icon Kind="plus" /></Button>
+              <Button Classes="outline icon-sm" AutomationProperties.Name="Add"><a:Icon Kind="plus" /></Button>
+              <Button Classes="outline icon" AutomationProperties.Name="Add"><a:Icon Kind="plus" /></Button>
+              <Button Classes="outline icon-lg" AutomationProperties.Name="Add"><a:Icon Kind="plus" /></Button>
+            </WrapPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;    &lt;Button Classes=&quot;outline xs&quot; Content=&quot;Extra small&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Small&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Content=&quot;Default&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline lg&quot; Content=&quot;Large&quot; /&gt;&#10;  &lt;/WrapPanel&gt;&#10;  &lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;    &lt;Button Classes=&quot;outline icon-xs&quot; AutomationProperties.Name=&quot;Add&quot;&gt;&lt;a:Icon Kind=&quot;plus&quot; /&gt;&lt;/Button&gt;&#10;    &lt;Button Classes=&quot;outline icon-sm&quot; AutomationProperties.Name=&quot;Add&quot;&gt;&lt;a:Icon Kind=&quot;plus&quot; /&gt;&lt;/Button&gt;&#10;    &lt;Button Classes=&quot;outline icon&quot; AutomationProperties.Name=&quot;Add&quot;&gt;&lt;a:Icon Kind=&quot;plus&quot; /&gt;&lt;/Button&gt;&#10;    &lt;Button Classes=&quot;outline icon-lg&quot; AutomationProperties.Name=&quot;Add&quot;&gt;&lt;a:Icon Kind=&quot;plus&quot; /&gt;&lt;/Button&gt;&#10;  &lt;/WrapPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <Button IsEnabled="False" Content="Default" />
+            <Button IsEnabled="False" Classes="outline" Content="Outline" />
+            <Button IsEnabled="False" Classes="secondary" Content="Secondary" />
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;Button IsEnabled=&quot;False&quot; Content=&quot;Default&quot; /&gt;&#10;  &lt;Button IsEnabled=&quot;False&quot; Classes=&quot;outline&quot; Content=&quot;Outline&quot; /&gt;&#10;  &lt;Button IsEnabled=&quot;False&quot; Classes=&quot;secondary&quot; Content=&quot;Secondary&quot; /&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="As a link" />
+      <TextBlock Classes="sm muted" Text="shadcn&#x27;s Button asChild with a link: a HyperlinkButton takes every Button class and is written as an &lt;a href&gt; on the web." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <HyperlinkButton NavigateUri="/components/badge" Content="Go to Badge" />
+            <HyperlinkButton Classes="outline" NavigateUri="/components/card" Content="Go to Card" />
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;HyperlinkButton NavigateUri=&quot;/components/badge&quot; Content=&quot;Go to Badge&quot; /&gt;&#10;  &lt;HyperlinkButton Classes=&quot;outline&quot; NavigateUri=&quot;/components/card&quot; Content=&quot;Go to Card&quot; /&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Command" />
+      <TextBlock Classes="sm muted" Text="Commands and their parameters run on the server when the button posts on the web, and on click on the desktop: see Binding and MVVM." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <Button Classes="outline" Command="{Binding SaveCommand}" CommandParameter="draft" Content="Save draft" />
+            <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Command=&quot;{Binding SaveCommand}&quot; CommandParameter=&quot;draft&quot; Content=&quot;Save draft&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="(no class)" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The default variant: primary background, primary foreground; 90% primary on hover." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="destructive" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Destructive background (60% in dark), white text." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="outline" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Background with a border and shadow-xs; accent on hover (input at 30% and 50% in dark)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="secondary" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Secondary background; 80% on hover." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ghost" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Transparent; accent on hover (50% in dark)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="link" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Primary text, no background." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="xs, sm, lg" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Heights 24, 32 and 40 px (default 36) with shadcn&#x27;s paddings." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="icon, icon-xs, icon-sm, icon-lg" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Square buttons of 36, 24, 32 and 40 px." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="has-icon" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The tighter horizontal padding shadcn gives a button holding an icon (has-[&gt;svg])." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Command, CommandParameter" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Avalonia&#x27;s ICommand source: bound commands run on post (web) and click (desktop)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content, ContentTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Any content: text, an icon and text in a StackPanel, or a DataTemplate for a model." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

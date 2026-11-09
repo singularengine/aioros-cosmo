@@ -1,0 +1,128 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Dropdown Menu" a:Page.Description="Displays a menu to the user—such as a set of actions or functions—triggered by a button.">
+  <UserControl.Styles>
+    <Style Selector="MenuFlyoutPresenter.w-56">
+      <Setter Property="Width" Value="224" />
+    </Style>
+    <Style Selector="ContextMenu.w-52">
+      <Setter Property="Width" Value="208" />
+    </Style>
+  </UserControl.Styles>
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Dropdown Menu" />
+      <TextBlock Classes="lead" Text="Displays a menu to the user—such as a set of actions or functions—triggered by a button." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: dropdown-menu" />
+        <c:Badge Classes="secondary" Content="Avalonia: MenuFlyout" />
+        <c:Badge Classes="secondary" Content="Web: popover menu" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="The label class is shadcn&#x27;s DropdownMenuLabel, InputGesture its DropdownMenuShortcut (in the platform&#x27;s notation), a MenuItem with items a submenu. Keyboard: Return, Space or Down open it on the first item, the arrows stop at the ends, a letter jumps to the next item starting with it, Right and Left open and close submenus, Escape closes it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline" Content="Open">
+            <Button.Flyout>
+              <MenuFlyout Placement="BottomEdgeAlignedLeft" FlyoutPresenterClasses="w-56">
+                <MenuItem Classes="label" Header="My Account" />
+                <MenuItem Header="Profile" InputGesture="Shift+Ctrl+P" />
+                <MenuItem Header="Billing" InputGesture="Ctrl+B" />
+                <MenuItem Header="Settings" InputGesture="Ctrl+S" />
+                <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl+K" />
+                <Separator />
+                <MenuItem Header="Team" />
+                <MenuItem Header="Invite users">
+                  <MenuItem Header="Email" />
+                  <MenuItem Header="Message" />
+                  <Separator />
+                  <MenuItem Header="More..." />
+                </MenuItem>
+                <MenuItem Header="New Team" InputGesture="Ctrl+T" />
+                <Separator />
+                <MenuItem Header="GitHub" />
+                <MenuItem Header="Support" />
+                <MenuItem Header="API" IsEnabled="False" />
+                <Separator />
+                <MenuItem Header="Log out" InputGesture="Shift+Ctrl+Q" />
+              </MenuFlyout>
+            </Button.Flyout>
+          </Button>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline&quot; Content=&quot;Open&quot;&gt;&#10;  &lt;Button.Flyout&gt;&#10;    &lt;MenuFlyout Placement=&quot;BottomEdgeAlignedLeft&quot; FlyoutPresenterClasses=&quot;w-56&quot;&gt;&#10;      &lt;MenuItem Classes=&quot;label&quot; Header=&quot;My Account&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Profile&quot; InputGesture=&quot;Shift+Ctrl+P&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Billing&quot; InputGesture=&quot;Ctrl+B&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Settings&quot; InputGesture=&quot;Ctrl+S&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Keyboard shortcuts&quot; InputGesture=&quot;Ctrl+K&quot; /&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;Team&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Invite users&quot;&gt;&#10;        &lt;MenuItem Header=&quot;Email&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;Message&quot; /&gt;&#10;        &lt;Separator /&gt;&#10;        &lt;MenuItem Header=&quot;More...&quot; /&gt;&#10;      &lt;/MenuItem&gt;&#10;      &lt;MenuItem Header=&quot;New Team&quot; InputGesture=&quot;Ctrl+T&quot; /&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;GitHub&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Support&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;API&quot; IsEnabled=&quot;False&quot; /&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;Log out&quot; InputGesture=&quot;Shift+Ctrl+Q&quot; /&gt;&#10;    &lt;/MenuFlyout&gt;&#10;  &lt;/Button.Flyout&gt;&#10;&lt;/Button&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Checkboxes" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline" Content="Open">
+            <Button.Flyout>
+              <MenuFlyout FlyoutPresenterClasses="w-56">
+                <MenuItem Classes="label" Header="Appearance" />
+                <Separator />
+                <MenuItem Header="Status Bar" ToggleType="CheckBox" IsChecked="True" />
+                <MenuItem Header="Activity Bar" ToggleType="CheckBox" IsEnabled="False" />
+                <MenuItem Header="Panel" ToggleType="CheckBox" />
+              </MenuFlyout>
+            </Button.Flyout>
+          </Button>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline&quot; Content=&quot;Open&quot;&gt;&#10;  &lt;Button.Flyout&gt;&#10;    &lt;MenuFlyout FlyoutPresenterClasses=&quot;w-56&quot;&gt;&#10;      &lt;MenuItem Classes=&quot;label&quot; Header=&quot;Appearance&quot; /&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;Status Bar&quot; ToggleType=&quot;CheckBox&quot; IsChecked=&quot;True&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Activity Bar&quot; ToggleType=&quot;CheckBox&quot; IsEnabled=&quot;False&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Panel&quot; ToggleType=&quot;CheckBox&quot; /&gt;&#10;    &lt;/MenuFlyout&gt;&#10;  &lt;/Button.Flyout&gt;&#10;&lt;/Button&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Radio group" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline" Content="Open">
+            <Button.Flyout>
+              <MenuFlyout FlyoutPresenterClasses="w-56">
+                <MenuItem Classes="label" Header="Panel Position" />
+                <Separator />
+                <MenuItem Header="Top" ToggleType="Radio" GroupName="position" />
+                <MenuItem Header="Bottom" ToggleType="Radio" GroupName="position" IsChecked="True" />
+                <MenuItem Header="Right" ToggleType="Radio" GroupName="position" />
+              </MenuFlyout>
+            </Button.Flyout>
+          </Button>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline&quot; Content=&quot;Open&quot;&gt;&#10;  &lt;Button.Flyout&gt;&#10;    &lt;MenuFlyout FlyoutPresenterClasses=&quot;w-56&quot;&gt;&#10;      &lt;MenuItem Classes=&quot;label&quot; Header=&quot;Panel Position&quot; /&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;Top&quot; ToggleType=&quot;Radio&quot; GroupName=&quot;position&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Bottom&quot; ToggleType=&quot;Radio&quot; GroupName=&quot;position&quot; IsChecked=&quot;True&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Right&quot; ToggleType=&quot;Radio&quot; GroupName=&quot;position&quot; /&gt;&#10;    &lt;/MenuFlyout&gt;&#10;  &lt;/Button.Flyout&gt;&#10;&lt;/Button&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding and commands" />
+      <TextBlock Classes="sm muted" Text="Items run the model&#x27;s commands with their parameters; Delete&#x27;s CanExecute is false, so it is disabled. The destructive class is shadcn&#x27;s variant=destructive." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Actions">
+              <Button.Flyout>
+                <MenuFlyout>
+                  <MenuItem Header="Duplicate" Command="{Binding ChooseCommand}" CommandParameter="Duplicate" InputGesture="Ctrl+D" />
+                  <MenuItem Header="Archive" Command="{Binding ChooseCommand}" CommandParameter="Archive" />
+                  <Separator />
+                  <MenuItem Classes="destructive" Header="Delete" Command="{Binding DeleteCommand}" />
+                </MenuFlyout>
+              </Button.Flyout>
+            </Button>
+            <TextBlock Classes="sm muted" Text="{Binding Choice}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Actions&quot;&gt;&#10;    &lt;Button.Flyout&gt;&#10;      &lt;MenuFlyout&gt;&#10;        &lt;MenuItem Header=&quot;Duplicate&quot; Command=&quot;{Binding ChooseCommand}&quot; CommandParameter=&quot;Duplicate&quot; InputGesture=&quot;Ctrl+D&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;Archive&quot; Command=&quot;{Binding ChooseCommand}&quot; CommandParameter=&quot;Archive&quot; /&gt;&#10;        &lt;Separator /&gt;&#10;        &lt;MenuItem Classes=&quot;destructive&quot; Header=&quot;Delete&quot; Command=&quot;{Binding DeleteCommand}&quot; /&gt;&#10;      &lt;/MenuFlyout&gt;&#10;    &lt;/Button.Flyout&gt;&#10;  &lt;/Button&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Choice}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Button.Flyout, MenuFlyout" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The trigger and the menu; ItemsSource and ItemTemplate list items from the model." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="MenuItem" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Header, Icon, InputGesture (shortcut), Command and CommandParameter, items for a submenu." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ToggleType, IsChecked, GroupName" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Checkbox and radio items (bind IsChecked with Mode=TwoWay)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="label, inset, destructive" /><TextBlock Grid.Column="1" Classes="sm muted" Text="MenuItem classes: shadcn&#x27;s DropdownMenuLabel, inset and variant=destructive." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Separator" /><TextBlock Grid.Column="1" Classes="sm muted" Text="shadcn&#x27;s DropdownMenuSeparator." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

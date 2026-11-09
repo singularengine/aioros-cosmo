@@ -1,0 +1,86 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:StructureExamples"
+             a:Page.Title="Table" a:Page.Description="A responsive table component.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Table" />
+      <TextBlock Classes="lead" Text="A responsive table component." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: table" />
+        <c:Badge Classes="secondary" Content="Avalonia: TableView" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:TableFooter, c:TableCaption" />
+        <c:Badge Classes="secondary" Content="Web: &lt;table&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Avalonia&#x27;s TableView in Cosmo&#x27;s themes; the footer and caption follow it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel MaxWidth="592">
+            <TableView ItemsSource="{Binding Invoices}" SelectedItem="{Binding SelectedInvoice}">
+              <TableView.Columns>
+                <TableViewColumn Header="Invoice" Width="100" x:DataType="m:Invoice">
+                  <TableViewColumn.CellTemplate>
+                    <DataTemplate x:DataType="m:Invoice"><TextBlock Text="{Binding Number}" FontWeight="Medium" /></DataTemplate>
+                  </TableViewColumn.CellTemplate>
+                </TableViewColumn>
+                <TableViewColumn Header="Status" Binding="{Binding Status}" Width="128*" x:DataType="m:Invoice" />
+                <TableViewColumn Header="Method" Binding="{Binding Method}" Width="202*" x:DataType="m:Invoice" />
+                <TableViewColumn Header="Amount" Binding="{Binding Amount}" Width="162*" HorizontalContentAlignment="Right" x:DataType="m:Invoice" />
+              </TableView.Columns>
+            </TableView>
+            <c:TableFooter>
+              <DockPanel>
+                <TextBlock DockPanel.Dock="Right" Text="{Binding Total}" />
+                <TextBlock Text="Total" />
+              </DockPanel>
+            </c:TableFooter>
+            <c:TableCaption Text="A list of your recent invoices." />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;592&quot;&gt;&#10;  &lt;TableView ItemsSource=&quot;{Binding Invoices}&quot; SelectedItem=&quot;{Binding SelectedInvoice}&quot;&gt;&#10;    &lt;TableView.Columns&gt;&#10;      &lt;TableViewColumn Header=&quot;Invoice&quot; Width=&quot;100&quot; x:DataType=&quot;m:Invoice&quot;&gt;&#10;        &lt;TableViewColumn.CellTemplate&gt;&#10;          &lt;DataTemplate x:DataType=&quot;m:Invoice&quot;&gt;&lt;TextBlock Text=&quot;{Binding Number}&quot; FontWeight=&quot;Medium&quot; /&gt;&lt;/DataTemplate&gt;&#10;        &lt;/TableViewColumn.CellTemplate&gt;&#10;      &lt;/TableViewColumn&gt;&#10;      &lt;TableViewColumn Header=&quot;Status&quot; Binding=&quot;{Binding Status}&quot; Width=&quot;128*&quot; x:DataType=&quot;m:Invoice&quot; /&gt;&#10;      &lt;TableViewColumn Header=&quot;Method&quot; Binding=&quot;{Binding Method}&quot; Width=&quot;202*&quot; x:DataType=&quot;m:Invoice&quot; /&gt;&#10;      &lt;TableViewColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount}&quot; Width=&quot;162*&quot; HorizontalContentAlignment=&quot;Right&quot; x:DataType=&quot;m:Invoice&quot; /&gt;&#10;    &lt;/TableView.Columns&gt;&#10;  &lt;/TableView&gt;&#10;  &lt;c:TableFooter&gt;&#10;    &lt;DockPanel&gt;&#10;      &lt;TextBlock DockPanel.Dock=&quot;Right&quot; Text=&quot;{Binding Total}&quot; /&gt;&#10;      &lt;TextBlock Text=&quot;Total&quot; /&gt;&#10;    &lt;/DockPanel&gt;&#10;  &lt;/c:TableFooter&gt;&#10;  &lt;c:TableCaption Text=&quot;A list of your recent invoices.&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Rows from an observable collection, a cell template for the status, a command adding a row and a computed total." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="592">
+            <TableView ItemsSource="{Binding Invoices}">
+              <TableView.Columns>
+                <TableViewColumn Header="Invoice" Binding="{Binding Number}" Width="100" x:DataType="m:Invoice" />
+                <TableViewColumn Header="Status" Width="*" x:DataType="m:Invoice">
+                  <TableViewColumn.CellTemplate>
+                    <DataTemplate x:DataType="m:Invoice">
+                      <c:Badge Classes="outline" HorizontalAlignment="Left"><TextBlock Text="{Binding Status}" /></c:Badge>
+                    </DataTemplate>
+                  </TableViewColumn.CellTemplate>
+                </TableViewColumn>
+                <TableViewColumn Header="Amount" Binding="{Binding Amount}" Width="*" HorizontalContentAlignment="Right" x:DataType="m:Invoice" />
+              </TableView.Columns>
+            </TableView>
+            <c:TableFooter>
+              <DockPanel>
+                <TextBlock DockPanel.Dock="Right" Text="{Binding Total}" />
+                <TextBlock Text="{Binding Count}" />
+              </DockPanel>
+            </c:TableFooter>
+            <Button Classes="outline sm" Content="Add invoice" Command="{Binding AddInvoiceCommand}" HorizontalAlignment="Left" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;592&quot;&gt;&#10;  &lt;TableView ItemsSource=&quot;{Binding Invoices}&quot;&gt;&#10;    &lt;TableView.Columns&gt;&#10;      &lt;TableViewColumn Header=&quot;Invoice&quot; Binding=&quot;{Binding Number}&quot; Width=&quot;100&quot; x:DataType=&quot;m:Invoice&quot; /&gt;&#10;      &lt;TableViewColumn Header=&quot;Status&quot; Width=&quot;*&quot; x:DataType=&quot;m:Invoice&quot;&gt;&#10;        &lt;TableViewColumn.CellTemplate&gt;&#10;          &lt;DataTemplate x:DataType=&quot;m:Invoice&quot;&gt;&#10;            &lt;c:Badge Classes=&quot;outline&quot; HorizontalAlignment=&quot;Left&quot;&gt;&lt;TextBlock Text=&quot;{Binding Status}&quot; /&gt;&lt;/c:Badge&gt;&#10;          &lt;/DataTemplate&gt;&#10;        &lt;/TableViewColumn.CellTemplate&gt;&#10;      &lt;/TableViewColumn&gt;&#10;      &lt;TableViewColumn Header=&quot;Amount&quot; Binding=&quot;{Binding Amount}&quot; Width=&quot;*&quot; HorizontalContentAlignment=&quot;Right&quot; x:DataType=&quot;m:Invoice&quot; /&gt;&#10;    &lt;/TableView.Columns&gt;&#10;  &lt;/TableView&gt;&#10;  &lt;c:TableFooter&gt;&#10;    &lt;DockPanel&gt;&#10;      &lt;TextBlock DockPanel.Dock=&quot;Right&quot; Text=&quot;{Binding Total}&quot; /&gt;&#10;      &lt;TextBlock Text=&quot;{Binding Count}&quot; /&gt;&#10;    &lt;/DockPanel&gt;&#10;  &lt;/c:TableFooter&gt;&#10;  &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Add invoice&quot; Command=&quot;{Binding AddInvoiceCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="TableView" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Header, rows (hover, selection), cells: ItemsSource, Columns, SelectedItem." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="TableViewColumn" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Header, Binding or CellTemplate, Width (pixels or stars), HorizontalContentAlignment." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:TableFooter" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The footer row: muted background, top border, medium text." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:TableCaption" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The muted caption under the table." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

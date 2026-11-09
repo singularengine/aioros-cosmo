@@ -1,0 +1,79 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo">
+  <ControlTheme x:Key="{x:Type FlyoutPresenter}" TargetType="FlyoutPresenter">
+    <Setter Property="Background" Value="{DynamicResource FlyoutPresenterBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoPopoverForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource FlyoutBorderThemeBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
+    <Setter Property="Padding" Value="{DynamicResource FlyoutContentThemePadding}" />
+    <Setter Property="Width" Value="288" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="LayoutRoot"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                BoxShadow="{DynamicResource CosmoShadowMd}"
+                RenderTransformOrigin="50%,0%" c:Motion.EnterOpacity="0" c:Motion.EnterScale="0.95" c:Motion.EnterOffset="0,-8" c:Motion.ExitOpacity="0" c:Motion.ExitScale="0.95">
+          <Border.Transitions>
+            <Transitions>
+              <DoubleTransition Property="Opacity" Duration="0:0:0.150" Easing="0.25,0.1,0.25,1" />
+              <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.150" Easing="0.25,0.1,0.25,1" />
+            </Transitions>
+          </Border.Transitions>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.w-auto">
+      <Setter Property="Width" Value="NaN" />
+    </Style>
+    <Style Selector="^.p-0">
+      <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style Selector="^.p-2">
+      <Setter Property="Padding" Value="8" />
+    </Style>
+    <Style Selector="^.navigation-menu">
+      <Setter Property="Width" Value="NaN" />
+      <Setter Property="Padding" Value="8,8,10,8" />
+      <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    </Style>
+    <Style Selector="^.navigation-menu /template/ Border#LayoutRoot">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowSm}" />
+      <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+      <Setter Property="c:Motion.EnterOffset" Value="0,0" />
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0:0:0.200" Easing="0.25,0.1,0.25,1" />
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.200" Easing="0.25,0.1,0.25,1" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^.navigation-menu.from-end /template/ Border#LayoutRoot">
+      <Setter Property="c:Motion.EnterOffset" Value="208,0" />
+    </Style>
+    <Style Selector="^.navigation-menu.from-start /template/ Border#LayoutRoot">
+      <Setter Property="c:Motion.EnterOffset" Value="-208,0" />
+    </Style>
+    <Style Selector="^.navigation-menu.to-start /template/ Border#LayoutRoot">
+      <Setter Property="c:Motion.ExitOffset" Value="-208,0" />
+    </Style>
+    <Style Selector="^.navigation-menu.to-end /template/ Border#LayoutRoot">
+      <Setter Property="c:Motion.ExitOffset" Value="208,0" />
+    </Style>
+    <Style Selector="^.hover-card">
+      <Setter Property="Width" Value="256" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

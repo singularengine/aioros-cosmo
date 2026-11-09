@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: toggle-group">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="24">
+      <ListBox Classes="toggle-group outline" SelectionMode="Multiple,Toggle" SelectedIndex="1">
+        <ListBoxItem AutomationProperties.Name="Heart"><a:Icon Kind="heart" Size="16" /></ListBoxItem>
+        <ListBoxItem AutomationProperties.Name="Star"><a:Icon Kind="star" Size="16" /></ListBoxItem>
+        <ListBoxItem AutomationProperties.Name="Bell"><a:Icon Kind="bell" Size="16" /></ListBoxItem>
+      </ListBox>
+      <ListBox Classes="toggle-group" SelectionMode="Toggle" SelectedIndex="1">
+        <ListBoxItem Content="Left" />
+        <ListBoxItem Content="Center" />
+        <ListBoxItem Content="Right" />
+      </ListBox>
+      <ListBox Classes="toggle-group outline sm spacing" SelectionMode="Toggle" SelectedIndex="0">
+        <ListBoxItem Content="Day" />
+        <ListBoxItem Content="Week" />
+        <ListBoxItem Content="Month" />
+      </ListBox>
+    </StackPanel>
+  </Border>
+</UserControl>

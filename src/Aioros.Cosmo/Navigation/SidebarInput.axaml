@@ -1,0 +1,12 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo" xmlns:a="https://aioros.dev">
+  <ControlTheme x:Key="{x:Type c:SidebarInput}" TargetType="c:SidebarInput" BasedOn="{StaticResource {x:Type TextBox}}">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="MinHeight" Value="32" />
+    <Setter Property="Padding" Value="12,4" />
+    <Setter Property="Background" Value="{DynamicResource CosmoBackgroundBrush}" />
+    <Style Selector="^ /template/ Border#PART_BorderElement">
+      <Setter Property="BoxShadow" Value="none" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

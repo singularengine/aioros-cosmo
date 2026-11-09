@@ -1,0 +1,13 @@
+# Kbd
+
+shadcn/ui's `kbd` as `c:Kbd` (a sealed `ContentControl`) and `c:KbdGroup` (a sealed `StackPanel`): keys 20 px high, at
+least 20 px wide, `--radius-sm`, `--muted` with 12 px medium `--muted-foreground` text, 4 px apart in a group.
+
+| AC | Criterion |
+| --- | --- |
+| KBD-01 | Given the `kbd-demo` fixture in each theme on the web, when the page is served, then Chromium computes every key's vertical position and height within 1 px, the keys written in letters their widths and the keys no symbol precedes in their row their horizontal positions (in groups, beside text and inside the outline buttons; ⌘ ⇧ ⌥ ⌃ ⏎ come from the machine's fallback font) with shadcn/ui's background, text color, 12 px medium font and 6 px radius; every key is a `<kbd>` element (framework need 41, resolved in Aioros `0.1.0-preview.408.cc55357`). |
+| KBD-02 | Given the `kbd-demo` fixture in each theme on the desktop, when it is shown, then every `c:Kbd` has shadcn/ui's vertical position and height within 1 px, and every key its horizontal position and width, symbols included (⇧ and ⏎ from Geist, ⌘ ⌥ ⌃, which Geist lacks, from Cosmo Symbols, the same on every machine), paints `--muted` with `--muted-foreground` 12 px medium text centered, `--radius-sm` corners, and takes no pointer input (`pointer-events-none`), and the keys of a `c:KbdGroup` are 4 px apart. |
+| KBD-03 | Given the Kbd page on the web, when a visitor checks `Use Mac keys` (bound two way) and posts `Apply`, then the answer's bound keys read `⌘ K` where they read `Ctrl K` (bound `Content` through a converter) and the status reads `Showing Mac keys`. |
+| KBD-04 | Given a view on the desktop whose model holds a shortcut's keys, shown by an `ItemsControl` whose panel is a `c:KbdGroup` and whose `ItemTemplate` is a `c:Kbd` binding its content (compiled bindings, no code-behind), when the model's keys change, then the group shows one key per model key, 4 px apart, each reading the model's text. |
+| KBD-05 | Given the `kbd-tooltip-open` fixture in each theme on the desktop, when the tooltip is open, then its key is a 20 px box of `--background` at 20% (10% dark) with `--background` text, after the tooltip's text within 1 px of shadcn/ui's place, as shadcn/ui's `[[data-slot=tooltip-content]_&]` key. |
+| KBD-06 | Given the same fixture on the web, when the tooltip shows, then Chromium computes its key's background and color as shadcn/ui's and its box within its bubble at shadcn/ui's place within 1 px (the bubble itself is placed by FIDELITY-05; the reference's sits against the viewport's edge, Radix's collision shift, where the Gallery's fixture leaves room). |

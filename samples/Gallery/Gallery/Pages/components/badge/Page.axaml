@@ -1,0 +1,114 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="Badge" a:Page.Description="Displays a badge or a component that looks like a badge.">
+  <UserControl.Styles>
+    <Style Selector="c|Badge.count">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="MinWidth" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontFeatures" Value="+tnum" />
+      <Setter Property="FontFamily" Value="{DynamicResource CosmoFontMono}" />
+    </Style>
+  </UserControl.Styles>
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Badge" />
+      <TextBlock Classes="lead" Text="Displays a badge or a component that looks like a badge." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: badge" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Badge (ContentControl)" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:Badge Content="Badge" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Badge Content=&quot;Badge&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Variants" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <c:Badge Content="Default" />
+            <c:Badge Classes="secondary" Content="Secondary" />
+            <c:Badge Classes="destructive" Content="Destructive" />
+            <c:Badge Classes="outline" Content="Outline" />
+            <c:Badge Classes="ghost" Content="Ghost" />
+            <c:Badge Classes="link" Content="Link" />
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;c:Badge Content=&quot;Default&quot; /&gt;&#10;  &lt;c:Badge Classes=&quot;secondary&quot; Content=&quot;Secondary&quot; /&gt;&#10;  &lt;c:Badge Classes=&quot;destructive&quot; Content=&quot;Destructive&quot; /&gt;&#10;  &lt;c:Badge Classes=&quot;outline&quot; Content=&quot;Outline&quot; /&gt;&#10;  &lt;c:Badge Classes=&quot;ghost&quot; Content=&quot;Ghost&quot; /&gt;&#10;  &lt;c:Badge Classes=&quot;link&quot; Content=&quot;Link&quot; /&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="With icon" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <c:Badge Classes="secondary">
+              <StackPanel>
+                <a:Icon Kind="check" Size="12" />
+                <TextBlock Text="Verified" />
+              </StackPanel>
+            </c:Badge>
+            <c:Badge Classes="outline">
+              <StackPanel>
+                <a:Icon Kind="trending-up" Size="12" />
+                <TextBlock Text="+12.5%" />
+              </StackPanel>
+            </c:Badge>
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;c:Badge Classes=&quot;secondary&quot;&gt;&#10;    &lt;StackPanel&gt;&#10;      &lt;a:Icon Kind=&quot;check&quot; Size=&quot;12&quot; /&gt;&#10;      &lt;TextBlock Text=&quot;Verified&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Badge&gt;&#10;  &lt;c:Badge Classes=&quot;outline&quot;&gt;&#10;    &lt;StackPanel&gt;&#10;      &lt;a:Icon Kind=&quot;trending-up&quot; Size=&quot;12&quot; /&gt;&#10;      &lt;TextBlock Text=&quot;+12.5%&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Badge&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Custom" />
+      <TextBlock Classes="sm muted" Text="Like className in shadcn&#x27;s examples, a style or a local value customizes a badge: the count class here is a page style (Height 20, MinWidth 20, Padding 4,0, tabular numbers)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <c:Badge Classes="count" Content="8" />
+            <c:Badge Classes="count destructive" Content="99" />
+            <c:Badge Classes="count outline" Content="20+" />
+            <c:Badge Background="#2B7FFF" Foreground="White" Content="Custom color" />
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;c:Badge Classes=&quot;count&quot; Content=&quot;8&quot; /&gt;&#10;  &lt;c:Badge Classes=&quot;count destructive&quot; Content=&quot;99&quot; /&gt;&#10;  &lt;c:Badge Classes=&quot;count outline&quot; Content=&quot;20+&quot; /&gt;&#10;  &lt;c:Badge Background=&quot;#2B7FFF&quot; Foreground=&quot;White&quot; Content=&quot;Custom color&quot; /&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Link" />
+      <TextBlock Classes="sm muted" Text="shadcn&#x27;s &lt;Badge asChild&gt;&lt;a href&gt;: a HyperlinkButton with the CosmoBadgeLink theme is an &lt;a href&gt; with the badge&#x27;s look, its hover per variant and a focus ring." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <HyperlinkButton Theme="{DynamicResource CosmoBadgeLink}" NavigateUri="/components/badge" Content="Default" />
+            <HyperlinkButton Theme="{DynamicResource CosmoBadgeLink}" Classes="secondary" NavigateUri="/components/badge" Content="Secondary" />
+            <HyperlinkButton Theme="{DynamicResource CosmoBadgeLink}" Classes="outline" NavigateUri="/components/badge" Content="Outline" />
+            <HyperlinkButton Theme="{DynamicResource CosmoBadgeLink}" Classes="link" NavigateUri="/components/badge" Content="Link" />
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;HyperlinkButton Theme=&quot;{DynamicResource CosmoBadgeLink}&quot; NavigateUri=&quot;/components/badge&quot; Content=&quot;Default&quot; /&gt;&#10;  &lt;HyperlinkButton Theme=&quot;{DynamicResource CosmoBadgeLink}&quot; Classes=&quot;secondary&quot; NavigateUri=&quot;/components/badge&quot; Content=&quot;Secondary&quot; /&gt;&#10;  &lt;HyperlinkButton Theme=&quot;{DynamicResource CosmoBadgeLink}&quot; Classes=&quot;outline&quot; NavigateUri=&quot;/components/badge&quot; Content=&quot;Outline&quot; /&gt;&#10;  &lt;HyperlinkButton Theme=&quot;{DynamicResource CosmoBadgeLink}&quot; Classes=&quot;link&quot; NavigateUri=&quot;/components/badge&quot; Content=&quot;Link&quot; /&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="(no class)" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Primary background and foreground." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="secondary" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Secondary background and foreground." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="destructive" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Destructive background (60% in dark), white text." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="outline" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Transparent with the border color and the foreground." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ghost" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Transparent, foreground text." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="link" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Transparent, primary text." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content, ContentTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Text, an icon with text in a StackPanel (4 px apart), or a DataTemplate." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Classes.destructive=&quot;{Binding …}&quot;" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Any class can be bound, with a converter, to choose the variant from the model." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Theme=&quot;{DynamicResource CosmoBadgeLink}&quot;" /><TextBlock Grid.Column="1" Classes="sm muted" Text="On a HyperlinkButton: a badge that is a link, the same classes choosing its variant." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

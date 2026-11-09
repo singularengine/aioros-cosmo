@@ -1,0 +1,146 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor"
+             x:DataType="m:ChartSamples"
+             a:Page.Description="Aioros.Cosmo: beautiful components, charts and blocks for Aioros, the XAML framework for web and native apps.">
+  <StackPanel Spacing="40" MaxWidth="1100" HorizontalAlignment="Left">
+    <StackPanel Spacing="16" MaxWidth="760" HorizontalAlignment="Left">
+      <c:Badge Classes="outline" HorizontalAlignment="Left">
+        <StackPanel><a:Icon Kind="sparkles" Size="12" /><TextBlock Text="New: charts, blocks and calendars" /></StackPanel>
+      </c:Badge>
+      <TextBlock Classes="display" Text="Aioros.Cosmo" />
+      <TextBlock Classes="h2" Text="Beautiful components for XAML apps, on the web and the desktop." />
+      <TextBlock Classes="lead" Text="Aioros.Cosmo is the design system of Aioros (&#x201C;The XAML framework for web and native apps&#x201D;): more than sixty components, charts drawn by Aioros.Pictor, login and signup blocks, twelve color themes, light and dark. Write a page once in XAML; Aioros serves it as HTML on the web and draws it natively on Linux, Windows and macOS." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <HyperlinkButton Classes="lg" NavigateUri="/installation" Content="Get started" />
+        <HyperlinkButton Classes="secondary lg" NavigateUri="/components" Content="Browse components" />
+        <HyperlinkButton Classes="outline lg" NavigateUri="/blocks/login-01" Content="See the blocks" />
+      </WrapPanel>
+    </StackPanel>
+
+    <Grid a:Web.Id="showcase" ColumnDefinitions="*,*,*" ColumnSpacing="16" a:Web.StackBelow="900">
+      <c:Card>
+        <c:CardHeader Title="Visitors" Description="Showing total visitors for the last 6 months" />
+        <c:CardContent>
+          <p:AreaChart Data="{Binding MonthsByDevice}" Height="250" ResponsiveWidths="240 264 300 360 520" Padding="12,0,12,0">
+            <p:CartesianGrid Vertical="False" />
+            <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="8" TickFormat="{}{0:MMM}" />
+            <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+            <p:Area DataKey="Mobile" Name="Mobile" Type="Natural" Fill="{DynamicResource PictorPalette2}" FillOpacity="0.4" Stroke="{DynamicResource PictorPalette2}" StackId="a" />
+            <p:Area DataKey="Desktop" Name="Desktop" Type="Natural" Fill="{DynamicResource PictorPalette1}" FillOpacity="0.4" Stroke="{DynamicResource PictorPalette1}" StackId="a" />
+            <p:Legend><p:Legend.Template><c:ChartLegendContent /></p:Legend.Template><p:Legend.ContentTemplate><c:ChartLegendItem /></p:Legend.ContentTemplate></p:Legend>
+          </p:AreaChart>
+        </c:CardContent>
+        <c:CardFooter>
+          <StackPanel Spacing="8">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+              <a:Icon Kind="trending-up" Size="16" VerticalAlignment="Center" />
+            </StackPanel>
+            <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+          </StackPanel>
+        </c:CardFooter>
+      </c:Card>
+      <c:Card Grid.Column="1">
+        <c:CardHeader Title="Login to your account" Description="Enter your email below to login to your account" />
+        <c:CardContent>
+          <c:FieldGroup>
+            <c:Field>
+              <c:FieldLabel Content="Email" Target="{Binding #email}" />
+              <TextBox Name="email" a:Web.Id="home-email" a:Web.InputType="email" PlaceholderText="m@example.com" />
+            </c:Field>
+            <c:Field>
+              <c:FieldLabel Content="Password" Target="{Binding #password}" />
+              <TextBox Name="password" a:Web.Id="home-password" PasswordChar="•" />
+            </c:Field>
+            <Button Content="Login" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+            <c:FieldSeparator Classes="card" Content="Or continue with" />
+            <Button Classes="outline" Content="Login with Google" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+          </c:FieldGroup>
+        </c:CardContent>
+      </c:Card>
+      <c:Card Grid.Column="2">
+        <c:CardHeader Title="Total revenue" Description="January to June 2026">
+          <c:CardHeader.Action>
+            <c:Badge Classes="outline">
+              <StackPanel><a:Icon Kind="trending-up" Size="12" /><TextBlock Text="+12.5%" /></StackPanel>
+            </c:Badge>
+          </c:CardHeader.Action>
+        </c:CardHeader>
+        <c:CardContent>
+          <StackPanel Spacing="20">
+            <StackPanel Spacing="4">
+              <TextBlock Classes="stat" Text="$45,231.89" />
+              <TextBlock Classes="sm muted" Text="Trending up this month" />
+            </StackPanel>
+            <StackPanel Spacing="14">
+              <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                <Border Classes="avatar"><TextBlock Text="SD" /></Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center"><TextBlock Classes="sm" FontWeight="Medium" Text="Sofia Davis" /><TextBlock Classes="xs muted" Text="m@example.com" /></StackPanel>
+                <c:Badge Grid.Column="2" Content="Owner" />
+              </Grid>
+              <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                <Border Classes="avatar"><TextBlock Text="JL" /></Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center"><TextBlock Classes="sm" FontWeight="Medium" Text="Jackson Lee" /><TextBlock Classes="xs muted" Text="p@example.com" /></StackPanel>
+                <c:Badge Grid.Column="2" Classes="secondary" Content="Member" />
+              </Grid>
+            </StackPanel>
+          </StackPanel>
+        </c:CardContent>
+        <c:CardFooter>
+          <Button Classes="has-icon" HorizontalAlignment="Stretch">
+            <StackPanel><a:Icon Kind="zap" /><TextBlock Text="Upgrade to Pro" /></StackPanel>
+          </Button>
+        </c:CardFooter>
+      </c:Card>
+    </Grid>
+
+    <StackPanel Spacing="16">
+      <TextBlock Classes="h2" Text="Why Aioros.Cosmo" />
+      <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto" ColumnSpacing="16" RowSpacing="16" a:Web.StackBelow="900">
+        <Border Classes="feature">
+          <StackPanel Spacing="10">
+            <Border Classes="iconbox"><a:Icon Kind="code" Size="16" /></Border>
+            <TextBlock Classes="h3" Text="Pure XAML" />
+            <TextBlock Classes="sm muted" Text="Control themes, styles and resource dictionaries, which also work in any Avalonia 12 app: a Button stays a Button, its variants are classes. No code-behind, no JavaScript." />
+          </StackPanel>
+        </Border>
+        <Border Grid.Column="1" Classes="feature">
+          <StackPanel Spacing="10">
+            <Border Classes="iconbox"><a:Icon Kind="globe" Size="16" /></Border>
+            <TextBlock Classes="h3" Text="Web and desktop" />
+            <TextBlock Classes="sm muted" Text="Aioros compiles every page to a plan and writes it as HTML per request, a Button as a real button element; the same XAML runs natively on the desktop." />
+          </StackPanel>
+        </Border>
+        <Border Grid.Column="2" Classes="feature">
+          <StackPanel Spacing="10">
+            <Border Classes="iconbox"><a:Icon Kind="target" Size="16" /></Border>
+            <TextBlock Classes="h3" Text="Measured fidelity" />
+            <TextBlock Classes="sm muted" Text="Every component, chart and block is compared pixel by pixel with its reference render, on the web and on the desktop." />
+            <HyperlinkButton Classes="link sm" Padding="0" HorizontalAlignment="Left" NavigateUri="/fidelity" Content="Read the fidelity report" />
+          </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Classes="feature">
+          <StackPanel Spacing="10">
+            <Border Classes="iconbox"><a:Icon Kind="layers" Size="16" /></Border>
+            <TextBlock Classes="h3" Text="Themes by resources" />
+            <TextBlock Classes="sm muted" Text="Twelve color themes, six radii, light and dark. Override a brush in App.axaml and every component, chart and block follows." />
+          </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Classes="feature">
+          <StackPanel Spacing="10">
+            <Border Classes="iconbox"><a:Icon Kind="chart-pie" Size="16" /></Border>
+            <TextBlock Classes="h3" Text="Charts by Aioros.Pictor" />
+            <TextBlock Classes="sm muted" Text="Area, bar, line, pie, radar and radial charts with tooltips and legends in the same theme, bound to your view models." />
+          </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="2" Classes="feature">
+          <StackPanel Spacing="10">
+            <Border Classes="iconbox"><a:Icon Kind="panel-left" Size="16" /></Border>
+            <TextBlock Classes="h3" Text="Blocks" />
+            <TextBlock Classes="sm muted" Text="Login and signup pages composed from the components, ready to copy into an app." />
+          </StackPanel>
+        </Border>
+      </Grid>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

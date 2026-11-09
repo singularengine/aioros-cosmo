@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: avatar-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="32">
+      <StackPanel Orientation="Horizontal" Spacing="48">
+        <c:Avatar Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn" />
+        <c:Avatar Source="/Assets/avatar-evilrabbit.png" Content="ER" CornerRadius="{DynamicResource CosmoRadiusLg}" AutomationProperties.Name="@evilrabbit" />
+        <c:AvatarGroup>
+          <c:Avatar Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn" />
+          <c:Avatar Source="/Assets/avatar-maxleiter.png" Content="LR" AutomationProperties.Name="@maxleiter" />
+          <c:Avatar Source="/Assets/avatar-evilrabbit.png" Content="ER" AutomationProperties.Name="@evilrabbit" />
+        </c:AvatarGroup>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="48">
+        <c:Avatar Classes="sm" Content="CN" />
+        <c:Avatar Content="CN" />
+        <c:Avatar Classes="lg" Content="CN" />
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

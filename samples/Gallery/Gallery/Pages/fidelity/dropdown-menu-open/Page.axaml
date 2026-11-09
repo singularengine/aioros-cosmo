@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: dropdown-menu-open">
+  <UserControl.Styles>
+    <Style Selector="MenuFlyoutPresenter.w-56">
+      <Setter Property="Width" Value="224" />
+    </Style>
+  </UserControl.Styles>
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="440">
+      <Button Classes="outline" Content="Open" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button.Flyout>
+          <MenuFlyout Placement="BottomEdgeAlignedLeft" FlyoutPresenterClasses="w-56">
+            <MenuItem Classes="label" Header="My Account" />
+            <MenuItem Header="Profile" InputGesture="Shift+Ctrl+P" />
+            <MenuItem Header="Billing" InputGesture="Ctrl+B" />
+            <MenuItem Header="Settings" InputGesture="Ctrl+S" />
+            <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl+K" />
+            <Separator />
+            <MenuItem Header="Team" />
+            <MenuItem Header="Invite users">
+              <MenuItem Header="Email" />
+              <MenuItem Header="Message" />
+              <Separator />
+              <MenuItem Header="More..." />
+            </MenuItem>
+            <MenuItem Header="New Team" InputGesture="Ctrl+T" />
+            <Separator />
+            <MenuItem Header="GitHub" />
+            <MenuItem Header="Support" />
+            <MenuItem Header="API" IsEnabled="False" />
+            <Separator />
+            <MenuItem Header="Log out" InputGesture="Shift+Ctrl+Q" />
+          </MenuFlyout>
+        </Button.Flyout>
+      </Button>
+    </Panel>
+  </Border>
+</UserControl>

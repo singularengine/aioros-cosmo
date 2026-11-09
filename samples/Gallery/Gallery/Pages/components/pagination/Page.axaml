@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:NavigationExamples"
+             a:Page.Title="Pagination" a:Page.Description="Pagination with page navigation, next and previous links.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Pagination" />
+      <TextBlock Classes="lead" Text="Pagination with page navigation, next and previous links." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: pagination" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Pagination" />
+        <c:Badge Classes="secondary" Content="Web: buttons" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="As shadcn&#x27;s, a pagination is its items: Previous, page buttons (ghost, the current one outline), an ellipsis and Next." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:Pagination>
+            <c:PaginationPrevious />
+            <Button Classes="ghost icon" Content="1" />
+            <Button Classes="outline icon" Content="2" />
+            <Button Classes="ghost icon" Content="3" />
+            <c:PaginationEllipsis />
+            <c:PaginationNext />
+          </c:Pagination>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Pagination&gt;&#10;  &lt;c:PaginationPrevious /&gt;&#10;  &lt;Button Classes=&quot;ghost icon&quot; Content=&quot;1&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline icon&quot; Content=&quot;2&quot; /&gt;&#10;  &lt;Button Classes=&quot;ghost icon&quot; Content=&quot;3&quot; /&gt;&#10;  &lt;c:PaginationEllipsis /&gt;&#10;  &lt;c:PaginationNext /&gt;&#10;&lt;/c:Pagination&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Pages from the model through an item template: the current one takes the outline class, each button runs the model&#x27;s command with its number." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Center">
+              <c:PaginationPrevious Command="{Binding PreviousCommand}" />
+              <c:Pagination ItemsSource="{Binding Pages}">
+                <c:Pagination.ItemTemplate>
+                  <DataTemplate x:DataType="m:PageLink">
+                    <Button Classes="icon" Classes.ghost="{Binding IsOther}" Classes.outline="{Binding IsCurrent}" Content="{Binding Number}"
+                            Command="{Binding $parent[ItemsControl].((m:NavigationExamples)DataContext).GoToCommand}" CommandParameter="{Binding Number}" />
+                  </DataTemplate>
+                </c:Pagination.ItemTemplate>
+              </c:Pagination>
+              <c:PaginationEllipsis />
+              <c:PaginationNext Command="{Binding NextCommand}" />
+            </StackPanel>
+            <TextBlock Classes="sm muted" HorizontalAlignment="Center" Text="{Binding Page, StringFormat='Page {0} of 10'}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;4&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;    &lt;c:PaginationPrevious Command=&quot;{Binding PreviousCommand}&quot; /&gt;&#10;    &lt;c:Pagination ItemsSource=&quot;{Binding Pages}&quot;&gt;&#10;      &lt;c:Pagination.ItemTemplate&gt;&#10;        &lt;DataTemplate x:DataType=&quot;m:PageLink&quot;&gt;&#10;          &lt;Button Classes=&quot;icon&quot; Classes.ghost=&quot;{Binding IsOther}&quot; Classes.outline=&quot;{Binding IsCurrent}&quot; Content=&quot;{Binding Number}&quot;&#10;                  Command=&quot;{Binding $parent[ItemsControl].((m:NavigationExamples)DataContext).GoToCommand}&quot; CommandParameter=&quot;{Binding Number}&quot; /&gt;&#10;        &lt;/DataTemplate&gt;&#10;      &lt;/c:Pagination.ItemTemplate&gt;&#10;    &lt;/c:Pagination&gt;&#10;    &lt;c:PaginationEllipsis /&gt;&#10;    &lt;c:PaginationNext Command=&quot;{Binding NextCommand}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; HorizontalAlignment=&quot;Center&quot; Text=&quot;{Binding Page, StringFormat=&#x27;Page {0} of 10&#x27;}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Pagination" /><TextBlock Grid.Column="1" Classes="sm muted" Text="An ItemsControl of the pagination&#x27;s buttons, centered, 4 px apart." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:PaginationPrevious, c:PaginationNext" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Ghost buttons with their chevron; Command, CommandParameter, Content." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:PaginationEllipsis" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The hidden pages&#x27; ellipsis." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

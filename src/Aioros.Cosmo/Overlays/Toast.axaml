@@ -1,0 +1,218 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo">
+  <ResourceDictionary.ThemeDictionaries>
+    <ResourceDictionary x:Key="Light">
+      <SolidColorBrush x:Key="CosmoToastDescriptionBrush" Color="#3F3F3F" />
+      <SolidColorBrush x:Key="CosmoToastCloseHoverBrush" Color="#F8F8F8" />
+      <SolidColorBrush x:Key="CosmoToastCloseHoverBorderBrush" Color="#E8E8E8" />
+    </ResourceDictionary>
+    <ResourceDictionary x:Key="Dark">
+      <SolidColorBrush x:Key="CosmoToastDescriptionBrush" Color="#E8E8E8" />
+      <SolidColorBrush x:Key="CosmoToastCloseHoverBrush" Color="#1F1F1F" />
+      <SolidColorBrush x:Key="CosmoToastCloseHoverBorderBrush" Color="#404040" />
+    </ResourceDictionary>
+  </ResourceDictionary.ThemeDictionaries>
+
+  <StreamGeometry x:Key="CosmoToastSuccessGeometry">M22,12 A10,10 0 1 1 2,12 A10,10 0 1 1 22,12 Z M9,12 L11,14 L15,10</StreamGeometry>
+  <StreamGeometry x:Key="CosmoToastInfoGeometry">M22,12 A10,10 0 1 1 2,12 A10,10 0 1 1 22,12 Z M12,16 L12,12 M12,8 L12.01,8</StreamGeometry>
+  <StreamGeometry x:Key="CosmoToastWarningGeometry">M21.73,18 L13.73,4 A2,2 0 0 0 10.25,4 L2.25,18 A2,2 0 0 0 4,21 L20,21 A2,2 0 0 0 21.73,18 Z M12,9 L12,13 M12,17 L12.01,17</StreamGeometry>
+  <StreamGeometry x:Key="CosmoToastErrorGeometry">M15,9 L9,15 M9,9 L15,15 M2.586,16.726 A2,2 0 0 1 2,15.312 L2,8.688 A2,2 0 0 1 2.586,7.274 L7.274,2.586 A2,2 0 0 1 8.688,2 L15.312,2 A2,2 0 0 1 16.726,2.586 L21.414,7.274 A2,2 0 0 1 22,8.688 L22,15.312 A2,2 0 0 1 21.414,16.726 L16.726,21.414 A2,2 0 0 1 15.312,22 L8.688,22 A2,2 0 0 1 7.274,21.414 Z</StreamGeometry>
+  <StreamGeometry x:Key="CosmoToastLoadingGeometry">M21,12 A9,9 0 1 1 14.781,3.44</StreamGeometry>
+  <StreamGeometry x:Key="CosmoToastCloseGeometry">M9,3 L3,9 M3,3 L9,9</StreamGeometry>
+
+  <ControlTheme x:Key="CosmoToastIcon" TargetType="Path">
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Stretch" Value="None" />
+    <Setter Property="StrokeThickness" Value="2" />
+    <Setter Property="StrokeLineCap" Value="Round" />
+    <Setter Property="StrokeJoin" Value="Round" />
+    <Setter Property="Stroke" Value="{Binding $parent[ContentControl].Foreground}" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoToastAction" TargetType="Button">
+    <Setter Property="Background" Value="{DynamicResource NotificationCardForegroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource NotificationCardBackgroundBrush}" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}"
+                          CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}"
+                          Content="{TemplateBinding Content}" VerticalContentAlignment="Center" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoToastClose" TargetType="Button">
+    <Setter Property="Background" Value="{DynamicResource NotificationCardBackgroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoToastCloseForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoToastCloseBorderBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="Width" Value="20" />
+    <Setter Property="Height" Value="20" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="CornerRadius" Value="10" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="AutomationProperties.Name" Value="Close toast" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <BrushTransition Property="Background" Duration="0:0:0.200" />
+        <BrushTransition Property="BorderBrush" Duration="0:0:0.200" />
+      </Transitions>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoToastCloseHoverBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoToastCloseHoverBorderBrush}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoFocusRingShadow}" />
+    </Style>
+  </ControlTheme>
+
+  <DataTemplate x:Key="CosmoToastTemplate" x:DataType="c:Toast">
+    <Grid ColumnDefinitions="Auto,*,Auto">
+      <Button Name="ToastClose" Grid.ColumnSpan="3" Theme="{StaticResource CosmoToastClose}" Margin="-23,-23,0,0" a:Web.Closes="True"
+              HorizontalAlignment="Left" VerticalAlignment="Top" ZIndex="1" IsVisible="{Binding ShowsCloseButton}">
+        <Path Data="{StaticResource CosmoToastCloseGeometry}" Stretch="None" Width="12" Height="12"
+              Stroke="{Binding $parent[Button].Foreground}" StrokeThickness="0.75" StrokeLineCap="Round" />
+      </Button>
+      <Viewbox Name="ToastIcon" Width="16" Height="16" Margin="-3,0,4,0" VerticalAlignment="Center"
+               IsVisible="{Binding Kind, Converter={x:Static c:ToastConverters.IsNot}, ConverterParameter=Default}">
+        <Panel Width="24" Height="24">
+          <Path Tag="success" Theme="{StaticResource CosmoToastIcon}" Data="{StaticResource CosmoToastSuccessGeometry}" IsVisible="{Binding Kind, Converter={x:Static c:ToastConverters.Is}, ConverterParameter=Success}" />
+          <Path Tag="info" Theme="{StaticResource CosmoToastIcon}" Data="{StaticResource CosmoToastInfoGeometry}" IsVisible="{Binding Kind, Converter={x:Static c:ToastConverters.Is}, ConverterParameter=Info}" />
+          <Path Tag="warning" Theme="{StaticResource CosmoToastIcon}" Data="{StaticResource CosmoToastWarningGeometry}" IsVisible="{Binding Kind, Converter={x:Static c:ToastConverters.Is}, ConverterParameter=Warning}" />
+          <Path Tag="error" Theme="{StaticResource CosmoToastIcon}" Data="{StaticResource CosmoToastErrorGeometry}" IsVisible="{Binding Kind, Converter={x:Static c:ToastConverters.Is}, ConverterParameter=Error}" />
+          <Path Tag="loading" Classes="spin" Theme="{StaticResource CosmoToastIcon}" Data="{StaticResource CosmoToastLoadingGeometry}" IsVisible="{Binding Kind, Converter={x:Static c:ToastConverters.Is}, ConverterParameter=Loading}" />
+        </Panel>
+      </Viewbox>
+      <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+        <TextBlock Text="{Binding Title}" FontWeight="Medium" LineHeight="19.5" TextWrapping="Wrap" />
+        <TextBlock Text="{Binding Description}" LineHeight="18.2" TextWrapping="Wrap" Foreground="{DynamicResource CosmoToastDescriptionBrush}"
+                   IsVisible="{Binding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+      </StackPanel>
+      <Button Grid.Column="2" Theme="{StaticResource CosmoToastAction}" Margin="6,0,0,0" VerticalAlignment="Center"
+              Content="{Binding ActionText}" Command="{Binding ActionCommand}" CommandParameter="{Binding ActionParameter}"
+              IsVisible="{Binding ActionText, Converter={x:Static ObjectConverters.IsNotNull}}" />
+    </Grid>
+  </DataTemplate>
+
+  <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
+    <Setter Property="Width" Value="356" />
+    <Setter Property="Background" Value="{DynamicResource NotificationCardBackgroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource NotificationCardForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusLg}" />
+    <Setter Property="Padding" Value="16" />
+    <Setter Property="FontSize" Value="13" />
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontSans}" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Property="Opacity" Duration="0:0:0.400" Easing="0.25,0.1,0.25,1" />
+        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.400" Easing="0.25,0.1,0.25,1" />
+      </Transitions>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Root"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}"
+                BoxShadow="{DynamicResource CosmoToastShadow}"
+                c:Motion.EnterOpacity="0" c:Motion.EnterOffset="0%,100%" c:Motion.ExitOpacity="0" c:Motion.ExitOffset="0%,100%">
+          <Border.Transitions>
+            <Transitions>
+              <DoubleTransition Property="Opacity" Duration="0:0:0.400" Easing="0.25,0.1,0.25,1" />
+              <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.400" Easing="0.25,0.1,0.25,1" />
+            </Transitions>
+          </Border.Transitions>
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" VerticalAlignment="Center">
+            <ContentPresenter.Transitions>
+              <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.400" Easing="0.25,0.1,0.25,1" />
+              </Transitions>
+            </ContentPresenter.Transitions>
+          </ContentPresenter>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^[IsClosing=true]">
+      <Style.Animations>
+        <Animation Duration="0:0:0.400" FillMode="Forward">
+          <KeyFrame Cue="100%">
+            <Setter Property="IsClosed" Value="True" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^[IsClosing=true][(c|Motion.IsReduced)=True]">
+      <Setter Property="IsClosed" Value="True" />
+    </Style>
+    <Style Selector="^[IsClosing=true][(a|Web.IsWritten)=True]">
+      <Setter Property="IsClosed" Value="True" />
+    </Style>
+    <Style Selector="^.behind /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+    <Style Selector="^.swiped">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0:0:0.200" Easing="0,0,0.58,1" />
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.200" Easing="0,0,0.58,1" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^.swiped /template/ Border#PART_Root">
+      <Setter Property="c:Motion.ExitOffset" Value="0%,0%" />
+    </Style>
+    <Style Selector="^.top /template/ Border#PART_Root">
+      <Setter Property="c:Motion.EnterOffset" Value="0%,-100%" />
+      <Setter Property="c:Motion.ExitOffset" Value="0%,-100%" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type WindowNotificationManager}" TargetType="WindowNotificationManager">
+    <Setter Property="Margin" Value="24" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <c:ToastDeck Name="PART_Items" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:topleft /template/ c|ToastDeck#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style Selector="^:topright /template/ c|ToastDeck#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style Selector="^:topcenter /template/ c|ToastDeck#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style Selector="^:bottomleft /template/ c|ToastDeck#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style Selector="^:bottomcenter /template/ c|ToastDeck#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

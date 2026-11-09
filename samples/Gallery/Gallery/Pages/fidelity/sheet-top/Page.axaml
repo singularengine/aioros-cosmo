@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples" a:Page.Title="Fidelity: sheet-top">
+  <Panel a:Web.Id="fixture" Width="640" Height="360" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}" c:OverlayHost.IsHost="True">
+    <Border Padding="24">
+      <Panel>
+        <Button Classes="outline" Content="top" Command="{Binding SheetCommand}" CommandParameter="Top" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <c:Sheet IsOpen="{Binding SheetOpen}" Side="{Binding Side}">
+          <StackPanel Spacing="16">
+            <c:DialogHeader Title="Edit profile" Description="Make changes to your profile here. Click save when you're done." />
+            <c:DialogFooter>
+              <Button Content="Save changes" Command="{Binding AnswerCommand}" CommandParameter="save" />
+            </c:DialogFooter>
+          </StackPanel>
+        </c:Sheet>
+      </Panel>
+    </Border>
+  </Panel>
+</UserControl>

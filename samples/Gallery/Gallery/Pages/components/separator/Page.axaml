@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Separator" a:Page.Description="Visually or semantically separates content.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Separator" />
+      <TextBlock Classes="lead" Text="Visually or semantically separates content." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: separator" />
+        <c:Badge Classes="secondary" Content="Avalonia: Separator" />
+        <c:Badge Classes="secondary" Content="Web: &lt;hr&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="A 1 px line in --border; the vertical class turns it into a 1 px column as high as its row." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel MaxWidth="320">
+            <StackPanel Spacing="4">
+              <TextBlock Text="Radix Primitives" FontSize="14" LineHeight="14" FontWeight="Medium" />
+              <TextBlock Classes="sm muted" Text="An open-source UI component library." />
+            </StackPanel>
+            <Separator Margin="0,16" />
+            <StackPanel Orientation="Horizontal" Height="20" Spacing="16">
+              <TextBlock Classes="sm" Text="Blog" VerticalAlignment="Center" />
+              <Separator Classes="vertical" />
+              <TextBlock Classes="sm" Text="Docs" VerticalAlignment="Center" />
+              <Separator Classes="vertical" />
+              <TextBlock Classes="sm" Text="Source" VerticalAlignment="Center" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;320&quot;&gt;&#10;  &lt;StackPanel Spacing=&quot;4&quot;&gt;&#10;    &lt;TextBlock Text=&quot;Radix Primitives&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;An open-source UI component library.&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;  &lt;Separator Margin=&quot;0,16&quot; /&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Height=&quot;20&quot; Spacing=&quot;16&quot;&gt;&#10;    &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Blog&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;Separator Classes=&quot;vertical&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Docs&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;Separator Classes=&quot;vertical&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Source&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="IsVisible and the vertical class bind as any Avalonia property; overriding CosmoBorderBrush restyles every separator." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <CheckBox Content="Show the separator" IsChecked="{Binding ShowSeparator}" />
+            <Separator IsVisible="{Binding ShowSeparator}" />
+            <TextBlock Classes="sm muted" Text="{Binding ShowSeparator, StringFormat='Separator shown: {0}'}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;CheckBox Content=&quot;Show the separator&quot; IsChecked=&quot;{Binding ShowSeparator}&quot; /&gt;&#10;  &lt;Separator IsVisible=&quot;{Binding ShowSeparator}&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding ShowSeparator, StringFormat=&#x27;Separator shown: {0}&#x27;}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Classes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="vertical: a 1 px column as high as its row." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Background" /><TextBlock Grid.Column="1" Classes="sm muted" Text="--border by default (CosmoBorderBrush)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

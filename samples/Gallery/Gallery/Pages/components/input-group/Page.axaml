@@ -1,0 +1,76 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:RangeExamples"
+             a:Page.Title="Input Group" a:Page.Description="Display additional information or actions to an input or textarea.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Input Group" />
+      <TextBlock Classes="lead" Text="Display additional information or actions to an input or textarea." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: input-group" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:InputGroup, c:InputGroupAddon" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Addons go before the text box by default, after it with inline-end and below a textarea with block-end." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:InputGroup MaxWidth="384">
+            <TextBox PlaceholderText="Search..." />
+            <c:InputGroupAddon><a:Icon Kind="search" Size="16" /></c:InputGroupAddon>
+            <c:InputGroupAddon Classes="inline-end" Content="12 results" />
+          </c:InputGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:InputGroup MaxWidth=&quot;384&quot;&gt;&#10;  &lt;TextBox PlaceholderText=&quot;Search...&quot; /&gt;&#10;  &lt;c:InputGroupAddon&gt;&lt;a:Icon Kind=&quot;search&quot; Size=&quot;16&quot; /&gt;&lt;/c:InputGroupAddon&gt;&#10;  &lt;c:InputGroupAddon Classes=&quot;inline-end&quot; Content=&quot;12 results&quot; /&gt;&#10;&lt;/c:InputGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Text" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:InputGroup MaxWidth="384">
+            <TextBox PlaceholderText="example.com" />
+            <c:InputGroupAddon><TextBlock Text="https://" FontWeight="Normal" /></c:InputGroupAddon>
+          </c:InputGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:InputGroup MaxWidth=&quot;384&quot;&gt;&#10;  &lt;TextBox PlaceholderText=&quot;example.com&quot; /&gt;&#10;  &lt;c:InputGroupAddon&gt;&lt;TextBlock Text=&quot;https://&quot; FontWeight=&quot;Normal&quot; /&gt;&lt;/c:InputGroupAddon&gt;&#10;&lt;/c:InputGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Textarea" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:InputGroup MaxWidth="384">
+            <TextBox AcceptsReturn="True" PlaceholderText="Ask, Search or Chat..." />
+            <c:InputGroupAddon Classes="block-end">
+              <DockPanel>
+                <Button DockPanel.Dock="Right" Classes="icon-xs" CornerRadius="9999" AutomationProperties.Name="Send"><a:Icon Kind="plus" Size="14" /></Button>
+                <TextBlock Text="52% used" FontWeight="Normal" VerticalAlignment="Center" />
+              </DockPanel>
+            </c:InputGroupAddon>
+          </c:InputGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:InputGroup MaxWidth=&quot;384&quot;&gt;&#10;  &lt;TextBox AcceptsReturn=&quot;True&quot; PlaceholderText=&quot;Ask, Search or Chat...&quot; /&gt;&#10;  &lt;c:InputGroupAddon Classes=&quot;block-end&quot;&gt;&#10;    &lt;DockPanel&gt;&#10;      &lt;Button DockPanel.Dock=&quot;Right&quot; Classes=&quot;icon-xs&quot; CornerRadius=&quot;9999&quot; AutomationProperties.Name=&quot;Send&quot;&gt;&lt;a:Icon Kind=&quot;plus&quot; Size=&quot;14&quot; /&gt;&lt;/Button&gt;&#10;      &lt;TextBlock Text=&quot;52% used&quot; FontWeight=&quot;Normal&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;/DockPanel&gt;&#10;  &lt;/c:InputGroupAddon&gt;&#10;&lt;/c:InputGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:InputGroup MaxWidth="384">
+            <TextBox Text="{Binding Query}" MaxLength="24" PlaceholderText="Username" AutomationProperties.Name="Username" />
+            <c:InputGroupAddon Classes="inline-end" Content="{Binding Count}" />
+          </c:InputGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:InputGroup MaxWidth=&quot;384&quot;&gt;&#10;  &lt;TextBox Text=&quot;{Binding Query}&quot; MaxLength=&quot;24&quot; PlaceholderText=&quot;Username&quot; AutomationProperties.Name=&quot;Username&quot; /&gt;&#10;  &lt;c:InputGroupAddon Classes=&quot;inline-end&quot; Content=&quot;{Binding Count}&quot; /&gt;&#10;&lt;/c:InputGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:InputGroup" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The bordered field (36 px, input border, shadow-xs; the ring while its text box has the focus)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:InputGroupAddon" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Muted 14 px medium content; inline-end and block-end classes place it." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

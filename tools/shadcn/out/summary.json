@@ -1,0 +1,1310 @@
+[
+ {
+  "fixture": "button-variants",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "button-sizes",
+  "theme": "light",
+  "matched": 99.86,
+  "meanDelta": 0.21
+ },
+ {
+  "fixture": "button-disabled",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "button-icons",
+  "theme": "light",
+  "matched": 99.52,
+  "meanDelta": 0.65
+ },
+ {
+  "fixture": "badge-variants",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "badge-icons",
+  "theme": "light",
+  "matched": 99.3,
+  "meanDelta": 0.86
+ },
+ {
+  "fixture": "card-basic",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "card-plain",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "input-states",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "textarea-states",
+  "theme": "light",
+  "matched": 99.18,
+  "meanDelta": 0.53
+ },
+ {
+  "fixture": "field-form",
+  "theme": "light",
+  "matched": 99.86,
+  "meanDelta": 0.18
+ },
+ {
+  "fixture": "checkbox-states",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "radio-group",
+  "theme": "light",
+  "matched": 99.54,
+  "meanDelta": 0.36
+ },
+ {
+  "fixture": "switch-states",
+  "theme": "light",
+  "matched": 98.07,
+  "meanDelta": 3.05
+ },
+ {
+  "fixture": "native-select",
+  "theme": "light",
+  "matched": 99.32,
+  "meanDelta": 0.61
+ },
+ {
+  "fixture": "select-trigger",
+  "theme": "light",
+  "matched": 99.76,
+  "meanDelta": 0.17
+ },
+ {
+  "fixture": "slider-states",
+  "theme": "light",
+  "matched": 99.08,
+  "meanDelta": 1.9
+ },
+ {
+  "fixture": "progress",
+  "theme": "light",
+  "matched": 99.92,
+  "meanDelta": 0.05
+ },
+ {
+  "fixture": "toggle-states",
+  "theme": "light",
+  "matched": 99.71,
+  "meanDelta": 0.38
+ },
+ {
+  "fixture": "toggle-group",
+  "theme": "light",
+  "matched": 99.98,
+  "meanDelta": 0.02
+ },
+ {
+  "fixture": "input-group",
+  "theme": "light",
+  "matched": 99.02,
+  "meanDelta": 0.71
+ },
+ {
+  "fixture": "input-otp",
+  "theme": "light",
+  "matched": 99.9,
+  "meanDelta": 0.07
+ },
+ {
+  "fixture": "separator-demo",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "skeleton-demo",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "spinner-demo",
+  "theme": "light",
+  "matched": 99.1,
+  "meanDelta": 1.18
+ },
+ {
+  "fixture": "kbd-demo",
+  "theme": "light",
+  "matched": 99.17,
+  "meanDelta": 0.66
+ },
+ {
+  "fixture": "avatar-demo",
+  "theme": "light",
+  "matched": 99.99,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "alert-demo",
+  "theme": "light",
+  "matched": 99.77,
+  "meanDelta": 0.31
+ },
+ {
+  "fixture": "aspect-ratio-demo",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "typography-headings",
+  "theme": "light",
+  "matched": 96.75,
+  "meanDelta": 6.53
+ },
+ {
+  "fixture": "typography-text",
+  "theme": "light",
+  "matched": 99.98,
+  "meanDelta": 0.07
+ },
+ {
+  "fixture": "empty-demo",
+  "theme": "light",
+  "matched": 98.12,
+  "meanDelta": 1.63
+ },
+ {
+  "fixture": "empty-outline",
+  "theme": "light",
+  "matched": 98.68,
+  "meanDelta": 1.2
+ },
+ {
+  "fixture": "item-demo",
+  "theme": "light",
+  "matched": 99.79,
+  "meanDelta": 0.29
+ },
+ {
+  "fixture": "item-variant",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "tabs-demo",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "tabs-list",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "accordion-demo",
+  "theme": "light",
+  "matched": 99.91,
+  "meanDelta": 0.09
+ },
+ {
+  "fixture": "collapsible-demo",
+  "theme": "light",
+  "matched": 99.9,
+  "meanDelta": 0.16
+ },
+ {
+  "fixture": "collapsible-open",
+  "theme": "light",
+  "matched": 99.94,
+  "meanDelta": 0.09
+ },
+ {
+  "fixture": "breadcrumb-demo",
+  "theme": "light",
+  "matched": 99.51,
+  "meanDelta": 0.45
+ },
+ {
+  "fixture": "breadcrumb-separator",
+  "theme": "light",
+  "matched": 99.77,
+  "meanDelta": 0.19
+ },
+ {
+  "fixture": "pagination-demo",
+  "theme": "light",
+  "matched": 99.65,
+  "meanDelta": 0.55
+ },
+ {
+  "fixture": "button-group-demo",
+  "theme": "light",
+  "matched": 99.77,
+  "meanDelta": 0.3
+ },
+ {
+  "fixture": "button-group-size",
+  "theme": "light",
+  "matched": 99.87,
+  "meanDelta": 0.2
+ },
+ {
+  "fixture": "button-group-orientation",
+  "theme": "light",
+  "matched": 99.85,
+  "meanDelta": 0.24
+ },
+ {
+  "fixture": "scroll-area-demo",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "scroll-area-horizontal",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "table-demo",
+  "theme": "light",
+  "matched": 99.8,
+  "meanDelta": 0.1
+ },
+ {
+  "fixture": "navigation-menu-demo",
+  "theme": "light",
+  "matched": 99.96,
+  "meanDelta": 0.06
+ },
+ {
+  "fixture": "menubar-demo",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "sidebar-demo",
+  "theme": "light",
+  "matched": 98.05,
+  "meanDelta": 2.48
+ },
+ {
+  "fixture": "sidebar-icon",
+  "theme": "light",
+  "matched": 99.75,
+  "meanDelta": 0.34
+ },
+ {
+  "fixture": "sidebar-floating",
+  "theme": "light",
+  "matched": 98.05,
+  "meanDelta": 2.49
+ },
+ {
+  "fixture": "sidebar-inset",
+  "theme": "light",
+  "matched": 98.05,
+  "meanDelta": 2.49
+ },
+ {
+  "fixture": "command-demo",
+  "theme": "light",
+  "matched": 98.94,
+  "meanDelta": 0.84
+ },
+ {
+  "fixture": "combobox-demo",
+  "theme": "light",
+  "matched": 99.81,
+  "meanDelta": 0.15
+ },
+ {
+  "fixture": "data-table-demo",
+  "theme": "light",
+  "matched": 99.74,
+  "meanDelta": 0.29
+ },
+ {
+  "fixture": "resizable-demo",
+  "theme": "light",
+  "matched": 99.75,
+  "meanDelta": 0.07
+ },
+ {
+  "fixture": "resizable-handle",
+  "theme": "light",
+  "matched": 99.78,
+  "meanDelta": 0.09
+ },
+ {
+  "fixture": "resizable-vertical",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "carousel-demo",
+  "theme": "light",
+  "matched": 99.95,
+  "meanDelta": 0.06
+ },
+ {
+  "fixture": "carousel-api",
+  "theme": "light",
+  "matched": 99.94,
+  "meanDelta": 0.07
+ },
+ {
+  "fixture": "carousel-orientation",
+  "theme": "light",
+  "matched": 99.93,
+  "meanDelta": 0.08
+ },
+ {
+  "fixture": "date-picker-demo",
+  "theme": "light",
+  "matched": 98.82,
+  "meanDelta": 1.08
+ },
+ {
+  "fixture": "date-picker-input",
+  "theme": "light",
+  "matched": 98.94,
+  "meanDelta": 1.47
+ },
+ {
+  "fixture": "calendar-single",
+  "theme": "light",
+  "matched": 99.92,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "calendar-range",
+  "theme": "light",
+  "matched": 99.92,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "calendar-multiple",
+  "theme": "light",
+  "matched": 99.92,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "calendar-disabled",
+  "theme": "light",
+  "matched": 99.7,
+  "meanDelta": 0.26
+ },
+ {
+  "fixture": "calendar-outside-hidden",
+  "theme": "light",
+  "matched": 99.92,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "popover-open",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "tooltip-open",
+  "theme": "light",
+  "matched": 99.84,
+  "meanDelta": 0.09
+ },
+ {
+  "fixture": "hover-card-open",
+  "theme": "light",
+  "matched": 99.93,
+  "meanDelta": 0.15
+ },
+ {
+  "fixture": "dropdown-menu-open",
+  "theme": "light",
+  "matched": 99.62,
+  "meanDelta": 0.31
+ },
+ {
+  "fixture": "dropdown-menu-checkboxes",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "context-menu-open",
+  "theme": "light",
+  "matched": 97.67,
+  "meanDelta": 2.51
+ },
+ {
+  "fixture": "dialog-open",
+  "theme": "light",
+  "matched": 99.16,
+  "meanDelta": 0.89
+ },
+ {
+  "fixture": "alert-dialog-open",
+  "theme": "light",
+  "matched": 97.17,
+  "meanDelta": 2.54
+ },
+ {
+  "fixture": "sheet-open",
+  "theme": "light",
+  "matched": 98.52,
+  "meanDelta": 1.45
+ },
+ {
+  "fixture": "sheet-top",
+  "theme": "light",
+  "matched": 98.43,
+  "meanDelta": 1.61
+ },
+ {
+  "fixture": "drawer-open",
+  "theme": "light",
+  "matched": 97.9,
+  "meanDelta": 1.57
+ },
+ {
+  "fixture": "sonner-stack",
+  "theme": "light",
+  "matched": 98,
+  "meanDelta": 2.62
+ },
+ {
+  "fixture": "sonner-types",
+  "theme": "light",
+  "matched": 98.27,
+  "meanDelta": 1.81
+ },
+ {
+  "fixture": "navigation-menu-open",
+  "theme": "light",
+  "matched": 99.93,
+  "meanDelta": 0.1
+ },
+ {
+  "fixture": "menubar-open",
+  "theme": "light",
+  "matched": 99.75,
+  "meanDelta": 0.18
+ },
+ {
+  "fixture": "command-filtered",
+  "theme": "light",
+  "matched": 99.59,
+  "meanDelta": 0.34
+ },
+ {
+  "fixture": "combobox-open",
+  "theme": "light",
+  "matched": 99.53,
+  "meanDelta": 0.39
+ },
+ {
+  "fixture": "date-picker-open",
+  "theme": "light",
+  "matched": 99.63,
+  "meanDelta": 0.51
+ },
+ {
+  "fixture": "data-table-selected",
+  "theme": "light",
+  "matched": 99.72,
+  "meanDelta": 0.31
+ },
+ {
+  "fixture": "button-variants",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.05
+ },
+ {
+  "fixture": "button-sizes",
+  "theme": "dark",
+  "matched": 99.86,
+  "meanDelta": 0.2
+ },
+ {
+  "fixture": "button-disabled",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "button-icons",
+  "theme": "dark",
+  "matched": 99.52,
+  "meanDelta": 0.6
+ },
+ {
+  "fixture": "badge-variants",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.02
+ },
+ {
+  "fixture": "badge-icons",
+  "theme": "dark",
+  "matched": 99.3,
+  "meanDelta": 0.77
+ },
+ {
+  "fixture": "card-basic",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "card-plain",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "input-states",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.02
+ },
+ {
+  "fixture": "textarea-states",
+  "theme": "dark",
+  "matched": 99.19,
+  "meanDelta": 0.54
+ },
+ {
+  "fixture": "field-form",
+  "theme": "dark",
+  "matched": 99.86,
+  "meanDelta": 0.23
+ },
+ {
+  "fixture": "checkbox-states",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "radio-group",
+  "theme": "dark",
+  "matched": 99.53,
+  "meanDelta": 0.38
+ },
+ {
+  "fixture": "switch-states",
+  "theme": "dark",
+  "matched": 97.94,
+  "meanDelta": 3.09
+ },
+ {
+  "fixture": "native-select",
+  "theme": "dark",
+  "matched": 99.27,
+  "meanDelta": 0.61
+ },
+ {
+  "fixture": "select-trigger",
+  "theme": "dark",
+  "matched": 99.76,
+  "meanDelta": 0.18
+ },
+ {
+  "fixture": "slider-states",
+  "theme": "dark",
+  "matched": 98.93,
+  "meanDelta": 1.92
+ },
+ {
+  "fixture": "progress",
+  "theme": "dark",
+  "matched": 99.92,
+  "meanDelta": 0.05
+ },
+ {
+  "fixture": "toggle-states",
+  "theme": "dark",
+  "matched": 99.71,
+  "meanDelta": 0.37
+ },
+ {
+  "fixture": "toggle-group",
+  "theme": "dark",
+  "matched": 99.98,
+  "meanDelta": 0.02
+ },
+ {
+  "fixture": "input-group",
+  "theme": "dark",
+  "matched": 99.02,
+  "meanDelta": 0.72
+ },
+ {
+  "fixture": "input-otp",
+  "theme": "dark",
+  "matched": 99.87,
+  "meanDelta": 0.1
+ },
+ {
+  "fixture": "separator-demo",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "skeleton-demo",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "spinner-demo",
+  "theme": "dark",
+  "matched": 99.11,
+  "meanDelta": 1.15
+ },
+ {
+  "fixture": "kbd-demo",
+  "theme": "dark",
+  "matched": 99.14,
+  "meanDelta": 0.63
+ },
+ {
+  "fixture": "avatar-demo",
+  "theme": "dark",
+  "matched": 99.98,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "alert-demo",
+  "theme": "dark",
+  "matched": 99.77,
+  "meanDelta": 0.3
+ },
+ {
+  "fixture": "aspect-ratio-demo",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "typography-headings",
+  "theme": "dark",
+  "matched": 96.73,
+  "meanDelta": 6.49
+ },
+ {
+  "fixture": "typography-text",
+  "theme": "dark",
+  "matched": 99.69,
+  "meanDelta": 0.12
+ },
+ {
+  "fixture": "empty-demo",
+  "theme": "dark",
+  "matched": 98.11,
+  "meanDelta": 1.74
+ },
+ {
+  "fixture": "empty-outline",
+  "theme": "dark",
+  "matched": 98.68,
+  "meanDelta": 1.25
+ },
+ {
+  "fixture": "item-demo",
+  "theme": "dark",
+  "matched": 99.79,
+  "meanDelta": 0.3
+ },
+ {
+  "fixture": "item-variant",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "tabs-demo",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "tabs-list",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "accordion-demo",
+  "theme": "dark",
+  "matched": 99.91,
+  "meanDelta": 0.1
+ },
+ {
+  "fixture": "collapsible-demo",
+  "theme": "dark",
+  "matched": 99.9,
+  "meanDelta": 0.16
+ },
+ {
+  "fixture": "collapsible-open",
+  "theme": "dark",
+  "matched": 99.94,
+  "meanDelta": 0.1
+ },
+ {
+  "fixture": "breadcrumb-demo",
+  "theme": "dark",
+  "matched": 99.51,
+  "meanDelta": 0.48
+ },
+ {
+  "fixture": "breadcrumb-separator",
+  "theme": "dark",
+  "matched": 99.77,
+  "meanDelta": 0.21
+ },
+ {
+  "fixture": "pagination-demo",
+  "theme": "dark",
+  "matched": 99.65,
+  "meanDelta": 0.53
+ },
+ {
+  "fixture": "button-group-demo",
+  "theme": "dark",
+  "matched": 99.77,
+  "meanDelta": 0.29
+ },
+ {
+  "fixture": "button-group-size",
+  "theme": "dark",
+  "matched": 99.87,
+  "meanDelta": 0.3
+ },
+ {
+  "fixture": "button-group-orientation",
+  "theme": "dark",
+  "matched": 99.85,
+  "meanDelta": 0.3
+ },
+ {
+  "fixture": "scroll-area-demo",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "scroll-area-horizontal",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "table-demo",
+  "theme": "dark",
+  "matched": 99.8,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "navigation-menu-demo",
+  "theme": "dark",
+  "matched": 99.96,
+  "meanDelta": 0.06
+ },
+ {
+  "fixture": "menubar-demo",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "sidebar-demo",
+  "theme": "dark",
+  "matched": 98.04,
+  "meanDelta": 2.49
+ },
+ {
+  "fixture": "sidebar-icon",
+  "theme": "dark",
+  "matched": 99.75,
+  "meanDelta": 0.35
+ },
+ {
+  "fixture": "sidebar-floating",
+  "theme": "dark",
+  "matched": 98.04,
+  "meanDelta": 2.47
+ },
+ {
+  "fixture": "sidebar-inset",
+  "theme": "dark",
+  "matched": 98.04,
+  "meanDelta": 2.48
+ },
+ {
+  "fixture": "command-demo",
+  "theme": "dark",
+  "matched": 98.94,
+  "meanDelta": 0.82
+ },
+ {
+  "fixture": "combobox-demo",
+  "theme": "dark",
+  "matched": 99.82,
+  "meanDelta": 0.15
+ },
+ {
+  "fixture": "data-table-demo",
+  "theme": "dark",
+  "matched": 99.74,
+  "meanDelta": 0.31
+ },
+ {
+  "fixture": "resizable-demo",
+  "theme": "dark",
+  "matched": 99.75,
+  "meanDelta": 0.07
+ },
+ {
+  "fixture": "resizable-handle",
+  "theme": "dark",
+  "matched": 99.76,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "resizable-vertical",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "carousel-demo",
+  "theme": "dark",
+  "matched": 99.95,
+  "meanDelta": 0.06
+ },
+ {
+  "fixture": "carousel-api",
+  "theme": "dark",
+  "matched": 99.94,
+  "meanDelta": 0.06
+ },
+ {
+  "fixture": "carousel-orientation",
+  "theme": "dark",
+  "matched": 99.94,
+  "meanDelta": 0.07
+ },
+ {
+  "fixture": "date-picker-demo",
+  "theme": "dark",
+  "matched": 98.83,
+  "meanDelta": 1.07
+ },
+ {
+  "fixture": "date-picker-input",
+  "theme": "dark",
+  "matched": 98.93,
+  "meanDelta": 1.45
+ },
+ {
+  "fixture": "calendar-single",
+  "theme": "dark",
+  "matched": 99.93,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "calendar-range",
+  "theme": "dark",
+  "matched": 99.9,
+  "meanDelta": 0.12
+ },
+ {
+  "fixture": "calendar-multiple",
+  "theme": "dark",
+  "matched": 99.93,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "calendar-disabled",
+  "theme": "dark",
+  "matched": 99.7,
+  "meanDelta": 0.28
+ },
+ {
+  "fixture": "calendar-outside-hidden",
+  "theme": "dark",
+  "matched": 99.93,
+  "meanDelta": 0.11
+ },
+ {
+  "fixture": "popover-open",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "tooltip-open",
+  "theme": "dark",
+  "matched": 99.86,
+  "meanDelta": 0.08
+ },
+ {
+  "fixture": "hover-card-open",
+  "theme": "dark",
+  "matched": 99.93,
+  "meanDelta": 0.15
+ },
+ {
+  "fixture": "dropdown-menu-open",
+  "theme": "dark",
+  "matched": 99.61,
+  "meanDelta": 0.31
+ },
+ {
+  "fixture": "dropdown-menu-checkboxes",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "context-menu-open",
+  "theme": "dark",
+  "matched": 97.64,
+  "meanDelta": 2.44
+ },
+ {
+  "fixture": "dialog-open",
+  "theme": "dark",
+  "matched": 99.26,
+  "meanDelta": 0.82
+ },
+ {
+  "fixture": "alert-dialog-open",
+  "theme": "dark",
+  "matched": 97.12,
+  "meanDelta": 2.52
+ },
+ {
+  "fixture": "sheet-open",
+  "theme": "dark",
+  "matched": 98.51,
+  "meanDelta": 1.47
+ },
+ {
+  "fixture": "sheet-top",
+  "theme": "dark",
+  "matched": 98.43,
+  "meanDelta": 1.43
+ },
+ {
+  "fixture": "drawer-open",
+  "theme": "dark",
+  "matched": 97.88,
+  "meanDelta": 1.51
+ },
+ {
+  "fixture": "sonner-stack",
+  "theme": "dark",
+  "matched": 97.93,
+  "meanDelta": 4.21
+ },
+ {
+  "fixture": "sonner-types",
+  "theme": "dark",
+  "matched": 98.61,
+  "meanDelta": 2.97
+ },
+ {
+  "fixture": "navigation-menu-open",
+  "theme": "dark",
+  "matched": 99.93,
+  "meanDelta": 0.08
+ },
+ {
+  "fixture": "menubar-open",
+  "theme": "dark",
+  "matched": 99.75,
+  "meanDelta": 0.18
+ },
+ {
+  "fixture": "command-filtered",
+  "theme": "dark",
+  "matched": 99.59,
+  "meanDelta": 0.33
+ },
+ {
+  "fixture": "combobox-open",
+  "theme": "dark",
+  "matched": 99.53,
+  "meanDelta": 0.38
+ },
+ {
+  "fixture": "date-picker-open",
+  "theme": "dark",
+  "matched": 99.63,
+  "meanDelta": 0.5
+ },
+ {
+  "fixture": "data-table-selected",
+  "theme": "dark",
+  "matched": 99.33,
+  "meanDelta": 0.41
+ },
+ {
+  "fixture": "field-content",
+  "theme": "light",
+  "matched": 99.97,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "field-responsive",
+  "theme": "light",
+  "matched": 99.78,
+  "meanDelta": 0.16
+ },
+ {
+  "fixture": "button-invalid",
+  "theme": "light",
+  "matched": 99.58,
+  "meanDelta": 0.57
+ },
+ {
+  "fixture": "field-content",
+  "theme": "dark",
+  "matched": 99.93,
+  "meanDelta": 0.07
+ },
+ {
+  "fixture": "field-responsive",
+  "theme": "dark",
+  "matched": 99.78,
+  "meanDelta": 0.17
+ },
+ {
+  "fixture": "button-invalid",
+  "theme": "dark",
+  "matched": 99.58,
+  "meanDelta": 0.43
+ },
+ {
+  "fixture": "avatar-badge",
+  "theme": "light",
+  "matched": 99.95,
+  "meanDelta": 0.03
+ },
+ {
+  "fixture": "avatar-group-count",
+  "theme": "light",
+  "matched": 99.72,
+  "meanDelta": 0.24
+ },
+ {
+  "fixture": "tabs-line",
+  "theme": "light",
+  "matched": 99.7,
+  "meanDelta": 0.73
+ },
+ {
+  "fixture": "tabs-vertical",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "tabs-vertical-line",
+  "theme": "light",
+  "matched": 99.94,
+  "meanDelta": 0.15
+ },
+ {
+  "fixture": "avatar-badge",
+  "theme": "dark",
+  "matched": 99.95,
+  "meanDelta": 0.02
+ },
+ {
+  "fixture": "avatar-group-count",
+  "theme": "dark",
+  "matched": 99.72,
+  "meanDelta": 0.22
+ },
+ {
+  "fixture": "tabs-line",
+  "theme": "dark",
+  "matched": 99.7,
+  "meanDelta": 0.71
+ },
+ {
+  "fixture": "tabs-vertical",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "tabs-vertical-line",
+  "theme": "dark",
+  "matched": 99.94,
+  "meanDelta": 0.15
+ },
+ {
+  "fixture": "badge-links",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "card-separated",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "badge-links",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.02
+ },
+ {
+  "fixture": "card-separated",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "select-scrollable",
+  "theme": "light",
+  "matched": 97.83,
+  "meanDelta": 1.31
+ },
+ {
+  "fixture": "select-scrolled",
+  "theme": "light",
+  "matched": 97.64,
+  "meanDelta": 1.3
+ },
+ {
+  "fixture": "slider-range",
+  "theme": "light",
+  "matched": 99.73,
+  "meanDelta": 0.22
+ },
+ {
+  "fixture": "select-scrollable",
+  "theme": "dark",
+  "matched": 97.82,
+  "meanDelta": 1.99
+ },
+ {
+  "fixture": "select-scrolled",
+  "theme": "dark",
+  "matched": 97.61,
+  "meanDelta": 1.97
+ },
+ {
+  "fixture": "slider-range",
+  "theme": "dark",
+  "matched": 99.73,
+  "meanDelta": 0.24
+ },
+ {
+  "fixture": "sonner-close",
+  "theme": "light",
+  "matched": 98.16,
+  "meanDelta": 1.87
+ },
+ {
+  "fixture": "sonner-close",
+  "theme": "dark",
+  "matched": 98.39,
+  "meanDelta": 3.71
+ },
+ {
+  "fixture": "input-file",
+  "theme": "light",
+  "matched": 98.83,
+  "meanDelta": 1.32
+ },
+ {
+  "fixture": "item-header-footer",
+  "theme": "light",
+  "matched": 100,
+  "meanDelta": 0
+ },
+ {
+  "fixture": "kbd-tooltip-open",
+  "theme": "light",
+  "matched": 98.57,
+  "meanDelta": 1.94
+ },
+ {
+  "fixture": "input-file",
+  "theme": "dark",
+  "matched": 98.83,
+  "meanDelta": 1.28
+ },
+ {
+  "fixture": "item-header-footer",
+  "theme": "dark",
+  "matched": 100,
+  "meanDelta": 0.01
+ },
+ {
+  "fixture": "kbd-tooltip-open",
+  "theme": "dark",
+  "matched": 98.61,
+  "meanDelta": 1.79
+ },
+ {
+  "fixture": "button-extra-sizes",
+  "theme": "light",
+  "matched": 99.3,
+  "meanDelta": 1.03
+ },
+ {
+  "fixture": "button-extra-sizes",
+  "theme": "dark",
+  "matched": 99.3,
+  "meanDelta": 0.96
+ },
+ {
+  "fixture": "command-dialog-open",
+  "theme": "light",
+  "matched": 99.23,
+  "meanDelta": 0.8
+ },
+ {
+  "fixture": "command-dialog-open",
+  "theme": "dark",
+  "matched": 99.2,
+  "meanDelta": 0.66
+ }
+]

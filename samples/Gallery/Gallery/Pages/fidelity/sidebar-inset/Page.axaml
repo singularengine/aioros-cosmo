@@ -1,0 +1,94 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: sidebar-inset">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:SidebarProvider Height="600" MobileBreakpoint="0" IsOpen="True">
+      <c:Sidebar Collapsible="Icon" Variant="Inset">
+        <c:SidebarHeader>
+          <c:SidebarMenu>
+            <c:SidebarMenuItem>
+              <c:SidebarMenuButton Classes="lg">
+                <DockPanel>
+                  <Viewbox Width="16" Height="16" DockPanel.Dock="Right" Margin="8,0,0,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M7 15 l5 5 5-5 M7 9 l5-5 5 5" /></Viewbox>
+                  <Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoSidebarPrimaryBrush}"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M7 2h10 M5 6h14 M5,10 L19,10 A2,2 0 0 1 21,12 L21,20 A2,2 0 0 1 19,22 L5,22 A2,2 0 0 1 3,20 L3,12 A2,2 0 0 1 5,10 Z" /></Viewbox></Border>
+                  <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="Acme Inc" FontSize="14" LineHeight="17.5" FontWeight="Medium" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="Enterprise" FontSize="12" LineHeight="15" TextTrimming="CharacterEllipsis" />
+                  </StackPanel>
+                </DockPanel>
+              </c:SidebarMenuButton>
+            </c:SidebarMenuItem>
+          </c:SidebarMenu>
+        </c:SidebarHeader>
+        <c:SidebarContent>
+          <c:SidebarGroup>
+            <c:SidebarGroupLabel Content="Platform" />
+            <c:SidebarMenu>
+              <c:SidebarMenuItem IsCollapsible="True" IsExpanded="True">
+                <c:SidebarMenuButton IsActive="True" Tooltip="Playground"><StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M7 11 l2-2-2-2 M11 13h4 M5,3 L19,3 A2,2 0 0 1 21,5 L21,19 A2,2 0 0 1 19,21 L5,21 A2,2 0 0 1 3,19 L3,5 A2,2 0 0 1 5,3 Z" /></Viewbox><TextBlock Text="Playground" /></StackPanel></c:SidebarMenuButton>
+                <c:SidebarMenuSub>
+                  <c:SidebarMenuSubButton Content="History" />
+                  <c:SidebarMenuSubButton Content="Starred" />
+                  <c:SidebarMenuSubButton Content="Settings" />
+                </c:SidebarMenuSub>
+              </c:SidebarMenuItem>
+              <c:SidebarMenuItem IsCollapsible="True">
+                <c:SidebarMenuButton Tooltip="Models"><StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M12 8V4H8 M6,8 L18,8 A2,2 0 0 1 20,10 L20,18 A2,2 0 0 1 18,20 L6,20 A2,2 0 0 1 4,18 L4,10 A2,2 0 0 1 6,8 Z M2 14h2 M20 14h2 M15 13v2 M9 13v2" /></Viewbox><TextBlock Text="Models" /></StackPanel></c:SidebarMenuButton>
+              </c:SidebarMenuItem>
+              <c:SidebarMenuItem IsCollapsible="True">
+                <c:SidebarMenuButton Tooltip="Documentation"><StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M12 7v14 M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></Viewbox><TextBlock Text="Documentation" /></StackPanel></c:SidebarMenuButton>
+              </c:SidebarMenuItem>
+              <c:SidebarMenuItem IsCollapsible="True">
+                <c:SidebarMenuButton Tooltip="Settings"><StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 7h-9 M14 17H5 M14,17 A3,3 0 1 1 20,17 A3,3 0 1 1 14,17 Z M4,7 A3,3 0 1 1 10,7 A3,3 0 1 1 4,7 Z" /></Viewbox><TextBlock Text="Settings" /></StackPanel></c:SidebarMenuButton>
+              </c:SidebarMenuItem>
+            </c:SidebarMenu>
+          </c:SidebarGroup>
+          <c:SidebarGroup Classes="icon-hidden">
+            <c:SidebarGroupLabel Content="Projects" />
+            <c:SidebarMenu>
+              <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M22,6 L2,6 M22,18 L2,18 M6,2 L6,22 M18,2 L18,22" /></Viewbox><TextBlock Text="Design Engineering" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z M21.21 15.89A10 10 0 1 1 8 2.83" /></Viewbox><TextBlock Text="Sales &amp; Marketing" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z M15 5.764v15 M9 3.236v15" /></Viewbox><TextBlock Text="Travel" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+            </c:SidebarMenu>
+          </c:SidebarGroup>
+        </c:SidebarContent>
+        <c:SidebarFooter>
+          <c:SidebarMenu>
+            <c:SidebarMenuItem>
+              <c:SidebarMenuButton Classes="lg">
+                <DockPanel>
+                  <Viewbox Width="16" Height="16" DockPanel.Dock="Right" Margin="8,0,0,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M7 15 l5 5 5-5 M7 9 l5-5 5 5" /></Viewbox>
+                  <c:Avatar Width="32" Height="32" Content="CN" CornerRadius="{DynamicResource CosmoRadiusLg}" />
+                  <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="shadcn" FontSize="14" LineHeight="17.5" FontWeight="Medium" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="m@example.com" FontSize="12" LineHeight="15" TextTrimming="CharacterEllipsis" />
+                  </StackPanel>
+                </DockPanel>
+              </c:SidebarMenuButton>
+            </c:SidebarMenuItem>
+          </c:SidebarMenu>
+        </c:SidebarFooter>
+        <c:SidebarRail />
+      </c:Sidebar>
+      <c:SidebarInset>
+        <DockPanel>
+          <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="64" Spacing="8" Margin="12,0,16,0">
+            <c:SidebarTrigger VerticalAlignment="Center" />
+            <Separator Classes="vertical" Height="16" Margin="0,0,8,0" VerticalAlignment="Center" />
+            <c:Breadcrumb VerticalAlignment="Center">
+              <HyperlinkButton Content="Platform" />
+              <c:BreadcrumbPage Text="Playground" />
+            </c:Breadcrumb>
+          </StackPanel>
+          <DockPanel Margin="16,0,16,16">
+            <UniformGrid DockPanel.Dock="Top" Columns="3" ColumnSpacing="16" Margin="0,0,0,16">
+              <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+              <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+              <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+            </UniformGrid>
+            <Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+          </DockPanel>
+        </DockPanel>
+      </c:SidebarInset>
+    </c:SidebarProvider>
+  </Border>
+</UserControl>

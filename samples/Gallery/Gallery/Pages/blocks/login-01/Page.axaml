@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo"
+             a:Page.Title="login-01" a:Page.Description="A simple login form.">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="login-01" />
+      <TextBlock Classes="lead" Text="A simple login form." />
+    </StackPanel>
+    <Border MinHeight="720" CornerRadius="{DynamicResource CosmoRadiusXl}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}"
+            Background="{DynamicResource CosmoBackgroundBrush}" ClipToBounds="True" Container.Name="block" Container.Sizing="Width">
+      <Border.Styles>
+        <Style Selector="Border.page"><Setter Property="Padding" Value="40" /></Style>
+        <Style Selector="StackPanel.split"><Setter Property="MaxWidth" Value="896" /></Style>
+        <Style Selector="c|FieldGroup.split"><Setter Property="Margin" Value="32" /></Style>
+        <ContainerQuery Name="block" Query="max-width:767">
+          <Style Selector="Border.page"><Setter Property="Padding" Value="24" /></Style>
+          <Style Selector="StackPanel.split"><Setter Property="MaxWidth" Value="384" /></Style>
+          <Style Selector="c|FieldGroup.split"><Setter Property="Margin" Value="24" /><Setter Property="Grid.ColumnSpan" Value="2" /></Style>
+          <Style Selector="Border.cover"><Setter Property="IsVisible" Value="False" /></Style>
+        </ContainerQuery>
+      </Border.Styles>
+      <Border VerticalAlignment="Center">
+        <Border Classes="page">
+          <StackPanel MaxWidth="384">
+            <c:Card>
+              <c:CardHeader Title="Login to your account" Description="Enter your email below to login to your account" />
+              <c:CardContent>
+                <c:FieldGroup>
+                  <c:Field>
+                    <c:FieldLabel Content="Email" Target="{Binding #email}" />
+                    <TextBox Name="email" a:Web.Id="email" a:Web.InputType="email" PlaceholderText="m@example.com" />
+                  </c:Field>
+                  <c:Field>
+                    <Grid ColumnDefinitions="Auto,*">
+                      <c:FieldLabel Content="Password" Target="{Binding #password}" VerticalAlignment="Center" />
+                      <HyperlinkButton Classes="link" NavigateUri="#" Padding="0" Height="NaN" MinHeight="0" FontSize="14" FontWeight="Normal" Foreground="{DynamicResource CosmoForegroundBrush}" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"><TextBlock Text="Forgot your password?" TextWrapping="Wrap" /></HyperlinkButton>
+                    </Grid>
+                    <TextBox Name="password" a:Web.Id="password" PasswordChar="•" />
+                  </c:Field>
+                  <c:Field>
+                    <Button Content="Login" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                    <Button Classes="outline" Content="Login with Google" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                    <c:FieldDescription TextAlignment="Center"><Run Text="Don't have an account? " /><Run Text="Sign up" a:Web.Href="#" TextDecorations="Underline" /></c:FieldDescription>
+                  </c:Field>
+                </c:FieldGroup>
+              </c:CardContent>
+            </c:Card>
+          </StackPanel>
+        </Border>
+      </Border>
+    </Border>
+  </StackPanel>
+</UserControl>

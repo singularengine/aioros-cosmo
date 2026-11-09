@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: resizable-handle">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border Width="450" Height="200" HorizontalAlignment="Left" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}"
+            CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+      <c:ResizablePanelGroup>
+        <c:ResizablePanel DefaultSize="25"><TextBlock Text="Sidebar" FontSize="16" LineHeight="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" /></c:ResizablePanel>
+        <c:ResizableHandle WithHandle="True" />
+        <c:ResizablePanel DefaultSize="75"><TextBlock Text="Content" FontSize="16" LineHeight="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" /></c:ResizablePanel>
+      </c:ResizablePanelGroup>
+    </Border>
+  </Border>
+</UserControl>

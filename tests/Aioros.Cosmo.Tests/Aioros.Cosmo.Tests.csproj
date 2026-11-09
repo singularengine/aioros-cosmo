@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Headless" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" />
+    <PackageReference Include="Avalonia.Skia" />
+    <PackageReference Include="Avalonia.Fonts.Inter" />
+    <PackageReference Include="Avalonia.Themes.Fluent" />
+    <ProjectReference Include="..\..\src\Aioros.Cosmo\Aioros.Cosmo.csproj" />
+    <ProjectReference Include="..\..\src\Aioros.Cosmo.Charts\Aioros.Cosmo.Charts.csproj" />
+    <ProjectReference Include="..\..\src\Aioros.Cosmo.Markdown\Aioros.Cosmo.Markdown.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="..\..\samples\Gallery\Gallery\Assets\*.png" Link="Assets\%(Filename)%(Extension)" />
+    <AvaloniaResource Include="..\..\samples\Gallery\Gallery\Assets\*.json" Link="Assets\%(Filename)%(Extension)" />
+    <AvaloniaResource Include="..\..\samples\Gallery\Gallery\Assets\Fonts\*.ttf" Link="Assets\Fonts\%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\*.cs" Link="Shared\%(Filename)%(Extension)" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\Invoice.cs" Link="Shared\Invoice.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\Payment.cs" Link="Shared\Payment.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\DocsExample.cs" Link="Shared\DocsExample.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\ShellExample.cs" Link="Shared\ShellExample.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\DashboardBlock.cs" Link="Shared\DashboardBlock.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\ChartSamples.cs" Link="Shared\ChartSamples.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\ChartInteractive.cs" Link="Shared\ChartInteractive.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\QuestionnaireExamples.cs" Link="Shared\QuestionnaireExamples.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\ChatReplay.cs" Link="Shared\ChatReplay.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\ChatExamples.cs" Link="Shared\ChatExamples.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\ChatPages.cs" Link="Shared\ChatPages.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\Playback.cs" Link="Shared\Playback.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\Playbacks.cs" Link="Shared\Playbacks.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\StreamedCode.cs" Link="Shared\StreamedCode.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\CodeBlockStreaming.cs" Link="Shared\CodeBlockStreaming.cs" />
+    <Compile Include="..\..\samples\Gallery\Gallery\Models\CodeBlockStreamingScript.cs" Link="Shared\CodeBlockStreamingScript.cs" />
+  </ItemGroup>
+</Project>

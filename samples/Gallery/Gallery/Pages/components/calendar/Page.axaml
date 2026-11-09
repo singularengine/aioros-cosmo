@@ -1,0 +1,110 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:sys="using:System" x:DataType="m:DateExamples"
+             a:Page.Title="Calendar" a:Page.Description="A date field component that allows users to enter and edit date.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Calendar" />
+      <TextBlock Classes="lead" Text="A date field component that allows users to enter and edit date." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: calendar" />
+        <c:Badge Classes="secondary" Content="Avalonia: Calendar" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:CalendarSelection, c:CalendarDays" />
+        <c:Badge Classes="secondary" Content="Web: the month&#x27;s table" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Avalonia&#x27;s Calendar in Cosmo&#x27;s theme; SelectedDate binds two way, on the desktop and on the web, where Aioros computes the month for each request." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Border BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" BoxShadow="{DynamicResource CosmoShadowSm}">
+            <Calendar DisplayDate="2025-06-12" SelectionMode="SingleDate" SelectedDate="{Binding Day}" />
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; BoxShadow=&quot;{DynamicResource CosmoShadowSm}&quot;&gt;&#10;  &lt;Calendar DisplayDate=&quot;2025-06-12&quot; SelectionMode=&quot;SingleDate&quot; SelectedDate=&quot;{Binding Day}&quot; /&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Range" />
+      <TextBlock Classes="sm muted" Text="react-day-picker&#x27;s mode=range: the ends and the band between them; RangeStart and RangeEnd bind two way." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Border BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" BoxShadow="{DynamicResource CosmoShadowSm}">
+            <Calendar DisplayDate="2025-06-12" SelectionMode="SingleRange" c:CalendarSelection.RangeStart="{Binding From}" c:CalendarSelection.RangeEnd="{Binding To}" />
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; BoxShadow=&quot;{DynamicResource CosmoShadowSm}&quot;&gt;&#10;  &lt;Calendar DisplayDate=&quot;2025-06-12&quot; SelectionMode=&quot;SingleRange&quot; c:CalendarSelection.RangeStart=&quot;{Binding From}&quot; c:CalendarSelection.RangeEnd=&quot;{Binding To}&quot; /&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Multiple" />
+      <TextBlock Classes="sm muted" Text="mode=multiple: Dates binds two way; Ctrl or Shift adds days on the desktop, as Avalonia&#x27;s MultipleRange." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Border BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" BoxShadow="{DynamicResource CosmoShadowSm}">
+            <Calendar DisplayDate="2025-06-12" SelectionMode="MultipleRange" c:CalendarSelection.Dates="{Binding Days}" />
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; BoxShadow=&quot;{DynamicResource CosmoShadowSm}&quot;&gt;&#10;  &lt;Calendar DisplayDate=&quot;2025-06-12&quot; SelectionMode=&quot;MultipleRange&quot; c:CalendarSelection.Dates=&quot;{Binding Days}&quot; /&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled days" />
+      <TextBlock Classes="sm muted" Text="disabled={{ before }}: BlackoutDates, muted at 50%." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Border BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" BoxShadow="{DynamicResource CosmoShadowSm}">
+            <Calendar DisplayDate="2025-06-12" SelectionMode="SingleDate" SelectedDate="2025-06-12">
+              <Calendar.BlackoutDates>
+                <CalendarDateRange><x:Arguments><sys:DateTime>2025-05-01</sys:DateTime><sys:DateTime>2025-06-11</sys:DateTime></x:Arguments></CalendarDateRange>
+              </Calendar.BlackoutDates>
+            </Calendar>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; BoxShadow=&quot;{DynamicResource CosmoShadowSm}&quot;&gt;&#10;  &lt;Calendar DisplayDate=&quot;2025-06-12&quot; SelectionMode=&quot;SingleDate&quot; SelectedDate=&quot;2025-06-12&quot;&gt;&#10;    &lt;Calendar.BlackoutDates&gt;&#10;      &lt;CalendarDateRange&gt;&lt;x:Arguments&gt;&lt;sys:DateTime&gt;2025-05-01&lt;/sys:DateTime&gt;&lt;sys:DateTime&gt;2025-06-11&lt;/sys:DateTime&gt;&lt;/x:Arguments&gt;&lt;/CalendarDateRange&gt;&#10;    &lt;/Calendar.BlackoutDates&gt;&#10;  &lt;/Calendar&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Outside days hidden" />
+      <TextBlock Classes="sm muted" Text="showOutsideDays={false}: the outside-hidden class." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Border BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" BoxShadow="{DynamicResource CosmoShadowSm}">
+            <Calendar Classes="outside-hidden" DisplayDate="2025-06-12" SelectionMode="SingleDate" SelectedDate="{Binding Inside}" />
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; BoxShadow=&quot;{DynamicResource CosmoShadowSm}&quot;&gt;&#10;  &lt;Calendar Classes=&quot;outside-hidden&quot; DisplayDate=&quot;2025-06-12&quot; SelectionMode=&quot;SingleDate&quot; SelectedDate=&quot;{Binding Inside}&quot; /&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Month and year selects" />
+      <TextBlock Classes="sm muted" Text="The dropdown class puts the month and year selects in the caption, as shadcn/ui&#x27;s captionLayout=&quot;dropdown&quot;; the years run from a hundred before today to today." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Calendar Classes="dropdown" DisplayDate="2025-06-12" SelectedDate="{Binding Chosen}" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Calendar Classes=&quot;dropdown&quot; DisplayDate=&quot;2025-06-12&quot; SelectedDate=&quot;{Binding Chosen}&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Week numbers" />
+      <TextBlock Classes="sm muted" Text="The week-numbers class numbers each week in the culture&#x27;s rule before its days, as shadcn/ui&#x27;s showWeekNumber." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Calendar Classes="week-numbers" DisplayDate="2025-06-12" SelectedDate="{Binding Numbered}" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Calendar Classes=&quot;week-numbers&quot; DisplayDate=&quot;2025-06-12&quot; SelectedDate=&quot;{Binding Numbered}&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="SelectedDate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The selected day of a SingleDate calendar; two way (Avalonia)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CalendarSelection.RangeStart, RangeEnd" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The selected range of a SingleRange calendar; two way." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CalendarSelection.Dates" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The selected days of a MultipleRange calendar; two way (c:CalendarDates in XAML)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="BlackoutDates" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Days that cannot be selected, shown at 50% (Avalonia)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="outside-hidden" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Hides the other months&#x27; days." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,212 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo" xmlns:a="https://aioros.dev">
+  <StreamGeometry x:Key="CosmoXGeometry">M12,4 L4,12 M4,4 L12,12</StreamGeometry>
+
+  <ControlTheme x:Key="CosmoDialogClose" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="CornerRadius" Value="2" />
+    <Setter Property="Opacity" Value="0.7" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="AutomationProperties.Name" Value="Close" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoFocusRingShadow}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:DialogSurface}" TargetType="c:DialogSurface">
+    <Setter Property="Background" Value="{DynamicResource CosmoBackgroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusLg}" />
+    <Setter Property="Padding" Value="24" />
+    <Setter Property="MaxWidth" Value="512" />
+    <Setter Property="Margin" Value="16" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontSans}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="c:Motion.EnterOpacity" Value="0" />
+    <Setter Property="c:Motion.EnterScale" Value="0.95" />
+    <Setter Property="c:Motion.ExitOpacity" Value="0" />
+    <Setter Property="c:Motion.ExitScale" Value="0.95" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Property="Opacity" Duration="0:0:0.200" Easing="0.25,0.1,0.25,1" />
+        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.200" Easing="0.25,0.1,0.25,1" />
+      </Transitions>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Root"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}"
+                  BoxShadow="{DynamicResource CosmoShadowLg}">
+            <Grid RowDefinitions="Auto,*">
+              <Border Name="PART_Handle" Width="100" Height="8" Margin="0,16,0,0" CornerRadius="9999" HorizontalAlignment="Center"
+                      Background="{DynamicResource CosmoMutedBrush}" IsVisible="False" />
+              <ContentPresenter Name="PART_ContentPresenter" Grid.Row="1"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </Grid>
+          </Border>
+          <Button Name="PART_Close" Theme="{StaticResource CosmoDialogClose}" Margin="0,17,17,0" a:Web.Closes="True"
+                  HorizontalAlignment="Right" VerticalAlignment="Top" IsVisible="{TemplateBinding ShowCloseButton}">
+            <Path Data="{StaticResource CosmoXGeometry}" Stretch="None" Width="16" Height="16"
+                  Stroke="{DynamicResource CosmoForegroundBrush}" StrokeThickness="1.333" StrokeLineCap="Round" />
+          </Button>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.command">
+      <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style Selector="^.flush">
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+    <Style Selector="^.alert">
+      <Setter Property="AutomationProperties.LiveSetting" Value="Assertive" />
+    </Style>
+    <Style Selector="^.alert.sm">
+      <Setter Property="MaxWidth" Value="320" />
+    </Style>
+    <Style Selector="^.sheet">
+      <Setter Property="c:Motion.EnterOpacity" Value="NaN" />
+      <Setter Property="c:Motion.EnterScale" Value="NaN" />
+      <Setter Property="c:Motion.ExitOpacity" Value="NaN" />
+      <Setter Property="c:Motion.ExitScale" Value="NaN" />
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.500" Easing="0.4,0,0.2,1" />
+        </Transitions>
+      </Setter>
+      <Setter Property="CornerRadius" Value="0" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Margin" Value="0" />
+      <Setter Property="MaxWidth" Value="Infinity" />
+    </Style>
+    <Style Selector="^.sheet:closing">
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.300" Easing="0.4,0,0.2,1" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^.sheet.right">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+      <Setter Property="c:Motion.EnterOffset" Value="100%,0%" />
+      <Setter Property="c:Motion.ExitOffset" Value="100%,0%" />
+    </Style>
+    <Style Selector="^.sheet.left">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+      <Setter Property="c:Motion.EnterOffset" Value="-100%,0%" />
+      <Setter Property="c:Motion.ExitOffset" Value="-100%,0%" />
+    </Style>
+    <Style Selector="^.sheet.top">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+      <Setter Property="c:Motion.EnterOffset" Value="0%,-100%" />
+      <Setter Property="c:Motion.ExitOffset" Value="0%,-100%" />
+    </Style>
+    <Style Selector="^.sheet.bottom">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="BorderThickness" Value="0,1,0,0" />
+      <Setter Property="c:Motion.EnterOffset" Value="0%,100%" />
+      <Setter Property="c:Motion.ExitOffset" Value="0%,100%" />
+    </Style>
+    <Style Selector="^.drawer">
+      <Setter Property="c:Motion.EnterOpacity" Value="NaN" />
+      <Setter Property="c:Motion.EnterScale" Value="NaN" />
+      <Setter Property="c:Motion.EnterOffset" Value="0%,100%" />
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.500" Easing="0.32,0.72,0,1" />
+        </Transitions>
+      </Setter>
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="BorderThickness" Value="0,1,0,0" />
+      <Setter Property="CornerRadius" Value="{DynamicResource CosmoDrawerRadius}" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Margin" Value="0,96,0,0" />
+      <Setter Property="MaxWidth" Value="Infinity" />
+      <Setter Property="c:Motion.ExitOpacity" Value="NaN" />
+      <Setter Property="c:Motion.ExitScale" Value="NaN" />
+      <Setter Property="c:Motion.ExitOffset" Value="0%,100%" />
+    </Style>
+    <Style Selector="^.drawer /template/ Border#PART_Handle">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.drawer.right, ^.drawer.left">
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+      <Setter Property="Margin" Value="0" />
+      <Setter Property="CornerRadius" Value="0" />
+      <Setter Property="MaxWidth" Value="384" />
+    </Style>
+    <Style Selector="^.drawer.right">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+      <Setter Property="c:Motion.EnterOffset" Value="100%,0%" />
+      <Setter Property="c:Motion.ExitOffset" Value="100%,0%" />
+    </Style>
+    <Style Selector="^.drawer.left">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+      <Setter Property="c:Motion.EnterOffset" Value="-100%,0%" />
+      <Setter Property="c:Motion.ExitOffset" Value="-100%,0%" />
+    </Style>
+    <Style Selector="^.drawer.top">
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="Margin" Value="0,0,0,96" />
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+      <Setter Property="c:Motion.EnterOffset" Value="0%,-100%" />
+      <Setter Property="c:Motion.ExitOffset" Value="0%,-100%" />
+    </Style>
+    <Style Selector="^.drawer.right /template/ Border#PART_Handle, ^.drawer.left /template/ Border#PART_Handle, ^.drawer.top /template/ Border#PART_Handle">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.drawer /template/ Border#PART_Root">
+      <Setter Property="BoxShadow" Value="0 0 0 0 #00000000" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:DialogHeader}" TargetType="c:DialogHeader">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel Name="PART_Stack" Spacing="8" Margin="{TemplateBinding Padding}">
+          <ContentPresenter Name="PART_Title" Content="{TemplateBinding Title}"
+                            FontSize="18" FontWeight="SemiBold" TextBlock.LineHeight="18"
+                            Foreground="{DynamicResource CosmoForegroundBrush}" />
+          <ContentPresenter Name="PART_Description" Content="{TemplateBinding Description}"
+                            FontSize="14" TextBlock.LineHeight="20" TextWrapping="Wrap"
+                            Foreground="{DynamicResource CosmoMutedForegroundBrush}"
+                            IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

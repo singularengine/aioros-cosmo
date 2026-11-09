@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: bubble-group-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+          <StackPanel Width="384" HorizontalAlignment="Left" Margin="0,48" Spacing="32">
+    <c:Bubble Classes="muted" Content="Can you tell me what&apos;s the issue?" />
+    <c:BubbleGroup><c:Bubble Classes="end" Content="You tell me!" /><c:Bubble Classes="end" Content="It worked yesterday. You broke it!" /><c:Bubble Classes="end reactions-start" Content="Find the bug and fix it."><c:Bubble.Reactions><StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="👀" /></StackPanel></c:Bubble.Reactions></c:Bubble></c:BubbleGroup>
+    <c:Bubble Classes="muted" Content="Want me to diff yesterday&apos;s you against today&apos;s you? It&apos;s a bit embarrassing." />
+          </StackPanel>
+  </Border>
+</UserControl>

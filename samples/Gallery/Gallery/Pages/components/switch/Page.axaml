@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:ChoiceExamples"
+             a:Page.Title="Switch" a:Page.Description="A control that allows the user to toggle between checked and not checked.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Switch" />
+      <TextBlock Classes="lead" Text="A control that allows the user to toggle between checked and not checked." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: switch" />
+        <c:Badge Classes="secondary" Content="Avalonia: ToggleSwitch" />
+        <c:Badge Classes="secondary" Content="Web: &lt;input role=switch&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="As in shadcn, the switch and its Label sit side by side 8 px apart; a ToggleSwitch&#x27;s own Content also goes to its right on the desktop." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <ToggleSwitch Name="airplane" a:Web.Id="airplane" />
+            <Label Content="Airplane Mode" Target="{Binding #airplane}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;  &lt;ToggleSwitch Name=&quot;airplane&quot; a:Web.Id=&quot;airplane&quot; /&gt;&#10;  &lt;Label Content=&quot;Airplane Mode&quot; Target=&quot;{Binding #airplane}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="States" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="16">
+            <ToggleSwitch IsChecked="True" AutomationProperties.Name="On" />
+            <ToggleSwitch IsEnabled="False" AutomationProperties.Name="Disabled" />
+            <ToggleSwitch Classes="sm" IsChecked="True" AutomationProperties.Name="Small" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;  &lt;ToggleSwitch IsChecked=&quot;True&quot; AutomationProperties.Name=&quot;On&quot; /&gt;&#10;  &lt;ToggleSwitch IsEnabled=&quot;False&quot; AutomationProperties.Name=&quot;Disabled&quot; /&gt;&#10;  &lt;ToggleSwitch Classes=&quot;sm&quot; IsChecked=&quot;True&quot; AutomationProperties.Name=&quot;Small&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <ToggleSwitch Name="mode" a:Web.Id="mode" IsChecked="{Binding AirplaneMode}" />
+              <Label Content="Airplane Mode" Target="{Binding #mode}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Classes="outline" Command="{Binding SaveAirplaneCommand}" Content="Save" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;    &lt;ToggleSwitch Name=&quot;mode&quot; a:Web.Id=&quot;mode&quot; IsChecked=&quot;{Binding AirplaneMode}&quot; /&gt;&#10;    &lt;Label Content=&quot;Airplane Mode&quot; Target=&quot;{Binding #mode}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Command=&quot;{Binding SaveAirplaneCommand}&quot; Content=&quot;Save&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsChecked" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="sm" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The small switch: 24 by 14 px with a 12 px thumb." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Optional, 8 px to the right of the switch on the desktop." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Lightweight styling" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Fluent&#x27;s ToggleSwitch… brush keys, defined by Cosmo, recolor it." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

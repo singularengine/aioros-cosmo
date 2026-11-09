@@ -1,0 +1,125 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:sys="using:System" x:DataType="m:InputExamples"
+             a:Page.Title="Input" a:Page.Description="Displays a form input field or a component that looks like an input field.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Input" />
+      <TextBlock Classes="lead" Text="Displays a form input field or a component that looks like an input field." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: input" />
+        <c:Badge Classes="secondary" Content="Avalonia: TextBox" />
+        <c:Badge Classes="secondary" Content="Web: &lt;input&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TextBox PlaceholderText="Email" MaxWidth="320" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TextBox PlaceholderText=&quot;Email&quot; MaxWidth=&quot;320&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="With label" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <Label Content="Email" Target="{Binding #email}" />
+            <TextBox Name="email" a:Web.Id="email" a:Web.InputType="email" PlaceholderText="Email" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;Label Content=&quot;Email&quot; Target=&quot;{Binding #email}&quot; /&gt;&#10;  &lt;TextBox Name=&quot;email&quot; a:Web.Id=&quot;email&quot; a:Web.InputType=&quot;email&quot; PlaceholderText=&quot;Email&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Password" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TextBox PasswordChar="•" PlaceholderText="Password" MaxWidth="320" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TextBox PasswordChar=&quot;•&quot; PlaceholderText=&quot;Password&quot; MaxWidth=&quot;320&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TextBox IsEnabled="False" PlaceholderText="Email" MaxWidth="320" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TextBox IsEnabled=&quot;False&quot; PlaceholderText=&quot;Email&quot; MaxWidth=&quot;320&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Invalid" />
+      <TextBlock Classes="sm muted" Text="A data validation error (from INotifyDataErrorInfo, an exception or set as here) gives the destructive border and shows the message below, as shadcn&#x27;s aria-invalid input with a FieldError." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TextBox Text="not-an-email" MaxWidth="320">
+            <DataValidationErrors.Error>
+              <sys:Exception>
+                <x:Arguments>
+                  <x:String>Enter a valid email address.</x:String>
+                </x:Arguments>
+              </sys:Exception>
+            </DataValidationErrors.Error>
+          </TextBox>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TextBox Text=&quot;not-an-email&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;DataValidationErrors.Error&gt;&#10;    &lt;sys:Exception&gt;&#10;      &lt;x:Arguments&gt;&#10;        &lt;x:String&gt;Enter a valid email address.&lt;/x:String&gt;&#10;      &lt;/x:Arguments&gt;&#10;    &lt;/sys:Exception&gt;&#10;  &lt;/DataValidationErrors.Error&gt;&#10;&lt;/TextBox&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Text is bound two way: the web posts the field, binds it into the model and runs the command; the desktop updates the model as you type." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <Label Content="{Binding Unread, StringFormat='Name ({0} unread)'}" />
+            <TextBox Text="{Binding Name}" PlaceholderText="Your name" AutomationProperties.Name="Name" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Command="{Binding GreetCommand}" Content="Greet" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Greeting}" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;Label Content=&quot;{Binding Unread, StringFormat=&#x27;Name ({0} unread)&#x27;}&quot; /&gt;&#10;  &lt;TextBox Text=&quot;{Binding Name}&quot; PlaceholderText=&quot;Your name&quot; AutomationProperties.Name=&quot;Name&quot; /&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Command=&quot;{Binding GreetCommand}&quot; Content=&quot;Greet&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Greeting}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="File" />
+      <TextBlock Classes="sm muted" Text="An a:FilePicker takes the input&#x27;s look: the chosen file&#x27;s name replaces No file chosen, on the desktop and on the web." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="384">
+            <Label Content="Picture" Target="{Binding #picture}" />
+            <a:FilePicker Name="picture" Content="Picture" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;384&quot;&gt;&#10;  &lt;Label Content=&quot;Picture&quot; Target=&quot;{Binding #picture}&quot; /&gt;&#10;  &lt;a:FilePicker Name=&quot;picture&quot; Content=&quot;Picture&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="File, translated" />
+      <TextBlock Classes="sm muted" Text="The browser&#x27;s file input writes these texts in the page&#x27;s language; c:FileInput.ChooseText and c:FileInput.EmptyText set them on both targets." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <a:FilePicker MaxWidth="384" Content="Foto" c:FileInput.ChooseText="Elegir archivo" c:FileInput.EmptyText="Ningún archivo" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;a:FilePicker MaxWidth=&quot;384&quot; Content=&quot;Foto&quot; c:FileInput.ChooseText=&quot;Elegir archivo&quot; c:FileInput.EmptyText=&quot;Ningún archivo&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Text" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable text." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="PlaceholderText" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The placeholder, in the muted foreground." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="PasswordChar" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Masks the text: an &lt;input type=password&gt; on the web." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="a:Web.InputType" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The input&#x27;s type on the web (email, tel, url, search…)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsEnabled" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Disabled: 50% opacity." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="DataValidationErrors" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Errors show the destructive border and the message below (shadcn&#x27;s aria-invalid with FieldError)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="a:FilePicker" /><TextBlock Grid.Column="1" Classes="sm muted" Text="shadcn&#x27;s &lt;Input type=file&gt;: File or Files bound two way, FileTypes as the accepted types." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FileInput.ChooseText, c:FileInput.EmptyText" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The file input&#x27;s texts (Choose File, No file chosen), to translate them." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

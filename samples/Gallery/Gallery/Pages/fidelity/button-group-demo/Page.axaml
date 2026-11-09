@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: button-group-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:ButtonGroup>
+      <c:ButtonGroup>
+      <Button Classes="outline icon" AutomationProperties.Name="Go Back"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M12,19 L5,12 L12,5 M19,12 L5,12" /></Viewbox></Button>
+    </c:ButtonGroup>
+      <c:ButtonGroup>
+      <Button Classes="outline" Content="Archive" />
+      <Button Classes="outline" Content="Report" />
+    </c:ButtonGroup>
+      <c:ButtonGroup>
+      <Button Classes="outline" Content="Snooze" />
+      <Button Classes="outline icon" AutomationProperties.Name="More Options"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox></Button>
+    </c:ButtonGroup>
+    </c:ButtonGroup>
+  </Border>
+</UserControl>

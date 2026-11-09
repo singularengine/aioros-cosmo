@@ -1,0 +1,511 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo" xmlns:a="https://aioros.dev">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Aioros.Cosmo/Display/Icons.axaml" />
+    <ResourceInclude Source="avares://Aioros.Cosmo/Display/ScrollArea.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <StreamGeometry x:Key="CosmoLucidePanelLeftGeometry">M5,3 L19,3 A2,2 0 0 1 21,5 L21,19 A2,2 0 0 1 19,21 L5,21 A2,2 0 0 1 3,19 L3,5 A2,2 0 0 1 5,3 Z M9,3 L9,21</StreamGeometry>
+  <StreamGeometry x:Key="CosmoLucideSidebarChevronGeometry">M9,18 L15,12 L9,6</StreamGeometry>
+  <StreamGeometry x:Key="CosmoLucidePlusGeometry">M5,12 L19,12 M12,5 L12,19</StreamGeometry>
+  <StreamGeometry x:Key="CosmoLucideMinusGeometry">M5,12 L19,12</StreamGeometry>
+
+  <ControlTheme x:Key="{x:Type c:SidebarProvider}" TargetType="c:SidebarProvider">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="a:Web.Layout" Value="Dock" />
+    <Setter Property="a:Web.Flag" Value="IsOpen" />
+    <Style Selector="^:inset">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Sidebar}" TargetType="c:Sidebar">
+    <Setter Property="a:Web.Sheet" Value="IsMobileOpen" />
+    <Setter Property="Width" Value="{Binding ExpandedWidth, RelativeSource={RelativeSource Self}}" />
+    <Setter Property="DockPanel.Dock" Value="Left" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarForegroundBrush}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Property="Width" Duration="0:0:0.2" />
+      </Transitions>
+    </Setter>
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <Grid RowDefinitions="Auto,*,Auto" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Mask" Background="{DynamicResource CosmoOverlayBrush}" IsVisible="False" a:Web.Flips="IsOpen" />
+          <Border Name="PART_Container" Width="{TemplateBinding ExpandedWidth}" HorizontalAlignment="Right">
+            <Border Name="PART_Inner" Background="{DynamicResource CosmoSidebarBrush}" BorderBrush="{DynamicResource CosmoSidebarBorderBrush}"
+                    BorderThickness="0,0,1,0">
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </Border>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:right">
+      <Setter Property="DockPanel.Dock" Value="Right" />
+    </Style>
+    <Style Selector="^:right /template/ Border#PART_Container">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style Selector="^:right /template/ Border#PART_Inner">
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+    </Style>
+    <Style Selector="^:fixed /template/ Border#PART_Inner">
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="^:fixed.bordered /template/ Border#PART_Inner">
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="^:fixed.bordered:right /template/ Border#PART_Inner">
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+    </Style>
+    <Style Selector="^.borderless /template/ Border#PART_Inner">
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="^:icon">
+      <Setter Property="Width" Value="48" />
+    </Style>
+    <Style Selector="^:icon /template/ Border#PART_Container">
+      <Setter Property="Width" Value="NaN" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+    <Style Selector="^:offcanvas">
+      <Setter Property="Width" Value="0" />
+    </Style>
+    <Style Selector="^:floating /template/ Border#PART_Container">
+      <Setter Property="Padding" Value="8" />
+    </Style>
+    <Style Selector="^:floating /template/ Border#PART_Inner">
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusLg}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowSm}" />
+    </Style>
+    <Style Selector="^:inset /template/ Border#PART_Container">
+      <Setter Property="Padding" Value="8" />
+    </Style>
+    <Style Selector="^:inset /template/ Border#PART_Inner">
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="^:floating:icon">
+      <Setter Property="Width" Value="64" />
+    </Style>
+    <Style Selector="^:inset:icon">
+      <Setter Property="Width" Value="64" />
+    </Style>
+    <Style Selector="^:mobile">
+      <Setter Property="Width" Value="NaN" />
+    </Style>
+    <Style Selector="^:mobile /template/ Border#PART_Container">
+      <Setter Property="Width" Value="288" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="RenderTransform" Value="translateX(-288px)" />
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.3" Easing="0.4,0,0.2,1" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^:mobile /template/ Border#PART_Inner">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowLg}" />
+    </Style>
+    <Style Selector="^:mobile:right /template/ Border#PART_Container">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="RenderTransform" Value="translateX(288px)" />
+    </Style>
+    <Style Selector="^:mobile-open /template/ Border#PART_Container">
+      <Setter Property="RenderTransform" Value="translateX(0px)" />
+    </Style>
+    <Style Selector="^:mobile-open /template/ Border#PART_Mask">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarContent}" TargetType="c:SidebarContent">
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Spacing="8" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ScrollViewer Name="PART_ScrollViewer" Theme="{StaticResource CosmoScrollArea}" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </ScrollViewer>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarGroupLabel}" TargetType="c:SidebarGroupLabel">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Opacity" Value="0.7" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <ThicknessTransition Property="Margin" Duration="0:0:0.2" />
+        <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
+      </Transitions>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                          CornerRadius="{TemplateBinding CornerRadius}" TextBlock.LineHeight="16" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarMenu}" TargetType="c:SidebarMenu">
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Spacing="4" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.loose">
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <StackPanel Spacing="8" />
+        </ItemsPanelTemplate>
+      </Setter>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarMenuButton}" TargetType="c:SidebarMenuButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarForegroundBrush}" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="8,6" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Border" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" ClipToBounds="True">
+            <DockPanel>
+              <Viewbox Name="PART_Chevron" DockPanel.Dock="Right" Width="16" Height="16" Margin="8,0,0,0" IsVisible="False" VerticalAlignment="Center">
+                <Viewbox.Transitions>
+                  <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" />
+                  </Transitions>
+                </Viewbox.Transitions>
+                <Path Theme="{StaticResource CosmoIcon}" Stroke="{TemplateBinding Foreground}" Data="{StaticResource CosmoLucideSidebarChevronGeometry}" />
+              </Viewbox>
+              <Viewbox Name="PART_Minus" DockPanel.Dock="Right" Width="16" Height="16" Margin="8,0,0,0" IsVisible="False" VerticalAlignment="Center">
+                <Path Theme="{StaticResource CosmoIcon}" Stroke="{TemplateBinding Foreground}" Data="{StaticResource CosmoLucideMinusGeometry}" />
+              </Viewbox>
+              <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{TemplateBinding Foreground}" TextBlock.LineHeight="20"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </DockPanel>
+          </Border>
+          <Border Name="PART_Ring" Margin="-2" BorderThickness="2" CornerRadius="{DynamicResource CosmoRadiusLg}" BorderBrush="{DynamicResource CosmoSidebarRingBrush}" IsVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^:active">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarAccentForegroundBrush}" />
+      <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#PART_Ring">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.sm">
+      <Setter Property="Height" Value="28" />
+      <Setter Property="Padding" Value="8,6" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.lg">
+      <Setter Property="Height" Value="48" />
+      <Setter Property="Padding" Value="8" />
+    </Style>
+    <Style Selector="^.outline">
+      <Setter Property="Background" Value="{DynamicResource CosmoBackgroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoSidebarBorderBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="^.outline:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarMenuSub}" TargetType="c:SidebarMenuSub">
+    <Setter Property="Margin" Value="15,0,13,0" />
+    <Setter Property="Padding" Value="10,2" />
+    <Setter Property="BorderThickness" Value="1,0,0,0" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoSidebarBorderBrush}" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Spacing="4" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarMenuSubButton}" TargetType="c:SidebarMenuSubButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarForegroundBrush}" />
+    <Setter Property="Height" Value="28" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="Margin" Value="-1,0,1,0" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Name="PART_ContentPresenter" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}" TextBlock.LineHeight="20"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          <Border Name="PART_Ring" Margin="-2" BorderThickness="2" CornerRadius="{DynamicResource CosmoRadiusLg}" BorderBrush="{DynamicResource CosmoSidebarRingBrush}" IsVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^:active">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#PART_Ring">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.sm">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoSidebarGroupTrigger" TargetType="ToggleButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarForegroundBrush}" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Border" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+            <DockPanel>
+              <Viewbox Name="PART_Chevron" DockPanel.Dock="Right" Width="16" Height="16" Margin="8,0,0,0" VerticalAlignment="Center">
+                <Viewbox.Transitions>
+                  <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" />
+                  </Transitions>
+                </Viewbox.Transitions>
+                <Path Theme="{StaticResource CosmoIcon}" Stroke="{TemplateBinding Foreground}" Data="{StaticResource CosmoLucideSidebarChevronGeometry}" />
+              </Viewbox>
+              <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{TemplateBinding Foreground}" TextBlock.LineHeight="20" VerticalContentAlignment="Center" />
+            </DockPanel>
+          </Border>
+          <Border Name="PART_Ring" Margin="-2" BorderThickness="2" CornerRadius="{DynamicResource CosmoRadiusLg}" BorderBrush="{DynamicResource CosmoSidebarRingBrush}" IsVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^:checked /template/ Viewbox#PART_Chevron">
+      <Setter Property="RenderTransform" Value="rotate(90deg)" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#PART_Ring">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoSidebarGroup" TargetType="Expander">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Margin" Value="8" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel Background="{TemplateBinding Background}">
+          <ToggleButton Name="ExpanderHeader" Theme="{StaticResource CosmoSidebarGroupTrigger}" IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+                        Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" IsEnabled="{TemplateBinding IsEnabled}" />
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            IsVisible="{TemplateBinding IsExpanded}" />
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarMenuAction}" TargetType="c:SidebarMenuAction">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarForegroundBrush}" />
+    <Setter Property="Width" Value="20" />
+    <Setter Property="Height" Value="20" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Margin" Value="0,6,4,0" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"
+                          Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Foreground="{TemplateBinding Foreground}"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarAccentForegroundBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarMenuBadge}" TargetType="c:SidebarMenuBadge">
+    <Setter Property="Height" Value="20" />
+    <Setter Property="MinWidth" Value="20" />
+    <Setter Property="Padding" Value="4,0" />
+    <Setter Property="Margin" Value="0,6,4,0" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="FontFeatures" Value="+tnum" />
+    <Setter Property="IsHitTestVisible" Value="False" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarForegroundBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" Padding="{TemplateBinding Padding}" CornerRadius="{DynamicResource CosmoRadiusMd}"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextBlock.LineHeight="16" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarTrigger}" TargetType="c:SidebarTrigger">
+    <Setter Property="a:Web.Flips" Value="IsOpen" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="Width" Value="28" />
+    <Setter Property="Height" Value="28" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Border" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="Transparent" BorderThickness="1">
+          <Viewbox Width="16" Height="16">
+            <Path Theme="{StaticResource CosmoIcon}" Stroke="{TemplateBinding Foreground}" Data="{StaticResource CosmoLucidePanelLeftGeometry}" />
+          </Viewbox>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoButtonGhostHoverBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#PART_Border">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoFocusRingShadow}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarRail}" TargetType="c:SidebarRail">
+    <Setter Property="a:Web.Flips" Value="IsOpen" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Margin" Value="0,0,-8,0" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+    <Setter Property="Cursor" Value="SizeWestEast" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Background="{TemplateBinding Background}">
+          <Border Name="PART_Line" Width="2" HorizontalAlignment="Center" Background="Transparent" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover /template/ Border#PART_Line">
+      <Setter Property="Background" Value="{DynamicResource CosmoSidebarBorderBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarSeparator}" TargetType="c:SidebarSeparator">
+    <Setter Property="Background" Value="{DynamicResource CosmoSidebarBorderBrush}" />
+    <Setter Property="Height" Value="1" />
+    <Setter Property="Margin" Value="8,0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SidebarInset}" TargetType="c:SidebarInset">
+    <Setter Property="a:Web.Layout" Value="Fill" />
+    <Setter Property="Background" Value="{DynamicResource CosmoBackgroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Root" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:inset">
+      <Setter Property="Margin" Value="0,8,8,8" />
+      <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusXl}" />
+    </Style>
+    <Style Selector="^:inset /template/ Border#PART_Root">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowSm}" />
+    </Style>
+    <Style Selector="^:inset:collapsed">
+      <Setter Property="Margin" Value="8" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

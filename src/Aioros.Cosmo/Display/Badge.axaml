@@ -1,0 +1,131 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo">
+  <ControlTheme x:Key="{x:Type c:Badge}" TargetType="c:Badge">
+    <Setter Property="Background" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoPrimaryForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="9999" />
+    <Setter Property="Padding" Value="8,2" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}" ClipToBounds="True">
+          <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}" TextBlock.LineHeight="16"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.secondary">
+      <Setter Property="Background" Value="{DynamicResource CosmoSecondaryBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSecondaryForegroundBrush}" />
+    </Style>
+    <Style Selector="^.destructive">
+      <Setter Property="Background" Value="{DynamicResource CosmoBadgeDestructiveBrush}" />
+      <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style Selector="^.outline">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    </Style>
+    <Style Selector="^.ghost">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    </Style>
+    <Style Selector="^.link">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoPrimaryBrush}" />
+    </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="CosmoBadgeLink" TargetType="HyperlinkButton">
+    <Setter Property="Background" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoPrimaryForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="9999" />
+    <Setter Property="Padding" Value="8,2" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Foreground="{TemplateBinding Foreground}" TextBlock.LineHeight="16"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Property="Foreground" Duration="0:0:0.15" Easing="0.4,0,0.2,1" />
+          <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.15" Easing="0.4,0,0.2,1" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoButtonPrimaryHoverBrush}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoFocusRingShadow}" />
+    </Style>
+    <Style Selector="^.secondary">
+      <Setter Property="Background" Value="{DynamicResource CosmoSecondaryBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSecondaryForegroundBrush}" />
+    </Style>
+    <Style Selector="^.secondary:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoBadgeSecondaryHoverBrush}" />
+    </Style>
+    <Style Selector="^.destructive">
+      <Setter Property="Background" Value="{DynamicResource CosmoBadgeDestructiveBrush}" />
+      <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style Selector="^.destructive:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoBadgeDestructiveHoverBrush}" />
+    </Style>
+    <Style Selector="^.destructive:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoDestructiveFocusRingShadow}" />
+    </Style>
+    <Style Selector="^.outline">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    </Style>
+    <Style Selector="^.ghost">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    </Style>
+    <Style Selector="^.outline:pointerover, ^.ghost:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^.link">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoPrimaryBrush}" />
+    </Style>
+    <Style Selector="^.link:pointerover">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="^.link:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

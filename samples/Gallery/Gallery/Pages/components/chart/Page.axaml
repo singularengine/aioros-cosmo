@@ -1,0 +1,918 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor" x:DataType="m:ChartExamples"
+             a:Page.Title="Chart" a:Page.Description="Beautiful charts. Built using Aioros.Pictor. Copy and paste into your apps.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Chart" />
+      <TextBlock Classes="lead" Text="Beautiful charts. Built using Aioros.Pictor. Copy and paste into your apps." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: chart" />
+        <c:Badge Classes="secondary" Content="Aioros.Pictor: Recharts&#x27; charts in XAML" />
+        <c:Badge Classes="secondary" Content="Web: &lt;svg&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Area Chart" />
+      <TextBlock Classes="sm muted" Text="An area of one series with the line indicator in its tooltip." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Area Chart" Description="Showing total visitors for the last 6 months" />
+              <c:CardContent>
+                <p:AreaChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Months}" Aspect="1.7777777777777777" ResponsiveWidths="542" Padding="12,0,12,0">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="8" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Line" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Area DataKey="Desktop" Type="Natural" FillOpacity="0.4" IsAnimationActive="False" />
+                </p:AreaChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Area Chart&quot; Description=&quot;Showing total visitors for the last 6 months&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:AreaChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Months}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot; Padding=&quot;12,0,12,0&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent Indicator=&quot;Line&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Area DataKey=&quot;Desktop&quot; Type=&quot;Natural&quot; FillOpacity=&quot;0.4&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:AreaChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;January - June 2024&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Area Chart - Gradient" />
+      <TextBlock Classes="sm muted" Text="Stacked areas filled with gradients from the chart tokens (CosmoChart1TopColor to CosmoChart1BottomColor)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Area Chart - Gradient" Description="Showing total visitors for the last 6 months" />
+              <c:CardContent>
+                <p:AreaChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding MonthsByDevice}" Aspect="1.7777777777777777" ResponsiveWidths="542" Padding="12,0,12,0">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="8" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Area DataKey="Mobile" Type="Natural" FillOpacity="0.4" StackId="a" IsAnimationActive="False">
+                    <p:Area.Fill>
+                      <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                        <GradientStop Offset="0.05" Color="{DynamicResource CosmoChart2TopColor}" />
+                        <GradientStop Offset="0.95" Color="{DynamicResource CosmoChart2BottomColor}" />
+                      </LinearGradientBrush>
+                    </p:Area.Fill>
+                  </p:Area>
+                  <p:Area DataKey="Desktop" Type="Natural" FillOpacity="0.4" StackId="a" IsAnimationActive="False">
+                    <p:Area.Fill>
+                      <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                        <GradientStop Offset="0.05" Color="{DynamicResource CosmoChart1TopColor}" />
+                        <GradientStop Offset="0.95" Color="{DynamicResource CosmoChart1BottomColor}" />
+                      </LinearGradientBrush>
+                    </p:Area.Fill>
+                  </p:Area>
+                </p:AreaChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Area Chart - Gradient&quot; Description=&quot;Showing total visitors for the last 6 months&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:AreaChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding MonthsByDevice}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot; Padding=&quot;12,0,12,0&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Area DataKey=&quot;Mobile&quot; Type=&quot;Natural&quot; FillOpacity=&quot;0.4&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot;&gt;&#10;          &lt;p:Area.Fill&gt;&#10;            &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;0%,100%&quot;&gt;&#10;              &lt;GradientStop Offset=&quot;0.05&quot; Color=&quot;{DynamicResource CosmoChart2TopColor}&quot; /&gt;&#10;              &lt;GradientStop Offset=&quot;0.95&quot; Color=&quot;{DynamicResource CosmoChart2BottomColor}&quot; /&gt;&#10;            &lt;/LinearGradientBrush&gt;&#10;          &lt;/p:Area.Fill&gt;&#10;        &lt;/p:Area&gt;&#10;        &lt;p:Area DataKey=&quot;Desktop&quot; Type=&quot;Natural&quot; FillOpacity=&quot;0.4&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot;&gt;&#10;          &lt;p:Area.Fill&gt;&#10;            &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;0%,100%&quot;&gt;&#10;              &lt;GradientStop Offset=&quot;0.05&quot; Color=&quot;{DynamicResource CosmoChart1TopColor}&quot; /&gt;&#10;              &lt;GradientStop Offset=&quot;0.95&quot; Color=&quot;{DynamicResource CosmoChart1BottomColor}&quot; /&gt;&#10;            &lt;/LinearGradientBrush&gt;&#10;          &lt;/p:Area.Fill&gt;&#10;        &lt;/p:Area&gt;&#10;      &lt;/p:AreaChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;January - June 2024&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Area Chart - Stacked" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Area Chart - Stacked" Description="Showing total visitors for the last 6 months" />
+              <c:CardContent>
+                <p:AreaChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding MonthsByDevice}" Aspect="1.7777777777777777" ResponsiveWidths="542" Padding="12,0,12,0">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="8" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Dot" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Area DataKey="Mobile" Type="Natural" FillOpacity="0.4" StackId="a" IsAnimationActive="False" />
+                  <p:Area DataKey="Desktop" Type="Natural" FillOpacity="0.4" StackId="a" IsAnimationActive="False" />
+                </p:AreaChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Area Chart - Stacked&quot; Description=&quot;Showing total visitors for the last 6 months&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:AreaChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding MonthsByDevice}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot; Padding=&quot;12,0,12,0&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent Indicator=&quot;Dot&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Area DataKey=&quot;Mobile&quot; Type=&quot;Natural&quot; FillOpacity=&quot;0.4&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Area DataKey=&quot;Desktop&quot; Type=&quot;Natural&quot; FillOpacity=&quot;0.4&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:AreaChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;January - June 2024&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Area Chart - Interactive" />
+      <TextBlock Classes="sm muted" Text="The select chooses the time range; the chart&#x27;s Data binds to the model&#x27;s filtered days, and the legend is ChartLegendContent." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Interactive}" x:DataType="m:ChartInteractive">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card Padding="0,0,0,24">
+              <Border BorderBrush="{DynamicResource CosmoBorderBrush}" BorderThickness="0,0,0,1">
+                <c:CardHeader Padding="24,20" Title="Area Chart - Interactive" Description="Showing total visitors for the last 3 months">
+                  <c:CardHeader.Action>
+                    <ComboBox Width="160" SelectedIndex="{Binding TimeRange}"><ComboBoxItem Content="Last 3 months" /><ComboBoxItem Content="Last 30 days" /><ComboBoxItem Content="Last 7 days" /></ComboBox>
+                  </c:CardHeader.Action>
+                </c:CardHeader>
+              </Border>
+              <c:CardContent Padding="24,24,24,0">
+                <p:AreaChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Range}" Height="250" ResponsiveWidths="240 360 542 720">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Dot" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Area DataKey="Mobile" Type="Natural" StackId="a" IsAnimationActive="False">
+                    <p:Area.Fill>
+                      <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                        <GradientStop Offset="0.05" Color="{DynamicResource CosmoChart2TopColor}" />
+                        <GradientStop Offset="0.95" Color="{DynamicResource CosmoChart2BottomColor}" />
+                      </LinearGradientBrush>
+                    </p:Area.Fill>
+                  </p:Area>
+                  <p:Area DataKey="Desktop" Type="Natural" StackId="a" IsAnimationActive="False">
+                    <p:Area.Fill>
+                      <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                        <GradientStop Offset="0.05" Color="{DynamicResource CosmoChart1TopColor}" />
+                        <GradientStop Offset="0.95" Color="{DynamicResource CosmoChart1BottomColor}" />
+                      </LinearGradientBrush>
+                    </p:Area.Fill>
+                  </p:Area>
+                  <p:Legend><p:Legend.Template><c:ChartLegendContent /></p:Legend.Template><p:Legend.ContentTemplate><c:ChartLegendItem /></p:Legend.ContentTemplate></p:Legend>
+                </p:AreaChart>
+              </c:CardContent>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Interactive}&quot; x:DataType=&quot;m:ChartInteractive&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Visitors&quot; Label=&quot;Visitors&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card Padding=&quot;0,0,0,24&quot;&gt;&#10;    &lt;Border BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; BorderThickness=&quot;0,0,0,1&quot;&gt;&#10;      &lt;c:CardHeader Padding=&quot;24,20&quot; Title=&quot;Area Chart - Interactive&quot; Description=&quot;Showing total visitors for the last 3 months&quot;&gt;&#10;        &lt;c:CardHeader.Action&gt;&#10;          &lt;ComboBox Width=&quot;160&quot; SelectedIndex=&quot;{Binding TimeRange}&quot;&gt;&lt;ComboBoxItem Content=&quot;Last 3 months&quot; /&gt;&lt;ComboBoxItem Content=&quot;Last 30 days&quot; /&gt;&lt;ComboBoxItem Content=&quot;Last 7 days&quot; /&gt;&lt;/ComboBox&gt;&#10;        &lt;/c:CardHeader.Action&gt;&#10;      &lt;/c:CardHeader&gt;&#10;    &lt;/Border&gt;&#10;    &lt;c:CardContent Padding=&quot;24,24,24,0&quot;&gt;&#10;      &lt;p:AreaChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Range}&quot; Height=&quot;250&quot; ResponsiveWidths=&quot;240 360 542 720&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Date&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; MinTickGap=&quot;32&quot; TickFormat=&quot;{}{0:MMM d}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMM d}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent Indicator=&quot;Dot&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Area DataKey=&quot;Mobile&quot; Type=&quot;Natural&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot;&gt;&#10;          &lt;p:Area.Fill&gt;&#10;            &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;0%,100%&quot;&gt;&#10;              &lt;GradientStop Offset=&quot;0.05&quot; Color=&quot;{DynamicResource CosmoChart2TopColor}&quot; /&gt;&#10;              &lt;GradientStop Offset=&quot;0.95&quot; Color=&quot;{DynamicResource CosmoChart2BottomColor}&quot; /&gt;&#10;            &lt;/LinearGradientBrush&gt;&#10;          &lt;/p:Area.Fill&gt;&#10;        &lt;/p:Area&gt;&#10;        &lt;p:Area DataKey=&quot;Desktop&quot; Type=&quot;Natural&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot;&gt;&#10;          &lt;p:Area.Fill&gt;&#10;            &lt;LinearGradientBrush StartPoint=&quot;0%,0%&quot; EndPoint=&quot;0%,100%&quot;&gt;&#10;              &lt;GradientStop Offset=&quot;0.05&quot; Color=&quot;{DynamicResource CosmoChart1TopColor}&quot; /&gt;&#10;              &lt;GradientStop Offset=&quot;0.95&quot; Color=&quot;{DynamicResource CosmoChart1BottomColor}&quot; /&gt;&#10;            &lt;/LinearGradientBrush&gt;&#10;          &lt;/p:Area.Fill&gt;&#10;        &lt;/p:Area&gt;&#10;        &lt;p:Legend&gt;&lt;p:Legend.Template&gt;&lt;c:ChartLegendContent /&gt;&lt;/p:Legend.Template&gt;&lt;p:Legend.ContentTemplate&gt;&lt;c:ChartLegendItem /&gt;&lt;/p:Legend.ContentTemplate&gt;&lt;/p:Legend&gt;&#10;      &lt;/p:AreaChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Bar Chart" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Bar Chart" Description="January - June 2024" />
+              <c:CardContent>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Months}" Aspect="1.7777777777777777" ResponsiveWidths="542">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="10" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Bar DataKey="Desktop" Radius="8" IsAnimationActive="False" />
+                </p:BarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Top" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Top"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Bar Chart&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Months}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;10&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Bar DataKey=&quot;Desktop&quot; Radius=&quot;8&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:BarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Top&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Top&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Bar Chart - Multiple" />
+      <TextBlock Classes="sm muted" Text="The dashed indicator." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Bar Chart - Multiple" Description="January - June 2024" />
+              <c:CardContent>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding MonthsByDevice}" Aspect="1.7777777777777777" ResponsiveWidths="542">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="10" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Dashed" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Bar DataKey="Desktop" Radius="4" IsAnimationActive="False" />
+                  <p:Bar DataKey="Mobile" Radius="4" IsAnimationActive="False" />
+                </p:BarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Top" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Top"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Bar Chart - Multiple&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding MonthsByDevice}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;10&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent Indicator=&quot;Dashed&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Bar DataKey=&quot;Desktop&quot; Radius=&quot;4&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Bar DataKey=&quot;Mobile&quot; Radius=&quot;4&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:BarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Top&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Top&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Bar Chart - Horizontal" />
+      <TextBlock Classes="sm muted" Text="Layout=Vertical with a hidden number axis." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Bar Chart - Horizontal" Description="January - June 2024" />
+              <c:CardContent>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Months}" Aspect="1.7777777777777777" ResponsiveWidths="542" Layout="Vertical" Padding="-20,0,0,0">
+
+                  <p:XAxis Type="Number" DataKey="Desktop" Hide="True" />
+                  <p:YAxis DataKey="Month" Type="Category" TickLine="False" TickMargin="10" AxisLine="False" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Bar DataKey="Desktop" Radius="5" IsAnimationActive="False" />
+                </p:BarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Top" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Top"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Bar Chart - Horizontal&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Months}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot; Layout=&quot;Vertical&quot; Padding=&quot;-20,0,0,0&quot;&gt;&#10;&#10;        &lt;p:XAxis Type=&quot;Number&quot; DataKey=&quot;Desktop&quot; Hide=&quot;True&quot; /&gt;&#10;        &lt;p:YAxis DataKey=&quot;Month&quot; Type=&quot;Category&quot; TickLine=&quot;False&quot; TickMargin=&quot;10&quot; AxisLine=&quot;False&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Bar DataKey=&quot;Desktop&quot; Radius=&quot;5&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:BarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Top&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Top&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Bar Chart - Label" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Bar Chart - Label" Description="January - June 2024" />
+              <c:CardContent>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Months}" Aspect="1.7777777777777777" ResponsiveWidths="542" Padding="0,20,0,0">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="10" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Bar DataKey="Desktop" Radius="8" IsAnimationActive="False"><p:LabelList Position="Top" Offset="12" Fill="{DynamicResource CosmoChartForeground}" FontSize="12" /></p:Bar>
+                </p:BarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Top" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Top"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Bar Chart - Label&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Months}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot; Padding=&quot;0,20,0,0&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;10&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Bar DataKey=&quot;Desktop&quot; Radius=&quot;8&quot; IsAnimationActive=&quot;False&quot;&gt;&lt;p:LabelList Position=&quot;Top&quot; Offset=&quot;12&quot; Fill=&quot;{DynamicResource CosmoChartForeground}&quot; FontSize=&quot;12&quot; /&gt;&lt;/p:Bar&gt;&#10;      &lt;/p:BarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Top&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Top&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Bar Chart - Interactive" />
+      <TextBlock Classes="sm muted" Text="The header&#x27;s toggles are a ListBox with the chart-toggles class; each choice shows its series&#x27; chart." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Interactive}" x:DataType="m:ChartInteractive">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette2" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+            <c:Card Padding="0">
+              <Border BorderBrush="{DynamicResource CosmoBorderBrush}" BorderThickness="0,0,0,1">
+                <Grid ColumnDefinitions="*,Auto">
+                  <c:CardHeader Title="Bar Chart - Interactive" Description="Showing total visitors for the last 3 months" VerticalAlignment="Center" />
+                  <ListBox Grid.Column="1" Classes="chart-toggles" SelectedIndex="{Binding ActiveChart}">
+                    <ListBoxItem>
+                      <StackPanel Spacing="4">
+                        <TextBlock Text="Desktop" FontSize="12" LineHeight="16" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                        <TextBlock Text="{Binding DesktopTotal}" FontSize="30" LineHeight="30" FontWeight="Bold" />
+                      </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                      <StackPanel Spacing="4">
+                        <TextBlock Text="Mobile" FontSize="12" LineHeight="16" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                        <TextBlock Text="{Binding MobileTotal}" FontSize="30" LineHeight="30" FontWeight="Bold" />
+                      </StackPanel>
+                    </ListBoxItem>
+                  </ListBox>
+                </Grid>
+              </Border>
+              <c:CardContent Padding="24">
+                <Panel>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Daily}" Height="250" ResponsiveWidths="360 542 720" Padding="12,0,12,0" IsVisible="{Binding DesktopShown}">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d, yyyy}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Bar DataKey="Desktop" Name="Page Views" IsAnimationActive="False" />
+                </p:BarChart>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Daily}" Height="250" ResponsiveWidths="360 542 720" Padding="12,0,12,0" IsVisible="{Binding MobileShown}">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d, yyyy}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Bar DataKey="Mobile" Name="Page Views" IsAnimationActive="False" />
+                </p:BarChart>
+                </Panel>
+              </c:CardContent>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Interactive}&quot; x:DataType=&quot;m:ChartInteractive&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card Padding=&quot;0&quot;&gt;&#10;    &lt;Border BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; BorderThickness=&quot;0,0,0,1&quot;&gt;&#10;      &lt;Grid ColumnDefinitions=&quot;*,Auto&quot;&gt;&#10;        &lt;c:CardHeader Title=&quot;Bar Chart - Interactive&quot; Description=&quot;Showing total visitors for the last 3 months&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;ListBox Grid.Column=&quot;1&quot; Classes=&quot;chart-toggles&quot; SelectedIndex=&quot;{Binding ActiveChart}&quot;&gt;&#10;          &lt;ListBoxItem&gt;&#10;            &lt;StackPanel Spacing=&quot;4&quot;&gt;&#10;              &lt;TextBlock Text=&quot;Desktop&quot; FontSize=&quot;12&quot; LineHeight=&quot;16&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;              &lt;TextBlock Text=&quot;{Binding DesktopTotal}&quot; FontSize=&quot;30&quot; LineHeight=&quot;30&quot; FontWeight=&quot;Bold&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/ListBoxItem&gt;&#10;          &lt;ListBoxItem&gt;&#10;            &lt;StackPanel Spacing=&quot;4&quot;&gt;&#10;              &lt;TextBlock Text=&quot;Mobile&quot; FontSize=&quot;12&quot; LineHeight=&quot;16&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;              &lt;TextBlock Text=&quot;{Binding MobileTotal}&quot; FontSize=&quot;30&quot; LineHeight=&quot;30&quot; FontWeight=&quot;Bold&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/ListBoxItem&gt;&#10;        &lt;/ListBox&gt;&#10;      &lt;/Grid&gt;&#10;    &lt;/Border&gt;&#10;    &lt;c:CardContent Padding=&quot;24&quot;&gt;&#10;      &lt;Panel&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Daily}&quot; Height=&quot;250&quot; ResponsiveWidths=&quot;360 542 720&quot; Padding=&quot;12,0,12,0&quot; IsVisible=&quot;{Binding DesktopShown}&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Date&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; MinTickGap=&quot;32&quot; TickFormat=&quot;{}{0:MMM d}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMM d, yyyy}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Bar DataKey=&quot;Desktop&quot; Name=&quot;Page Views&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:BarChart&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Daily}&quot; Height=&quot;250&quot; ResponsiveWidths=&quot;360 542 720&quot; Padding=&quot;12,0,12,0&quot; IsVisible=&quot;{Binding MobileShown}&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Date&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; MinTickGap=&quot;32&quot; TickFormat=&quot;{}{0:MMM d}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMM d, yyyy}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Bar DataKey=&quot;Mobile&quot; Name=&quot;Page Views&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:BarChart&gt;&#10;      &lt;/Panel&gt;&#10;    &lt;/c:CardContent&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Line Chart" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Line Chart" Description="January - June 2024" />
+              <c:CardContent>
+                <p:LineChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Months}" Aspect="1.7777777777777777" ResponsiveWidths="542" Padding="12,0,12,0">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="8" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Line DataKey="Desktop" Type="Natural" StrokeWidth="2" Dot="False" IsAnimationActive="False" />
+                </p:LineChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Top" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Top"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Line Chart&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:LineChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Months}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot; Padding=&quot;12,0,12,0&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Line DataKey=&quot;Desktop&quot; Type=&quot;Natural&quot; StrokeWidth=&quot;2&quot; Dot=&quot;False&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:LineChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Top&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Top&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Line Chart - Multiple" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Line Chart - Multiple" Description="Showing total visitors for the last 6 months" />
+              <c:CardContent>
+                <p:LineChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding MonthsByDevice}" Aspect="1.7777777777777777" ResponsiveWidths="542" Padding="12,0,12,0">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="8" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Line DataKey="Desktop" Type="Monotone" StrokeWidth="2" Dot="False" IsAnimationActive="False" />
+                  <p:Line DataKey="Mobile" Type="Monotone" StrokeWidth="2" Dot="False" IsAnimationActive="False" />
+                </p:LineChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Line Chart - Multiple&quot; Description=&quot;Showing total visitors for the last 6 months&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:LineChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding MonthsByDevice}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot; Padding=&quot;12,0,12,0&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Line DataKey=&quot;Desktop&quot; Type=&quot;Monotone&quot; StrokeWidth=&quot;2&quot; Dot=&quot;False&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Line DataKey=&quot;Mobile&quot; Type=&quot;Monotone&quot; StrokeWidth=&quot;2&quot; Dot=&quot;False&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:LineChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;January - June 2024&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Line Chart - Dots" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Line Chart - Dots" Description="January - June 2024" />
+              <c:CardContent>
+                <p:LineChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding MonthsByDevice}" Aspect="1.7777777777777777" ResponsiveWidths="542" Padding="12,0,12,0">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="8" TickFormat="{}{0:MMM}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Line DataKey="Desktop" Type="Natural" StrokeWidth="2" DotFill="{DynamicResource PictorPalette1}" ActiveDot="6" IsAnimationActive="False" />
+                </p:LineChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Top" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Top"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Line Chart - Dots&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:LineChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding MonthsByDevice}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot; Padding=&quot;12,0,12,0&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; TickFormat=&quot;{}{0:MMM}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Line DataKey=&quot;Desktop&quot; Type=&quot;Natural&quot; StrokeWidth=&quot;2&quot; DotFill=&quot;{DynamicResource PictorPalette1}&quot; ActiveDot=&quot;6&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:LineChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Top&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Top&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Line Chart - Interactive" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Interactive}" x:DataType="m:ChartInteractive">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card Padding="0">
+              <Border BorderBrush="{DynamicResource CosmoBorderBrush}" BorderThickness="0,0,0,1">
+                <Grid ColumnDefinitions="*,Auto">
+                  <c:CardHeader Title="Line Chart - Interactive" Description="Showing total visitors for the last 3 months" VerticalAlignment="Center" />
+                  <ListBox Grid.Column="1" Classes="chart-toggles" SelectedIndex="{Binding ActiveChart}">
+                    <ListBoxItem>
+                      <StackPanel Spacing="4">
+                        <TextBlock Text="Desktop" FontSize="12" LineHeight="16" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                        <TextBlock Text="{Binding DesktopTotal}" FontSize="30" LineHeight="30" FontWeight="Bold" />
+                      </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                      <StackPanel Spacing="4">
+                        <TextBlock Text="Mobile" FontSize="12" LineHeight="16" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                        <TextBlock Text="{Binding MobileTotal}" FontSize="30" LineHeight="30" FontWeight="Bold" />
+                      </StackPanel>
+                    </ListBoxItem>
+                  </ListBox>
+                </Grid>
+              </Border>
+              <c:CardContent Padding="24">
+                <Panel>
+                <p:LineChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Daily}" Height="250" ResponsiveWidths="360 542 720" Padding="12,0,12,0" IsVisible="{Binding DesktopShown}">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d, yyyy}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Line DataKey="Desktop" Name="Page Views" Type="Monotone" StrokeWidth="2" Dot="False" IsAnimationActive="False" />
+                </p:LineChart>
+                <p:LineChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Daily}" Height="250" ResponsiveWidths="360 542 720" Padding="12,0,12,0" IsVisible="{Binding MobileShown}">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d, yyyy}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Line DataKey="Mobile" Name="Page Views" Type="Monotone" StrokeWidth="2" Dot="False" IsAnimationActive="False" />
+                </p:LineChart>
+                </Panel>
+              </c:CardContent>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Interactive}&quot; x:DataType=&quot;m:ChartInteractive&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card Padding=&quot;0&quot;&gt;&#10;    &lt;Border BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; BorderThickness=&quot;0,0,0,1&quot;&gt;&#10;      &lt;Grid ColumnDefinitions=&quot;*,Auto&quot;&gt;&#10;        &lt;c:CardHeader Title=&quot;Line Chart - Interactive&quot; Description=&quot;Showing total visitors for the last 3 months&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;ListBox Grid.Column=&quot;1&quot; Classes=&quot;chart-toggles&quot; SelectedIndex=&quot;{Binding ActiveChart}&quot;&gt;&#10;          &lt;ListBoxItem&gt;&#10;            &lt;StackPanel Spacing=&quot;4&quot;&gt;&#10;              &lt;TextBlock Text=&quot;Desktop&quot; FontSize=&quot;12&quot; LineHeight=&quot;16&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;              &lt;TextBlock Text=&quot;{Binding DesktopTotal}&quot; FontSize=&quot;30&quot; LineHeight=&quot;30&quot; FontWeight=&quot;Bold&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/ListBoxItem&gt;&#10;          &lt;ListBoxItem&gt;&#10;            &lt;StackPanel Spacing=&quot;4&quot;&gt;&#10;              &lt;TextBlock Text=&quot;Mobile&quot; FontSize=&quot;12&quot; LineHeight=&quot;16&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;              &lt;TextBlock Text=&quot;{Binding MobileTotal}&quot; FontSize=&quot;30&quot; LineHeight=&quot;30&quot; FontWeight=&quot;Bold&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/ListBoxItem&gt;&#10;        &lt;/ListBox&gt;&#10;      &lt;/Grid&gt;&#10;    &lt;/Border&gt;&#10;    &lt;c:CardContent Padding=&quot;24&quot;&gt;&#10;      &lt;Panel&gt;&#10;      &lt;p:LineChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Daily}&quot; Height=&quot;250&quot; ResponsiveWidths=&quot;360 542 720&quot; Padding=&quot;12,0,12,0&quot; IsVisible=&quot;{Binding DesktopShown}&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Date&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; MinTickGap=&quot;32&quot; TickFormat=&quot;{}{0:MMM d}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMM d, yyyy}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Line DataKey=&quot;Desktop&quot; Name=&quot;Page Views&quot; Type=&quot;Monotone&quot; StrokeWidth=&quot;2&quot; Dot=&quot;False&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:LineChart&gt;&#10;      &lt;p:LineChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Daily}&quot; Height=&quot;250&quot; ResponsiveWidths=&quot;360 542 720&quot; Padding=&quot;12,0,12,0&quot; IsVisible=&quot;{Binding MobileShown}&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Date&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;8&quot; MinTickGap=&quot;32&quot; TickFormat=&quot;{}{0:MMM d}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMM d, yyyy}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Line DataKey=&quot;Mobile&quot; Name=&quot;Page Views&quot; Type=&quot;Monotone&quot; StrokeWidth=&quot;2&quot; Dot=&quot;False&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:LineChart&gt;&#10;      &lt;/Panel&gt;&#10;    &lt;/c:CardContent&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Pie Chart" />
+      <TextBlock Classes="sm muted" Text="Each slice&#x27;s color is a Cell of the palette." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Pie Chart" Description="January - June 2024" />
+              <c:CardContent>
+                <p:PieChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Browsers}" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:Tooltip Cursor="False"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Pie Data="{Binding Browsers}" DataKey="Visitors" NameKey="Label" IsAnimationActive="False"><p:Cell Fill="{DynamicResource PictorPalette1}" /><p:Cell Fill="{DynamicResource PictorPalette2}" /><p:Cell Fill="{DynamicResource PictorPalette3}" /><p:Cell Fill="{DynamicResource PictorPalette4}" /><p:Cell Fill="{DynamicResource PictorPalette5}" /></p:Pie>
+                </p:PieChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Visitors&quot; Label=&quot;Visitors&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Pie Chart&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:PieChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Browsers}&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Pie Data=&quot;{Binding Browsers}&quot; DataKey=&quot;Visitors&quot; NameKey=&quot;Label&quot; IsAnimationActive=&quot;False&quot;&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette1}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette2}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette3}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette4}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette5}&quot; /&gt;&lt;/p:Pie&gt;&#10;      &lt;/p:PieChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Pie Chart - Donut" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Pie Chart - Donut" Description="January - June 2024" />
+              <c:CardContent>
+                <p:PieChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Browsers}" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:Tooltip Cursor="False"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Pie Data="{Binding Browsers}" DataKey="Visitors" NameKey="Label" InnerRadius="60" IsAnimationActive="False"><p:Cell Fill="{DynamicResource PictorPalette1}" /><p:Cell Fill="{DynamicResource PictorPalette2}" /><p:Cell Fill="{DynamicResource PictorPalette3}" /><p:Cell Fill="{DynamicResource PictorPalette4}" /><p:Cell Fill="{DynamicResource PictorPalette5}" /></p:Pie>
+                </p:PieChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Visitors&quot; Label=&quot;Visitors&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Pie Chart - Donut&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:PieChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Browsers}&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Pie Data=&quot;{Binding Browsers}&quot; DataKey=&quot;Visitors&quot; NameKey=&quot;Label&quot; InnerRadius=&quot;60&quot; IsAnimationActive=&quot;False&quot;&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette1}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette2}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette3}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette4}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette5}&quot; /&gt;&lt;/p:Pie&gt;&#10;      &lt;/p:PieChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Pie Chart - Donut with Text" />
+      <TextBlock Classes="sm muted" Text="The center text is a Label&#x27;s ContentTemplate." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Pie Chart - Donut with Text" Description="January - June 2024" />
+              <c:CardContent>
+                <p:PieChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding BrowsersDonut}" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:Tooltip Cursor="False"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Pie Data="{Binding BrowsersDonut}" DataKey="Visitors" NameKey="Label" InnerRadius="60" IsAnimationActive="False"><p:Cell Fill="{DynamicResource PictorPalette1}" /><p:Cell Fill="{DynamicResource PictorPalette2}" /><p:Cell Fill="{DynamicResource PictorPalette3}" /><p:Cell Fill="{DynamicResource PictorPalette4}" /><p:Cell Fill="{DynamicResource PictorPalette5}" /><p:Label Position="Center"><p:Label.ContentTemplate><DataTemplate x:DataType="p:LabelContext"><Canvas><p:SvgText X="{Binding Converter={p:Calc 'Cx'}}" Y="{Binding Converter={p:Calc 'Cy + 0'}}" TextAnchor="Middle" Dy="10.5" FontSize="30" FontWeight="Bold" Fill="{DynamicResource CosmoForegroundBrush}" Content="1,125" /><p:SvgText X="{Binding Converter={p:Calc 'Cx'}}" Y="{Binding Converter={p:Calc 'Cy + 24'}}" TextAnchor="Middle" Dy="4.2" FontSize="12" FontWeight="Normal" Fill="{DynamicResource CosmoMutedForegroundBrush}" Content="Visitors" /></Canvas></DataTemplate></p:Label.ContentTemplate></p:Label></p:Pie>
+                </p:PieChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Visitors&quot; Label=&quot;Visitors&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Pie Chart - Donut with Text&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:PieChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding BrowsersDonut}&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Pie Data=&quot;{Binding BrowsersDonut}&quot; DataKey=&quot;Visitors&quot; NameKey=&quot;Label&quot; InnerRadius=&quot;60&quot; IsAnimationActive=&quot;False&quot;&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette1}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette2}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette3}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette4}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette5}&quot; /&gt;&lt;p:Label Position=&quot;Center&quot;&gt;&lt;p:Label.ContentTemplate&gt;&lt;DataTemplate x:DataType=&quot;p:LabelContext&quot;&gt;&lt;Canvas&gt;&lt;p:SvgText X=&quot;{Binding Converter={p:Calc &#x27;Cx&#x27;}}&quot; Y=&quot;{Binding Converter={p:Calc &#x27;Cy + 0&#x27;}}&quot; TextAnchor=&quot;Middle&quot; Dy=&quot;10.5&quot; FontSize=&quot;30&quot; FontWeight=&quot;Bold&quot; Fill=&quot;{DynamicResource CosmoForegroundBrush}&quot; Content=&quot;1,125&quot; /&gt;&lt;p:SvgText X=&quot;{Binding Converter={p:Calc &#x27;Cx&#x27;}}&quot; Y=&quot;{Binding Converter={p:Calc &#x27;Cy + 24&#x27;}}&quot; TextAnchor=&quot;Middle&quot; Dy=&quot;4.2&quot; FontSize=&quot;12&quot; FontWeight=&quot;Normal&quot; Fill=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Content=&quot;Visitors&quot; /&gt;&lt;/Canvas&gt;&lt;/DataTemplate&gt;&lt;/p:Label.ContentTemplate&gt;&lt;/p:Label&gt;&lt;/p:Pie&gt;&#10;      &lt;/p:PieChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Pie Chart - Legend" />
+      <TextBlock Classes="sm muted" Text="ChartLegendContent with Spacing 8 and ItemBasis 0.25 (shadcn&#x27;s gap-2 *:basis-1/4)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Pie Chart - Legend" Description="January - June 2024" />
+              <c:CardContent>
+                <p:PieChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Browsers}" Width="300" Height="300" HorizontalAlignment="Center">
+                  <p:Pie Data="{Binding Browsers}" DataKey="Visitors" NameKey="Label" IsAnimationActive="False"><p:Cell Fill="{DynamicResource PictorPalette1}" /><p:Cell Fill="{DynamicResource PictorPalette2}" /><p:Cell Fill="{DynamicResource PictorPalette3}" /><p:Cell Fill="{DynamicResource PictorPalette4}" /><p:Cell Fill="{DynamicResource PictorPalette5}" /></p:Pie>
+                  <p:Legend><p:Legend.Template><c:ChartLegendContent Spacing="8" ItemBasis="0.25" /></p:Legend.Template><p:Legend.ContentTemplate><c:ChartLegendItem /></p:Legend.ContentTemplate></p:Legend>
+                </p:PieChart>
+              </c:CardContent>
+
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Visitors&quot; Label=&quot;Visitors&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Pie Chart - Legend&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:PieChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Browsers}&quot; Width=&quot;300&quot; Height=&quot;300&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Pie Data=&quot;{Binding Browsers}&quot; DataKey=&quot;Visitors&quot; NameKey=&quot;Label&quot; IsAnimationActive=&quot;False&quot;&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette1}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette2}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette3}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette4}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette5}&quot; /&gt;&lt;/p:Pie&gt;&#10;        &lt;p:Legend&gt;&lt;p:Legend.Template&gt;&lt;c:ChartLegendContent Spacing=&quot;8&quot; ItemBasis=&quot;0.25&quot; /&gt;&lt;/p:Legend.Template&gt;&lt;p:Legend.ContentTemplate&gt;&lt;c:ChartLegendItem /&gt;&lt;/p:Legend.ContentTemplate&gt;&lt;/p:Legend&gt;&#10;      &lt;/p:PieChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Pie Chart - Default Legend" />
+      <TextBlock Classes="sm muted" Text="A plain p:Legend under CosmoChartsTheme is ChartLegendContent; give it a Template, or set Template and ContentTemplate to {x:Null} for Pictor&#x27;s default." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <c:Card>
+              <c:CardHeader Title="Pie Chart - Default Legend" Description="January - June 2024" />
+              <c:CardContent>
+                <p:PieChart Data="{Binding Browsers}" Width="300" Height="300" HorizontalAlignment="Center">
+                  <p:Pie Data="{Binding Browsers}" DataKey="Visitors" NameKey="Label" IsAnimationActive="False"><p:Cell Fill="{DynamicResource PictorPalette1}" /><p:Cell Fill="{DynamicResource PictorPalette2}" /><p:Cell Fill="{DynamicResource PictorPalette3}" /><p:Cell Fill="{DynamicResource PictorPalette4}" /><p:Cell Fill="{DynamicResource PictorPalette5}" /></p:Pie>
+                  <p:Legend />
+                </p:PieChart>
+              </c:CardContent>
+
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Pie Chart - Default Legend&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:PieChart Data=&quot;{Binding Browsers}&quot; Width=&quot;300&quot; Height=&quot;300&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Pie Data=&quot;{Binding Browsers}&quot; DataKey=&quot;Visitors&quot; NameKey=&quot;Label&quot; IsAnimationActive=&quot;False&quot;&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette1}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette2}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette3}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette4}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette5}&quot; /&gt;&lt;/p:Pie&gt;&#10;        &lt;p:Legend /&gt;&#10;      &lt;/p:PieChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Radar Chart" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Radar Chart" Description="Showing total visitors for the last 6 months" Padding="24,0,24,16" />
+              <c:CardContent>
+                <p:RadarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding RadarMonths}" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:PolarAngleAxis DataKey="Month" TickFormat="{}{0:MMMM}" />
+                  <p:PolarGrid />
+                  <p:Radar DataKey="Desktop" FillOpacity="0.6" IsAnimationActive="False" />
+                </p:RadarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Radar Chart&quot; Description=&quot;Showing total visitors for the last 6 months&quot; Padding=&quot;24,0,24,16&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:RadarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding RadarMonths}&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:PolarAngleAxis DataKey=&quot;Month&quot; TickFormat=&quot;{}{0:MMMM}&quot; /&gt;&#10;        &lt;p:PolarGrid /&gt;&#10;        &lt;p:Radar DataKey=&quot;Desktop&quot; FillOpacity=&quot;0.6&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:RadarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;January - June 2024&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Radar Chart - Dots" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Radar Chart - Dots" Description="Showing total visitors for the last 6 months" />
+              <c:CardContent>
+                <p:RadarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding RadarMonths}" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:PolarAngleAxis DataKey="Month" TickFormat="{}{0:MMMM}" />
+                  <p:PolarGrid />
+                  <p:Radar DataKey="Desktop" FillOpacity="0.6" Dot="True" DotRadius="4" DotFillOpacity="1" IsAnimationActive="False" />
+                </p:RadarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Radar Chart - Dots&quot; Description=&quot;Showing total visitors for the last 6 months&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:RadarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding RadarMonths}&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:PolarAngleAxis DataKey=&quot;Month&quot; TickFormat=&quot;{}{0:MMMM}&quot; /&gt;&#10;        &lt;p:PolarGrid /&gt;&#10;        &lt;p:Radar DataKey=&quot;Desktop&quot; FillOpacity=&quot;0.6&quot; Dot=&quot;True&quot; DotRadius=&quot;4&quot; DotFillOpacity=&quot;1&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:RadarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;January - June 2024&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Radar Chart - Multiple" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Radar Chart - Multiple" Description="Showing total visitors for the last 6 months" Padding="24,0,24,16" />
+              <c:CardContent>
+                <p:RadarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding MonthsByDevice}" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Line" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:PolarAngleAxis DataKey="Month" TickFormat="{}{0:MMMM}" />
+                  <p:PolarGrid />
+                  <p:Radar DataKey="Desktop" FillOpacity="0.6" IsAnimationActive="False" />
+                  <p:Radar DataKey="Mobile" IsAnimationActive="False" />
+                </p:RadarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Radar Chart - Multiple&quot; Description=&quot;Showing total visitors for the last 6 months&quot; Padding=&quot;24,0,24,16&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:RadarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding MonthsByDevice}&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; LabelFormat=&quot;{}{0:MMMM}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent Indicator=&quot;Line&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:PolarAngleAxis DataKey=&quot;Month&quot; TickFormat=&quot;{}{0:MMMM}&quot; /&gt;&#10;        &lt;p:PolarGrid /&gt;&#10;        &lt;p:Radar DataKey=&quot;Desktop&quot; FillOpacity=&quot;0.6&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Radar DataKey=&quot;Mobile&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:RadarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;January - June 2024&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Radial Chart" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Radial Chart" Description="January - June 2024" />
+              <c:CardContent>
+                <p:RadialBarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Browsers}" InnerRadius="30" OuterRadius="110" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:Tooltip Cursor="False"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:RadialBar DataKey="Visitors" NameKey="Label" Background="{DynamicResource PictorBarBackground}" IsAnimationActive="False"><p:Cell Fill="{DynamicResource PictorPalette1}" /><p:Cell Fill="{DynamicResource PictorPalette2}" /><p:Cell Fill="{DynamicResource PictorPalette3}" /><p:Cell Fill="{DynamicResource PictorPalette4}" /><p:Cell Fill="{DynamicResource PictorPalette5}" /></p:RadialBar>
+                </p:RadialBarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Visitors&quot; Label=&quot;Visitors&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Radial Chart&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:RadialBarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Browsers}&quot; InnerRadius=&quot;30&quot; OuterRadius=&quot;110&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:RadialBar DataKey=&quot;Visitors&quot; NameKey=&quot;Label&quot; Background=&quot;{DynamicResource PictorBarBackground}&quot; IsAnimationActive=&quot;False&quot;&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette1}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette2}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette3}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette4}&quot; /&gt;&lt;p:Cell Fill=&quot;{DynamicResource PictorPalette5}&quot; /&gt;&lt;/p:RadialBar&gt;&#10;      &lt;/p:RadialBarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Radial Chart - Text" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Radial Chart - Text" Description="January - June 2024" />
+              <c:CardContent>
+                <p:RadialBarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Safari}" StartAngle="0" EndAngle="250" InnerRadius="80" OuterRadius="90" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:PolarGrid GridType="circle" RadialLines="False" Stroke="none" PolarRadius="90, 80" />
+                  <p:RadialBar DataKey="Visitors" Background="{DynamicResource PictorBarBackground}" CornerRadius="10" Fill="{DynamicResource PictorPalette2}" IsAnimationActive="False" />
+                  <p:PolarRadiusAxis Tick="False" AxisLine="False">
+                    <p:Label Position="Center"><p:Label.ContentTemplate><DataTemplate x:DataType="p:LabelContext"><Canvas><p:SvgText X="{Binding Converter={p:Calc 'Cx'}}" Y="{Binding Converter={p:Calc 'Cy + 0'}}" TextAnchor="Middle" Dy="12.6" FontSize="36" FontWeight="Bold" Fill="{DynamicResource CosmoForegroundBrush}" Content="200" /><p:SvgText X="{Binding Converter={p:Calc 'Cx'}}" Y="{Binding Converter={p:Calc 'Cy + 24'}}" TextAnchor="Middle" Dy="4.2" FontSize="12" FontWeight="Normal" Fill="{DynamicResource CosmoMutedForegroundBrush}" Content="Visitors" /></Canvas></DataTemplate></p:Label.ContentTemplate></p:Label>
+                  </p:PolarRadiusAxis>
+                </p:RadialBarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Visitors&quot; Label=&quot;Visitors&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Radial Chart - Text&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:RadialBarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Safari}&quot; StartAngle=&quot;0&quot; EndAngle=&quot;250&quot; InnerRadius=&quot;80&quot; OuterRadius=&quot;90&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:PolarGrid GridType=&quot;circle&quot; RadialLines=&quot;False&quot; Stroke=&quot;none&quot; PolarRadius=&quot;90, 80&quot; /&gt;&#10;        &lt;p:RadialBar DataKey=&quot;Visitors&quot; Background=&quot;{DynamicResource PictorBarBackground}&quot; CornerRadius=&quot;10&quot; Fill=&quot;{DynamicResource PictorPalette2}&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:PolarRadiusAxis Tick=&quot;False&quot; AxisLine=&quot;False&quot;&gt;&#10;          &lt;p:Label Position=&quot;Center&quot;&gt;&lt;p:Label.ContentTemplate&gt;&lt;DataTemplate x:DataType=&quot;p:LabelContext&quot;&gt;&lt;Canvas&gt;&lt;p:SvgText X=&quot;{Binding Converter={p:Calc &#x27;Cx&#x27;}}&quot; Y=&quot;{Binding Converter={p:Calc &#x27;Cy + 0&#x27;}}&quot; TextAnchor=&quot;Middle&quot; Dy=&quot;12.6&quot; FontSize=&quot;36&quot; FontWeight=&quot;Bold&quot; Fill=&quot;{DynamicResource CosmoForegroundBrush}&quot; Content=&quot;200&quot; /&gt;&lt;p:SvgText X=&quot;{Binding Converter={p:Calc &#x27;Cx&#x27;}}&quot; Y=&quot;{Binding Converter={p:Calc &#x27;Cy + 24&#x27;}}&quot; TextAnchor=&quot;Middle&quot; Dy=&quot;4.2&quot; FontSize=&quot;12&quot; FontWeight=&quot;Normal&quot; Fill=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Content=&quot;Visitors&quot; /&gt;&lt;/Canvas&gt;&lt;/DataTemplate&gt;&lt;/p:Label.ContentTemplate&gt;&lt;/p:Label&gt;&#10;        &lt;/p:PolarRadiusAxis&gt;&#10;      &lt;/p:RadialBarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Radial Chart - Stacked" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Radial Chart - Stacked" Description="January - June 2024" />
+              <c:CardContent>
+                <p:RadialBarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Stacked}" EndAngle="180" InnerRadius="80" OuterRadius="110" Width="250" Height="250" HorizontalAlignment="Center">
+                  <p:Tooltip Cursor="False"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:RadialBar DataKey="Mobile" StackId="a" CornerRadius="5" IsAnimationActive="False" />
+                  <p:RadialBar DataKey="Desktop" StackId="a" CornerRadius="5" IsAnimationActive="False" />
+                  <p:PolarRadiusAxis Tick="False" AxisLine="False">
+                    <p:Label Position="Center"><p:Label.ContentTemplate><DataTemplate x:DataType="p:LabelContext"><Canvas><p:SvgText X="{Binding Converter={p:Calc 'Cx'}}" Y="{Binding Converter={p:Calc 'Cy + -16'}}" TextAnchor="Middle" Dy="0" FontSize="24" FontWeight="Bold" Fill="{DynamicResource CosmoForegroundBrush}" Content="1,830" /><p:SvgText X="{Binding Converter={p:Calc 'Cx'}}" Y="{Binding Converter={p:Calc 'Cy + 4'}}" TextAnchor="Middle" Dy="0" FontSize="12" FontWeight="Normal" Fill="{DynamicResource CosmoMutedForegroundBrush}" Content="Visitors" /></Canvas></DataTemplate></p:Label.ContentTemplate></p:Label>
+                  </p:PolarRadiusAxis>
+                </p:RadialBarChart>
+              </c:CardContent>
+              <c:CardFooter>
+                <StackPanel Spacing="8" HorizontalAlignment="Center">
+                  <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                    <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+                  </StackPanel>
+                  <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+                </StackPanel>
+              </c:CardFooter>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Desktop&quot; Label=&quot;Desktop&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Mobile&quot; Label=&quot;Mobile&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Radial Chart - Stacked&quot; Description=&quot;January - June 2024&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:RadialBarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Stacked}&quot; EndAngle=&quot;180&quot; InnerRadius=&quot;80&quot; OuterRadius=&quot;110&quot; Width=&quot;250&quot; Height=&quot;250&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideLabel=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:RadialBar DataKey=&quot;Mobile&quot; StackId=&quot;a&quot; CornerRadius=&quot;5&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:RadialBar DataKey=&quot;Desktop&quot; StackId=&quot;a&quot; CornerRadius=&quot;5&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:PolarRadiusAxis Tick=&quot;False&quot; AxisLine=&quot;False&quot;&gt;&#10;          &lt;p:Label Position=&quot;Center&quot;&gt;&lt;p:Label.ContentTemplate&gt;&lt;DataTemplate x:DataType=&quot;p:LabelContext&quot;&gt;&lt;Canvas&gt;&lt;p:SvgText X=&quot;{Binding Converter={p:Calc &#x27;Cx&#x27;}}&quot; Y=&quot;{Binding Converter={p:Calc &#x27;Cy + -16&#x27;}}&quot; TextAnchor=&quot;Middle&quot; Dy=&quot;0&quot; FontSize=&quot;24&quot; FontWeight=&quot;Bold&quot; Fill=&quot;{DynamicResource CosmoForegroundBrush}&quot; Content=&quot;1,830&quot; /&gt;&lt;p:SvgText X=&quot;{Binding Converter={p:Calc &#x27;Cx&#x27;}}&quot; Y=&quot;{Binding Converter={p:Calc &#x27;Cy + 4&#x27;}}&quot; TextAnchor=&quot;Middle&quot; Dy=&quot;0&quot; FontSize=&quot;12&quot; FontWeight=&quot;Normal&quot; Fill=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Content=&quot;Visitors&quot; /&gt;&lt;/Canvas&gt;&lt;/DataTemplate&gt;&lt;/p:Label.ContentTemplate&gt;&lt;/p:Label&gt;&#10;        &lt;/p:PolarRadiusAxis&gt;&#10;      &lt;/p:RadialBarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;    &lt;c:CardFooter&gt;&#10;      &lt;StackPanel Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Trending up by 5.2% this month&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; FontWeight=&quot;Medium&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoForegroundBrush}&quot; Data=&quot;M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13&quot; /&gt;&lt;/Viewbox&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;TextBlock Text=&quot;Showing total visitors for the last 6 months&quot; FontSize=&quot;14&quot; LineHeight=&quot;14&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:CardFooter&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Tooltip - Default" />
+      <TextBlock Classes="sm muted" Text="ChartTooltipContent: the label, then a line per series with its dot, name and value." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Running" Label="Running" Color="PictorPalette1" /><c:ChartConfigItem Key="Swimming" Label="Swimming" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Tooltip - Default" Description="Default tooltip with ChartTooltipContent." />
+              <c:CardContent>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Activities}" Aspect="1.7777777777777777" ResponsiveWidths="542">
+                  <p:XAxis DataKey="Date" TickLine="False" TickMargin="10" AxisLine="False" TickFormat="{}{0:ddd}" />
+                  <p:Bar DataKey="Running" StackId="a" Radius="0, 0, 4, 4" IsAnimationActive="False" />
+                  <p:Bar DataKey="Swimming" StackId="a" Radius="4, 4, 0, 0" IsAnimationActive="False" />
+                  <p:Tooltip Cursor="False" DefaultIndex="1" LabelFormat="{}{0:yyyy-MM-dd}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+                </p:BarChart>
+              </c:CardContent>
+
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Running&quot; Label=&quot;Running&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Swimming&quot; Label=&quot;Swimming&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Tooltip - Default&quot; Description=&quot;Default tooltip with ChartTooltipContent.&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Activities}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot;&gt;&#10;        &lt;p:XAxis DataKey=&quot;Date&quot; TickLine=&quot;False&quot; TickMargin=&quot;10&quot; AxisLine=&quot;False&quot; TickFormat=&quot;{}{0:ddd}&quot; /&gt;&#10;        &lt;p:Bar DataKey=&quot;Running&quot; StackId=&quot;a&quot; Radius=&quot;0, 0, 4, 4&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Bar DataKey=&quot;Swimming&quot; StackId=&quot;a&quot; Radius=&quot;4, 4, 0, 0&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; DefaultIndex=&quot;1&quot; LabelFormat=&quot;{}{0:yyyy-MM-dd}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;      &lt;/p:BarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Tooltip - Line Indicator" />
+      <TextBlock Classes="sm muted" Text="Indicator=Line." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Running" Label="Running" Color="PictorPalette1" /><c:ChartConfigItem Key="Swimming" Label="Swimming" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Tooltip - Line Indicator" Description="Tooltip with line indicator." />
+              <c:CardContent>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Activities}" Aspect="1.7777777777777777" ResponsiveWidths="542">
+                  <p:XAxis DataKey="Date" TickLine="False" TickMargin="10" AxisLine="False" TickFormat="{}{0:ddd}" />
+                  <p:Bar DataKey="Running" StackId="a" Radius="0, 0, 4, 4" IsAnimationActive="False" />
+                  <p:Bar DataKey="Swimming" StackId="a" Radius="4, 4, 0, 0" IsAnimationActive="False" />
+                  <p:Tooltip Cursor="False" DefaultIndex="1" LabelFormat="{}{0:yyyy-MM-dd}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Line" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                </p:BarChart>
+              </c:CardContent>
+
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Running&quot; Label=&quot;Running&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Swimming&quot; Label=&quot;Swimming&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Tooltip - Line Indicator&quot; Description=&quot;Tooltip with line indicator.&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Activities}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot;&gt;&#10;        &lt;p:XAxis DataKey=&quot;Date&quot; TickLine=&quot;False&quot; TickMargin=&quot;10&quot; AxisLine=&quot;False&quot; TickFormat=&quot;{}{0:ddd}&quot; /&gt;&#10;        &lt;p:Bar DataKey=&quot;Running&quot; StackId=&quot;a&quot; Radius=&quot;0, 0, 4, 4&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Bar DataKey=&quot;Swimming&quot; StackId=&quot;a&quot; Radius=&quot;4, 4, 0, 0&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; DefaultIndex=&quot;1&quot; LabelFormat=&quot;{}{0:yyyy-MM-dd}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent Indicator=&quot;Line&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;      &lt;/p:BarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Tooltip - No Indicator" />
+      <TextBlock Classes="sm muted" Text="HideIndicator=True." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Running" Label="Running" Color="PictorPalette1" /><c:ChartConfigItem Key="Swimming" Label="Swimming" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Tooltip - No Indicator" Description="Tooltip with no indicator." />
+              <c:CardContent>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Activities}" Aspect="1.7777777777777777" ResponsiveWidths="542">
+                  <p:XAxis DataKey="Date" TickLine="False" TickMargin="10" AxisLine="False" TickFormat="{}{0:ddd}" />
+                  <p:Bar DataKey="Running" StackId="a" Radius="0, 0, 4, 4" IsAnimationActive="False" />
+                  <p:Bar DataKey="Swimming" StackId="a" Radius="4, 4, 0, 0" IsAnimationActive="False" />
+                  <p:Tooltip Cursor="False" DefaultIndex="1" LabelFormat="{}{0:yyyy-MM-dd}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideIndicator="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                </p:BarChart>
+              </c:CardContent>
+
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Running&quot; Label=&quot;Running&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Swimming&quot; Label=&quot;Swimming&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Tooltip - No Indicator&quot; Description=&quot;Tooltip with no indicator.&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding Activities}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot;&gt;&#10;        &lt;p:XAxis DataKey=&quot;Date&quot; TickLine=&quot;False&quot; TickMargin=&quot;10&quot; AxisLine=&quot;False&quot; TickFormat=&quot;{}{0:ddd}&quot; /&gt;&#10;        &lt;p:Bar DataKey=&quot;Running&quot; StackId=&quot;a&quot; Radius=&quot;0, 0, 4, 4&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Bar DataKey=&quot;Swimming&quot; StackId=&quot;a&quot; Radius=&quot;4, 4, 0, 0&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; DefaultIndex=&quot;1&quot; LabelFormat=&quot;{}{0:yyyy-MM-dd}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent HideIndicator=&quot;True&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;      &lt;/p:BarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Tooltip - Formatters" />
+      <TextBlock Classes="sm muted" Text="A line per series however many there are; ChartConfig names and colors the series by data key; converters write the ticks (TickFormatter), the values (Formatter, the series&#x27; name as the parameter) and the label (LabelFormatter)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="592" DataContext="{Binding Samples}" x:DataType="m:ChartSamples">
+            <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Chrome" Label="Chrome" Color="PictorPalette1" /><c:ChartConfigItem Key="Safari" Label="Safari" Color="PictorPalette2" /><c:ChartConfigItem Key="Firefox" Label="Firefox" Color="PictorPalette3" /><c:ChartConfigItem Key="Edge" Label="Edge" Color="PictorPalette4" /><c:ChartConfigItem Key="Other" Label="Other" Color="PictorPalette5" /></c:ChartConfig><m:MonthName x:Key="Month" /><m:Visitors x:Key="Visitors" /><m:MonthTitle x:Key="Title" /></Border.Resources>
+            <c:Card>
+              <c:CardHeader Title="Tooltip - Formatters" Description="Five browsers, a line each; the ticks, values and label written by converters." />
+              <c:CardContent>
+                <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding BrowserMonths}" Aspect="1.7777777777777777" ResponsiveWidths="542">
+                  <p:CartesianGrid Vertical="False" />
+                  <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="10" TickFormatter="{StaticResource Month}" />
+                  <p:Tooltip Cursor="False" Formatter="{StaticResource Visitors}" LabelFormatter="{StaticResource Title}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Dashed" /></p:Tooltip.ContentTemplate></p:Tooltip>
+                  <p:Bar DataKey="Chrome" StackId="a" IsAnimationActive="False" /><p:Bar DataKey="Safari" StackId="a" IsAnimationActive="False" /><p:Bar DataKey="Firefox" StackId="a" IsAnimationActive="False" /><p:Bar DataKey="Edge" StackId="a" IsAnimationActive="False" /><p:Bar DataKey="Other" StackId="a" IsAnimationActive="False" />
+                </p:BarChart>
+              </c:CardContent>
+            </c:Card>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;592&quot; DataContext=&quot;{Binding Samples}&quot; x:DataType=&quot;m:ChartSamples&quot;&gt;&#10;  &lt;Border.Resources&gt;&lt;c:ChartConfig x:Key=&quot;ChartConfig&quot;&gt;&lt;c:ChartConfigItem Key=&quot;Chrome&quot; Label=&quot;Chrome&quot; Color=&quot;PictorPalette1&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Safari&quot; Label=&quot;Safari&quot; Color=&quot;PictorPalette2&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Firefox&quot; Label=&quot;Firefox&quot; Color=&quot;PictorPalette3&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Edge&quot; Label=&quot;Edge&quot; Color=&quot;PictorPalette4&quot; /&gt;&lt;c:ChartConfigItem Key=&quot;Other&quot; Label=&quot;Other&quot; Color=&quot;PictorPalette5&quot; /&gt;&lt;/c:ChartConfig&gt;&lt;m:MonthName x:Key=&quot;Month&quot; /&gt;&lt;m:Visitors x:Key=&quot;Visitors&quot; /&gt;&lt;m:MonthTitle x:Key=&quot;Title&quot; /&gt;&lt;/Border.Resources&gt;&#10;  &lt;c:Card&gt;&#10;    &lt;c:CardHeader Title=&quot;Tooltip - Formatters&quot; Description=&quot;Five browsers, a line each; the ticks, values and label written by converters.&quot; /&gt;&#10;    &lt;c:CardContent&gt;&#10;      &lt;p:BarChart c:ChartConfig.Config=&quot;{StaticResource ChartConfig}&quot; Data=&quot;{Binding BrowserMonths}&quot; Aspect=&quot;1.7777777777777777&quot; ResponsiveWidths=&quot;542&quot;&gt;&#10;        &lt;p:CartesianGrid Vertical=&quot;False&quot; /&gt;&#10;        &lt;p:XAxis DataKey=&quot;Month&quot; TickLine=&quot;False&quot; AxisLine=&quot;False&quot; TickMargin=&quot;10&quot; TickFormatter=&quot;{StaticResource Month}&quot; /&gt;&#10;        &lt;p:Tooltip Cursor=&quot;False&quot; Formatter=&quot;{StaticResource Visitors}&quot; LabelFormatter=&quot;{StaticResource Title}&quot;&gt;&lt;p:Tooltip.ContentTemplate&gt;&lt;c:ChartTooltipContent Indicator=&quot;Dashed&quot; /&gt;&lt;/p:Tooltip.ContentTemplate&gt;&lt;/p:Tooltip&gt;&#10;        &lt;p:Bar DataKey=&quot;Chrome&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot; /&gt;&lt;p:Bar DataKey=&quot;Safari&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot; /&gt;&lt;p:Bar DataKey=&quot;Firefox&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot; /&gt;&lt;p:Bar DataKey=&quot;Edge&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot; /&gt;&lt;p:Bar DataKey=&quot;Other&quot; StackId=&quot;a&quot; IsAnimationActive=&quot;False&quot; /&gt;&#10;      &lt;/p:BarChart&gt;&#10;    &lt;/c:CardContent&gt;&#10;  &lt;/c:Card&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CosmoChartsTheme" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Add after CosmoTheme in the application&#x27;s styles: chart text in Cosmo&#x27;s font and the chart-toggles list box." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:ChartTooltipContent" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A tooltip&#x27;s ContentTemplate: Indicator (Dot, Line, Dashed), HideLabel, HideIndicator; the label and a line per series, bringing its lines&#x27; template." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:ChartConfig" /><TextBlock Grid.Column="1" Classes="sm muted" Text="shadcn&#x27;s ChartConfig as a resource of c:ChartConfigItem (Key, Label, Color: a theme key such as PictorPalette1, or a CSS color), given to a chart with c:ChartConfig.Config: each series of that data key takes the label as its Name and the color as its fill or stroke." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="TickFormatter, Formatter, LabelFormatter" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Pictor&#x27;s formatter functions: value converters on an axis and a tooltip (a function from code through FuncValueConverter); composite formats (TickFormat, Format, LabelFormat) stay for what a format says. A converter class with no settings keeps the page&#x27;s plan on the web." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:ChartLegendContent" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A legend&#x27;s Template: the entries in a centered row; Spacing (16) and ItemBasis." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:ChartLegendItem" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A legend&#x27;s ContentTemplate: an 8 px square of the series&#x27; color and its name." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="PictorPalette1 to PictorPalette5" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The chart tokens --chart-1 to --chart-5 as Pictor&#x27;s palette, in every color theme, light and dark." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="CosmoChart1TopColor, CosmoChart1BottomColor" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A chart token at 0.8 and 0.1, the stops of the area gradients (1 to 5)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

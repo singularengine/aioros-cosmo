@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: bubble-markdown">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+          <StackPanel Width="384" HorizontalAlignment="Left" Margin="0,48" Spacing="32">
+    <c:Bubble Classes="muted end"><c:Markdown Text="Hello! Are you actually **thinking**?" /></c:Bubble>
+    <c:Bubble Classes="ghost"><c:Markdown Text="Ghost bubbles work for assistant text, **markdown**, and other content that should not be framed.&#10;&#10;This is perfect for assistant messages that should not have a frame and can take the full width of the container. You can also render `code` in it.&#10;&#10;Ghost bubbles are full width and can take the full width of the container.&#10;" /></c:Bubble>
+          </StackPanel>
+  </Border>
+</UserControl>

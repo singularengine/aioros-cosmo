@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo"
+             a:Page.Title="login-05" a:Page.Description="A simple email-only login page.">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="login-05" />
+      <TextBlock Classes="lead" Text="A simple email-only login page." />
+    </StackPanel>
+    <Border MinHeight="720" CornerRadius="{DynamicResource CosmoRadiusXl}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}"
+            Background="{DynamicResource CosmoBackgroundBrush}" ClipToBounds="True" Container.Name="block" Container.Sizing="Width">
+      <Border.Styles>
+        <Style Selector="Border.page"><Setter Property="Padding" Value="40" /></Style>
+        <Style Selector="StackPanel.split"><Setter Property="MaxWidth" Value="896" /></Style>
+        <Style Selector="c|FieldGroup.split"><Setter Property="Margin" Value="32" /></Style>
+        <ContainerQuery Name="block" Query="max-width:767">
+          <Style Selector="Border.page"><Setter Property="Padding" Value="24" /></Style>
+          <Style Selector="StackPanel.split"><Setter Property="MaxWidth" Value="384" /></Style>
+          <Style Selector="c|FieldGroup.split"><Setter Property="Margin" Value="24" /><Setter Property="Grid.ColumnSpan" Value="2" /></Style>
+          <Style Selector="Border.cover"><Setter Property="IsVisible" Value="False" /></Style>
+        </ContainerQuery>
+      </Border.Styles>
+      <Border VerticalAlignment="Center">
+        <Border Classes="page">
+          <StackPanel MaxWidth="384" Spacing="24">
+            <StackPanel MaxWidth="384">
+              <c:FieldGroup>
+                <StackPanel Spacing="8">
+                  <Border a:Web.Href="#" AutomationProperties.Name="Acme Inc." HorizontalAlignment="Center"><Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusMd}"><Viewbox Width="24" Height="24"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M7 2h10 M5 6h14 M5,10 L19,10 A2,2 0 0 1 21,12 L21,20 A2,2 0 0 1 19,22 L5,22 A2,2 0 0 1 3,20 L3,12 A2,2 0 0 1 5,10 Z" /></Viewbox></Border></Border>
+                  <TextBlock Text="Welcome to Acme Inc." FontSize="20" LineHeight="28" FontWeight="Bold" TextAlignment="Center" />
+                  <c:FieldDescription TextAlignment="Center"><Run Text="Don't have an account? " /><Run Text="Sign up" a:Web.Href="#" TextDecorations="Underline" /></c:FieldDescription>
+                </StackPanel>
+                <c:Field>
+                  <c:FieldLabel Content="Email" Target="{Binding #email}" />
+                  <TextBox Name="email" a:Web.Id="email" a:Web.InputType="email" PlaceholderText="m@example.com" />
+                </c:Field>
+                <c:Field>
+                  <Button Content="Login" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                </c:Field>
+                <c:FieldSeparator Content="Or" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="16"><Border Grid.Column="0"><Button Classes="outline has-icon" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"><StackPanel><Viewbox Width="16" Height="16"><Path Width="24" Height="24" Stretch="None" Fill="{DynamicResource CosmoForegroundBrush}" Data="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" /></Viewbox><TextBlock Text="Continue with Apple" /></StackPanel></Button></Border><Border Grid.Column="1"><Button Classes="outline has-icon" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"><StackPanel><Viewbox Width="16" Height="16"><Path Width="24" Height="24" Stretch="None" Fill="{DynamicResource CosmoForegroundBrush}" Data="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" /></Viewbox><TextBlock Text="Continue with Google" /></StackPanel></Button></Border></Grid>
+              </c:FieldGroup>
+            </StackPanel>
+            <c:FieldDescription TextAlignment="Center" Margin="24,0"><Run Text="By clicking continue, you agree to our " /><Run Text="Terms of Service" a:Web.Href="#" TextDecorations="Underline" /><Run Text=" and " /><Run Text="Privacy Policy" a:Web.Href="#" TextDecorations="Underline" /><Run Text="." /></c:FieldDescription>
+          </StackPanel>
+        </Border>
+      </Border>
+    </Border>
+  </StackPanel>
+</UserControl>

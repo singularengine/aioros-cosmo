@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: empty-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Empty Title="No Projects Yet" Description="You haven't created any projects yet. Get started by creating your first project.">
+      <c:Empty.Media>
+        <c:EmptyMedia Classes="icon"><Viewbox Width="24" Height="24"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M11 19h-6a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v4 M20 21l2 -2l-2 -2 M17 17l-2 2l2 2" /></Viewbox></c:EmptyMedia>
+      </c:Empty.Media>
+      <StackPanel Spacing="24">
+        <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+          <Button Content="Create Project" />
+          <Button Classes="outline" Content="Import Project" />
+        </StackPanel>
+        <HyperlinkButton Classes="link sm has-icon" HorizontalAlignment="Center" Foreground="{DynamicResource CosmoMutedForegroundBrush}">
+          <StackPanel><TextBlock Text="Learn More" /><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7,7 L17,7 L17,17 M7,17 L17,7" /></Viewbox></StackPanel>
+        </HyperlinkButton>
+      </StackPanel>
+    </c:Empty>
+  </Border>
+</UserControl>

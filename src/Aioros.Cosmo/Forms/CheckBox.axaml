@@ -1,0 +1,80 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <StreamGeometry x:Key="CosmoCheckBoxGlyph">M11.667,3.5 L5.25,9.917 L2.333,7</StreamGeometry>
+
+  <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckBackgroundStrokeUnchecked}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="Padding" Value="12,0,0,0" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="MinHeight" Value="16" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid Background="{TemplateBinding Background}" ColumnDefinitions="Auto,*">
+          <Border Name="PART_Border" Width="16" Height="16" VerticalAlignment="Center"
+                  Background="{DynamicResource CheckBoxCheckBackgroundFillUnchecked}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  BoxShadow="{DynamicResource CosmoShadowXs}">
+            <Path Name="CheckGlyph" Width="14" Height="14" Stretch="None" IsVisible="False"
+                  Data="{StaticResource CosmoCheckBoxGlyph}" StrokeThickness="1.167" StrokeLineCap="Round" StrokeJoin="Round"
+                  Stroke="{DynamicResource CheckBoxCheckGlyphForegroundChecked}" />
+          </Border>
+          <ContentPresenter Name="PART_ContentPresenter" Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            RecognizesAccessKey="True"
+                            TextBlock.LineHeight="14"
+                            IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:checked">
+      <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckBackgroundStrokeChecked}" />
+    </Style>
+    <Style Selector="^:checked /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{DynamicResource CheckBoxCheckBackgroundFillChecked}" />
+    </Style>
+    <Style Selector="^:checked /template/ Path#CheckGlyph">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:indeterminate">
+      <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckBackgroundStrokeIndeterminate}" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{DynamicResource CheckBoxCheckBackgroundFillIndeterminate}" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ Path#CheckGlyph">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="Stroke" Value="{DynamicResource CheckBoxCheckGlyphForegroundIndeterminate}" />
+    </Style>
+    <Style Selector="^:focus-visible">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+    </Style>
+    <Style Selector="^:checked:focus-visible">
+      <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxCheckBackgroundStrokeChecked}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#PART_Border">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineFocusShadow}" />
+    </Style>
+    <Style Selector="^:error">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoDestructiveBrush}" />
+    </Style>
+    <Style Selector="^:error:focus-visible /template/ Border#PART_Border">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoInvalidFocusShadow}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

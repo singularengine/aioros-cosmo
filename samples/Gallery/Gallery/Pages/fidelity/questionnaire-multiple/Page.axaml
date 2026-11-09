@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-multiple">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Questionnaire Width="448" HorizontalAlignment="Center" Shortcuts="Letters" SubmitContent="Share context">
+      <c:QuestionnaireItem Name="context" Title="What context should the agent inspect?" Description="Select every source that may affect the implementation." IsRequired="True">
+        <c:QuestionnaireCheck Value="source" Content="Relevant source files" />
+        <c:QuestionnaireCheck Value="tests" Content="Existing tests" />
+        <c:QuestionnaireCheck Value="docs" Content="Architecture documentation" />
+        <c:QuestionnaireCheck Value="history" Content="Recent commit history" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+  </Border>
+</UserControl>

@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: trace-group">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Trace Width="384" HorizontalAlignment="Left">
+      <c:TraceLine Content="Searched for minimumReleaseAge"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3" /></Viewbox></c:TraceLine.Icon></c:TraceLine>
+      <c:TraceLine Content="Read pnpm-workspace.yaml"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" /></Viewbox></c:TraceLine.Icon></c:TraceLine>
+      <c:TraceLine Content="Ran pnpm install"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine>
+    </c:Trace>
+  </Border>
+</UserControl>

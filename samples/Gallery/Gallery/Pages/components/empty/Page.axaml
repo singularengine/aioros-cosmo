@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Empty" a:Page.Description="Use the Empty component to display an empty state.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Empty" />
+      <TextBlock Classes="lead" Text="Use the Empty component to display an empty state." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: empty" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Empty, c:EmptyMedia" />
+        <c:Badge Classes="secondary" Content="Web: &lt;div&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Media, Title and Description are properties; the content holds the actions." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Empty Title="No Projects Yet" Description="You haven't created any projects yet. Get started by creating your first project." MaxWidth="560">
+            <c:Empty.Media>
+              <c:EmptyMedia Classes="icon"><a:Icon Kind="folder-code" Size="24" /></c:EmptyMedia>
+            </c:Empty.Media>
+            <StackPanel Spacing="24">
+              <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                <Button Content="Create Project" />
+                <Button Classes="outline" Content="Import Project" />
+              </StackPanel>
+              <HyperlinkButton Classes="link sm has-icon" HorizontalAlignment="Center" Foreground="{DynamicResource CosmoMutedForegroundBrush}" NavigateUri="https://ui.shadcn.com/docs/components/empty">
+                <StackPanel><TextBlock Text="Learn More" /><a:Icon Kind="arrow-up-right" /></StackPanel>
+              </HyperlinkButton>
+            </StackPanel>
+          </c:Empty>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Empty Title=&quot;No Projects Yet&quot; Description=&quot;You haven&#x27;t created any projects yet. Get started by creating your first project.&quot; MaxWidth=&quot;560&quot;&gt;&#10;  &lt;c:Empty.Media&gt;&#10;    &lt;c:EmptyMedia Classes=&quot;icon&quot;&gt;&lt;a:Icon Kind=&quot;folder-code&quot; Size=&quot;24&quot; /&gt;&lt;/c:EmptyMedia&gt;&#10;  &lt;/c:Empty.Media&gt;&#10;  &lt;StackPanel Spacing=&quot;24&quot;&gt;&#10;    &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot; HorizontalAlignment=&quot;Center&quot;&gt;&#10;      &lt;Button Content=&quot;Create Project&quot; /&gt;&#10;      &lt;Button Classes=&quot;outline&quot; Content=&quot;Import Project&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;    &lt;HyperlinkButton Classes=&quot;link sm has-icon&quot; HorizontalAlignment=&quot;Center&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; NavigateUri=&quot;https://ui.shadcn.com/docs/components/empty&quot;&gt;&#10;      &lt;StackPanel&gt;&lt;TextBlock Text=&quot;Learn More&quot; /&gt;&lt;a:Icon Kind=&quot;arrow-up-right&quot; /&gt;&lt;/StackPanel&gt;&#10;    &lt;/HyperlinkButton&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/c:Empty&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Outline" />
+      <TextBlock Classes="sm muted" Text="outline draws the dashed border." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Empty Classes="outline" Title="Cloud Storage Empty" Description="Upload files to your cloud storage to access them anywhere." MaxWidth="560">
+            <c:Empty.Media>
+              <c:EmptyMedia Classes="icon"><a:Icon Kind="cloud" Size="24" /></c:EmptyMedia>
+            </c:Empty.Media>
+            <Button Classes="outline sm" Content="Upload Files" />
+          </c:Empty>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Empty Classes=&quot;outline&quot; Title=&quot;Cloud Storage Empty&quot; Description=&quot;Upload files to your cloud storage to access them anywhere.&quot; MaxWidth=&quot;560&quot;&gt;&#10;  &lt;c:Empty.Media&gt;&#10;    &lt;c:EmptyMedia Classes=&quot;icon&quot;&gt;&lt;a:Icon Kind=&quot;cloud&quot; Size=&quot;24&quot; /&gt;&lt;/c:EmptyMedia&gt;&#10;  &lt;/c:Empty.Media&gt;&#10;  &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Upload Files&quot; /&gt;&#10;&lt;/c:Empty&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="The empty state shows when the bound collection is empty; its action runs a command." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="560">
+            <ItemsControl ItemsSource="{Binding Projects}">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="m:Project">
+                  <TextBlock Classes="sm" Text="{Binding Name}" />
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <c:Empty Classes="outline" Title="No projects" Description="Every project was removed." IsVisible="{Binding !Projects.Count}">
+              <Button Classes="outline sm" Content="Restore" Command="{Binding RestoreCommand}" />
+            </c:Empty>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;560&quot;&gt;&#10;  &lt;ItemsControl ItemsSource=&quot;{Binding Projects}&quot;&gt;&#10;    &lt;ItemsControl.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;m:Project&quot;&gt;&#10;        &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;{Binding Name}&quot; /&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/ItemsControl.ItemTemplate&gt;&#10;  &lt;/ItemsControl&gt;&#10;  &lt;c:Empty Classes=&quot;outline&quot; Title=&quot;No projects&quot; Description=&quot;Every project was removed.&quot; IsVisible=&quot;{Binding !Projects.Count}&quot;&gt;&#10;    &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Restore&quot; Command=&quot;{Binding RestoreCommand}&quot; /&gt;&#10;  &lt;/c:Empty&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Media, Title, Description" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The picture, title and description of the empty state." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The actions." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Classes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="outline; c:EmptyMedia takes icon." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-diff">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left" Title="components/greeting.tsx">
+      <c:CodeBlock.Actions><StackPanel Orientation="Horizontal" Spacing="4"><c:CodeBlockCopyButton Value=" export function Greeting({ name }: { name: string }) {&#10;-  return &lt;p&gt;Hello, {name}&lt;/p&gt;&#10;+  return &lt;p className=&quot;text-sm text-muted-foreground&quot;&gt;&#10;+    Hello, {name}!&#10;+  &lt;/p&gt;&#10; }" /></StackPanel></c:CodeBlock.Actions>
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="export function Greeting({ name }: { name: string }) {" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="removed"><TextBlock Text="  return &lt;p&gt;Hello, {name}&lt;/p&gt;" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="  return &lt;p className=&quot;text-sm text-muted-foreground&quot;&gt;" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="    Hello, {name}!" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="  &lt;/p&gt;" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="}" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

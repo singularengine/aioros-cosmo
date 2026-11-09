@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-navigation-state">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Questionnaire Width="448" HorizontalAlignment="Center" ShowProgress="True" SubmitContent="Save permissions" RequiresAnswer="True" Classes="secondary-next">
+      <c:QuestionnaireItem Name="permission" Title="What may the agent modify?" Description="Next is intentionally disabled until an answer is selected." IsRequired="True">
+        <c:QuestionnaireChoice Value="files" Content="Project files" />
+        <c:QuestionnaireChoice Value="tests" Content="Project files and tests" />
+        <c:QuestionnaireChoice Value="config" Content="Files, tests, and configuration" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="verification" Title="What must pass before completion?" IsRequired="True">
+        <c:QuestionnaireChoice Value="tests" Content="Tests" />
+        <c:QuestionnaireChoice Value="types" Content="Tests and types" />
+        <c:QuestionnaireChoice Value="all" Content="Tests, types, and visual QA" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+  </Border>
+</UserControl>

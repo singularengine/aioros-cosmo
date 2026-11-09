@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:RangeExamples"
+             a:Page.Title="Input OTP" a:Page.Description="Accessible one-time password component with copy paste functionality.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Input OTP" />
+      <TextBlock Classes="lead" Text="Accessible one-time password component with copy paste functionality." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: input-otp" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:InputOtp" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Length boxes, a separator every GroupSize; the characters are typed into a hidden text box that covers them." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:InputOtp Length="6" GroupSize="3" AutomationProperties.Name="Code" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:InputOtp Length=&quot;6&quot; GroupSize=&quot;3&quot; AutomationProperties.Name=&quot;Code&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:InputOtp Length="4" IsEnabled="False" AutomationProperties.Name="Locked code" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:InputOtp Length=&quot;4&quot; IsEnabled=&quot;False&quot; AutomationProperties.Name=&quot;Locked code&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <c:InputOtp Length="6" Text="{Binding Code}" AutomationProperties.Name="Bound code" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Classes="outline" Command="{Binding VerifyCommand}" Content="Verify" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;c:InputOtp Length=&quot;6&quot; Text=&quot;{Binding Code}&quot; AutomationProperties.Name=&quot;Bound code&quot; /&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Command=&quot;{Binding VerifyCommand}&quot; Content=&quot;Verify&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Text" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable code." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Length, GroupSize" /><TextBlock Grid.Column="1" Classes="sm muted" Text="How many boxes, and how many per group (0: one group)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:TraceThinkingExample" a:Web.Live="True" a:Page.Title="Fidelity: trace-thinking">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <DockPanel Width="384" HorizontalAlignment="Left" MinHeight="240" Margin="0,24">
+      <Button DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Margin="0,16,0,0" Classes="outline sm" Height="28" Padding="12,0" CornerRadius="16" HorizontalAlignment="Left" Content="{Binding Chat.Action}" IsVisible="{Binding Chat.Idle}" Command="{Binding ActCommand}" />
+      <StackPanel Spacing="16" VerticalAlignment="Top"><c:Message IsVisible="{Binding Chat.Asked}" Classes="end"><c:MessageContent><c:Bubble Classes="muted" Content="Why is the checkout deploy so slow?" /></c:MessageContent></c:Message><c:Message IsVisible="{Binding Chat.Answering}"><c:MessageContent Spacing="16"><c:Trace>
+      <c:TraceLine IsVisible="{Binding Chat.ReasoningEmpty}" Content="{Binding Chat.ThinkingTitle}" Status="{Binding Chat.ReasoningStatus}"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4 M17.599 6.5a3 3 0 0 0 .399-1.375 M6.003 5.125A3 3 0 0 0 6.401 6.5 M3.477 10.896a4 4 0 0 1 .585-.396 M19.938 10.5a4 4 0 0 1 .585.396 M6 18a4 4 0 0 1-1.967-.516 M19.967 17.484A4 4 0 0 1 18 18" /></Viewbox></c:TraceLine.Icon></c:TraceLine>
+    <Expander Classes="trace" IsVisible="{Binding Chat.ReasoningShown}" IsExpanded="{Binding Chat.ReasoningOpen, Mode=TwoWay}">
+      <Expander.Header><c:TraceLine Content="{Binding Chat.ThinkingTitle}" Status="{Binding Chat.ReasoningStatus}"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4 M17.599 6.5a3 3 0 0 0 .399-1.375 M6.003 5.125A3 3 0 0 0 6.401 6.5 M3.477 10.896a4 4 0 0 1 .585-.396 M19.938 10.5a4 4 0 0 1 .585.396 M6 18a4 4 0 0 1-1.967-.516 M19.967 17.484A4 4 0 0 1 18 18" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <TextBlock Text="{Binding Chat.Reasoning}" TextWrapping="Wrap" />
+    </Expander>
+    </c:Trace><TextBlock IsVisible="{Binding Chat.HasAnswer}" Text="{Binding Chat.Answer}" TextWrapping="Wrap" Foreground="{DynamicResource CosmoForegroundBrush}" /></c:MessageContent></c:Message></StackPanel>
+    </DockPanel>
+  </Border>
+</UserControl>

@@ -1,0 +1,15 @@
+# Bubble
+
+shadcn/ui's `bubble` (a chat bubble: content in a 14 px rounded box padded 12 by 8 px with relaxed 14 px text, at most
+80% of its row wide, in the `default`, `secondary`, `muted`, `tinted`, `outline`, `ghost` and `destructive` variants,
+aligned to the start or the end, with reactions overlapping its bottom edge) as `c:Bubble`, a sealed `ContentControl`
+with `Reactions`, its variants and its `end` alignment as classes, and `c:BubbleGroup`, a sealed `StackPanel` 8 px apart.
+The tinted bubble's color is generated per theme (`oklch(from var(--primary) 0.93 calc(c*0.4) h)`, 0.3 in the dark).
+
+| AC | Criterion |
+| --- | --- |
+| BUBBLE-01 | Given the `bubble-demo`, `bubble-variants`, `bubble-alignment` and `bubble-group-demo` fixtures in each theme on the desktop, when they are laid out, then every bubble's content stands at shadcn/ui's box within 1.5 px (3 px for a width set by its text, and 3 px down the page, where the desktop rounds each 22.75 px line), on its variant's background and in its foreground as shadcn/ui computes them, and every reaction stands at shadcn/ui's box within 3 px (its width set by its emoji, from the bubble's end) on `--muted`. |
+| BUBBLE-02 | Given the same fixtures in each theme on the web, when Chromium lays them out, then every bubble's content stands at shadcn/ui's box within 1.5 px (3 px for a width set by its text, and 3 px down the page, where the desktop rounds each 22.75 px line) with shadcn/ui's background and text color, and every reaction at its box within 2 px. |
+| BUBBLE-03 | Given each of Cosmo's twelve color dictionaries in the light and the dark variant, when the tinted bubble's brush is read, then it is `--primary` at lightness 0.93 (0.3 in the dark) and 40% of its chroma, as Chromium converts shadcn/ui's relative color. |
+| BUBBLE-04 | Given the `bubble-link-button`, `bubble-collapsible` and `bubble-markdown` fixtures in each theme on the desktop, when they are laid out, then every bubble's box (the button of a bubble whose content is a `Button`) stands at shadcn/ui's within 1.5 px (its width within 3 px); a button bubble is `CosmoBubbleTintedBrush` and `CosmoBubbleTintedHoverBrush` under the pointer; and the collapsible bubble shows its preview and `Show more` with the chevron down, after a click on its trigger the whole text and `Show less` with the chevron turned, and after a second click the preview again. Precedent: shadcn/ui's `BubbleLinkButton` (`Bubble asChild` around a `<button>`, `hover:bg-*/80` per variant) and `BubbleCollapsible` (Radix's `Collapsible` with its `CollapsibleTrigger`) examples. |
+| BUBBLE-05 | Given the same fixtures in each theme on the web, when Chromium lays them out, then every bubble's content (the markdown bubbles' paragraphs among them) stands at shadcn/ui's box within 1.5 px (its width within 3 px) on shadcn/ui's background, a button bubble is a `<button>`, and a click on the collapsible's trigger shows the whole text and `Show less` with `aria-expanded="true"` and no request, a second click the preview again. |

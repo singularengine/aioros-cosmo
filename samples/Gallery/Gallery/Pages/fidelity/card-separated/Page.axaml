@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: card-separated">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Card Width="384" HorizontalAlignment="Left">
+      <c:CardHeader Classes="border" Title="Team members" Description="Invite your team to collaborate." />
+      <c:CardContent>
+        <TextBlock Text="Members can edit every project." FontSize="14" LineHeight="20" TextWrapping="Wrap" />
+      </c:CardContent>
+      <c:CardFooter Classes="border">
+        <Button Content="Invite" HorizontalAlignment="Left" />
+      </c:CardFooter>
+    </c:Card>
+  </Border>
+</UserControl>

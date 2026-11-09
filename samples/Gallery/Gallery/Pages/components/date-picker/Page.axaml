@@ -1,0 +1,86 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="Date Picker" a:Page.Description="A date picker component with range and presets.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Date Picker" />
+      <TextBlock Classes="lead" Text="A date picker component with range and presets." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: date-picker" />
+        <c:Badge Classes="secondary" Content="Avalonia: CalendarDatePicker" />
+        <c:Badge Classes="secondary" Content="Web: &lt;input type=date&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="An outline button with the calendar icon; it opens a popover with the calendar and shows the chosen day as MMMM d, yyyy." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <CalendarDatePicker Width="240" DisplayDate="2025-06-12" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;CalendarDatePicker Width=&quot;240&quot; DisplayDate=&quot;2025-06-12&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Chosen" />
+      <TextBlock Classes="sm muted" Text="SelectedDate binds two way; on the web the browser&#x27;s own date input posts it (framework need 64)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <CalendarDatePicker Width="240" DisplayDate="2025-06-12" SelectedDate="2025-06-12" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;CalendarDatePicker Width=&quot;240&quot; DisplayDate=&quot;2025-06-12&quot; SelectedDate=&quot;2025-06-12&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Input" />
+      <TextBlock Classes="sm muted" Text="The input class: the date can be typed, the ghost button opens the calendar." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <Label Content="Subscription Date" Padding="4,0" Target="Subscription" />
+            <CalendarDatePicker Name="Subscription" Classes="input" HorizontalAlignment="Stretch" DisplayDate="2025-06-01" SelectedDate="2025-06-01" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;Label Content=&quot;Subscription Date&quot; Padding=&quot;4,0&quot; Target=&quot;Subscription&quot; /&gt;&#10;  &lt;CalendarDatePicker Name=&quot;Subscription&quot; Classes=&quot;input&quot; HorizontalAlignment=&quot;Stretch&quot; DisplayDate=&quot;2025-06-01&quot; SelectedDate=&quot;2025-06-01&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Range" />
+      <TextBlock Classes="sm muted" Text="Two months side by side; a click adds the day to the range as react-day-picker&#x27;s mode=&quot;range&quot; does. RangeStart and RangeEnd bind two way." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:DateRangePicker MaxWidth="300" RangeStart="2022-01-20" RangeEnd="2022-02-09" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:DateRangePicker MaxWidth=&quot;300&quot; RangeStart=&quot;2022-01-20&quot; RangeEnd=&quot;2022-02-09&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Presets" />
+      <TextBlock Classes="sm muted" Text="c:DatePresets.Items puts a select of days from today above the calendar." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <CalendarDatePicker Width="240" DisplayDate="2025-06-12" SelectedDate="2025-06-12">
+            <c:DatePresets.Items>
+              <c:DatePresetList>
+                <c:DatePreset Days="0">Today</c:DatePreset>
+                <c:DatePreset Days="1">Tomorrow</c:DatePreset>
+                <c:DatePreset Days="3">In 3 days</c:DatePreset>
+                <c:DatePreset Days="7">In a week</c:DatePreset>
+              </c:DatePresetList>
+            </c:DatePresets.Items>
+          </CalendarDatePicker>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;CalendarDatePicker Width=&quot;240&quot; DisplayDate=&quot;2025-06-12&quot; SelectedDate=&quot;2025-06-12&quot;&gt;&#10;  &lt;c:DatePresets.Items&gt;&#10;    &lt;c:DatePresetList&gt;&#10;      &lt;c:DatePreset Days=&quot;0&quot;&gt;Today&lt;/c:DatePreset&gt;&#10;      &lt;c:DatePreset Days=&quot;1&quot;&gt;Tomorrow&lt;/c:DatePreset&gt;&#10;      &lt;c:DatePreset Days=&quot;3&quot;&gt;In 3 days&lt;/c:DatePreset&gt;&#10;      &lt;c:DatePreset Days=&quot;7&quot;&gt;In a week&lt;/c:DatePreset&gt;&#10;    &lt;/c:DatePresetList&gt;&#10;  &lt;/c:DatePresets.Items&gt;&#10;&lt;/CalendarDatePicker&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="SelectedDate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The chosen day; two way (Avalonia)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="PlaceholderText" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The text while no day is chosen (Pick a date by default)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="CustomDateFormatString" /><TextBlock Grid.Column="1" Classes="sm muted" Text="How the day is written (MMMM d, yyyy; MMMM dd, yyyy for input)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="input" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The input variant." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

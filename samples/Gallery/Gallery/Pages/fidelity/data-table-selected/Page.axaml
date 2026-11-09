@@ -1,0 +1,78 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:PaymentTable" a:Page.Title="Fidelity: data-table-selected">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel x:DataType="m:PaymentTable">
+      <DockPanel Margin="0,16">
+        <Button DockPanel.Dock="Right" Classes="outline has-icon">
+          <StackPanel><TextBlock Text="Columns" /><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M6 9 l6 6 6-6" /></Viewbox></StackPanel>
+          <Button.Flyout>
+            <MenuFlyout Placement="BottomEdgeAlignedRight">
+              <MenuItem Header="Status" ToggleType="CheckBox" IsChecked="{Binding Source.Columns[1].IsVisible, Mode=TwoWay}" />
+              <MenuItem Header="Email" ToggleType="CheckBox" IsChecked="{Binding Source.Columns[2].IsVisible, Mode=TwoWay}" />
+              <MenuItem Header="Amount" ToggleType="CheckBox" IsChecked="{Binding Source.Columns[3].IsVisible, Mode=TwoWay}" />
+            </MenuFlyout>
+          </Button.Flyout>
+        </Button>
+        <TextBox Width="384" HorizontalAlignment="Left" PlaceholderText="Filter emails..." a:Web.Delay="300" Text="{Binding Source.FilterText}" />
+      </DockPanel>
+      <Border BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusMd}" ClipToBounds="True">
+        <TableView ItemsSource="{Binding Source.Rows}" c:DataTable.SelectsRows="True" c:DataTable.State="{Binding Source.State}">
+        <TableView.Columns>
+          <TableViewColumn Width="32.84">
+            <TableViewColumn.Header><CheckBox IsChecked="{Binding Source.AllPageRowsSelected}" AutomationProperties.Name="Select all" /></TableViewColumn.Header>
+            <TableViewColumn.CellTemplate>
+              <DataTemplate x:DataType="m:Payment"><CheckBox IsChecked="{Binding IsSelected}" AutomationProperties.Name="Select row" /></DataTemplate>
+            </TableViewColumn.CellTemplate>
+          </TableViewColumn>
+          <TableViewColumn Width="119.66" IsVisible="{Binding Source.Columns[1].IsVisible}">
+            <TableViewColumn.Header>Status</TableViewColumn.Header>
+            <TableViewColumn.CellTemplate>
+              <DataTemplate x:DataType="m:Payment"><TextBlock Text="{Binding Status, Converter={x:Static m:PaymentTable.Capitalize}}" /></DataTemplate>
+            </TableViewColumn.CellTemplate>
+          </TableViewColumn>
+          <TableViewColumn Width="271.55" IsVisible="{Binding Source.Columns[2].IsVisible}">
+            <TableViewColumn.Header><Button Classes="ghost has-icon" Command="{Binding Source.SortCommand}" CommandParameter="email"><StackPanel><TextBlock Text="Email" /><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M21 16 l-4 4-4-4 M17 20V4 M3 8 l4-4 4 4 M7 4v16" /></Viewbox></StackPanel></Button></TableViewColumn.Header>
+            <TableViewColumn.CellTemplate>
+              <DataTemplate x:DataType="m:Payment"><TextBlock Text="{Binding Email, Converter={x:Static m:PaymentTable.Lower}}" /></DataTemplate>
+            </TableViewColumn.CellTemplate>
+          </TableViewColumn>
+          <TableViewColumn Width="100.23" IsVisible="{Binding Source.Columns[3].IsVisible}" HorizontalContentAlignment="Stretch">
+            <TableViewColumn.Header><TextBlock Text="Amount" HorizontalAlignment="Right" /></TableViewColumn.Header>
+            <TableViewColumn.CellTemplate>
+              <DataTemplate x:DataType="m:Payment"><TextBlock Text="{Binding Amount, Converter={x:Static m:PaymentTable.Dollars}}" FontWeight="Medium" HorizontalAlignment="Right" /></DataTemplate>
+            </TableViewColumn.CellTemplate>
+          </TableViewColumn>
+          <TableViewColumn Width="65.72">
+            <TableViewColumn.Header></TableViewColumn.Header>
+            <TableViewColumn.CellTemplate>
+              <DataTemplate x:DataType="m:Payment"><Button Classes="ghost icon-sm" HorizontalAlignment="Left" AutomationProperties.Name="Open menu"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox><Button.Flyout>
+      <MenuFlyout Placement="BottomEdgeAlignedRight">
+        <MenuItem Header="Actions" Classes="label" />
+        <MenuItem Header="Copy payment ID" />
+        <Separator />
+        <MenuItem Header="View customer" />
+        <MenuItem Header="View payment details" />
+      </MenuFlyout>
+    </Button.Flyout></Button></DataTemplate>
+            </TableViewColumn.CellTemplate>
+          </TableViewColumn>
+        </TableView.Columns>
+        </TableView>
+      </Border>
+      <DockPanel Margin="0,16">
+        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="8">
+          <Button Classes="outline sm" Content="Previous" Command="{Binding Source.PreviousPageCommand}" />
+          <Button Classes="outline sm" Content="Next" Command="{Binding Source.NextPageCommand}" />
+        </StackPanel>
+        <TextBlock FontSize="14" LineHeight="20" VerticalAlignment="Center" Foreground="{DynamicResource CosmoMutedForegroundBrush}">
+          <TextBlock.Text>
+            <MultiBinding StringFormat="{}{0} of {1} row(s) selected.">
+              <Binding Path="Source.SelectedCount" />
+              <Binding Path="Source.FilteredCount" />
+            </MultiBinding>
+          </TextBlock.Text>
+        </TextBlock>
+      </DockPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

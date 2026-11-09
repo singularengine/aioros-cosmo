@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: pagination-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Pagination>
+      <c:PaginationPrevious />
+      <Button Classes="ghost icon" Content="1" />
+      <Button Classes="outline icon" Content="2" />
+      <Button Classes="ghost icon" Content="3" />
+      <c:PaginationEllipsis />
+      <c:PaginationNext />
+    </c:Pagination>
+  </Border>
+</UserControl>

@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-basic">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left">
+
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="$ pnpm build" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="&gt; next build" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" " /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" ✓ Compiled successfully in 4.2s" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" ✓ Generating static pages (12/12)" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" " /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="Route (app)                Size  First Load JS" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="┌ ○ /                    1.9 kB         112 kB" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="├ ○ /_not-found           993 B         103 kB" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="└ ƒ /api/chat             141 B         102 kB" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

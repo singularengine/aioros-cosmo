@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-height">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left" Title="Logs">
+      <c:CodeBlock.Actions><StackPanel Orientation="Horizontal" Spacing="4"><c:CodeBlockCopyButton Value="[01] GET /api/chat 200 in 12ms&#10;[02] GET /api/chat 200 in 19ms&#10;[03] GET /api/chat 200 in 26ms&#10;[04] GET /api/chat 200 in 33ms&#10;[05] GET /api/chat 200 in 40ms&#10;[06] GET /api/chat 200 in 47ms&#10;[07] GET /api/chat 200 in 14ms&#10;[08] GET /api/chat 200 in 21ms&#10;[09] GET /api/chat 200 in 28ms&#10;[10] GET /api/chat 200 in 35ms&#10;[11] GET /api/chat 200 in 42ms&#10;[12] GET /api/chat 200 in 49ms&#10;[13] GET /api/chat 200 in 16ms&#10;[14] GET /api/chat 200 in 23ms&#10;[15] GET /api/chat 200 in 30ms&#10;[16] GET /api/chat 200 in 37ms&#10;[17] GET /api/chat 200 in 44ms&#10;[18] GET /api/chat 200 in 51ms&#10;[19] GET /api/chat 200 in 18ms&#10;[20] GET /api/chat 200 in 25ms&#10;[21] GET /api/chat 200 in 32ms&#10;[22] GET /api/chat 200 in 39ms&#10;[23] GET /api/chat 200 in 46ms&#10;[24] GET /api/chat 200 in 13ms&#10;[25] GET /api/chat 200 in 20ms&#10;[26] GET /api/chat 200 in 27ms&#10;[27] GET /api/chat 200 in 34ms&#10;[28] GET /api/chat 200 in 41ms&#10;[29] GET /api/chat 200 in 48ms&#10;[30] GET /api/chat 200 in 15ms&#10;[31] GET /api/chat 200 in 22ms&#10;[32] GET /api/chat 200 in 29ms&#10;[33] GET /api/chat 200 in 36ms&#10;[34] GET /api/chat 200 in 43ms&#10;[35] GET /api/chat 200 in 50ms&#10;[36] GET /api/chat 200 in 17ms&#10;[37] GET /api/chat 200 in 24ms&#10;[38] GET /api/chat 200 in 31ms&#10;[39] GET /api/chat 200 in 38ms&#10;[40] GET /api/chat 200 in 45ms" /></StackPanel></c:CodeBlock.Actions>
+      <c:CodeBlockContent MaxHeight="192" Classes="scroll-fade-y">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="[01] GET /api/chat 200 in 12ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[02] GET /api/chat 200 in 19ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[03] GET /api/chat 200 in 26ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[04] GET /api/chat 200 in 33ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[05] GET /api/chat 200 in 40ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[06] GET /api/chat 200 in 47ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[07] GET /api/chat 200 in 14ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[08] GET /api/chat 200 in 21ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[09] GET /api/chat 200 in 28ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[10] GET /api/chat 200 in 35ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[11] GET /api/chat 200 in 42ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[12] GET /api/chat 200 in 49ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[13] GET /api/chat 200 in 16ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[14] GET /api/chat 200 in 23ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[15] GET /api/chat 200 in 30ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[16] GET /api/chat 200 in 37ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[17] GET /api/chat 200 in 44ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[18] GET /api/chat 200 in 51ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[19] GET /api/chat 200 in 18ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[20] GET /api/chat 200 in 25ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[21] GET /api/chat 200 in 32ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[22] GET /api/chat 200 in 39ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[23] GET /api/chat 200 in 46ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[24] GET /api/chat 200 in 13ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[25] GET /api/chat 200 in 20ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[26] GET /api/chat 200 in 27ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[27] GET /api/chat 200 in 34ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[28] GET /api/chat 200 in 41ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[29] GET /api/chat 200 in 48ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[30] GET /api/chat 200 in 15ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[31] GET /api/chat 200 in 22ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[32] GET /api/chat 200 in 29ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[33] GET /api/chat 200 in 36ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[34] GET /api/chat 200 in 43ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[35] GET /api/chat 200 in 50ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[36] GET /api/chat 200 in 17ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[37] GET /api/chat 200 in 24ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[38] GET /api/chat 200 in 31ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[39] GET /api/chat 200 in 38ms" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="[40] GET /api/chat 200 in 45ms" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

@@ -1,0 +1,84 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo">
+  <ControlTheme x:Key="{x:Type c:Card}" TargetType="c:Card">
+    <Setter Property="Background" Value="{DynamicResource CosmoCardBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoCardForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusXl}" />
+    <Setter Property="Padding" Value="0,24" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Spacing="24" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}">
+          <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ Border#PART_Border">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowSm}" />
+    </Style>
+    <Style Selector="^.flat /template/ Border#PART_Border">
+      <Setter Property="BoxShadow" Value="none" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:CardHeader}" TargetType="c:CardHeader">
+    <Setter Property="Padding" Value="24,0" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+          <Grid ColumnDefinitions="*,Auto">
+            <StackPanel Spacing="8">
+              <ContentPresenter Content="{TemplateBinding Title}" FontWeight="SemiBold" TextBlock.LineHeight="16" TextWrapping="Wrap" />
+              <ContentPresenter Content="{TemplateBinding Description}" FontSize="14" TextBlock.LineHeight="20" TextWrapping="Wrap"
+                                Foreground="{DynamicResource CosmoMutedForegroundBrush}"
+                                IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </StackPanel>
+            <ContentPresenter Grid.Column="1" Content="{TemplateBinding Action}" Margin="8,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Right"
+                              IsVisible="{TemplateBinding Action, Converter={x:Static ObjectConverters.IsNotNull}}" />
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.border">
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+      <Setter Property="Padding" Value="24,0,24,24" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:CardContent}" TargetType="c:CardContent">
+    <Setter Property="Padding" Value="24,0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Padding="{TemplateBinding Padding}">
+          <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:CardFooter}" TargetType="c:CardFooter">
+    <Setter Property="Padding" Value="24,0" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+          <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" VerticalContentAlignment="Center" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.border">
+      <Setter Property="BorderThickness" Value="0,1,0,0" />
+      <Setter Property="Padding" Value="24,24,24,0" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

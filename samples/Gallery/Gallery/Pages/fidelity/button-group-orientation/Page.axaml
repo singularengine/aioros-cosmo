@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: button-group-orientation">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Orientation="Horizontal" Spacing="32" VerticalAlignment="Top">
+    <c:ButtonGroup Orientation="Vertical" VerticalAlignment="Top" AutomationProperties.Name="Media controls">
+      <Button Classes="outline icon" AutomationProperties.Name="Add"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M5,12 L19,12 M12,5 L12,19" /></Viewbox></Button>
+      <Button Classes="outline icon" AutomationProperties.Name="Remove"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M5,12 L19,12" /></Viewbox></Button>
+    </c:ButtonGroup>
+    <c:ButtonGroup VerticalAlignment="Top">
+      <Button Classes="secondary sm" Content="Copy" />
+      <Separator />
+      <Button Classes="secondary sm" Content="Paste" />
+    </c:ButtonGroup>
+    <c:ButtonGroup VerticalAlignment="Top">
+      <c:ButtonGroupText Content="https://" />
+      <TextBox PlaceholderText="my-app" Width="160" />
+      <Button Classes="outline" Content="Go" />
+    </c:ButtonGroup>
+    </StackPanel>
+  </Border>
+</UserControl>

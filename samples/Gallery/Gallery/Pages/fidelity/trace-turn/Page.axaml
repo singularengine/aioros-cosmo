@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: trace-turn">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Expander Classes="trace" Width="384" HorizontalAlignment="Left" IsExpanded="True">
+      <Expander.Header><c:TraceLine Content="Worked for 2m 4s, 1 command failed" Status="Error" /></Expander.Header>
+      <StackPanel Spacing="8">
+    <c:Trace>
+      <Expander Classes="trace">
+      <Expander.Header><c:TraceLine Content="Thought" Description="12s"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4 M17.599 6.5a3 3 0 0 0 .399-1.375 M6.003 5.125A3 3 0 0 0 6.401 6.5 M3.477 10.896a4 4 0 0 1 .585-.396 M19.938 10.5a4 4 0 0 1 .585.396 M6 18a4 4 0 0 1-1.967-.516 M19.967 17.484A4 4 0 0 1 18 18" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <TextBlock Text="I should check which package managers are installed before I scaffold anything." TextWrapping="Wrap" />
+    </Expander>
+      <Expander Classes="trace" IsExpanded="True">
+      <Expander.Header><c:TraceLine Content="Ran 2 commands, 1 failed" Status="Error"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:Trace>
+      <c:TraceLine Content="Ran node --version"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine>
+      <Expander Classes="trace">
+      <Expander.Header><c:TraceLine Content="Failed to run pnpm --version" Status="Error"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm destructive">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="command not found: pnpm" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+    </c:Trace>
+    </Expander>
+    </c:Trace>
+    <TextBlock Text="Node is installed and pnpm is not. Reading the docs config." TextWrapping="Wrap" />
+    <c:Trace>
+      <HyperlinkButton Classes="trace" NavigateUri="#turn"><c:TraceLine Content="Read apps/v4/lib/docs.ts"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" /></Viewbox></c:TraceLine.Icon><c:TraceLine.Trailing><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M9 18 l6-6-6-6" /></Viewbox></c:TraceLine.Trailing></c:TraceLine></HyperlinkButton>
+    </c:Trace>
+    </StackPanel>
+    </Expander>
+  </Border>
+</UserControl>

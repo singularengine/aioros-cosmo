@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="Label" a:Page.Description="Renders an accessible label associated with controls.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Label" />
+      <TextBlock Classes="lead" Text="Renders an accessible label associated with controls." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: label" />
+        <c:Badge Classes="secondary" Content="Avalonia: Label" />
+        <c:Badge Classes="secondary" Content="Web: &lt;label for&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Target names the control the label is for: on the web it is the label&#x27;s for attribute (the target needs an a:Web.Id), on the desktop clicking the label focuses the target." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <CheckBox Name="terms" a:Web.Id="terms" />
+            <Label Content="Accept terms and conditions" Target="{Binding #terms}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;  &lt;CheckBox Name=&quot;terms&quot; a:Web.Id=&quot;terms&quot; /&gt;&#10;  &lt;Label Content=&quot;Accept terms and conditions&quot; Target=&quot;{Binding #terms}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="With an input" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <Label Content="Email" Target="{Binding #email}" />
+            <TextBox Name="email" a:Web.Id="email" PlaceholderText="Email" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;Label Content=&quot;Email&quot; Target=&quot;{Binding #email}&quot; /&gt;&#10;  &lt;TextBox Name=&quot;email&quot; a:Web.Id=&quot;email&quot; PlaceholderText=&quot;Email&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Label Content="Disabled label" IsEnabled="False" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Label Content=&quot;Disabled label&quot; IsEnabled=&quot;False&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Text or any content; it can be bound (with a StringFormat) when the label has no Target." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Target" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The control the label names: its for attribute on the web." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="(look)" /><TextBlock Grid.Column="1" Classes="sm muted" Text="14 px medium text on a 14 px line, no padding, the color of its parent (a label in an invalid field turns destructive)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

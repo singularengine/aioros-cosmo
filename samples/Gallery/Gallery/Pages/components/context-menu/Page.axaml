@@ -1,0 +1,84 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Context Menu" a:Page.Description="Displays a menu to the user—such as a set of actions or functions—triggered by a right click.">
+  <UserControl.Styles>
+    <Style Selector="MenuFlyoutPresenter.w-56">
+      <Setter Property="Width" Value="224" />
+    </Style>
+    <Style Selector="ContextMenu.w-52">
+      <Setter Property="Width" Value="208" />
+    </Style>
+  </UserControl.Styles>
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Context Menu" />
+      <TextBlock Classes="lead" Text="Displays a menu to the user—such as a set of actions or functions—triggered by a right click." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: context-menu" />
+        <c:Badge Classes="secondary" Content="Avalonia: ContextMenu" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="A right click (or Shift+F10, or the Apps key) opens the menu at the pointer." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="300" Height="150" CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" Background="Transparent">
+            <Border.ContextMenu>
+              <ContextMenu Classes="w-52">
+                <MenuItem Classes="inset" Header="Back" InputGesture="Ctrl+OemOpenBrackets" />
+                <MenuItem Classes="inset" Header="Forward" InputGesture="Ctrl+OemCloseBrackets" IsEnabled="False" />
+                <MenuItem Classes="inset" Header="Reload" InputGesture="Ctrl+R" />
+                <MenuItem Classes="inset" Header="More Tools">
+                  <MenuItem Header="Save Page..." />
+                  <MenuItem Header="Create Shortcut..." />
+                  <MenuItem Header="Name Window..." />
+                  <Separator />
+                  <MenuItem Header="Developer Tools" />
+                  <Separator />
+                  <MenuItem Classes="destructive" Header="Delete" />
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Show Bookmarks" ToggleType="CheckBox" IsChecked="True" />
+                <MenuItem Header="Show Full URLs" ToggleType="CheckBox" />
+                <Separator />
+                <MenuItem Classes="label inset" Header="People" />
+                <MenuItem Header="Pedro Duarte" ToggleType="Radio" GroupName="people" IsChecked="True" />
+                <MenuItem Header="Colm Tuite" ToggleType="Radio" GroupName="people" />
+              </ContextMenu>
+            </Border.ContextMenu>
+            <TextBlock Classes="sm" Text="Right click here" HorizontalAlignment="Center" VerticalAlignment="Center" />
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;300&quot; Height=&quot;150&quot; CornerRadius=&quot;8&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; Background=&quot;Transparent&quot;&gt;&#10;  &lt;Border.ContextMenu&gt;&#10;    &lt;ContextMenu Classes=&quot;w-52&quot;&gt;&#10;      &lt;MenuItem Classes=&quot;inset&quot; Header=&quot;Back&quot; InputGesture=&quot;Ctrl+OemOpenBrackets&quot; /&gt;&#10;      &lt;MenuItem Classes=&quot;inset&quot; Header=&quot;Forward&quot; InputGesture=&quot;Ctrl+OemCloseBrackets&quot; IsEnabled=&quot;False&quot; /&gt;&#10;      &lt;MenuItem Classes=&quot;inset&quot; Header=&quot;Reload&quot; InputGesture=&quot;Ctrl+R&quot; /&gt;&#10;      &lt;MenuItem Classes=&quot;inset&quot; Header=&quot;More Tools&quot;&gt;&#10;        &lt;MenuItem Header=&quot;Save Page...&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;Create Shortcut...&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;Name Window...&quot; /&gt;&#10;        &lt;Separator /&gt;&#10;        &lt;MenuItem Header=&quot;Developer Tools&quot; /&gt;&#10;        &lt;Separator /&gt;&#10;        &lt;MenuItem Classes=&quot;destructive&quot; Header=&quot;Delete&quot; /&gt;&#10;      &lt;/MenuItem&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;Show Bookmarks&quot; ToggleType=&quot;CheckBox&quot; IsChecked=&quot;True&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Show Full URLs&quot; ToggleType=&quot;CheckBox&quot; /&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Classes=&quot;label inset&quot; Header=&quot;People&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Pedro Duarte&quot; ToggleType=&quot;Radio&quot; GroupName=&quot;people&quot; IsChecked=&quot;True&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Colm Tuite&quot; ToggleType=&quot;Radio&quot; GroupName=&quot;people&quot; /&gt;&#10;    &lt;/ContextMenu&gt;&#10;  &lt;/Border.ContextMenu&gt;&#10;  &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Right click here&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding and commands" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Border Width="300" Height="100" CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" Background="Transparent">
+              <Border.ContextMenu>
+                <ContextMenu>
+                  <MenuItem Header="Copy" Command="{Binding ChooseCommand}" CommandParameter="Copy" />
+                  <MenuItem Header="Paste" Command="{Binding ChooseCommand}" CommandParameter="Paste" />
+                </ContextMenu>
+              </Border.ContextMenu>
+              <TextBlock Classes="sm muted" Text="Right click for actions" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <TextBlock Classes="sm muted" Text="{Binding Choice}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Border Width=&quot;300&quot; Height=&quot;100&quot; CornerRadius=&quot;8&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; Background=&quot;Transparent&quot;&gt;&#10;    &lt;Border.ContextMenu&gt;&#10;      &lt;ContextMenu&gt;&#10;        &lt;MenuItem Header=&quot;Copy&quot; Command=&quot;{Binding ChooseCommand}&quot; CommandParameter=&quot;Copy&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;Paste&quot; Command=&quot;{Binding ChooseCommand}&quot; CommandParameter=&quot;Paste&quot; /&gt;&#10;      &lt;/ContextMenu&gt;&#10;    &lt;/Border.ContextMenu&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Right click for actions&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;/Border&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Choice}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Control.ContextMenu, ContextMenu" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The menu of any control, with the dropdown menu&#x27;s items, classes and separators." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="HorizontalOffset" /><TextBlock Grid.Column="1" Classes="sm muted" Text="2 px right of the pointer, as Radix&#x27;s." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

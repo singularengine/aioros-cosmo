@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: select-scrolled">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="440" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <ComboBox Name="zone" a:Web.Id="zone" Width="280" MaxDropDownHeight="384" VerticalAlignment="Top" SelectedIndex="25">
+        <ComboBoxItem Classes="label" Content="North America" />
+        <ComboBoxItem Content="Eastern Standard Time (EST)" />
+        <ComboBoxItem Content="Central Standard Time (CST)" />
+        <ComboBoxItem Content="Mountain Standard Time (MST)" />
+        <ComboBoxItem Content="Pacific Standard Time (PST)" />
+        <ComboBoxItem Content="Alaska Standard Time (AKST)" />
+        <ComboBoxItem Content="Hawaii Standard Time (HST)" />
+        <ComboBoxItem Classes="label" Content="Europe &amp; Africa" />
+        <ComboBoxItem Content="Greenwich Mean Time (GMT)" />
+        <ComboBoxItem Content="Central European Time (CET)" />
+        <ComboBoxItem Content="Eastern European Time (EET)" />
+        <ComboBoxItem Content="Western European Summer Time (WEST)" />
+        <ComboBoxItem Content="Central Africa Time (CAT)" />
+        <ComboBoxItem Content="East Africa Time (EAT)" />
+        <ComboBoxItem Classes="label" Content="Asia" />
+        <ComboBoxItem Content="Moscow Time (MSK)" />
+        <ComboBoxItem Content="India Standard Time (IST)" />
+        <ComboBoxItem Content="China Standard Time (CST)" />
+        <ComboBoxItem Content="Japan Standard Time (JST)" />
+        <ComboBoxItem Content="Korea Standard Time (KST)" />
+        <ComboBoxItem Content="Indonesia Central Standard Time (WITA)" />
+        <ComboBoxItem Classes="label" Content="Australia &amp; Pacific" />
+        <ComboBoxItem Content="Australian Western Standard Time (AWST)" />
+        <ComboBoxItem Content="Australian Central Standard Time (ACST)" />
+        <ComboBoxItem Content="Australian Eastern Standard Time (AEST)" />
+        <ComboBoxItem Content="New Zealand Standard Time (NZST)" />
+        <ComboBoxItem Content="Fiji Time (FJT)" />
+        <ComboBoxItem Classes="label" Content="South America" />
+        <ComboBoxItem Content="Argentina Time (ART)" />
+        <ComboBoxItem Content="Bolivia Time (BOT)" />
+        <ComboBoxItem Content="Brasilia Time (BRT)" />
+        <ComboBoxItem Content="Chile Standard Time (CLT)" />
+      </ComboBox>
+    </Panel>
+  </Border>
+</UserControl>

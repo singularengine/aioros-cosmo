@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: trace-sheet">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Trace Width="384" HorizontalAlignment="Left">
+      <Button Classes="trace" x:Name="exploredFiles"><c:TraceLine Content="Explored 4 files"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1 m21 21-1.9-1.9 M14,17 A3,3 0 1 1 20,17 A3,3 0 1 1 14,17 Z" /></Viewbox></c:TraceLine.Icon><c:TraceLine.Trailing><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M9 18 l6-6-6-6" /></Viewbox></c:TraceLine.Trailing></c:TraceLine></Button><c:Sheet Trigger="{Binding #exploredFiles}"><StackPanel Spacing="16">
+          <c:DialogHeader Title="Explored 4 files" Description="Files read while preparing the response." />
+          <StackPanel Spacing="8" Margin="24,0"><TextBlock Text="apps/v4/lib/docs.ts" FontFamily="{DynamicResource CosmoFontMono}" FontSize="12" /><TextBlock Text="apps/v4/lib/components.ts" FontFamily="{DynamicResource CosmoFontMono}" FontSize="12" /><TextBlock Text="apps/v4/next.config.mjs" FontFamily="{DynamicResource CosmoFontMono}" FontSize="12" /><TextBlock Text="apps/v4/package.json" FontFamily="{DynamicResource CosmoFontMono}" FontSize="12" /></StackPanel></StackPanel></c:Sheet>
+    </c:Trace>
+  </Border>
+</UserControl>

@@ -1,0 +1,131 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:CompositeExamples"
+             a:Page.Title="Command" a:Page.Description="Fast, composable, unstyled command menu.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Command" />
+      <TextBlock Classes="lead" Text="Fast, composable, unstyled command menu." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: command" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Command, c:CommandGroup, c:CommandItem, c:CommandDialog" />
+        <c:Badge Classes="secondary" Content="Web: &lt;input&gt; and buttons" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Type to filter and rank the items as cmdk does; Up, Down, Home, End and Enter move and choose." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Command Classes="outline" MaxWidth="450">
+              <c:CommandGroup Header="Suggestions">
+                <c:CommandItem><StackPanel><a:Icon Kind="calendar" /><TextBlock Text="Calendar" /></StackPanel></c:CommandItem>
+                <c:CommandItem><StackPanel><a:Icon Kind="smile" /><TextBlock Text="Search Emoji" /></StackPanel></c:CommandItem>
+                <c:CommandItem IsEnabled="False"><StackPanel><a:Icon Kind="calculator" /><TextBlock Text="Calculator" /></StackPanel></c:CommandItem>
+              </c:CommandGroup>
+              <c:CommandSeparator />
+              <c:CommandGroup Header="Settings">
+                <c:CommandItem Shortcut="⌘P"><StackPanel><a:Icon Kind="user" /><TextBlock Text="Profile" /></StackPanel></c:CommandItem>
+                <c:CommandItem Shortcut="⌘B"><StackPanel><a:Icon Kind="credit-card" /><TextBlock Text="Billing" /></StackPanel></c:CommandItem>
+                <c:CommandItem Shortcut="⌘S"><StackPanel><a:Icon Kind="settings" /><TextBlock Text="Settings" /></StackPanel></c:CommandItem>
+              </c:CommandGroup>
+          </c:Command>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Command Classes=&quot;outline&quot; MaxWidth=&quot;450&quot;&gt;&#10;    &lt;c:CommandGroup Header=&quot;Suggestions&quot;&gt;&#10;      &lt;c:CommandItem&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;calendar&quot; /&gt;&lt;TextBlock Text=&quot;Calendar&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;smile&quot; /&gt;&lt;TextBlock Text=&quot;Search Emoji&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem IsEnabled=&quot;False&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;calculator&quot; /&gt;&lt;TextBlock Text=&quot;Calculator&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;    &lt;/c:CommandGroup&gt;&#10;    &lt;c:CommandSeparator /&gt;&#10;    &lt;c:CommandGroup Header=&quot;Settings&quot;&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘P&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;user&quot; /&gt;&lt;TextBlock Text=&quot;Profile&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘B&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;credit-card&quot; /&gt;&lt;TextBlock Text=&quot;Billing&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘S&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;settings&quot; /&gt;&lt;TextBlock Text=&quot;Settings&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;    &lt;/c:CommandGroup&gt;&#10;&lt;/c:Command&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Dialog" />
+      <TextBlock Classes="sm muted" Text="CommandDialog opens and closes with its Gesture anywhere in the window, as its Trigger&#x27;s hot key (so the web presses the button too); IsOpen binds two way." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="8">
+            <TextBlock Classes="sm muted" Text="Press Ctrl+J, or the button." />
+            <Button x:Name="OpenPalette" Classes="outline sm" Content="Open the palette" Command="{Binding TogglePaletteCommand}" HorizontalAlignment="Left" />
+            <c:CommandDialog Gesture="Ctrl+J" Trigger="{Binding #OpenPalette}" IsOpen="{Binding PaletteOpen}">
+              <c:Command>
+              <c:CommandGroup Header="Suggestions">
+                <c:CommandItem><StackPanel><a:Icon Kind="calendar" /><TextBlock Text="Calendar" /></StackPanel></c:CommandItem>
+                <c:CommandItem><StackPanel><a:Icon Kind="smile" /><TextBlock Text="Search Emoji" /></StackPanel></c:CommandItem>
+                <c:CommandItem IsEnabled="False"><StackPanel><a:Icon Kind="calculator" /><TextBlock Text="Calculator" /></StackPanel></c:CommandItem>
+              </c:CommandGroup>
+              <c:CommandSeparator />
+              <c:CommandGroup Header="Settings">
+                <c:CommandItem Shortcut="⌘P"><StackPanel><a:Icon Kind="user" /><TextBlock Text="Profile" /></StackPanel></c:CommandItem>
+                <c:CommandItem Shortcut="⌘B"><StackPanel><a:Icon Kind="credit-card" /><TextBlock Text="Billing" /></StackPanel></c:CommandItem>
+                <c:CommandItem Shortcut="⌘S"><StackPanel><a:Icon Kind="settings" /><TextBlock Text="Settings" /></StackPanel></c:CommandItem>
+              </c:CommandGroup>
+              </c:Command>
+            </c:CommandDialog>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Press Ctrl+J, or the button.&quot; /&gt;&#10;  &lt;Button x:Name=&quot;OpenPalette&quot; Classes=&quot;outline sm&quot; Content=&quot;Open the palette&quot; Command=&quot;{Binding TogglePaletteCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;  &lt;c:CommandDialog Gesture=&quot;Ctrl+J&quot; Trigger=&quot;{Binding #OpenPalette}&quot; IsOpen=&quot;{Binding PaletteOpen}&quot;&gt;&#10;    &lt;c:Command&gt;&#10;    &lt;c:CommandGroup Header=&quot;Suggestions&quot;&gt;&#10;      &lt;c:CommandItem&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;calendar&quot; /&gt;&lt;TextBlock Text=&quot;Calendar&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;smile&quot; /&gt;&lt;TextBlock Text=&quot;Search Emoji&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem IsEnabled=&quot;False&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;calculator&quot; /&gt;&lt;TextBlock Text=&quot;Calculator&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;    &lt;/c:CommandGroup&gt;&#10;    &lt;c:CommandSeparator /&gt;&#10;    &lt;c:CommandGroup Header=&quot;Settings&quot;&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘P&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;user&quot; /&gt;&lt;TextBlock Text=&quot;Profile&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘B&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;credit-card&quot; /&gt;&lt;TextBlock Text=&quot;Billing&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘S&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;settings&quot; /&gt;&lt;TextBlock Text=&quot;Settings&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;    &lt;/c:CommandGroup&gt;&#10;    &lt;/c:Command&gt;&#10;  &lt;/c:CommandDialog&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Shortcut only" />
+      <TextBlock Classes="sm muted" Text="A dialog without a Trigger keeps its Gesture: the desktop handles it in the window, the web opens and closes the dialog in the browser." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="8">
+            <TextBlock Classes="sm muted" Text="Press Ctrl+I." />
+            <c:CommandDialog Gesture="Ctrl+I">
+              <c:Command>
+              <c:CommandGroup Header="Suggestions">
+                <c:CommandItem><StackPanel><a:Icon Kind="calendar" /><TextBlock Text="Calendar" /></StackPanel></c:CommandItem>
+                <c:CommandItem><StackPanel><a:Icon Kind="smile" /><TextBlock Text="Search Emoji" /></StackPanel></c:CommandItem>
+                <c:CommandItem IsEnabled="False"><StackPanel><a:Icon Kind="calculator" /><TextBlock Text="Calculator" /></StackPanel></c:CommandItem>
+              </c:CommandGroup>
+              <c:CommandSeparator />
+              <c:CommandGroup Header="Settings">
+                <c:CommandItem Shortcut="⌘P"><StackPanel><a:Icon Kind="user" /><TextBlock Text="Profile" /></StackPanel></c:CommandItem>
+                <c:CommandItem Shortcut="⌘B"><StackPanel><a:Icon Kind="credit-card" /><TextBlock Text="Billing" /></StackPanel></c:CommandItem>
+                <c:CommandItem Shortcut="⌘S"><StackPanel><a:Icon Kind="settings" /><TextBlock Text="Settings" /></StackPanel></c:CommandItem>
+              </c:CommandGroup>
+              </c:Command>
+            </c:CommandDialog>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Press Ctrl+I.&quot; /&gt;&#10;  &lt;c:CommandDialog Gesture=&quot;Ctrl+I&quot;&gt;&#10;    &lt;c:Command&gt;&#10;    &lt;c:CommandGroup Header=&quot;Suggestions&quot;&gt;&#10;      &lt;c:CommandItem&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;calendar&quot; /&gt;&lt;TextBlock Text=&quot;Calendar&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;smile&quot; /&gt;&lt;TextBlock Text=&quot;Search Emoji&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem IsEnabled=&quot;False&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;calculator&quot; /&gt;&lt;TextBlock Text=&quot;Calculator&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;    &lt;/c:CommandGroup&gt;&#10;    &lt;c:CommandSeparator /&gt;&#10;    &lt;c:CommandGroup Header=&quot;Settings&quot;&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘P&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;user&quot; /&gt;&lt;TextBlock Text=&quot;Profile&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘B&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;credit-card&quot; /&gt;&lt;TextBlock Text=&quot;Billing&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;      &lt;c:CommandItem Shortcut=&quot;⌘S&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;settings&quot; /&gt;&lt;TextBlock Text=&quot;Settings&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:CommandItem&gt;&#10;    &lt;/c:CommandGroup&gt;&#10;    &lt;/c:Command&gt;&#10;  &lt;/c:CommandDialog&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Each item runs the model&#x27;s command with its page; Text and SelectedValue bind two way; the Components group&#x27;s items come from the model with an ItemTemplate, each running ItemCommand with ItemCommandParameter. Typing filters and ranks the items on both targets, and the web posts the text, the value and the chosen item." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="450">
+            <c:Command Classes="outline" Text="{Binding CommandSearch}" SelectedValue="{Binding CommandValue}" Placeholder="Search the Gallery...">
+              <c:CommandGroup Header="Pages">
+                <c:CommandItem Content="Dashboard" Command="{Binding OpenCommand}" CommandParameter="/examples/dashboard" />
+                <c:CommandItem Content="Forms" Command="{Binding OpenCommand}" CommandParameter="/examples/forms" />
+                <c:CommandItem Content="Themes" Command="{Binding OpenCommand}" CommandParameter="/themes" />
+                <c:CommandItem Content="Binding and MVVM" Command="{Binding OpenCommand}" CommandParameter="/binding" />
+              </c:CommandGroup>
+              <c:CommandGroup Header="Components" ItemsSource="{Binding CommandPages}" ItemCommand="{Binding $parent[c:Command].((m:CompositeExamples)DataContext).OpenCommand, x:DataType=m:CommandPage}"
+                              ItemCommandParameter="{Binding Path, x:DataType=m:CommandPage}">
+                <c:CommandGroup.ItemTemplate>
+                  <DataTemplate x:DataType="m:CommandPage">
+                    <TextBlock Text="{Binding Title}" />
+                  </DataTemplate>
+                </c:CommandGroup.ItemTemplate>
+              </c:CommandGroup>
+            </c:Command>
+            <TextBlock Classes="sm muted" Text="{Binding Opened, StringFormat='Opened: {0}'}" />
+            <TextBlock Classes="sm muted" Text="{Binding CommandValue, StringFormat='Value: {0}', FallbackValue='Value: none'}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;450&quot;&gt;&#10;  &lt;c:Command Classes=&quot;outline&quot; Text=&quot;{Binding CommandSearch}&quot; SelectedValue=&quot;{Binding CommandValue}&quot; Placeholder=&quot;Search the Gallery...&quot;&gt;&#10;    &lt;c:CommandGroup Header=&quot;Pages&quot;&gt;&#10;      &lt;c:CommandItem Content=&quot;Dashboard&quot; Command=&quot;{Binding OpenCommand}&quot; CommandParameter=&quot;/examples/dashboard&quot; /&gt;&#10;      &lt;c:CommandItem Content=&quot;Forms&quot; Command=&quot;{Binding OpenCommand}&quot; CommandParameter=&quot;/examples/forms&quot; /&gt;&#10;      &lt;c:CommandItem Content=&quot;Themes&quot; Command=&quot;{Binding OpenCommand}&quot; CommandParameter=&quot;/themes&quot; /&gt;&#10;      &lt;c:CommandItem Content=&quot;Binding and MVVM&quot; Command=&quot;{Binding OpenCommand}&quot; CommandParameter=&quot;/binding&quot; /&gt;&#10;    &lt;/c:CommandGroup&gt;&#10;    &lt;c:CommandGroup Header=&quot;Components&quot; ItemsSource=&quot;{Binding CommandPages}&quot; ItemCommand=&quot;{Binding $parent[c:Command].((m:CompositeExamples)DataContext).OpenCommand, x:DataType=m:CommandPage}&quot;&#10;                    ItemCommandParameter=&quot;{Binding Path, x:DataType=m:CommandPage}&quot;&gt;&#10;      &lt;c:CommandGroup.ItemTemplate&gt;&#10;        &lt;DataTemplate x:DataType=&quot;m:CommandPage&quot;&gt;&#10;          &lt;TextBlock Text=&quot;{Binding Title}&quot; /&gt;&#10;        &lt;/DataTemplate&gt;&#10;      &lt;/c:CommandGroup.ItemTemplate&gt;&#10;    &lt;/c:CommandGroup&gt;&#10;  &lt;/c:Command&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Opened, StringFormat=&#x27;Opened: {0}&#x27;}&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding CommandValue, StringFormat=&#x27;Value: {0}&#x27;, FallbackValue=&#x27;Value: none&#x27;}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Command" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Text and SelectedValue (two way), Placeholder, Empty, ShouldFilter, IsLoop, Filter; the outline class is the demo&#x27;s border and shadow." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CommandGroup" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Header, items or ItemsSource with ItemTemplate, ItemCommand and ItemCommandParameter (cmdk&#x27;s onSelect)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CommandItem" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Content, Value, Keywords, Shortcut, Command and CommandParameter, IsEnabled." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CommandSeparator" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A line between groups, hidden while searching." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CommandDialog" /><TextBlock Grid.Column="1" Classes="sm muted" Text="IsOpen (two way), Gesture (Ctrl+K), Trigger, Title." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

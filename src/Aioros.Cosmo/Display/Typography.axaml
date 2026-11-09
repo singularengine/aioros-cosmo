@@ -1,0 +1,98 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:a="https://aioros.dev">
+  <Style Selector="TextBlock.typography">
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+  <Style Selector="TextBlock.typography.h1">
+    <Setter Property="AutomationProperties.HeadingLevel" Value="1" />
+    <Setter Property="FontSize" Value="36" />
+    <Setter Property="LineHeight" Value="40" />
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="LetterSpacing" Value="-0.9" />
+  </Style>
+  <Style Selector="TextBlock.typography.h2">
+    <Setter Property="AutomationProperties.HeadingLevel" Value="2" />
+    <Setter Property="FontSize" Value="30" />
+    <Setter Property="LineHeight" Value="36" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="LetterSpacing" Value="-0.75" />
+  </Style>
+  <Style Selector="TextBlock.typography.h3">
+    <Setter Property="AutomationProperties.HeadingLevel" Value="3" />
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="LineHeight" Value="32" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="LetterSpacing" Value="-0.6" />
+  </Style>
+  <Style Selector="TextBlock.typography.h4">
+    <Setter Property="AutomationProperties.HeadingLevel" Value="4" />
+    <Setter Property="FontSize" Value="20" />
+    <Setter Property="LineHeight" Value="28" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="LetterSpacing" Value="-0.5" />
+  </Style>
+  <Style Selector="TextBlock.typography.p">
+    <Setter Property="a:Web.Tag" Value="p" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="LineHeight" Value="28" />
+  </Style>
+  <Style Selector="TextBlock.typography.lead">
+    <Setter Property="a:Web.Tag" Value="p" />
+    <Setter Property="FontSize" Value="20" />
+    <Setter Property="LineHeight" Value="28" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+  </Style>
+  <Style Selector="TextBlock.typography.large">
+    <Setter Property="FontSize" Value="18" />
+    <Setter Property="LineHeight" Value="28" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+  <Style Selector="TextBlock.typography.small">
+    <Setter Property="a:Web.Tag" Value="small" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+  </Style>
+  <Style Selector="TextBlock.typography.muted">
+    <Setter Property="a:Web.Tag" Value="p" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+  </Style>
+  <Style Selector="Border.typography.blockquote">
+    <Setter Property="a:Web.Tag" Value="blockquote" />
+    <Setter Property="BorderThickness" Value="2,0,0,0" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="Padding" Value="24,0,0,0" />
+  </Style>
+  <Style Selector="Border.typography.blockquote > TextBlock">
+    <Setter Property="FontStyle" Value="Italic" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="LineHeight" Value="24" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+  <Style Selector="Border.typography.inline-code">
+    <Setter Property="a:Web.Tag" Value="code" />
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="Padding" Value="4.8,3.2" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </Style>
+  <Style Selector="Border.typography.inline-code > TextBlock">
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontMono}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+  <Style Selector="Border.typeset-code">
+    <Setter Property="a:Web.Tag" Value="code" />
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="CornerRadius" Value="4.76" />
+    <Setter Property="Padding" Value="4.08,1.7" />
+    <Setter Property="Margin" Value="0,0,0,-5.03" />
+  </Style>
+  <Style Selector="Border.typeset-code > TextBlock">
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontMono}" />
+    <Setter Property="FontSize" Value="13.6" />
+    <Setter Property="LineHeight" Value="16.32" />
+  </Style>
+</Styles>

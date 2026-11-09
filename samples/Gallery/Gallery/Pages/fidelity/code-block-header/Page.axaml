@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-header">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left">
+      <c:CodeBlock.Title><StackPanel Orientation="Horizontal" Spacing="6"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox><TextBlock Text="Terminal" VerticalAlignment="Center" /></StackPanel></c:CodeBlock.Title><c:CodeBlock.Actions><StackPanel Orientation="Horizontal" Spacing="4"><c:CodeBlockCopyButton Value="pnpm add ai @ai-sdk/react zod" /></StackPanel></c:CodeBlock.Actions>
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="$ pnpm add ai @ai-sdk/react zod" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="Packages: +14" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="Progress: resolved 412, reused 398, downloaded 14, added 14, done" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="Done in 2.8s using pnpm v10.18.0" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

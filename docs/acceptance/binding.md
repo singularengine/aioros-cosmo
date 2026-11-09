@@ -1,0 +1,16 @@
+# Binding and MVVM
+
+Every Cosmo component supports the usual XAML features on both targets: binding of every public property (one way and
+two way where it makes sense), converters (custom and Avalonia's built-in ones) and string formats, commands with
+parameters and `CanExecute`, data templates, styles and resources, and compiled bindings (`x:DataType`), with plain MVVM
+and no code-behind. The Gallery's `/binding` page is the web fixture (`samples/Gallery/Gallery/Models/BindingExamples.cs`).
+
+| AC | Criterion |
+| --- | --- |
+| BINDING-01 | Given the `/binding` page, when a visitor posts its form pressing the `+5` button (bound to `AddCommand` with `CommandParameter="5"`) with the team field set to `Rocket` and the seats field to `8`, then the command runs on the server with its parameter after the two-way fields are bound, and the answer shows the card titled `Team Rocket` (a `StringFormat` binding of the header's `Title`), the description `$156 per month` and the seats field and badge at 13. |
+| BINDING-02 | Given a window with a Cosmo `Button` bound to a command with a `CommandParameter`, when the button is clicked with the mouse on the desktop, then the command runs once with that parameter, a `c:CardHeader` whose `Title` is bound with a `StringFormat` shows the view model's new value, and a `c:Badge` whose `Content` is bound to a model object with a `ContentTemplate` shows the template's texts. |
+| BINDING-03 | Given the `/binding` page, when the seats are 13 (over the plan's limit of 10), then the badge bound with `Classes.destructive="{Binding Seats, Converter={StaticResource OverLimit}}"` is written with the destructive background, and with 8 seats with the default one. |
+| BINDING-04 | Given the `/binding` page, when it is served with the terms not accepted, then the `Send invites` button (bound to a command whose `CanExecute` needs the accepted terms and a team name) is `disabled`; when a post accepts the terms (the two-way checkbox) while pressing `+5` with 13 seats for `Rocket`, then the answer enables it, and pressing it shows its command's status `Invited 18 people to Rocket`. |
+| BINDING-05 | Given a `c:Badge` whose `Content` is bound to a model object and whose `ContentTemplate` is a `DataTemplate` with compiled bindings, when it is rendered on the web, then it shows the template's texts (`Pro`, `$12 per seat`) rather than the object's name. |
+| BINDING-06 | Given a `c:Badge` whose `Classes.destructive` is bound through a custom `IValueConverter` and whose `IsVisible` is bound through Avalonia's built-in `ObjectConverters.IsNotNull`, when the view model's values change at runtime on the desktop, then the badge takes and drops the destructive background and hides and shows as the converters say. |
+| BINDING-07 | Given the `/binding` page, whose `c:CodeBlockCopyButton` binds its `Value` to the model's `Total`, when it is served with 3 seats and when a post presses `One seat more`, then on the web the button copies `$36 per month` and then `$48 per month` (its `data-aioros-copies` follows the model, `a:Web.Copies` bound to the button's `Value`, so the page's plan writes each model's value), and the page keeps its plan (`<meta name="aioros-plan">`) rather than going to the engine. |

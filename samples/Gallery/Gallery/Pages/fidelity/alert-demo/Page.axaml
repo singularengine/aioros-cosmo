@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: alert-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="16" Width="576" HorizontalAlignment="Left">
+      <c:Alert Title="Success! Your changes have been saved" Content="This is an alert with icon, title and description.">
+        <c:Alert.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M9,12 L11,14 L15,10" /></Viewbox></c:Alert.Icon>
+      </c:Alert>
+      <c:Alert Title="This Alert has a title and an icon. No description.">
+        <c:Alert.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M18 8a2 2 0 0 0 0-4 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0-4 0 2 2 0 0 0 0 4 M10,22 L9,8 M14,22 L15,8 M20 8c.5 0 .9.4.8 1l-2.6 12c-.1.5-.7 1-1.2 1H7c-.6 0-1.1-.4-1.2-1L3.2 9c-.1-.6.3-1 .8-1Z" /></Viewbox></c:Alert.Icon>
+      </c:Alert>
+      <c:Alert Classes="destructive" Title="Unable to process your payment.">
+        <c:Alert.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoDestructiveBrush}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M12,8 L12,12 M12,16 L12.01,16" /></Viewbox></c:Alert.Icon>
+        <StackPanel Spacing="4">
+          <TextBlock Text="Please verify your billing information and try again." LineHeight="22.75" TextWrapping="Wrap" />
+          <c:List Classes="inside" TextBlock.LineHeight="20">
+            <x:String>Check your card details</x:String>
+            <x:String>Ensure sufficient funds</x:String>
+            <x:String>Verify billing address</x:String>
+          </c:List>
+        </StackPanel>
+      </c:Alert>
+    </StackPanel>
+  </Border>
+</UserControl>

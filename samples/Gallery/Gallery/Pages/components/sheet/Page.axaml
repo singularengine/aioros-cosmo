@@ -1,0 +1,88 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Sheet" a:Page.Description="Extends the Dialog component to display content that complements the main content of the screen.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Sheet" />
+      <TextBlock Classes="lead" Text="Extends the Dialog component to display content that complements the main content of the screen." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: sheet" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Sheet" />
+        <c:Badge Classes="secondary" Content="Web: &lt;dialog&gt; (showModal)" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="A side sheet is three quarters of the window, 384 px at most; its header and footer are inset 16 px." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Open" Command="{Binding SheetCommand}" CommandParameter="Right" />
+            <c:Sheet IsOpen="{Binding SheetOpen}" Side="{Binding Side}">
+              <Grid RowDefinitions="Auto,*,Auto" RowSpacing="16">
+                <c:DialogHeader Title="Edit profile" Description="Make changes to your profile here. Click save when you're done." />
+                <StackPanel Grid.Row="1" Spacing="24" Margin="16,0">
+                  <StackPanel Spacing="12">
+                    <Label Content="Name" />
+                    <TextBox Text="{Binding Name}" AutomationProperties.Name="Name" />
+                  </StackPanel>
+                  <StackPanel Spacing="12">
+                    <Label Content="Username" />
+                    <TextBox Text="{Binding Username}" AutomationProperties.Name="Username" />
+                  </StackPanel>
+                </StackPanel>
+                <c:DialogFooter Grid.Row="2">
+                  <Button Content="Save changes" Command="{Binding AnswerCommand}" CommandParameter="save" />
+                  <Button Classes="outline" Content="Close" Command="{Binding AnswerCommand}" CommandParameter="close" />
+                </c:DialogFooter>
+              </Grid>
+            </c:Sheet>
+            <TextBlock Classes="sm muted" Text="{Binding Outcome}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Open&quot; Command=&quot;{Binding SheetCommand}&quot; CommandParameter=&quot;Right&quot; /&gt;&#10;  &lt;c:Sheet IsOpen=&quot;{Binding SheetOpen}&quot; Side=&quot;{Binding Side}&quot;&gt;&#10;    &lt;Grid RowDefinitions=&quot;Auto,*,Auto&quot; RowSpacing=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Edit profile&quot; Description=&quot;Make changes to your profile here. Click save when you&#x27;re done.&quot; /&gt;&#10;      &lt;StackPanel Grid.Row=&quot;1&quot; Spacing=&quot;24&quot; Margin=&quot;16,0&quot;&gt;&#10;        &lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;          &lt;Label Content=&quot;Name&quot; /&gt;&#10;          &lt;TextBox Text=&quot;{Binding Name}&quot; AutomationProperties.Name=&quot;Name&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;          &lt;Label Content=&quot;Username&quot; /&gt;&#10;          &lt;TextBox Text=&quot;{Binding Username}&quot; AutomationProperties.Name=&quot;Username&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/StackPanel&gt;&#10;      &lt;c:DialogFooter Grid.Row=&quot;2&quot;&gt;&#10;        &lt;Button Content=&quot;Save changes&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;save&quot; /&gt;&#10;        &lt;Button Classes=&quot;outline&quot; Content=&quot;Close&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;close&quot; /&gt;&#10;      &lt;/c:DialogFooter&gt;&#10;    &lt;/Grid&gt;&#10;  &lt;/c:Sheet&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Outcome}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Side" />
+      <TextBlock Classes="sm muted" Text="The buttons open the Usage sheet at each side (Side is bound to the model)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <Button Classes="outline" Content="top" Command="{Binding SheetCommand}" CommandParameter="Top" />
+            <Button Classes="outline" Content="right" Command="{Binding SheetCommand}" CommandParameter="Right" />
+            <Button Classes="outline" Content="bottom" Command="{Binding SheetCommand}" CommandParameter="Bottom" />
+            <Button Classes="outline" Content="left" Command="{Binding SheetCommand}" CommandParameter="Left" />
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;top&quot; Command=&quot;{Binding SheetCommand}&quot; CommandParameter=&quot;Top&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;right&quot; Command=&quot;{Binding SheetCommand}&quot; CommandParameter=&quot;Right&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;bottom&quot; Command=&quot;{Binding SheetCommand}&quot; CommandParameter=&quot;Bottom&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;left&quot; Command=&quot;{Binding SheetCommand}&quot; CommandParameter=&quot;Left&quot; /&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Opened in the browser" />
+      <TextBlock Classes="sm muted" Text="Trigger is Radix&#x27;s DialogTrigger: on the web the browser opens the sheet with no request and closes it there; IsOpen, unbound here, stays in the browser." TextWrapping="Wrap" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button x:Name="settingsTrigger" Classes="outline" Content="Settings" />
+            <c:Sheet Trigger="{Binding #settingsTrigger}" Side="Right">
+              <StackPanel Spacing="16" Margin="16">
+                <c:DialogHeader Title="Settings" Description="Opened by the browser, closed by Escape, a click outside or the close button." />
+                <Button Classes="outline" Content="Done" c:Dialog.Closes="True" HorizontalAlignment="Left" />
+              </StackPanel>
+            </c:Sheet>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button x:Name=&quot;settingsTrigger&quot; Classes=&quot;outline&quot; Content=&quot;Settings&quot; /&gt;&#10;  &lt;c:Sheet Trigger=&quot;{Binding #settingsTrigger}&quot; Side=&quot;Right&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot; Margin=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Settings&quot; Description=&quot;Opened by the browser, closed by Escape, a click outside or the close button.&quot; /&gt;&#10;      &lt;Button Classes=&quot;outline&quot; Content=&quot;Done&quot; c:Dialog.Closes=&quot;True&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Sheet&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Trigger" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The button that opens it; on the web the browser opens it with no request." TextWrapping="Wrap" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsOpen, Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="As the dialog&#x27;s." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Side" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Right (default), Left, Top, Bottom." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

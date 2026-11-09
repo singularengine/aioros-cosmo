@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:RangeExamples"
+             a:Page.Title="Progress" a:Page.Description="Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Progress" />
+      <TextBlock Classes="lead" Text="Displays an indicator showing the completion progress of a task, typically displayed as a progress bar." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: progress" />
+        <c:Badge Classes="secondary" Content="Avalonia: ProgressBar" />
+        <c:Badge Classes="secondary" Content="Web: &lt;progress&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <ProgressBar Value="33" MaxWidth="320" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ProgressBar Value=&quot;33&quot; MaxWidth=&quot;320&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <ProgressBar Value="{Binding Done}" AutomationProperties.Name="Upload" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Classes="outline" Command="{Binding AdvanceCommand}" Content="+10%" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Done, StringFormat='{}{0:0}% done'}" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;ProgressBar Value=&quot;{Binding Done}&quot; AutomationProperties.Name=&quot;Upload&quot; /&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Command=&quot;{Binding AdvanceCommand}&quot; Content=&quot;+10%&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Done, StringFormat=&#x27;{}{0:0}% done&#x27;}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Value, Minimum, Maximum" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Bindable progress; 8 px high, primary on primary at 20%." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsIndeterminate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="No indicator, as Radix&#x27;s null value." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

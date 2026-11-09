@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Composites"
+             x:Class="Aioros.Cosmo.Tests.Composites.CompositesView" x:DataType="t:CompositesModel">
+  <StackPanel Spacing="16" Margin="24" Width="600" HorizontalAlignment="Left">
+    <Border Height="120" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}">
+      <c:ResizablePanelGroup Name="Split">
+        <c:ResizablePanel Size="{Binding Split}" MinSize="{Binding Minimum, Converter={x:Static t:CompositesModel.Percent}}">
+          <TextBlock Text="One" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </c:ResizablePanel>
+        <c:ResizableHandle WithHandle="True" />
+        <c:ResizablePanel>
+          <TextBlock Text="Two" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </c:ResizablePanel>
+      </c:ResizablePanelGroup>
+    </Border>
+    <Button Name="Reset" Content="Reset" Command="{Binding Reset}" />
+
+    <Carousel Name="Slides" Width="300" Height="120" Margin="60,0" HorizontalAlignment="Left" ItemsSource="{Binding Slides}" SelectedIndex="{Binding Index}">
+      <Carousel.ItemTemplate>
+        <DataTemplate x:DataType="x:String">
+          <c:Card><c:CardContent><TextBlock Text="{Binding}" /></c:CardContent></c:Card>
+        </DataTemplate>
+      </Carousel.ItemTemplate>
+    </Carousel>
+    <TextBlock Name="SlideLabel">
+      <TextBlock.Text>
+        <MultiBinding Converter="{x:Static t:CompositesModel.SlideOf}">
+          <Binding Path="Index" />
+          <Binding Path="Slides.Count" />
+        </MultiBinding>
+      </TextBlock.Text>
+    </TextBlock>
+    <Button Name="AddSlide" Content="Add slide" Command="{Binding Add}" />
+  </StackPanel>
+</UserControl>

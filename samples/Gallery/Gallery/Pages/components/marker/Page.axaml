@@ -1,0 +1,119 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="Marker" a:Page.Description="Displays an inline status, system note, bordered row, or labeled separator in a conversation.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Marker" />
+      <TextBlock Classes="lead" Text="Displays an inline status, system note, bordered row, or labeled separator in a conversation." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: marker" />
+        <c:Badge Classes="secondary" Content="Avalonia: ContentControl" />
+        <c:Badge Classes="secondary" Content="Web: &lt;div&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="c:Marker with an Icon; a Spinner as the icon shows work in progress." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="32">
+          <c:Marker Content="Switched to a new branch"><c:Marker.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9" /></Viewbox></c:Marker.Icon></c:Marker>
+          <c:Marker Content="Thinking..."><c:Marker.Icon><c:Spinner Width="16" Height="16" /></c:Marker.Icon></c:Marker>
+          <c:Marker Classes="separator" Content="Conversation compacted" />
+          <c:Marker Content="Explored 4 files"><c:Marker.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3" /></Viewbox></c:Marker.Icon></c:Marker>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;32&quot;&gt;&#10;  &lt;c:Marker Content=&quot;Switched to a new branch&quot;&gt;&lt;c:Marker.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Data=&quot;M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;  &lt;c:Marker Content=&quot;Thinking...&quot;&gt;&lt;c:Marker.Icon&gt;&lt;c:Spinner Width=&quot;16&quot; Height=&quot;16&quot; /&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;  &lt;c:Marker Classes=&quot;separator&quot; Content=&quot;Conversation compacted&quot; /&gt;&#10;  &lt;c:Marker Content=&quot;Explored 4 files&quot;&gt;&lt;c:Marker.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Data=&quot;M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Variants" />
+      <TextBlock Classes="sm muted" Text="The separator and border classes." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="32">
+          <c:Marker Content="A default marker for inline notes." />
+          <c:Marker Classes="separator" Content="A separator marker" />
+          <c:Marker Classes="border" Content="A border marker for row boundaries." />
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;32&quot;&gt;&#10;  &lt;c:Marker Content=&quot;A default marker for inline notes.&quot; /&gt;&#10;  &lt;c:Marker Classes=&quot;separator&quot; Content=&quot;A separator marker&quot; /&gt;&#10;  &lt;c:Marker Classes=&quot;border&quot; Content=&quot;A border marker for row boundaries.&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Icon" />
+      <TextBlock Classes="sm muted" Text="The vertical class puts the icon above the content." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="48">
+          <c:Marker Content="Switched to a new branch"><c:Marker.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9" /></Viewbox></c:Marker.Icon></c:Marker>
+          <c:Marker Classes="separator" Content="Explored 4 files"><c:Marker.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3" /></Viewbox></c:Marker.Icon></c:Marker>
+          <c:Marker Classes="vertical" Content="Syncing completed"><c:Marker.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M12 21V7 M16 12 l2 2 4-4 M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3" /></Viewbox></c:Marker.Icon></c:Marker>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;48&quot;&gt;&#10;  &lt;c:Marker Content=&quot;Switched to a new branch&quot;&gt;&lt;c:Marker.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Data=&quot;M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;  &lt;c:Marker Classes=&quot;separator&quot; Content=&quot;Explored 4 files&quot;&gt;&lt;c:Marker.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Data=&quot;M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;  &lt;c:Marker Classes=&quot;vertical&quot; Content=&quot;Syncing completed&quot;&gt;&lt;c:Marker.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Data=&quot;M12 21V7 M16 12 l2 2 4-4 M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Border" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="12">
+          <c:Marker Classes="border" Content="Switched to release-candidate"><c:Marker.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9" /></Viewbox></c:Marker.Icon></c:Marker>
+          <c:Marker Classes="border" Content="Reviewed 8 related files"><c:Marker.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3" /></Viewbox></c:Marker.Icon></c:Marker>
+          <c:Marker Classes="border" Content="Opened implementation notes"><c:Marker.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" /></Viewbox></c:Marker.Icon></c:Marker>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;12&quot;&gt;&#10;  &lt;c:Marker Classes=&quot;border&quot; Content=&quot;Switched to release-candidate&quot;&gt;&lt;c:Marker.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Data=&quot;M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;  &lt;c:Marker Classes=&quot;border&quot; Content=&quot;Reviewed 8 related files&quot;&gt;&lt;c:Marker.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Data=&quot;M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;  &lt;c:Marker Classes=&quot;border&quot; Content=&quot;Opened implementation notes&quot;&gt;&lt;c:Marker.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; Data=&quot;M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Shimmer" />
+      <TextBlock Classes="sm muted" Text="a:Web.Shimmer sweeps a highlight through the text on both targets, still when the visitor asks for less motion." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="32">
+          <c:Marker Classes="shimmer" Content="Thinking..." />
+          <c:Marker Classes="separator shimmer" Content="Reading 4 files" />
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;32&quot;&gt;&#10;  &lt;c:Marker Classes=&quot;shimmer&quot; Content=&quot;Thinking...&quot; /&gt;&#10;  &lt;c:Marker Classes=&quot;separator shimmer&quot; Content=&quot;Reading 4 files&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Status" />
+      <TextBlock Classes="sm muted" Text="A marker of work in progress: a spinner and a shimmering text." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="32">
+          <c:Marker Content="Compacting conversation"><c:Marker.Icon><c:Spinner Width="16" Height="16" /></c:Marker.Icon></c:Marker>
+          <c:Marker Classes="separator" Content="Running tests"><c:Marker.Icon><c:Spinner Width="16" Height="16" /></c:Marker.Icon></c:Marker>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;32&quot;&gt;&#10;  &lt;c:Marker Content=&quot;Compacting conversation&quot;&gt;&lt;c:Marker.Icon&gt;&lt;c:Spinner Width=&quot;16&quot; Height=&quot;16&quot; /&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;  &lt;c:Marker Classes=&quot;separator&quot; Content=&quot;Running tests&quot;&gt;&lt;c:Marker.Icon&gt;&lt;c:Spinner Width=&quot;16&quot; Height=&quot;16&quot; /&gt;&lt;/c:Marker.Icon&gt;&lt;/c:Marker&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Link button" />
+      <TextBlock Classes="sm muted" Text="c:MarkerLink is a link with the marker&#x27;s look; on the web an &lt;a href&gt;." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="32">
+          <c:MarkerLink NavigateUri="#links-and-buttons" Content="View the pull request"><c:MarkerLink.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[ContentPresenter].Foreground}" Data="M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9" /></Viewbox></c:MarkerLink.Icon></c:MarkerLink>
+          <c:MarkerButton Content="Revert this change"><c:MarkerButton.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[ContentPresenter].Foreground}" Data="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8 M3 3v5h5" /></Viewbox></c:MarkerButton.Icon></c:MarkerButton>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;32&quot;&gt;&#10;  &lt;c:MarkerLink NavigateUri=&quot;#links-and-buttons&quot; Content=&quot;View the pull request&quot;&gt;&lt;c:MarkerLink.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{Binding $parent[ContentPresenter].Foreground}&quot; Data=&quot;M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:MarkerLink.Icon&gt;&lt;/c:MarkerLink&gt;&#10;  &lt;c:MarkerButton Content=&quot;Revert this change&quot;&gt;&lt;c:MarkerButton.Icon&gt;&lt;Viewbox Width=&quot;16&quot; Height=&quot;16&quot;&gt;&lt;Path Theme=&quot;{DynamicResource CosmoIcon}&quot; Stroke=&quot;{Binding $parent[ContentPresenter].Foreground}&quot; Data=&quot;M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8 M3 3v5h5&quot; /&gt;&lt;/Viewbox&gt;&lt;/c:MarkerButton.Icon&gt;&lt;/c:MarkerButton&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The marker&#x27;s text or content." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Icon" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The 16 px icon before the content." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:MarkerLink" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A marker that is a link (NavigateUri), its Icon before its content." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="separator, border, vertical" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A line each side of the content, a bottom border, the icon above the content." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

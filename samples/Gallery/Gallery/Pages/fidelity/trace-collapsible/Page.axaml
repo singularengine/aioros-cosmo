@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: trace-collapsible">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Expander Classes="trace" Width="384" HorizontalAlignment="Left">
+      <Expander.Header><c:TraceLine Content="Ran node --version"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="$ node --version" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="v24.18.0" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+  </Border>
+</UserControl>

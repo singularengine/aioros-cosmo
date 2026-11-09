@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor" x:DataType="m:ChartInteractive" a:Page.Title="Fidelity: chart-bar-interactive">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:ChartInteractive">
+      <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette2" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+      <c:Card Padding="0">
+        <Border BorderBrush="{DynamicResource CosmoBorderBrush}" BorderThickness="0,0,0,1">
+          <Grid ColumnDefinitions="*,Auto">
+            <c:CardHeader Title="Bar Chart - Interactive" Description="Showing total visitors for the last 3 months" VerticalAlignment="Center" />
+            <ListBox Grid.Column="1" Classes="chart-toggles" SelectedIndex="{Binding ActiveChart}">
+              <ListBoxItem>
+                <StackPanel Spacing="4">
+                  <TextBlock Text="Desktop" FontSize="12" LineHeight="16" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  <TextBlock Text="{Binding DesktopTotal}" FontSize="30" LineHeight="30" FontWeight="Bold" />
+                </StackPanel>
+              </ListBoxItem>
+              <ListBoxItem>
+                <StackPanel Spacing="4">
+                  <TextBlock Text="Mobile" FontSize="12" LineHeight="16" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  <TextBlock Text="{Binding MobileTotal}" FontSize="30" LineHeight="30" FontWeight="Bold" />
+                </StackPanel>
+              </ListBoxItem>
+            </ListBox>
+          </Grid>
+        </Border>
+        <c:CardContent Padding="24">
+          <Panel>
+          <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Daily}" Height="250" ResponsiveWidths="360 542 720" Padding="12,0,12,0" IsVisible="{Binding DesktopShown}">
+            <p:CartesianGrid Vertical="False" />
+            <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+            <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d, yyyy}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+            <p:Bar DataKey="Desktop" Name="Page Views" IsAnimationActive="False" />
+          </p:BarChart>
+          <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Daily}" Height="250" ResponsiveWidths="360 542 720" Padding="12,0,12,0" IsVisible="{Binding MobileShown}">
+            <p:CartesianGrid Vertical="False" />
+            <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+            <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d, yyyy}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+            <p:Bar DataKey="Mobile" Name="Page Views" IsAnimationActive="False" />
+          </p:BarChart>
+          </Panel>
+        </c:CardContent>
+      </c:Card>
+    </Border>
+  </Border>
+</UserControl>

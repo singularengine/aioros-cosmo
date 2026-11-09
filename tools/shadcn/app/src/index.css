@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./shadcn-utilities.css";
+@import "../../registry/styles/style-rhea.css" layer(base);
+@import "./typeset.css";
+/* The markdown examples render with streamdown, whose classes the upstream app adds to Tailwind's sources (apps/v4/app/globals.css). */
+@source "../../node_modules/streamdown/dist/*.js";
+@import "@fontsource-variable/geist";
+
+@font-face { font-family: Inter; src: url("../../fonts/Inter-Regular-latin-ext.woff2") format("woff2"); font-weight: 400; font-display: block; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: Inter; src: url("../../fonts/Inter-Regular-latin.woff2") format("woff2"); font-weight: 400; font-display: block; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: Inter; src: url("../../fonts/Inter-Medium-latin-ext.woff2") format("woff2"); font-weight: 500; font-display: block; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: Inter; src: url("../../fonts/Inter-Medium-latin.woff2") format("woff2"); font-weight: 500; font-display: block; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: Inter; src: url("../../fonts/Inter-SemiBold-latin-ext.woff2") format("woff2"); font-weight: 600; font-display: block; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: Inter; src: url("../../fonts/Inter-SemiBold-latin.woff2") format("woff2"); font-weight: 600; font-display: block; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: Inter; src: url("../../fonts/Inter-Bold-latin-ext.woff2") format("woff2"); font-weight: 700; font-display: block; unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: Inter; src: url("../../fonts/Inter-Bold-latin.woff2") format("woff2"); font-weight: 700; font-display: block; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Geist; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; font-display: block; }
+@font-face { font-family: Geist; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; font-display: block; }
+@font-face { font-family: Geist; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/Geist-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: block; }
+@font-face { font-family: Geist; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/Geist-Bold.ttf") format("truetype"); font-weight: 700; font-display: block; }
+@font-face { font-family: "Geist Mono"; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; font-display: block; }
+@font-face { font-family: "Geist Mono"; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/GeistMono-Medium.ttf") format("truetype"); font-weight: 500; font-display: block; }
+@font-face { font-family: "Cosmo Symbols"; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/CosmoSymbols-Regular.ttf") format("truetype"); font-weight: 400; font-display: block; }
+@font-face { font-family: "Cosmo Symbols"; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/CosmoSymbols-Medium.ttf") format("truetype"); font-weight: 500; font-display: block; }
+@font-face { font-family: "Cosmo Emoji"; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/CosmoEmoji-Regular.ttf") format("truetype"); font-display: block; }
+@font-face { font-family: "Cosmo Mono Symbols"; src: url("../../../../src/Aioros.Cosmo/Assets/Fonts/CosmoMonoSymbols-Regular.ttf") format("truetype"); font-display: block; }
+@font-face { font-family: "Noto Naskh Arabic"; src: url("../../../../samples/Gallery/Gallery/Assets/Fonts/NotoNaskhArabic-Regular.ttf") format("truetype"); font-weight: 400; font-display: block; }
+@font-face { font-family: "Noto Naskh Arabic"; src: url("../../../../samples/Gallery/Gallery/Assets/Fonts/NotoNaskhArabic-Medium.ttf") format("truetype"); font-weight: 500; font-display: block; }
+
+@source "../../registry";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-reference);
+  --font-mono: "Geist Mono", "Cosmo Mono Symbols", ui-monospace, SFMono-Regular, monospace;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

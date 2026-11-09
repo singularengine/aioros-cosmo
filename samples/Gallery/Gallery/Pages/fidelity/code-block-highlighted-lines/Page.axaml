@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-highlighted-lines">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left">
+
+      <c:CodeBlockContent LineNumbers="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="export default {" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  experimental: {" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="highlighted"><TextBlock Text="    reactCompiler: true," /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="highlighted"><TextBlock Text="    viewTransition: true," /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  }," /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  images: {" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="    remotePatterns: [{ hostname: &quot;avatars.githubusercontent.com&quot; }]," /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  }," /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="}" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

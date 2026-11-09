@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "cn": [
+        "../app/src/cn.ts"
+      ],
+      "@/registry/new-york-v4/ui/*": [
+        "../registry/ui/*"
+      ],
+      "@/registry/new-york-v4/hooks/*": [
+        "../registry/hooks/*"
+      ],
+      "@/registry/new-york-v4/blocks/*": [
+        "../registry/blocks/*"
+      ],
+      "@/registry/*": [
+        "../registry/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    ".next-static/types/**/*.ts",
+    ".next-static/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

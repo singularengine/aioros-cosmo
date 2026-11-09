@@ -1,0 +1,106 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="Card" a:Page.Description="Displays a card with header, content, and footer.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Card" />
+      <TextBlock Classes="lead" Text="Displays a card with header, content, and footer." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: card" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Card and its parts" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Card MaxWidth="384">
+            <c:CardHeader Title="Login to your account" Description="Enter your email below to login to your account">
+              <c:CardHeader.Action>
+                <Button Classes="link" Content="Sign Up" />
+              </c:CardHeader.Action>
+            </c:CardHeader>
+            <c:CardContent>
+              <TextBlock Classes="sm" Text="Your session expires in 30 days on this device." />
+            </c:CardContent>
+            <c:CardFooter>
+              <StackPanel Spacing="8">
+                <Button Content="Login" HorizontalAlignment="Stretch" />
+                <Button Classes="outline" Content="Login with Google" HorizontalAlignment="Stretch" />
+              </StackPanel>
+            </c:CardFooter>
+          </c:Card>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Card MaxWidth=&quot;384&quot;&gt;&#10;  &lt;c:CardHeader Title=&quot;Login to your account&quot; Description=&quot;Enter your email below to login to your account&quot;&gt;&#10;    &lt;c:CardHeader.Action&gt;&#10;      &lt;Button Classes=&quot;link&quot; Content=&quot;Sign Up&quot; /&gt;&#10;    &lt;/c:CardHeader.Action&gt;&#10;  &lt;/c:CardHeader&gt;&#10;  &lt;c:CardContent&gt;&#10;    &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Your session expires in 30 days on this device.&quot; /&gt;&#10;  &lt;/c:CardContent&gt;&#10;  &lt;c:CardFooter&gt;&#10;    &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;      &lt;Button Content=&quot;Login&quot; HorizontalAlignment=&quot;Stretch&quot; /&gt;&#10;      &lt;Button Classes=&quot;outline&quot; Content=&quot;Login with Google&quot; HorizontalAlignment=&quot;Stretch&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:CardFooter&gt;&#10;&lt;/c:Card&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Header only" />
+      <TextBlock Classes="sm muted" Text="Without a description or an action the header keeps no space for them." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Card MaxWidth="384">
+            <c:CardHeader Title="Notifications" Description="You have 3 unread messages." />
+            <c:CardContent>
+              <TextBlock Classes="sm" Text="Push notifications are sent to your phone." />
+            </c:CardContent>
+          </c:Card>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Card MaxWidth=&quot;384&quot;&gt;&#10;  &lt;c:CardHeader Title=&quot;Notifications&quot; Description=&quot;You have 3 unread messages.&quot; /&gt;&#10;  &lt;c:CardContent&gt;&#10;    &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Push notifications are sent to your phone.&quot; /&gt;&#10;  &lt;/c:CardContent&gt;&#10;&lt;/c:Card&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Separated header and footer" />
+      <TextBlock Classes="sm muted" Text="The border class rules the header off with a bottom border 24 px below it, and the footer with a top border 24 px above it (shadcn&#x27;s border-b and border-t)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Card MaxWidth="384">
+            <c:CardHeader Classes="border" Title="Team members" Description="Invite your team to collaborate." />
+            <c:CardContent>
+              <TextBlock Classes="sm" Text="Members can edit every project." />
+            </c:CardContent>
+            <c:CardFooter Classes="border">
+              <Button Content="Invite" />
+            </c:CardFooter>
+          </c:Card>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Card MaxWidth=&quot;384&quot;&gt;&#10;  &lt;c:CardHeader Classes=&quot;border&quot; Title=&quot;Team members&quot; Description=&quot;Invite your team to collaborate.&quot; /&gt;&#10;  &lt;c:CardContent&gt;&#10;    &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Members can edit every project.&quot; /&gt;&#10;  &lt;/c:CardContent&gt;&#10;  &lt;c:CardFooter Classes=&quot;border&quot;&gt;&#10;    &lt;Button Content=&quot;Invite&quot; /&gt;&#10;  &lt;/c:CardFooter&gt;&#10;&lt;/c:Card&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Stat" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Card MaxWidth="320">
+            <c:CardHeader Title="Total revenue" Description="January to June 2026">
+              <c:CardHeader.Action>
+                <c:Badge Classes="outline">
+                  <StackPanel>
+                    <a:Icon Kind="trending-up" Size="12" />
+                    <TextBlock Text="+12.5%" />
+                  </StackPanel>
+                </c:Badge>
+              </c:CardHeader.Action>
+            </c:CardHeader>
+            <c:CardContent>
+              <TextBlock Classes="stat" Text="$45,231.89" />
+            </c:CardContent>
+            <c:CardFooter>
+              <TextBlock Classes="sm muted" Text="Trending up this month" />
+            </c:CardFooter>
+          </c:Card>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Card MaxWidth=&quot;320&quot;&gt;&#10;  &lt;c:CardHeader Title=&quot;Total revenue&quot; Description=&quot;January to June 2026&quot;&gt;&#10;    &lt;c:CardHeader.Action&gt;&#10;      &lt;c:Badge Classes=&quot;outline&quot;&gt;&#10;        &lt;StackPanel&gt;&#10;          &lt;a:Icon Kind=&quot;trending-up&quot; Size=&quot;12&quot; /&gt;&#10;          &lt;TextBlock Text=&quot;+12.5%&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/c:Badge&gt;&#10;    &lt;/c:CardHeader.Action&gt;&#10;  &lt;/c:CardHeader&gt;&#10;  &lt;c:CardContent&gt;&#10;    &lt;TextBlock Classes=&quot;stat&quot; Text=&quot;$45,231.89&quot; /&gt;&#10;  &lt;/c:CardContent&gt;&#10;  &lt;c:CardFooter&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Trending up this month&quot; /&gt;&#10;  &lt;/c:CardFooter&gt;&#10;&lt;/c:Card&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Card" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The surface: card background, border, 14 px radius (radius-xl), shadow-sm, 24 px above and below; its parts stack 24 px apart." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CardHeader" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Title (semibold), Description (14 px, muted) and Action (top right); each can be bound." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CardContent" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Content inset 24 px on both sides." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:CardFooter" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Content inset 24 px on both sides, centered vertically." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

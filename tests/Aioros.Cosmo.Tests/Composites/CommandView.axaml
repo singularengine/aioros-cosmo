@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Composites"
+             x:Class="Aioros.Cosmo.Tests.Composites.CommandView" x:DataType="t:CommandModel">
+  <StackPanel Spacing="16" Margin="24" Width="500" HorizontalAlignment="Left">
+    <Button Name="Before" Content="Before" />
+    <c:Command Name="Settings" Classes="outline" Text="{Binding Search}" SelectedValue="{Binding Selected}">
+      <c:CommandGroup Header="Settings">
+        <c:CommandItem Content="Profile" />
+        <c:CommandItem Content="Billing" />
+        <c:CommandItem Name="Locked" Content="Settings" Command="{Binding Locked}" />
+      </c:CommandGroup>
+    </c:Command>
+    <c:Command Name="Pages" Classes="outline">
+      <c:CommandGroup Header="Pages" ItemsSource="{Binding Pages}">
+        <c:CommandGroup.Styles>
+          <Style Selector="c|CommandItem" x:DataType="t:PageItem">
+            <Setter Property="Command" Value="{Binding $parent[c:Command].((t:CommandModel)DataContext).Open}" />
+            <Setter Property="CommandParameter" Value="{Binding Path}" />
+          </Style>
+        </c:CommandGroup.Styles>
+        <c:CommandGroup.ItemTemplate>
+          <DataTemplate x:DataType="t:PageItem">
+            <TextBlock Text="{Binding Title}" />
+          </DataTemplate>
+        </c:CommandGroup.ItemTemplate>
+      </c:CommandGroup>
+    </c:Command>
+    <c:CommandDialog Name="Palette" IsOpen="{Binding Palette}">
+      <c:Command>
+        <c:CommandGroup Header="Settings">
+          <c:CommandItem Content="Profile" />
+          <c:CommandItem Content="Billing" />
+          <c:CommandItem Content="Settings" />
+        </c:CommandGroup>
+      </c:Command>
+    </c:CommandDialog>
+
+    <c:Combobox Name="Single" PlaceholderText="Select framework..." ItemsSource="{Binding Frameworks}" DisplayMemberBinding="{Binding Label, x:DataType=t:Framework}"
+                SelectedItem="{Binding Framework}" IsDropDownOpen="{Binding DropDown}" />
+    <c:Combobox Name="Multiple" PlaceholderText="Select frameworks..." SelectionMode="Multiple" ItemsSource="{Binding Frameworks}"
+                DisplayMemberBinding="{Binding Label, x:DataType=t:Framework}" SelectedItems="{Binding Chosen}" />
+  </StackPanel>
+</UserControl>

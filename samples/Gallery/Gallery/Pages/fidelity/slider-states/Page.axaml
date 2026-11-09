@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: slider-states">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Orientation="Horizontal" Spacing="48">
+      <StackPanel Width="360" Spacing="32" VerticalAlignment="Top">
+        <Slider Value="50" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" AutomationProperties.Name="Volume" />
+        <Slider Value="50" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" AutomationProperties.Name="Balance" />
+        <Slider Value="33" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" IsEnabled="False" AutomationProperties.Name="Locked" />
+      </StackPanel>
+      <Slider Orientation="Vertical" Value="40" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" VerticalAlignment="Top" AutomationProperties.Name="Level" />
+    </StackPanel>
+  </Border>
+</UserControl>

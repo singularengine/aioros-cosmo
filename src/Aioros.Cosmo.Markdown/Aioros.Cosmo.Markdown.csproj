@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsAotCompatible>true</IsAotCompatible>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsPackable>true</IsPackable>
+    <RootNamespace>Aioros.Cosmo.Chat</RootNamespace>
+    <Description>shadcn/ui's chat markdown for Aioros.Cosmo: CommonMark parsed by Markdig into Cosmo's texts, links and code blocks, highlighted at build time, the same tree on the web and native. An independent port, not affiliated with or endorsed by shadcn.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/singularengine/aioros-cosmo</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/singularengine/aioros-cosmo.git</RepositoryUrl>
+    <PackageTags>avalonia;xaml;aioros;shadcn;ui;markdown;chat</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Markdig" />
+    <ProjectReference Include="..\Aioros.Cosmo\Aioros.Cosmo.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../../THIRD-PARTY-NOTICES.md" Pack="true" PackagePath="/" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,124 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             x:DataType="m:ThemeChoices">
+  <StackPanel Spacing="28" MaxWidth="1100" HorizontalAlignment="Left">
+    <StackPanel Spacing="10" MaxWidth="760" HorizontalAlignment="Left">
+      <TextBlock Classes="h1" Text="Themes" />
+      <TextBlock Classes="lead" Text="shadcn/ui's color themes and radii, applied by swapping Cosmo's resource dictionaries: the preview below is a ThemeScope bound to the choices, in the light or dark theme the app shows." />
+    </StackPanel>
+
+    <StackPanel Spacing="10">
+      <TextBlock Classes="eyebrow" Text="Color" />
+      <ItemsControl ItemsSource="{Binding Colors}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate><WrapPanel ItemSpacing="8" LineSpacing="8" /></ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate x:DataType="m:ThemeOption">
+            <Border Classes="chip" Classes.on="{Binding IsCurrent}" a:Web.Href="{Binding Href}">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <Border Classes="swatch" Background="{Binding Swatch}" />
+                <TextBlock Text="{Binding Label}" />
+              </StackPanel>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+      <TextBlock Classes="eyebrow" Text="Radius (rem)" Margin="0,8,0,0" />
+      <ItemsControl ItemsSource="{Binding Radii}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate><WrapPanel ItemSpacing="8" LineSpacing="8" /></ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate x:DataType="m:ThemeOption">
+            <Border Classes="chip" Classes.on="{Binding IsCurrent}" a:Web.Href="{Binding Href}">
+              <TextBlock Text="{Binding Label}" />
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </StackPanel>
+
+    <c:ThemeScope Color="{Binding Color}" Radius="{Binding Radius}">
+      <Border Classes="preview" Padding="24">
+        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="16" RowDefinitions="Auto,Auto" RowSpacing="16" a:Web.StackBelow="900">
+          <c:Card>
+            <c:CardHeader Title="Total revenue" Description="January to June 2026">
+              <c:CardHeader.Action>
+                <c:Badge Classes="outline">
+                  <StackPanel><a:Icon Kind="trending-up" Size="12" /><TextBlock Text="+12.5%" /></StackPanel>
+                </c:Badge>
+              </c:CardHeader.Action>
+            </c:CardHeader>
+            <c:CardContent><TextBlock Classes="stat" Text="$45,231.89" /></c:CardContent>
+            <c:CardFooter><TextBlock Classes="sm muted" Text="Trending up this month" /></c:CardFooter>
+          </c:Card>
+          <c:Card Grid.Column="1">
+            <c:CardHeader Title="Create project" Description="Deploy your new project in one click." />
+            <c:CardContent>
+              <WrapPanel ItemSpacing="6" LineSpacing="6">
+                <c:Badge Content="Aioros" />
+                <c:Badge Classes="secondary" Content="Frankfurt" />
+                <c:Badge Classes="outline" Content="Production" />
+              </WrapPanel>
+            </c:CardContent>
+            <c:CardFooter>
+              <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                <Button Classes="outline" Content="Cancel" HorizontalAlignment="Left" />
+                <Button Grid.Column="1" Content="Deploy" />
+              </Grid>
+            </c:CardFooter>
+          </c:Card>
+          <c:Card Grid.Column="2">
+            <c:CardHeader Title="Danger zone" Description="Delete the project and its data." />
+            <c:CardContent>
+              <TextBlock Classes="sm muted" Text="This cannot be undone. Every deployment, domain and secret is removed." />
+            </c:CardContent>
+            <c:CardFooter>
+              <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Classes="destructive" Content="Delete project" />
+                <Button Classes="ghost" Content="Keep it" />
+              </WrapPanel>
+            </c:CardFooter>
+          </c:Card>
+          <c:Card Grid.Row="1" Grid.ColumnSpan="3">
+            <c:CardHeader Title="Buttons and badges" Description="Every variant in the chosen theme." />
+            <c:CardContent>
+              <StackPanel Spacing="12">
+                <WrapPanel ItemSpacing="8" LineSpacing="8">
+                  <Button Content="Default" />
+                  <Button Classes="destructive" Content="Destructive" />
+                  <Button Classes="outline" Content="Outline" />
+                  <Button Classes="secondary" Content="Secondary" />
+                  <Button Classes="ghost" Content="Ghost" />
+                  <Button Classes="link" Content="Link" />
+                </WrapPanel>
+                <WrapPanel ItemSpacing="8" LineSpacing="8">
+                  <c:Badge Content="Default" />
+                  <c:Badge Classes="secondary" Content="Secondary" />
+                  <c:Badge Classes="destructive" Content="Destructive" />
+                  <c:Badge Classes="outline" Content="Outline" />
+                </WrapPanel>
+              </StackPanel>
+            </c:CardContent>
+          </c:Card>
+        </Grid>
+      </Border>
+    </c:ThemeScope>
+
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Apply it to your app" />
+      <TextBlock Classes="sm muted" Text="Set the theme once in App.axaml, or scope it to a part of a window. Both swap the same resource dictionaries." />
+      <Border Classes="code"><TextBlock Text="{Binding Code}" /></Border>
+      <Border Classes="code"><TextBlock Text="{Binding ScopeCode}" /></Border>
+    </StackPanel>
+
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Override any token" />
+      <TextBlock Classes="sm muted" Text="Every token is a resource, Cosmo{Token}Color and Cosmo{Token}Brush, as shadcn's CSS variables are. An application's resources win over Cosmo's, per light and dark theme." />
+      <Border Classes="code">
+        <TextBlock Text="&lt;Application.Resources&gt;&#10;  &lt;ResourceDictionary&gt;&#10;    &lt;ResourceDictionary.ThemeDictionaries&gt;&#10;      &lt;ResourceDictionary x:Key=&quot;Light&quot;&gt;&#10;        &lt;SolidColorBrush x:Key=&quot;CosmoPrimaryBrush&quot; Color=&quot;#4F39F6&quot; /&gt;&#10;        &lt;SolidColorBrush x:Key=&quot;CosmoButtonPrimaryHoverBrush&quot; Color=&quot;#E64F39F6&quot; /&gt;&#10;      &lt;/ResourceDictionary&gt;&#10;      &lt;ResourceDictionary x:Key=&quot;Dark&quot;&gt;&#10;        &lt;SolidColorBrush x:Key=&quot;CosmoPrimaryBrush&quot; Color=&quot;#7C86FF&quot; /&gt;&#10;      &lt;/ResourceDictionary&gt;&#10;    &lt;/ResourceDictionary.ThemeDictionaries&gt;&#10;  &lt;/ResourceDictionary&gt;&#10;&lt;/Application.Resources&gt;" />
+      </Border>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

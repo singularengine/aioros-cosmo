@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: field-content">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:FieldGroup Width="448" HorizontalAlignment="Left">
+      <c:Field Orientation="Horizontal">
+        <c:FieldContent>
+          <c:FieldLabel Content="Multi-factor authentication" Target="{Binding #mfa}" />
+          <c:FieldDescription Text="Enable multi-factor authentication. If you do not have a two-factor device, you can use a one-time code sent to your email." />
+        </c:FieldContent>
+        <ToggleSwitch Name="mfa" a:Web.Id="mfa" />
+      </c:Field>
+      <c:Field Orientation="Horizontal">
+        <c:FieldContent>
+          <c:FieldTitle Text="Kubernetes" />
+          <c:FieldDescription Text="Run GPU workloads on a K8s configured cluster." />
+        </c:FieldContent>
+        <CheckBox Name="k8s" a:Web.Id="k8s" />
+      </c:Field>
+    </c:FieldGroup>
+  </Border>
+</UserControl>

@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:TraceDemoExample" a:Web.Live="True" a:Page.Title="Fidelity: trace-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Width="384" HorizontalAlignment="Left" Spacing="16" Margin="0,24">
+      <c:Message IsVisible="{Binding Chat.Asked}" Classes="end"><c:MessageContent><c:Bubble Classes="muted" Content="Why does pnpm install fail in CI?" /></c:MessageContent></c:Message>
+      <c:Message IsVisible="{Binding Chat.Answering}"><c:MessageContent Spacing="16"><c:Trace>
+      <c:TraceLine IsVisible="{Binding Chat.ReasoningEmpty}" Content="{Binding Chat.ThinkingTitle}" Status="{Binding Chat.ReasoningStatus}"><c:TraceLine.Icon><Panel><c:Spinner IsVisible="{Binding Chat.ReasoningRunning}" Width="16" Height="16" /><Viewbox IsVisible="{Binding Chat.ReasoningDone}" Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M9 12 l2 2 4-4" /></Viewbox></Panel></c:TraceLine.Icon></c:TraceLine>
+    <Expander Classes="trace" IsVisible="{Binding Chat.ReasoningShown}" IsExpanded="{Binding Chat.ReasoningOpen, Mode=TwoWay}">
+      <Expander.Header><c:TraceLine Content="{Binding Chat.ThinkingTitle}" Status="{Binding Chat.ReasoningStatus}"><c:TraceLine.Icon><Panel><c:Spinner IsVisible="{Binding Chat.ReasoningRunning}" Width="16" Height="16" /><Viewbox IsVisible="{Binding Chat.ReasoningDone}" Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M9 12 l2 2 4-4" /></Viewbox></Panel></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <TextBlock Text="{Binding Chat.Reasoning}" TextWrapping="Wrap" />
+    </Expander>
+      <c:TraceLine IsVisible="{Binding Chat.ToolsRunning[0]}" Content="Running pnpm --version" Status="Running"><c:TraceLine.Icon><c:Spinner Width="16" Height="16" /></c:TraceLine.Icon></c:TraceLine>
+    <Expander IsVisible="{Binding Chat.ToolsShown[0]}" Classes="trace">
+      <Expander.Header><c:TraceLine Content="Ran pnpm --version"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M9 12 l2 2 4-4" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="10.18.0" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+      <c:TraceLine IsVisible="{Binding Chat.ToolsRunning[1]}" Content="Running git diff --stat HEAD~1 -- package.json pnpm-lock.yaml" Status="Running"><c:TraceLine.Icon><c:Spinner Width="16" Height="16" /></c:TraceLine.Icon></c:TraceLine>
+    <Expander IsVisible="{Binding Chat.ToolsShown[1]}" Classes="trace" IsExpanded="True">
+      <Expander.Header><c:TraceLine Content="Ran git diff --stat HEAD~1 -- package.json pnpm-lock.yaml"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M9 12 l2 2 4-4" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text=" package.json | 2 +-" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" 1 file changed, 1 insertion(+), 1 deletion(-)" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+      <c:TraceLine IsVisible="{Binding Chat.ToolsRunning[2]}" Content="Running pnpm install --frozen-lockfile" Status="Running"><c:TraceLine.Icon><c:Spinner Width="16" Height="16" /></c:TraceLine.Icon></c:TraceLine>
+    <Expander IsVisible="{Binding Chat.ToolsShown[2]}" Classes="trace">
+      <Expander.Header><c:TraceLine Content="Failed to run pnpm install --frozen-lockfile" Status="Error"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M12,8 L12,12 M12,16 L12.01,16" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm destructive">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="ERR_PNPM_OUTDATED_LOCKFILE  Cannot install with &amp;quot;frozen-lockfile&amp;quot; because pnpm-lock.yaml is not up to date with package.json" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+      <Expander IsVisible="{Binding Chat.SourcesShown}" Classes="trace">
+      <Expander.Header><c:TraceLine Content="{Binding Chat.SourcesTitle}" Status="{Binding Chat.SourcesStatus}"><c:TraceLine.Icon><Panel><c:Spinner IsVisible="{Binding Chat.SourcesRunning}" Width="16" Height="16" /><Viewbox IsVisible="{Binding Chat.SourcesDone}" Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20 M2 12h20" /></Viewbox></Panel></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:Trace>
+      <HyperlinkButton Classes="trace" NavigateUri="https://pnpm.io/cli/install#--frozen-lockfile" AutomationProperties.Name="pnpm install | pnpm.io (opens in a new tab)"><c:TraceLine Content="pnpm install | pnpm.io"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20 M2 12h20" /></Viewbox></c:TraceLine.Icon><c:TraceLine.Trailing><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></c:TraceLine.Trailing></c:TraceLine></HyperlinkButton>
+      <HyperlinkButton Classes="trace" NavigateUri="https://pnpm.io/continuous-integration" AutomationProperties.Name="Continuous Integration | pnpm.io (opens in a new tab)"><c:TraceLine Content="Continuous Integration | pnpm.io"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20 M2 12h20" /></Viewbox></c:TraceLine.Icon><c:TraceLine.Trailing><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></c:TraceLine.Trailing></c:TraceLine></HyperlinkButton>
+    </c:Trace>
+    </Expander>
+    </c:Trace><TextBlock IsVisible="{Binding Chat.HasAnswer}" Text="{Binding Chat.Answer}" TextWrapping="Wrap" Foreground="{DynamicResource CosmoForegroundBrush}" /></c:MessageContent></c:Message>
+      <Button Classes="outline sm" Height="28" Padding="12,0" CornerRadius="16" HorizontalAlignment="Left" Content="Replay" IsVisible="{Binding Chat.Idle}" Command="{Binding ReplayCommand}" />
+    </StackPanel>
+  </Border>
+</UserControl>

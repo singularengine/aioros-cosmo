@@ -1,0 +1,90 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:ChoiceExamples"
+             a:Page.Title="Toggle" a:Page.Description="A two-state button that can be either on or off.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Toggle" />
+      <TextBlock Classes="lead" Text="A two-state button that can be either on or off." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: toggle" />
+        <c:Badge Classes="secondary" Content="Avalonia: ToggleButton" />
+        <c:Badge Classes="secondary" Content="Web: &lt;label&gt; with a checkbox" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ToggleButton AutomationProperties.Name="Toggle bookmark"><a:Icon Kind="star" Size="16" /></ToggleButton>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ToggleButton AutomationProperties.Name=&quot;Toggle bookmark&quot;&gt;&lt;a:Icon Kind=&quot;star&quot; Size=&quot;16&quot; /&gt;&lt;/ToggleButton&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Outline" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ToggleButton Classes="outline" AutomationProperties.Name="Toggle notifications"><a:Icon Kind="bell" Size="16" /></ToggleButton>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ToggleButton Classes=&quot;outline&quot; AutomationProperties.Name=&quot;Toggle notifications&quot;&gt;&lt;a:Icon Kind=&quot;bell&quot; Size=&quot;16&quot; /&gt;&lt;/ToggleButton&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="With text" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ToggleButton Classes="outline">
+            <StackPanel>
+              <a:Icon Kind="heart" Size="16" />
+              <TextBlock Text="Favorite" VerticalAlignment="Center" />
+            </StackPanel>
+          </ToggleButton>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ToggleButton Classes=&quot;outline&quot;&gt;&#10;  &lt;StackPanel&gt;&#10;    &lt;a:Icon Kind=&quot;heart&quot; Size=&quot;16&quot; /&gt;&#10;    &lt;TextBlock Text=&quot;Favorite&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/ToggleButton&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Sizes" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <ToggleButton Classes="sm" AutomationProperties.Name="Small"><a:Icon Kind="heart" Size="16" /></ToggleButton>
+            <ToggleButton AutomationProperties.Name="Default"><a:Icon Kind="heart" Size="16" /></ToggleButton>
+            <ToggleButton Classes="lg" AutomationProperties.Name="Large"><a:Icon Kind="heart" Size="16" /></ToggleButton>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;  &lt;ToggleButton Classes=&quot;sm&quot; AutomationProperties.Name=&quot;Small&quot;&gt;&lt;a:Icon Kind=&quot;heart&quot; Size=&quot;16&quot; /&gt;&lt;/ToggleButton&gt;&#10;  &lt;ToggleButton AutomationProperties.Name=&quot;Default&quot;&gt;&lt;a:Icon Kind=&quot;heart&quot; Size=&quot;16&quot; /&gt;&lt;/ToggleButton&gt;&#10;  &lt;ToggleButton Classes=&quot;lg&quot; AutomationProperties.Name=&quot;Large&quot;&gt;&lt;a:Icon Kind=&quot;heart&quot; Size=&quot;16&quot; /&gt;&lt;/ToggleButton&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ToggleButton IsEnabled="False" AutomationProperties.Name="Disabled"><a:Icon Kind="heart" Size="16" /></ToggleButton>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ToggleButton IsEnabled=&quot;False&quot; AutomationProperties.Name=&quot;Disabled&quot;&gt;&lt;a:Icon Kind=&quot;heart&quot; Size=&quot;16&quot; /&gt;&lt;/ToggleButton&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <ToggleButton IsChecked="{Binding Bold}" Content="B" AutomationProperties.Name="Bold" />
+            <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Bold, StringFormat='Bold: {0}'}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;  &lt;ToggleButton IsChecked=&quot;{Binding Bold}&quot; Content=&quot;B&quot; AutomationProperties.Name=&quot;Bold&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Bold, StringFormat=&#x27;Bold: {0}&#x27;}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsChecked" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable on state." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="outline" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A border and shadow-xs; accent on hover." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="sm, lg" /><TextBlock Grid.Column="1" Classes="sm muted" Text="32 and 40 px (36 by default)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Command, CommandParameter" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Runs on each toggle (desktop) or with the post (web)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

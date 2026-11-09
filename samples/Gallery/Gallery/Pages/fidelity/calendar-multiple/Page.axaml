@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:sys="using:System" a:Page.Title="Fidelity: calendar-multiple">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border HorizontalAlignment="Left" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" BoxShadow="{DynamicResource CosmoShadowSm}" Background="{DynamicResource CosmoBackgroundBrush}">
+      <Calendar DisplayDate="2025-06-12" SelectionMode="MultipleRange">
+        <c:CalendarSelection.Dates><c:CalendarDates><sys:DateTime>2025-06-03</sys:DateTime><sys:DateTime>2025-06-12</sys:DateTime><sys:DateTime>2025-06-13</sys:DateTime><sys:DateTime>2025-06-24</sys:DateTime></c:CalendarDates></c:CalendarSelection.Dates>
+      </Calendar>
+    </Border>
+  </Border>
+</UserControl>

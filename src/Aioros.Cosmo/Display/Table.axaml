@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Aioros.Cosmo/Display/ScrollArea.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <Thickness x:Key="TableViewRowPadding">0</Thickness>
+  <Thickness x:Key="TableViewCellPadding">8</Thickness>
+  <SolidColorBrush x:Key="TableViewColumnHeaderSeparatorBackground" Color="Transparent" />
+
+  <ControlTheme x:Key="CosmoTableScrollViewer" TargetType="ScrollViewer">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <DockPanel>
+            <Border Name="PART_Header" DockPanel.Dock="Top" BorderBrush="{DynamicResource CosmoBorderBrush}" BorderThickness="0,0,0,1">
+              <TableViewColumnHeadersPresenter />
+            </Border>
+            <ScrollContentPresenter Name="PART_ContentPresenter" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" />
+          </DockPanel>
+          <ScrollBar Name="PART_HorizontalScrollBar" Orientation="Horizontal" Theme="{StaticResource CosmoScrollAreaBar}" />
+          <ScrollBar Name="PART_VerticalScrollBar" Orientation="Vertical" Theme="{StaticResource CosmoScrollAreaBar}" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TableView}" TargetType="TableView">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+          <ScrollViewer Name="PART_ScrollViewer" Theme="{StaticResource CosmoTableScrollViewer}"
+                        HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                        VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="{TemplateBinding Padding}" />
+          </ScrollViewer>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover /template/ ScrollBar">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TableViewColumnHeader}" TargetType="TableViewColumnHeader">
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="Height" Value="40" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Background="{TemplateBinding Background}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Content="{TemplateBinding Content}" Padding="{TemplateBinding Padding}" TextBlock.LineHeight="20"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TableViewRow}" TargetType="TableViewRow">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+          <TableViewCellsPresenter Name="PART_CellsPresenter" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:nth-last-child(1)">
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="^:pointerover /template/ Border#Border">
+      <Setter Property="Background" Value="{DynamicResource CosmoMutedHalfBrush}" />
+    </Style>
+    <Style Selector="^:selected /template/ Border#Border">
+      <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    </Style>
+    <Style Selector="^.selected /template/ Border#Border">
+      <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TableViewCell}" TargetType="TableViewCell">
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="TextBlock.LineHeight" Value="20" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:TableFooter}" TargetType="c:TableFooter">
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedHalfBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="BorderThickness" Value="0,1,0,0" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}" TextBlock.LineHeight="20" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:TableCaption}" TargetType="c:TableCaption">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="Margin" Value="0,16,0,0" />
+    <Setter Property="HorizontalAlignment" Value="Center" />
+  </ControlTheme>
+</ResourceDictionary>

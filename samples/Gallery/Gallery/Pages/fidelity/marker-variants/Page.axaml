@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: marker-variants">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+          <StackPanel Width="384" HorizontalAlignment="Left" Margin="0,48" Spacing="32">
+    <c:Marker Content="A default marker for inline notes." />
+    <c:Marker Classes="separator" Content="A separator marker" />
+    <c:Marker Classes="border" Content="A border marker for row boundaries." />
+          </StackPanel>
+  </Border>
+</UserControl>

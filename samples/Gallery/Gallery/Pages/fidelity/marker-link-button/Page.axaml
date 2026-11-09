@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: marker-link-button">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+          <StackPanel Width="384" HorizontalAlignment="Left" Margin="0,48" Spacing="32">
+    <c:MarkerLink NavigateUri="#links-and-buttons" Content="View the pull request"><c:MarkerLink.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[ContentPresenter].Foreground}" Data="M6,3 L6,15 M15,6 A3,3 0 1 1 21,6 A3,3 0 1 1 15,6 Z M3,18 A3,3 0 1 1 9,18 A3,3 0 1 1 3,18 Z M18 9a9 9 0 0 1-9 9" /></Viewbox></c:MarkerLink.Icon></c:MarkerLink>
+    <c:MarkerButton Content="Revert this change"><c:MarkerButton.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[ContentPresenter].Foreground}" Data="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8 M3 3v5h5" /></Viewbox></c:MarkerButton.Icon></c:MarkerButton>
+          </StackPanel>
+  </Border>
+</UserControl>

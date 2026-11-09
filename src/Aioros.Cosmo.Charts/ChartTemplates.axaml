@@ -1,0 +1,103 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:p="https://aioros.dev/pictor"
+                    x:Class="Aioros.Cosmo.Charts.ChartTemplates">
+  <DataTemplate x:Key="Dot" x:DataType="p:TooltipContentContext">
+    <Border MinWidth="128" Padding="10,6" CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource CosmoChartTooltipBorderBrush}"
+            Background="{DynamicResource CosmoBackgroundBrush}" BoxShadow="0 20 25 -5 #1A000000, 0 8 10 -6 #1A000000">
+      <StackPanel Spacing="6">
+        <TextBlock Name="PART_Label" Text="{Binding Label}" FontSize="12" LineHeight="16" FontWeight="Medium" Foreground="{DynamicResource CosmoForegroundBrush}" />
+        <p:TooltipItems Spacing="6" />
+      </StackPanel>
+    </Border>
+  </DataTemplate>
+
+  <DataTemplate x:Key="DotLine" x:DataType="p:TooltipItemContext">
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <Border Width="10" Height="10" CornerRadius="2" Background="{Binding Color}" VerticalAlignment="Center" />
+      <TextBlock Text="{Binding Name}" FontSize="12" LineHeight="12" Foreground="{DynamicResource CosmoMutedForegroundBrush}" VerticalAlignment="Center" />
+      <TextBlock Text="{Binding Value}" FontSize="12" LineHeight="12" FontWeight="Medium" FontFamily="{DynamicResource CosmoFontMono}"
+                 Foreground="{DynamicResource CosmoForegroundBrush}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+    </StackPanel>
+  </DataTemplate>
+
+  <DataTemplate x:Key="Line" x:DataType="p:TooltipContentContext">
+    <Border MinWidth="128" Padding="10,6" CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource CosmoChartTooltipBorderBrush}"
+            Background="{DynamicResource CosmoBackgroundBrush}" BoxShadow="0 20 25 -5 #1A000000, 0 8 10 -6 #1A000000">
+      <StackPanel Spacing="6">
+        <TextBlock Name="PART_Label" Text="{Binding Label}" FontSize="12" LineHeight="16" FontWeight="Medium" Foreground="{DynamicResource CosmoForegroundBrush}" IsVisible="{Binding Converter={p:Calc 'Count &gt; 1'}}" />
+        <StackPanel Orientation="Horizontal" Spacing="8" IsVisible="{Binding Converter={p:Calc 'Count &lt; 2'}}">
+          <Border Width="4" CornerRadius="2" Background="{Binding Color}" />
+          <StackPanel Spacing="6" VerticalAlignment="Bottom">
+            <TextBlock Name="PART_NestedLabel" Text="{Binding Label}" FontSize="12" LineHeight="12" FontWeight="Medium" Foreground="{DynamicResource CosmoForegroundBrush}" />
+            <TextBlock Text="{Binding Name}" FontSize="12" LineHeight="12" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+          </StackPanel>
+          <TextBlock Text="{Binding Value}" FontSize="12" LineHeight="12" FontWeight="Medium" FontFamily="{DynamicResource CosmoFontMono}"
+                 Foreground="{DynamicResource CosmoForegroundBrush}" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+        </StackPanel>
+        <p:TooltipItems Spacing="6" IsVisible="{Binding Converter={p:Calc 'Count &gt; 1'}}" />
+      </StackPanel>
+    </Border>
+  </DataTemplate>
+
+  <DataTemplate x:Key="LineLine" x:DataType="p:TooltipItemContext">
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <Border Width="4" CornerRadius="2" Background="{Binding Color}" />
+      <TextBlock Text="{Binding Name}" FontSize="12" LineHeight="12" Foreground="{DynamicResource CosmoMutedForegroundBrush}" VerticalAlignment="Center" />
+      <TextBlock Text="{Binding Value}" FontSize="12" LineHeight="12" FontWeight="Medium" FontFamily="{DynamicResource CosmoFontMono}"
+                 Foreground="{DynamicResource CosmoForegroundBrush}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+    </StackPanel>
+  </DataTemplate>
+
+  <DataTemplate x:Key="Dashed" x:DataType="p:TooltipContentContext">
+    <Border MinWidth="128" Padding="10,6" CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource CosmoChartTooltipBorderBrush}"
+            Background="{DynamicResource CosmoBackgroundBrush}" BoxShadow="0 20 25 -5 #1A000000, 0 8 10 -6 #1A000000">
+      <StackPanel Spacing="6">
+        <TextBlock Name="PART_Label" Text="{Binding Label}" FontSize="12" LineHeight="16" FontWeight="Medium" Foreground="{DynamicResource CosmoForegroundBrush}" IsVisible="{Binding Converter={p:Calc 'Count &gt; 1'}}" />
+        <StackPanel Orientation="Horizontal" Spacing="8" IsVisible="{Binding Converter={p:Calc 'Count &lt; 2'}}">
+          <Border p:SvgElement.BorderStyle="dashed" Width="0" Margin="0,2" CornerRadius="2" BorderThickness="1.5" BorderBrush="{Binding Color}" />
+          <StackPanel Spacing="6" VerticalAlignment="Bottom">
+            <TextBlock Name="PART_NestedLabel" Text="{Binding Label}" FontSize="12" LineHeight="12" FontWeight="Medium" Foreground="{DynamicResource CosmoForegroundBrush}" />
+            <TextBlock Text="{Binding Name}" FontSize="12" LineHeight="12" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+          </StackPanel>
+          <TextBlock Text="{Binding Value}" FontSize="12" LineHeight="12" FontWeight="Medium" FontFamily="{DynamicResource CosmoFontMono}"
+                 Foreground="{DynamicResource CosmoForegroundBrush}" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+        </StackPanel>
+        <p:TooltipItems Spacing="6" IsVisible="{Binding Converter={p:Calc 'Count &gt; 1'}}" />
+      </StackPanel>
+    </Border>
+  </DataTemplate>
+
+  <DataTemplate x:Key="DashedLine" x:DataType="p:TooltipItemContext">
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <Border p:SvgElement.BorderStyle="dashed" Width="0" CornerRadius="2" BorderThickness="1.5" BorderBrush="{Binding Color}" />
+      <TextBlock Text="{Binding Name}" FontSize="12" LineHeight="12" Foreground="{DynamicResource CosmoMutedForegroundBrush}" VerticalAlignment="Center" />
+      <TextBlock Text="{Binding Value}" FontSize="12" LineHeight="12" FontWeight="Medium" FontFamily="{DynamicResource CosmoFontMono}"
+                 Foreground="{DynamicResource CosmoForegroundBrush}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+    </StackPanel>
+  </DataTemplate>
+
+  <DataTemplate x:Key="None" x:DataType="p:TooltipContentContext">
+    <Border MinWidth="128" Padding="10,6" CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource CosmoChartTooltipBorderBrush}"
+            Background="{DynamicResource CosmoBackgroundBrush}" BoxShadow="0 20 25 -5 #1A000000, 0 8 10 -6 #1A000000">
+      <StackPanel Spacing="6">
+        <TextBlock Name="PART_Label" Text="{Binding Label}" FontSize="12" LineHeight="16" FontWeight="Medium" Foreground="{DynamicResource CosmoForegroundBrush}" />
+        <p:TooltipItems Spacing="6" />
+      </StackPanel>
+    </Border>
+  </DataTemplate>
+
+  <DataTemplate x:Key="NoneLine" x:DataType="p:TooltipItemContext">
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <TextBlock Text="{Binding Name}" FontSize="12" LineHeight="12" Foreground="{DynamicResource CosmoMutedForegroundBrush}" VerticalAlignment="Center" />
+      <TextBlock Text="{Binding Value}" FontSize="12" LineHeight="12" FontWeight="Medium" FontFamily="{DynamicResource CosmoFontMono}"
+                 Foreground="{DynamicResource CosmoForegroundBrush}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+    </StackPanel>
+  </DataTemplate>
+
+  <DataTemplate x:Key="Legend" x:DataType="p:LegendEntryContext">
+    <StackPanel Orientation="Horizontal" Spacing="6">
+      <Border Width="8" Height="8" CornerRadius="2" Background="{Binding Color}" VerticalAlignment="Center" />
+      <TextBlock Text="{Binding Value}" FontSize="12" Foreground="{DynamicResource CosmoForegroundBrush}" VerticalAlignment="Center" />
+    </StackPanel>
+  </DataTemplate>
+</ResourceDictionary>

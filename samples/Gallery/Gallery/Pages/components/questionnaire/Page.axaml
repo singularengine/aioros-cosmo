@@ -1,0 +1,366 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:QuestionnaireExamples"
+             a:Page.Title="Questionnaire" a:Page.Description="Asks one question at a time, with choices, a freeform answer, shortcuts, validation and navigation.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Questionnaire" />
+      <TextBlock Classes="lead" Text="Asks one question at a time, with choices, a freeform answer, shortcuts, validation and navigation." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: questionnaire (radix-rhea)" />
+        <c:Badge Classes="secondary" Content="Avalonia: ItemsControl, RadioButton, CheckBox" />
+        <c:Badge Classes="secondary" Content="Web: &lt;input type=radio&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="c:Questionnaire shows its c:QuestionnaireItems one at a time; Next checks a required question, Skip leaves an optional one. On the web the choices are native radio buttons in their cards." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" Shortcuts="Letters" ShowProgress="True" SubmitContent="Save plan">
+            <c:QuestionnaireItem Name="direction" Title="What should the agent build next?" Description="Choose a direction or describe another task." IsRequired="True">
+              <c:QuestionnaireChoice Value="tool-calls" Description="Show what the agent ran and what came back."><c:QuestionnaireChoice.Content><TextBlock Text="Tool call timeline" FontWeight="Medium" /></c:QuestionnaireChoice.Content></c:QuestionnaireChoice>
+              <c:QuestionnaireChoice Value="approvals" Description="Ask before sensitive or destructive actions."><c:QuestionnaireChoice.Content><TextBlock Text="Approval checkpoints" FontWeight="Medium" /></c:QuestionnaireChoice.Content></c:QuestionnaireChoice>
+              <c:QuestionnaireChoice Value="handoffs" Description="Make delegated work and results easier to follow."><c:QuestionnaireChoice.Content><TextBlock Text="Sub-agent handoffs" FontWeight="Medium" /></c:QuestionnaireChoice.Content></c:QuestionnaireChoice>
+              <c:QuestionnaireInput PlaceholderText="Describe another feature…" AutomationProperties.Name="Another agent feature" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="signals" Title="What should every progress update include?" Description="Select all that apply, or skip this question.">
+              <c:QuestionnaireCheck Value="progress" Content="Progress" />
+              <c:QuestionnaireCheck Value="decisions" Content="Decisions" />
+              <c:QuestionnaireCheck Value="risks" Content="Risks" />
+              <c:QuestionnaireCheck Value="next-step" Content="Next step" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="timing" Title="When should work begin?" Description="Choose when the agent should begin the work." IsRequired="True">
+              <c:QuestionnaireChoice Value="now" Content="Start now" />
+              <c:QuestionnaireChoice Value="next-cycle" Content="Next development cycle" />
+              <c:QuestionnaireChoice Value="backlog" Content="Add it to the backlog" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; Shortcuts=&quot;Letters&quot; ShowProgress=&quot;True&quot; SubmitContent=&quot;Save plan&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;direction&quot; Title=&quot;What should the agent build next?&quot; Description=&quot;Choose a direction or describe another task.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;tool-calls&quot; Description=&quot;Show what the agent ran and what came back.&quot;&gt;&lt;c:QuestionnaireChoice.Content&gt;&lt;TextBlock Text=&quot;Tool call timeline&quot; FontWeight=&quot;Medium&quot; /&gt;&lt;/c:QuestionnaireChoice.Content&gt;&lt;/c:QuestionnaireChoice&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;approvals&quot; Description=&quot;Ask before sensitive or destructive actions.&quot;&gt;&lt;c:QuestionnaireChoice.Content&gt;&lt;TextBlock Text=&quot;Approval checkpoints&quot; FontWeight=&quot;Medium&quot; /&gt;&lt;/c:QuestionnaireChoice.Content&gt;&lt;/c:QuestionnaireChoice&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;handoffs&quot; Description=&quot;Make delegated work and results easier to follow.&quot;&gt;&lt;c:QuestionnaireChoice.Content&gt;&lt;TextBlock Text=&quot;Sub-agent handoffs&quot; FontWeight=&quot;Medium&quot; /&gt;&lt;/c:QuestionnaireChoice.Content&gt;&lt;/c:QuestionnaireChoice&gt;&#10;    &lt;c:QuestionnaireInput PlaceholderText=&quot;Describe another feature…&quot; AutomationProperties.Name=&quot;Another agent feature&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;signals&quot; Title=&quot;What should every progress update include?&quot; Description=&quot;Select all that apply, or skip this question.&quot;&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;progress&quot; Content=&quot;Progress&quot; /&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;decisions&quot; Content=&quot;Decisions&quot; /&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;risks&quot; Content=&quot;Risks&quot; /&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;next-step&quot; Content=&quot;Next step&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;timing&quot; Title=&quot;When should work begin?&quot; Description=&quot;Choose when the agent should begin the work.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;now&quot; Content=&quot;Start now&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;next-cycle&quot; Content=&quot;Next development cycle&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;backlog&quot; Content=&quot;Add it to the backlog&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Multiple" />
+      <TextBlock Classes="sm muted" Text="c:QuestionnaireCheck gives several answers." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" Shortcuts="Letters" SubmitContent="Share context">
+            <c:QuestionnaireItem Name="context" Title="What context should the agent inspect?" Description="Select every source that may affect the implementation." IsRequired="True">
+              <c:QuestionnaireCheck Value="source" Content="Relevant source files" />
+              <c:QuestionnaireCheck Value="tests" Content="Existing tests" />
+              <c:QuestionnaireCheck Value="docs" Content="Architecture documentation" />
+              <c:QuestionnaireCheck Value="history" Content="Recent commit history" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; Shortcuts=&quot;Letters&quot; SubmitContent=&quot;Share context&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;context&quot; Title=&quot;What context should the agent inspect?&quot; Description=&quot;Select every source that may affect the implementation.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;source&quot; Content=&quot;Relevant source files&quot; /&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;tests&quot; Content=&quot;Existing tests&quot; /&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;docs&quot; Content=&quot;Architecture documentation&quot; /&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;history&quot; Content=&quot;Recent commit history&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Freeform" />
+      <TextBlock Classes="sm muted" Text="c:QuestionnaireInput takes a typed answer; Shortcuts=&quot;Letters&quot; checks a choice with its key." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" Shortcuts="Letters" SubmitContent="Use this approach">
+            <c:QuestionnaireItem Name="approach" Title="How should the agent approach this refactor?" Description="Choose a strategy or write a more specific instruction." IsRequired="True">
+              <c:QuestionnaireChoice Value="incremental" Content="Make the smallest safe change" />
+              <c:QuestionnaireChoice Value="module" Content="Refactor one module at a time" />
+              <c:QuestionnaireChoice Value="rewrite" Content="Replace the implementation completely" />
+              <c:QuestionnaireInput PlaceholderText="Describe another approach…" AutomationProperties.Name="Another refactoring approach" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; Shortcuts=&quot;Letters&quot; SubmitContent=&quot;Use this approach&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;approach&quot; Title=&quot;How should the agent approach this refactor?&quot; Description=&quot;Choose a strategy or write a more specific instruction.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;incremental&quot; Content=&quot;Make the smallest safe change&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;module&quot; Content=&quot;Refactor one module at a time&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;rewrite&quot; Content=&quot;Replace the implementation completely&quot; /&gt;&#10;    &lt;c:QuestionnaireInput PlaceholderText=&quot;Describe another approach…&quot; AutomationProperties.Name=&quot;Another refactoring approach&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Progress" />
+      <TextBlock Classes="sm muted" Text="ProgressFormat and the segmented class." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" ShowProgress="True" SubmitContent="Finish plan" Classes="segmented" ProgressFormat="Checkpoint {0} of {1}">
+            <c:QuestionnaireItem Name="scope" Title="How large is the change?" IsRequired="True">
+              <c:QuestionnaireChoice Value="small" Content="Small patch" />
+              <c:QuestionnaireChoice Value="medium" Content="Feature-sized change" />
+              <c:QuestionnaireChoice Value="large" Content="Cross-package change" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="strategy" Title="How should commits be organized?" IsRequired="True">
+              <c:QuestionnaireChoice Value="single" Content="Single commit" />
+              <c:QuestionnaireChoice Value="logical" Content="Logical commits" />
+              <c:QuestionnaireChoice Value="squash" Content="Squash before review" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="tests" Title="Which tests should run?" IsRequired="True">
+              <c:QuestionnaireChoice Value="targeted" Content="Targeted tests" />
+              <c:QuestionnaireChoice Value="package" Content="Package suite" />
+              <c:QuestionnaireChoice Value="workspace" Content="Full workspace" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="delivery" Title="How should the work be delivered?" IsRequired="True">
+              <c:QuestionnaireChoice Value="patch" Content="Patch only" />
+              <c:QuestionnaireChoice Value="commit" Content="Committed locally" />
+              <c:QuestionnaireChoice Value="branch" Content="Push a review branch" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; ShowProgress=&quot;True&quot; SubmitContent=&quot;Finish plan&quot; Classes=&quot;segmented&quot; ProgressFormat=&quot;Checkpoint {0} of {1}&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;scope&quot; Title=&quot;How large is the change?&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;small&quot; Content=&quot;Small patch&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;medium&quot; Content=&quot;Feature-sized change&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;large&quot; Content=&quot;Cross-package change&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;strategy&quot; Title=&quot;How should commits be organized?&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;single&quot; Content=&quot;Single commit&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;logical&quot; Content=&quot;Logical commits&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;squash&quot; Content=&quot;Squash before review&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;tests&quot; Title=&quot;Which tests should run?&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;targeted&quot; Content=&quot;Targeted tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;package&quot; Content=&quot;Package suite&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;workspace&quot; Content=&quot;Full workspace&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;delivery&quot; Title=&quot;How should the work be delivered?&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;patch&quot; Content=&quot;Patch only&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;commit&quot; Content=&quot;Committed locally&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;branch&quot; Content=&quot;Push a review branch&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Navigation state" />
+      <TextBlock Classes="sm muted" Text="RequiresAnswer keeps Next disabled until the question is answered, in the browser with no request." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" ShowProgress="True" SubmitContent="Save permissions" RequiresAnswer="True" Classes="secondary-next">
+            <c:QuestionnaireItem Name="permission" Title="What may the agent modify?" Description="Next is intentionally disabled until an answer is selected." IsRequired="True">
+              <c:QuestionnaireChoice Value="files" Content="Project files" />
+              <c:QuestionnaireChoice Value="tests" Content="Project files and tests" />
+              <c:QuestionnaireChoice Value="config" Content="Files, tests, and configuration" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="verification" Title="What must pass before completion?" IsRequired="True">
+              <c:QuestionnaireChoice Value="tests" Content="Tests" />
+              <c:QuestionnaireChoice Value="types" Content="Tests and types" />
+              <c:QuestionnaireChoice Value="all" Content="Tests, types, and visual QA" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; ShowProgress=&quot;True&quot; SubmitContent=&quot;Save permissions&quot; RequiresAnswer=&quot;True&quot; Classes=&quot;secondary-next&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;permission&quot; Title=&quot;What may the agent modify?&quot; Description=&quot;Next is intentionally disabled until an answer is selected.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;files&quot; Content=&quot;Project files&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;tests&quot; Content=&quot;Project files and tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;config&quot; Content=&quot;Files, tests, and configuration&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;verification&quot; Title=&quot;What must pass before completion?&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;tests&quot; Content=&quot;Tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;types&quot; Content=&quot;Tests and types&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;all&quot; Content=&quot;Tests, types, and visual QA&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Skip" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" ShowProgress="True" SubmitContent="Submit brief">
+            <c:QuestionnaireItem Name="task" Title="What kind of change is this?" Description="Choose the category that best describes the work." IsRequired="True">
+              <c:QuestionnaireChoice Value="feature" Content="New feature" />
+              <c:QuestionnaireChoice Value="fix" Content="Bug fix" />
+              <c:QuestionnaireChoice Value="refactor" Content="Refactor" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="constraints" Title="Are there any implementation constraints?" Description="Answer if needed, or intentionally skip this question.">
+              <c:QuestionnaireChoice Value="no-dependencies" Content="Do not add dependencies" />
+              <c:QuestionnaireChoice Value="no-migrations" Content="Do not change the database" />
+              <c:QuestionnaireChoice Value="preserve-api" Content="Preserve the public API" />
+              <c:QuestionnaireInput PlaceholderText="Describe another constraint…" AutomationProperties.Name="Another implementation constraint" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="review" Title="How should the work be reviewed?" Description="Choose the checks the agent should complete before handoff." IsRequired="True">
+              <c:QuestionnaireChoice Value="tests" Content="Run the test suite" />
+              <c:QuestionnaireChoice Value="diff" Content="Review the final diff" />
+              <c:QuestionnaireChoice Value="both" Content="Tests and diff review" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; ShowProgress=&quot;True&quot; SubmitContent=&quot;Submit brief&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;task&quot; Title=&quot;What kind of change is this?&quot; Description=&quot;Choose the category that best describes the work.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;feature&quot; Content=&quot;New feature&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;fix&quot; Content=&quot;Bug fix&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;refactor&quot; Content=&quot;Refactor&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;constraints&quot; Title=&quot;Are there any implementation constraints?&quot; Description=&quot;Answer if needed, or intentionally skip this question.&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;no-dependencies&quot; Content=&quot;Do not add dependencies&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;no-migrations&quot; Content=&quot;Do not change the database&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;preserve-api&quot; Content=&quot;Preserve the public API&quot; /&gt;&#10;    &lt;c:QuestionnaireInput PlaceholderText=&quot;Describe another constraint…&quot; AutomationProperties.Name=&quot;Another implementation constraint&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;review&quot; Title=&quot;How should the work be reviewed?&quot; Description=&quot;Choose the checks the agent should complete before handoff.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;tests&quot; Content=&quot;Run the test suite&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;diff&quot; Content=&quot;Review the final diff&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;both&quot; Content=&quot;Tests and diff review&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Shortcuts" />
+      <TextBlock Classes="sm muted" Text="Shortcuts bound to the host: none, letters or numbers." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border x:DataType="m:QuestionnaireExamples" MaxWidth="448">
+            <Grid>
+              <c:Questionnaire SubmitContent="Confirm action" Shortcuts="{Binding Shortcuts}">
+            <c:QuestionnaireItem Name="action" Title="What should the agent do next?" Description="Use the displayed shortcut or navigate with the keyboard." IsRequired="True">
+              <c:QuestionnaireChoice Value="inspect" Content="Inspect the implementation" />
+              <c:QuestionnaireChoice Value="tests" Content="Run the relevant tests" />
+              <c:QuestionnaireChoice Value="patch" Content="Prepare the patch" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+              <ComboBox Classes="native sm" Width="128" HorizontalAlignment="Right" VerticalAlignment="Top" SelectedIndex="{Binding ShortcutStyle}" AutomationProperties.Name="Shortcut style">
+                <ComboBoxItem Content="No shortcuts" /><ComboBoxItem Content="Letters" /><ComboBoxItem Content="Numbers" />
+              </ComboBox>
+            </Grid>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border x:DataType=&quot;m:QuestionnaireExamples&quot; MaxWidth=&quot;448&quot;&gt;&#10;  &lt;Grid&gt;&#10;    &lt;c:Questionnaire SubmitContent=&quot;Confirm action&quot; Shortcuts=&quot;{Binding Shortcuts}&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;action&quot; Title=&quot;What should the agent do next?&quot; Description=&quot;Use the displayed shortcut or navigate with the keyboard.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;inspect&quot; Content=&quot;Inspect the implementation&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;tests&quot; Content=&quot;Run the relevant tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;patch&quot; Content=&quot;Prepare the patch&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;&#10;    &lt;ComboBox Classes=&quot;native sm&quot; Width=&quot;128&quot; HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Top&quot; SelectedIndex=&quot;{Binding ShortcutStyle}&quot; AutomationProperties.Name=&quot;Shortcut style&quot;&gt;&#10;      &lt;ComboBoxItem Content=&quot;No shortcuts&quot; /&gt;&lt;ComboBoxItem Content=&quot;Letters&quot; /&gt;&lt;ComboBoxItem Content=&quot;Numbers&quot; /&gt;&#10;    &lt;/ComboBox&gt;&#10;  &lt;/Grid&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Validation" />
+      <TextBlock Classes="sm muted" Text="SubmitCommand checks the answers together and gives a question its Message." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border x:DataType="m:QuestionnaireExamples" MaxWidth="448">
+            <c:Questionnaire MaxWidth="448" ShowProgress="True" SubmitContent="Validate answers" Classes="card fit-progress" ProgressFormat="{}{0} / {1}" CurrentIndex="{Binding ValidationIndex}" SubmitCommand="{Binding ValidateCommand}">
+            <c:QuestionnaireItem Name="detail" Title="How much detail should the answer include?" Description="Choose the response depth." IsRequired="True" Message="{Binding DetailError, Mode=TwoWay}">
+              <c:QuestionnaireChoice Value="summary" Content="Concise summary" />
+              <c:QuestionnaireChoice Value="complete" Content="Complete answer" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="audience" Title="Who will read the answer?" Description="Public answers require complete context." IsRequired="True">
+              <c:QuestionnaireChoice Value="team" Content="My team" />
+              <c:QuestionnaireChoice Value="public" Content="Public audience" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border x:DataType=&quot;m:QuestionnaireExamples&quot; MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Questionnaire MaxWidth=&quot;448&quot; ShowProgress=&quot;True&quot; SubmitContent=&quot;Validate answers&quot; Classes=&quot;card fit-progress&quot; ProgressFormat=&quot;{}{0} / {1}&quot; CurrentIndex=&quot;{Binding ValidationIndex}&quot; SubmitCommand=&quot;{Binding ValidateCommand}&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;detail&quot; Title=&quot;How much detail should the answer include?&quot; Description=&quot;Choose the response depth.&quot; IsRequired=&quot;True&quot; Message=&quot;{Binding DetailError, Mode=TwoWay}&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;summary&quot; Content=&quot;Concise summary&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;complete&quot; Content=&quot;Complete answer&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;audience&quot; Title=&quot;Who will read the answer?&quot; Description=&quot;Public answers require complete context.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;team&quot; Content=&quot;My team&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;public&quot; Content=&quot;Public audience&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Conditional" />
+      <TextBlock Classes="sm muted" Text="A question enabled by an earlier answer joins the questions." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border x:DataType="m:QuestionnaireExamples" MaxWidth="448">
+            <c:Questionnaire ShowProgress="True" SubmitContent="Save execution plan">
+            <c:QuestionnaireItem Name="runtime" Title="Where should the agent run?" Description="Cloud runs add an environment question to this flow." IsRequired="True">
+              <c:QuestionnaireChoice Value="local" Content="Local workspace" IsChecked="{Binding Local}" />
+              <c:QuestionnaireChoice Value="cloud" Content="Cloud workspace" IsChecked="{Binding Cloud}" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="environment" Title="Which cloud environment should it use?" IsRequired="True" IsEnabled="{Binding Cloud}">
+              <c:QuestionnaireChoice Value="preview" Content="Preview" />
+              <c:QuestionnaireChoice Value="staging" Content="Staging" />
+              <c:QuestionnaireChoice Value="isolated" Content="Isolated sandbox" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="approval" Title="When should the agent request approval?" IsRequired="True">
+              <c:QuestionnaireChoice Value="writes" Content="Before writing files" />
+              <c:QuestionnaireChoice Value="commands" Content="Before running commands" />
+              <c:QuestionnaireChoice Value="sensitive" Content="Only for sensitive actions" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border x:DataType=&quot;m:QuestionnaireExamples&quot; MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Questionnaire ShowProgress=&quot;True&quot; SubmitContent=&quot;Save execution plan&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;runtime&quot; Title=&quot;Where should the agent run?&quot; Description=&quot;Cloud runs add an environment question to this flow.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;local&quot; Content=&quot;Local workspace&quot; IsChecked=&quot;{Binding Local}&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;cloud&quot; Content=&quot;Cloud workspace&quot; IsChecked=&quot;{Binding Cloud}&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;environment&quot; Title=&quot;Which cloud environment should it use?&quot; IsRequired=&quot;True&quot; IsEnabled=&quot;{Binding Cloud}&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;preview&quot; Content=&quot;Preview&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;staging&quot; Content=&quot;Staging&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;isolated&quot; Content=&quot;Isolated sandbox&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;approval&quot; Title=&quot;When should the agent request approval?&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;writes&quot; Content=&quot;Before writing files&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;commands&quot; Content=&quot;Before running commands&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;sensitive&quot; Content=&quot;Only for sensitive actions&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Controlled" />
+      <TextBlock Classes="sm muted" Text="CurrentIndex bound to the host." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border x:DataType="m:QuestionnaireExamples" MaxWidth="448">
+            <Grid>
+              <c:Questionnaire ShowProgress="True" SubmitContent="Save workflow" CurrentIndex="{Binding Checkpoint}">
+            <c:QuestionnaireItem Name="scope-2" Title="What may the agent change?" Description="The host stores the active checkpoint while Questionnaire navigates." IsRequired="True">
+              <c:QuestionnaireChoice Value="component" Content="Only the target component" />
+              <c:QuestionnaireChoice Value="tests" Content="Component and related tests" />
+              <c:QuestionnaireChoice Value="feature" Content="The complete feature area" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="checks" Title="Which verification level should it use?" IsRequired="True">
+              <c:QuestionnaireChoice Value="targeted" Content="Targeted tests" />
+              <c:QuestionnaireChoice Value="package" Content="Package tests and typecheck" />
+              <c:QuestionnaireChoice Value="full" Content="Full workspace verification" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="output" Title="What should the agent return when finished?" IsRequired="True">
+              <c:QuestionnaireChoice Value="summary" Content="Concise summary" />
+              <c:QuestionnaireChoice Value="diff" Content="Summary with changed files" />
+              <c:QuestionnaireChoice Value="handoff" Content="Detailed implementation handoff" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+              <TextBlock Text="{Binding CheckpointText}" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+            </Grid>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border x:DataType=&quot;m:QuestionnaireExamples&quot; MaxWidth=&quot;448&quot;&gt;&#10;  &lt;Grid&gt;&#10;    &lt;c:Questionnaire ShowProgress=&quot;True&quot; SubmitContent=&quot;Save workflow&quot; CurrentIndex=&quot;{Binding Checkpoint}&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;scope-2&quot; Title=&quot;What may the agent change?&quot; Description=&quot;The host stores the active checkpoint while Questionnaire navigates.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;component&quot; Content=&quot;Only the target component&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;tests&quot; Content=&quot;Component and related tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;feature&quot; Content=&quot;The complete feature area&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;checks&quot; Title=&quot;Which verification level should it use?&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;targeted&quot; Content=&quot;Targeted tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;package&quot; Content=&quot;Package tests and typecheck&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;full&quot; Content=&quot;Full workspace verification&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;output&quot; Title=&quot;What should the agent return when finished?&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;summary&quot; Content=&quot;Concise summary&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;diff&quot; Content=&quot;Summary with changed files&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;handoff&quot; Content=&quot;Detailed implementation handoff&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;&#10;    &lt;TextBlock Text=&quot;{Binding CheckpointText}&quot; HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Top&quot; FontSize=&quot;14&quot; LineHeight=&quot;20&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;  &lt;/Grid&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Resume" />
+      <TextBlock Classes="sm muted" Text="Opens on a later question with earlier answers; ResetContent restores them." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" ShowProgress="True" SubmitContent="Update draft" CurrentIndex="1" ResetContent="Reset changes">
+            <c:QuestionnaireItem Name="change" Title="What kind of migration is this?" Description="This answer was saved during the previous session." IsRequired="True">
+              <c:QuestionnaireChoice Value="incremental" Content="Incremental migration" IsChecked="True" />
+              <c:QuestionnaireChoice Value="cutover" Content="Single cutover" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="verification-2" Title="How should the migration be verified?" Description="These checks were selected during the previous session." IsRequired="True">
+              <c:QuestionnaireCheck Value="tests" Content="Run migration tests" IsChecked="True" />
+              <c:QuestionnaireCheck Value="typecheck" Content="Run the typecheck" IsChecked="True" />
+              <c:QuestionnaireCheck Value="manual" Content="Perform a manual smoke test" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="notes" Title="Anything else the agent should remember?" Description="This note was saved with the draft.">
+              <c:QuestionnaireInput Text="Keep the existing public API stable." AutomationProperties.Name="Saved migration note" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; ShowProgress=&quot;True&quot; SubmitContent=&quot;Update draft&quot; CurrentIndex=&quot;1&quot; ResetContent=&quot;Reset changes&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;change&quot; Title=&quot;What kind of migration is this?&quot; Description=&quot;This answer was saved during the previous session.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;incremental&quot; Content=&quot;Incremental migration&quot; IsChecked=&quot;True&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;cutover&quot; Content=&quot;Single cutover&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;verification-2&quot; Title=&quot;How should the migration be verified?&quot; Description=&quot;These checks were selected during the previous session.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;tests&quot; Content=&quot;Run migration tests&quot; IsChecked=&quot;True&quot; /&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;typecheck&quot; Content=&quot;Run the typecheck&quot; IsChecked=&quot;True&quot; /&gt;&#10;    &lt;c:QuestionnaireCheck Value=&quot;manual&quot; Content=&quot;Perform a manual smoke test&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;notes&quot; Title=&quot;Anything else the agent should remember?&quot; Description=&quot;This note was saved with the draft.&quot;&gt;&#10;    &lt;c:QuestionnaireInput Text=&quot;Keep the existing public API stable.&quot; AutomationProperties.Name=&quot;Saved migration note&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Card" />
+      <TextBlock Classes="sm muted" Text="The card class." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" Shortcuts="Numbers" ShowProgress="True" SubmitContent="Create task" Classes="card card-title">
+            <c:QuestionnaireItem Name="task-2" Title="What should the agent work on?" Description="Choose the task that should be handled next." IsRequired="True">
+              <c:QuestionnaireChoice Value="fix" Content="Fix the failing tests" />
+              <c:QuestionnaireChoice Value="refactor" Content="Refactor the data layer" />
+              <c:QuestionnaireChoice Value="docs" Content="Update the integration guide" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="output-2" Title="What should the final handoff include?" Description="Pick the level of detail needed for review." IsRequired="True">
+              <c:QuestionnaireChoice Value="summary" Content="Summary only" />
+              <c:QuestionnaireChoice Value="files" Content="Summary and changed files" />
+              <c:QuestionnaireChoice Value="review" Content="Full review handoff" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; Shortcuts=&quot;Numbers&quot; ShowProgress=&quot;True&quot; SubmitContent=&quot;Create task&quot; Classes=&quot;card card-title&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;task-2&quot; Title=&quot;What should the agent work on?&quot; Description=&quot;Choose the task that should be handled next.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;fix&quot; Content=&quot;Fix the failing tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;refactor&quot; Content=&quot;Refactor the data layer&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;docs&quot; Content=&quot;Update the integration guide&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;output-2&quot; Title=&quot;What should the final handoff include?&quot; Description=&quot;Pick the level of detail needed for review.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;summary&quot; Content=&quot;Summary only&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;files&quot; Content=&quot;Summary and changed files&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;review&quot; Content=&quot;Full review handoff&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Animated" />
+      <TextBlock Classes="sm muted" Text="The animated class lets a question enter as it is shown." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Questionnaire MaxWidth="448" ShowProgress="True" SubmitContent="Save workflow" Classes="animated">
+            <c:QuestionnaireItem Name="task-3" Title="What should the agent do?" Description="Choose the task for this run." IsRequired="True">
+              <c:QuestionnaireChoice Value="implement" Content="Implement the requested change" />
+              <c:QuestionnaireChoice Value="debug" Content="Debug the current behavior" />
+              <c:QuestionnaireChoice Value="review" Content="Review the implementation" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="review-2" Title="How should the work be reviewed?" Description="Select the verification depth." IsRequired="True">
+              <c:QuestionnaireChoice Value="targeted" Content="Targeted checks" />
+              <c:QuestionnaireChoice Value="complete" Content="Complete test suite" />
+              <c:QuestionnaireChoice Value="manual" Content="Tests and manual QA" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="delivery-2" Title="How should the result be delivered?" Description="Choose the final handoff format." IsRequired="True">
+              <c:QuestionnaireChoice Value="summary" Content="Concise summary" />
+              <c:QuestionnaireChoice Value="diff" Content="Summary and changed files" />
+              <c:QuestionnaireChoice Value="handoff" Content="Detailed review handoff" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Questionnaire MaxWidth=&quot;448&quot; ShowProgress=&quot;True&quot; SubmitContent=&quot;Save workflow&quot; Classes=&quot;animated&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;task-3&quot; Title=&quot;What should the agent do?&quot; Description=&quot;Choose the task for this run.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;implement&quot; Content=&quot;Implement the requested change&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;debug&quot; Content=&quot;Debug the current behavior&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;review&quot; Content=&quot;Review the implementation&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;review-2&quot; Title=&quot;How should the work be reviewed?&quot; Description=&quot;Select the verification depth.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;targeted&quot; Content=&quot;Targeted checks&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;complete&quot; Content=&quot;Complete test suite&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;manual&quot; Content=&quot;Tests and manual QA&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;delivery-2&quot; Title=&quot;How should the result be delivered?&quot; Description=&quot;Choose the final handoff format.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;summary&quot; Content=&quot;Concise summary&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;diff&quot; Content=&quot;Summary and changed files&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;handoff&quot; Content=&quot;Detailed review handoff&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Dialog" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel MaxWidth="448">
+            <Button x:Name="clarification" Classes="outline" Height="32" Padding="12,0" CornerRadius="16" HorizontalAlignment="Left" Content="Open clarification" />
+            <c:Dialog Trigger="{Binding #clarification}" MaxWidth="448">
+              <c:Questionnaire ShowProgress="True" SubmitContent="Send answer">
+            <c:QuestionnaireItem Name="scope-3" Title="Which files are in scope?" Description="Choose how broadly the agent can update the workspace." IsRequired="True">
+              <c:QuestionnaireChoice Value="component" Content="Component only" />
+              <c:QuestionnaireChoice Value="feature" Content="Complete feature directory" />
+              <c:QuestionnaireChoice Value="workspace" Content="Any related workspace file" />
+            </c:QuestionnaireItem>
+            <c:QuestionnaireItem Name="tests-2" Title="How much verification is needed?" Description="Choose the checks the agent should run before handoff." IsRequired="True">
+              <c:QuestionnaireChoice Value="targeted" Content="Targeted tests" />
+              <c:QuestionnaireChoice Value="package" Content="Package tests" />
+              <c:QuestionnaireChoice Value="full" Content="Full workspace verification" />
+            </c:QuestionnaireItem>
+          </c:Questionnaire>
+            </c:Dialog>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;448&quot;&gt;&#10;  &lt;Button x:Name=&quot;clarification&quot; Classes=&quot;outline&quot; Height=&quot;32&quot; Padding=&quot;12,0&quot; CornerRadius=&quot;16&quot; HorizontalAlignment=&quot;Left&quot; Content=&quot;Open clarification&quot; /&gt;&#10;  &lt;c:Dialog Trigger=&quot;{Binding #clarification}&quot; MaxWidth=&quot;448&quot;&gt;&#10;    &lt;c:Questionnaire ShowProgress=&quot;True&quot; SubmitContent=&quot;Send answer&quot;&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;scope-3&quot; Title=&quot;Which files are in scope?&quot; Description=&quot;Choose how broadly the agent can update the workspace.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;component&quot; Content=&quot;Component only&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;feature&quot; Content=&quot;Complete feature directory&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;workspace&quot; Content=&quot;Any related workspace file&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;  &lt;c:QuestionnaireItem Name=&quot;tests-2&quot; Title=&quot;How much verification is needed?&quot; Description=&quot;Choose the checks the agent should run before handoff.&quot; IsRequired=&quot;True&quot;&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;targeted&quot; Content=&quot;Targeted tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;package&quot; Content=&quot;Package tests&quot; /&gt;&#10;    &lt;c:QuestionnaireChoice Value=&quot;full&quot; Content=&quot;Full workspace verification&quot; /&gt;&#10;  &lt;/c:QuestionnaireItem&gt;&#10;&lt;/c:Questionnaire&gt;&#10;  &lt;/c:Dialog&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="CurrentIndex, ShowProgress, Shortcuts" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The question shown, the progress line, and the choices&#x27; keys (Letters or Numbers)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="PreviousContent, SkipContent, NextContent, SubmitContent" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The actions&#x27; contents." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Submitted, SubmitCommand" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Raised and run on a valid Submit, with the answers by question name." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:QuestionnaireItem: Title, Description, IsRequired" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A question; an optional one can be skipped." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:QuestionnaireChoice, c:QuestionnaireCheck: Value, Description" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A choice of one answer or of several." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ProgressFormat, Segments, RequiresAnswer" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The progress text ({0} of {1}), one flag per question for the segmented class, and Next disabled until an answer." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ResetContent, Reset()" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A button restoring the answers the questionnaire opened with." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:QuestionnaireItem: Message, IsEnabled" /><TextBlock Grid.Column="1" Classes="sm muted" Text="An error the host gives after checking the answers; a disabled question is left out." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="card, segmented, secondary-next, animated" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The card layout, the progress in bars, a secondary Next, the questions&#x27; entrance." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

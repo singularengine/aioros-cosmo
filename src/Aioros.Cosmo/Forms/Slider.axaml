@@ -1,0 +1,100 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Double x:Key="SliderTrackThemeHeight">6</x:Double>
+
+  <ControlTheme x:Key="CosmoSliderHorizontalPart" TargetType="RepeatButton">
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="Transparent" Margin="0,-5">
+          <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Margin="{TemplateBinding Padding}" Height="6" VerticalAlignment="Center" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+  <ControlTheme x:Key="CosmoSliderVerticalPart" TargetType="RepeatButton">
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="Transparent" Margin="-5,0">
+          <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Margin="{TemplateBinding Padding}" Width="6" HorizontalAlignment="Center" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+  <ControlTheme x:Key="CosmoSliderThumb" TargetType="Thumb">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="ThumbBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8" BoxShadow="{DynamicResource CosmoShadowSm}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover /template/ Border#ThumbBorder">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoSliderThumbHoverShadow}" />
+    </Style>
+    <Style Selector="^.focused /template/ Border#ThumbBorder">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoSliderThumbHoverShadow}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type Slider}" TargetType="Slider">
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Style Selector="^:horizontal">
+      <Setter Property="Height" Value="6" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel>
+            <Track Name="PART_Track" Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}"
+                   Value="{TemplateBinding Value, Mode=TwoWay}" IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                   Orientation="Horizontal" ClipToBounds="False">
+              <Track.DecreaseButton>
+                <RepeatButton Name="PART_DecreaseButton" Theme="{StaticResource CosmoSliderHorizontalPart}" Background="{TemplateBinding Foreground}" CornerRadius="3,0,0,3" Focusable="False" />
+              </Track.DecreaseButton>
+              <Track.IncreaseButton>
+                <RepeatButton Name="PART_IncreaseButton" Theme="{StaticResource CosmoSliderHorizontalPart}" Background="{TemplateBinding Background}" CornerRadius="0,3,3,0" Focusable="False" />
+              </Track.IncreaseButton>
+              <Thumb Name="thumb" Width="16" Height="16" Margin="0,-5" Background="White" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1"
+                     Theme="{StaticResource CosmoSliderThumb}" DataContext="{TemplateBinding Value}"
+                     Classes.focused="{Binding IsKeyboardFocusWithin, RelativeSource={RelativeSource TemplatedParent}}" />
+            </Track>
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+    </Style>
+    <Style Selector="^:vertical">
+      <Setter Property="Width" Value="6" />
+      <Setter Property="MinHeight" Value="176" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel>
+            <Track Name="PART_Track" Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}"
+                   Value="{TemplateBinding Value, Mode=TwoWay}" IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                   Orientation="Vertical" ClipToBounds="False">
+              <Track.DecreaseButton>
+                <RepeatButton Name="PART_DecreaseButton" Theme="{StaticResource CosmoSliderVerticalPart}" Background="{TemplateBinding Foreground}" CornerRadius="0,0,3,3" Focusable="False" />
+              </Track.DecreaseButton>
+              <Track.IncreaseButton>
+                <RepeatButton Name="PART_IncreaseButton" Theme="{StaticResource CosmoSliderVerticalPart}" Background="{TemplateBinding Background}" CornerRadius="3,3,0,0" Focusable="False" />
+              </Track.IncreaseButton>
+              <Thumb Name="thumb" Width="16" Height="16" Margin="-5,0" Background="White" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1"
+                     Theme="{StaticResource CosmoSliderThumb}" DataContext="{TemplateBinding Value}"
+                     Classes.focused="{Binding IsKeyboardFocusWithin, RelativeSource={RelativeSource TemplatedParent}}" />
+            </Track>
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+    </Style>
+    <Style Selector="^.range-lower:horizontal /template/ RepeatButton#PART_IncreaseButton">
+      <Setter Property="Padding" Value="0,0,3,0" />
+    </Style>
+    <Style Selector="^.range-lower:vertical /template/ RepeatButton#PART_IncreaseButton">
+      <Setter Property="Padding" Value="0,3,0,0" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

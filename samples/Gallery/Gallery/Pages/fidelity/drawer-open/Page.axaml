@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples" a:Page.Title="Fidelity: drawer-open">
+  <Panel a:Web.Id="fixture" Width="640" Height="600" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}" c:OverlayHost.IsHost="True">
+    <Border Padding="24">
+      <Panel>
+        <Button Classes="outline" Content="Open Drawer" Command="{Binding DrawerCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <c:Drawer IsOpen="{Binding DrawerOpen}">
+          <StackPanel MaxWidth="384">
+            <c:DialogHeader Title="Move Goal" Description="Set your daily activity goal." />
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8" Margin="16,16,16,0">
+              <Button Classes="outline icon" Width="32" Height="32" CornerRadius="16" VerticalAlignment="Center" AutomationProperties.Name="Decrease" Command="{Binding AdjustCommand}" CommandParameter="-10">
+                <a:Icon Kind="minus" Size="16" />
+              </Button>
+              <StackPanel Grid.Column="1">
+                <TextBlock Text="{Binding Goal}" FontSize="72" LineHeight="72" FontWeight="Bold" LetterSpacing="-3.6" HorizontalAlignment="Center" />
+                <TextBlock Text="CALORIES/DAY" FontSize="11.2" LineHeight="16" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" />
+              </StackPanel>
+              <Button Grid.Column="2" Classes="outline icon" Width="32" Height="32" CornerRadius="16" VerticalAlignment="Center" AutomationProperties.Name="Increase" Command="{Binding AdjustCommand}" CommandParameter="10">
+                <a:Icon Kind="plus" Size="16" />
+              </Button>
+            </Grid>
+            <c:DialogFooter>
+              <Button Content="Submit" Command="{Binding AnswerCommand}" CommandParameter="submit" />
+              <Button Classes="outline" Content="Cancel" c:Dialog.Closes="True" />
+            </c:DialogFooter>
+          </StackPanel>
+        </c:Drawer>
+      </Panel>
+    </Border>
+  </Panel>
+</UserControl>

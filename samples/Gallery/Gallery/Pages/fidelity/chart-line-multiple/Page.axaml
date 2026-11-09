@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor" x:DataType="m:ChartSamples" a:Page.Title="Fidelity: chart-line-multiple">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:ChartSamples">
+      <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+      <c:Card>
+        <c:CardHeader Title="Line Chart - Multiple" Description="Showing total visitors for the last 6 months" />
+        <c:CardContent>
+          <p:LineChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding MonthsByDevice}" Aspect="1.7777777777777777" ResponsiveWidths="542" Padding="12,0,12,0">
+            <p:CartesianGrid Vertical="False" />
+            <p:XAxis DataKey="Month" TickLine="False" AxisLine="False" TickMargin="8" TickFormat="{}{0:MMM}" />
+            <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent /></p:Tooltip.ContentTemplate></p:Tooltip>
+            <p:Line DataKey="Desktop" Type="Monotone" StrokeWidth="2" Dot="False" IsAnimationActive="False" />
+            <p:Line DataKey="Mobile" Type="Monotone" StrokeWidth="2" Dot="False" IsAnimationActive="False" />
+          </p:LineChart>
+        </c:CardContent>
+        <c:CardFooter>
+          <StackPanel Spacing="8">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Center" />
+              <Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+            </StackPanel>
+            <TextBlock Text="January - June 2024" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+          </StackPanel>
+        </c:CardFooter>
+      </c:Card>
+    </Border>
+  </Border>
+</UserControl>

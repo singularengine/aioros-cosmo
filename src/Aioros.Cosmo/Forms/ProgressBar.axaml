@@ -1,0 +1,36 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
+    <Setter Property="Background" Value="{DynamicResource CosmoProgressTrackBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="CornerRadius" Value="9999" />
+    <Setter Property="MinHeight" Value="8" />
+    <Setter Property="Height" Value="8" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="Template">
+      <ControlTemplate TargetType="ProgressBar">
+        <Border Name="ProgressBarRoot" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" ClipToBounds="True">
+          <Panel>
+            <Border Name="PART_Indicator" Background="{TemplateBinding Foreground}" />
+            <LayoutTransformControl Name="PART_LayoutTransformControl" IsVisible="False" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:horizontal /template/ Border#PART_Indicator">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+    <Style Selector="^:vertical">
+      <Setter Property="Height" Value="NaN" />
+      <Setter Property="Width" Value="8" />
+      <Setter Property="MinWidth" Value="8" />
+    </Style>
+    <Style Selector="^:vertical /template/ Border#PART_Indicator">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ Border#PART_Indicator">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

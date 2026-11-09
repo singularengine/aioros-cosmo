@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: spinner-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="24">
+      <StackPanel Orientation="Horizontal" Spacing="24">
+        <c:Spinner Width="12" Height="12" VerticalAlignment="Center" />
+        <c:Spinner VerticalAlignment="Center" />
+        <c:Spinner Width="24" Height="24" VerticalAlignment="Center" />
+        <c:Spinner Width="32" Height="32" VerticalAlignment="Center" />
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="16">
+        <Button Classes="sm has-icon" IsEnabled="False">
+          <StackPanel><c:Spinner /><TextBlock Text="Loading..." /></StackPanel>
+        </Button>
+        <Button Classes="outline sm has-icon" IsEnabled="False">
+          <StackPanel><c:Spinner /><TextBlock Text="Please wait" /></StackPanel>
+        </Button>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="16">
+        <c:Badge><StackPanel><c:Spinner /><TextBlock Text="Syncing" /></StackPanel></c:Badge>
+        <c:Badge Classes="secondary"><StackPanel><c:Spinner /><TextBlock Text="Updating" /></StackPanel></c:Badge>
+        <c:Badge Classes="outline"><StackPanel><c:Spinner /><TextBlock Text="Processing" /></StackPanel></c:Badge>
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

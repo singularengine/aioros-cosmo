@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: attachment-sizes">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+          <StackPanel Width="384" HorizontalAlignment="Center" Margin="0,48" Spacing="12">
+    <c:Attachment Title="Default attachment" Description="PDF · 2.4 MB" HorizontalAlignment="Stretch"><c:Attachment.Media><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" /></Viewbox></c:Attachment.Media></c:Attachment>
+    <c:Attachment Title="Small attachment" Description="PDF · 2.4 MB" Classes="sm" HorizontalAlignment="Stretch"><c:Attachment.Media><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" /></Viewbox></c:Attachment.Media></c:Attachment>
+    <c:Attachment Title="Extra small attachment" Classes="xs" HorizontalAlignment="Stretch"><c:Attachment.Media><Viewbox Width="14" Height="14"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" /></Viewbox></c:Attachment.Media></c:Attachment>
+          </StackPanel>
+  </Border>
+</UserControl>

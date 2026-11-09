@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: aspect-ratio-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:AspectRatio Ratio="1.7777778" Width="450" HorizontalAlignment="Left">
+      <Border CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedBrush}" ClipToBounds="True">
+        <Image Source="/Assets/photo-landscape.png" Stretch="UniformToFill" AutomationProperties.Name="A landscape at dusk" />
+      </Border>
+    </c:AspectRatio>
+  </Border>
+</UserControl>

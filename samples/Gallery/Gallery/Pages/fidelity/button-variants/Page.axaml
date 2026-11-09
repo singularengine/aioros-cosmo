@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: button-variants">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <Button Content="Button" />
+      <Button Classes="destructive" Content="Button" />
+      <Button Classes="outline" Content="Button" />
+      <Button Classes="secondary" Content="Button" />
+      <Button Classes="ghost" Content="Button" />
+      <Button Classes="link" Content="Button" />
+    </WrapPanel>
+  </Border>
+</UserControl>

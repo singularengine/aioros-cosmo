@@ -1,0 +1,91 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:a="https://aioros.dev"
+                    xmlns:c="https://aioros.dev/cosmo">
+  <ControlTheme x:Key="{x:Type c:Field}" TargetType="c:Field">
+    <Setter Property="Spacing" Value="12" />
+    <Style Selector="^.invalid">
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource CosmoDestructiveBrush}" />
+    </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldContent}" TargetType="c:FieldContent">
+    <Setter Property="Spacing" Value="6" />
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldTitle}" TargetType="c:FieldTitle">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="19.25" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldGroup}" TargetType="c:FieldGroup">
+    <Setter Property="Spacing" Value="28" />
+    <Setter Property="Container.Name" Value="field-group" />
+    <Setter Property="Container.Sizing" Value="Width" />
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldSet}" TargetType="c:FieldSet">
+    <Setter Property="a:Web.Tag" Value="fieldset" />
+    <Setter Property="Spacing" Value="24" />
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldLabel}" TargetType="c:FieldLabel" BasedOn="{StaticResource {x:Type Label}}">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Content="{TemplateBinding Content}"
+                          Padding="{TemplateBinding Padding}"
+                          RecognizesAccessKey="True"
+                          TextBlock.LineHeight="19.25"
+                          TextWrapping="Wrap"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldLegend}" TargetType="c:FieldLegend">
+    <Setter Property="a:Web.Tag" Value="legend" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="LineHeight" Value="24" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Margin" Value="0,0,0,-12" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Style Selector="^.label">
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="LineHeight" Value="20" />
+    </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldDescription}" TargetType="c:FieldDescription">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="21" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldSeparator}" TargetType="c:FieldSeparator">
+    <Setter Property="Height" Value="20" />
+    <Setter Property="Margin" Value="0,-8" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource CosmoBackgroundBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Line" Height="1" Margin="0,10,0,0" VerticalAlignment="Top" Background="{DynamicResource CosmoBorderBrush}" />
+          <Border Name="PART_Content" Padding="8,0" HorizontalAlignment="Center" Background="{TemplateBinding Background}"
+                  IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}">
+            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" TextBlock.LineHeight="20" />
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.card">
+      <Setter Property="Background" Value="{DynamicResource CosmoCardBrush}" />
+    </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:FieldError}" TargetType="c:FieldError">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoDestructiveBrush}" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </ControlTheme>
+</ResourceDictionary>

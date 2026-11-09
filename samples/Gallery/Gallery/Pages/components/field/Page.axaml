@@ -1,0 +1,170 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:FormExample"
+             a:Page.Title="Field" a:Page.Description="Combine labels, controls, and help text to compose accessible form fields and grouped inputs.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Field" />
+      <TextBlock Classes="lead" Text="Combine labels, controls, and help text to compose accessible form fields and grouped inputs." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: field" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Field, c:FieldGroup, c:FieldSet, c:FieldContent, c:FieldLabel, c:FieldTitle, c:FieldLegend, c:FieldDescription, c:FieldError" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:FieldGroup MaxWidth="448">
+            <c:Field>
+              <c:FieldLabel Content="Username" Target="{Binding #username}" />
+              <TextBox Name="username" a:Web.Id="username" PlaceholderText="evilrabbit" />
+              <c:FieldDescription Text="Choose a unique username for your account." />
+            </c:Field>
+            <c:Field Classes="invalid">
+              <c:FieldLabel Content="Email" />
+              <TextBox Text="not-an-email" />
+              <c:FieldError Text="Enter a valid email address." />
+            </c:Field>
+          </c:FieldGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:FieldGroup MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Field&gt;&#10;    &lt;c:FieldLabel Content=&quot;Username&quot; Target=&quot;{Binding #username}&quot; /&gt;&#10;    &lt;TextBox Name=&quot;username&quot; a:Web.Id=&quot;username&quot; PlaceholderText=&quot;evilrabbit&quot; /&gt;&#10;    &lt;c:FieldDescription Text=&quot;Choose a unique username for your account.&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;  &lt;c:Field Classes=&quot;invalid&quot;&gt;&#10;    &lt;c:FieldLabel Content=&quot;Email&quot; /&gt;&#10;    &lt;TextBox Text=&quot;not-an-email&quot; /&gt;&#10;    &lt;c:FieldError Text=&quot;Enter a valid email address.&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;&lt;/c:FieldGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Field set" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:FieldSet MaxWidth="448">
+            <c:FieldLegend Text="Notifications" />
+            <c:FieldDescription Text="Choose what we email you about." />
+            <c:Field Orientation="Horizontal">
+              <CheckBox Name="news" a:Web.Id="news" IsChecked="True" />
+              <c:FieldLabel Content="Product news" FontWeight="Normal" Target="{Binding #news}" />
+            </c:Field>
+            <c:Field Orientation="Horizontal">
+              <CheckBox Name="tips" a:Web.Id="tips" />
+              <c:FieldLabel Content="Tips and tutorials" FontWeight="Normal" Target="{Binding #tips}" />
+            </c:Field>
+          </c:FieldSet>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:FieldSet MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:FieldLegend Text=&quot;Notifications&quot; /&gt;&#10;  &lt;c:FieldDescription Text=&quot;Choose what we email you about.&quot; /&gt;&#10;  &lt;c:Field Orientation=&quot;Horizontal&quot;&gt;&#10;    &lt;CheckBox Name=&quot;news&quot; a:Web.Id=&quot;news&quot; IsChecked=&quot;True&quot; /&gt;&#10;    &lt;c:FieldLabel Content=&quot;Product news&quot; FontWeight=&quot;Normal&quot; Target=&quot;{Binding #news}&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;  &lt;c:Field Orientation=&quot;Horizontal&quot;&gt;&#10;    &lt;CheckBox Name=&quot;tips&quot; a:Web.Id=&quot;tips&quot; /&gt;&#10;    &lt;c:FieldLabel Content=&quot;Tips and tutorials&quot; FontWeight=&quot;Normal&quot; Target=&quot;{Binding #tips}&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;&lt;/c:FieldSet&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Content column" />
+      <TextBlock Classes="sm muted" Text="A FieldContent takes the row its control leaves; the control stands at the row&#x27;s top beside it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:FieldGroup MaxWidth="448">
+            <c:Field Orientation="Horizontal">
+              <c:FieldContent>
+                <c:FieldLabel Content="Multi-factor authentication" Target="{Binding #mfa}" />
+                <c:FieldDescription Text="Enable multi-factor authentication. If you do not have a two-factor device, you can use a one-time code sent to your email." />
+              </c:FieldContent>
+              <ToggleSwitch Name="mfa" a:Web.Id="mfa" />
+            </c:Field>
+            <c:Field Orientation="Horizontal">
+              <c:FieldContent>
+                <c:FieldTitle Text="Kubernetes" />
+                <c:FieldDescription Text="Run GPU workloads on a K8s configured cluster." />
+              </c:FieldContent>
+              <CheckBox Name="k8s" a:Web.Id="k8s" />
+            </c:Field>
+          </c:FieldGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:FieldGroup MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Field Orientation=&quot;Horizontal&quot;&gt;&#10;    &lt;c:FieldContent&gt;&#10;      &lt;c:FieldLabel Content=&quot;Multi-factor authentication&quot; Target=&quot;{Binding #mfa}&quot; /&gt;&#10;      &lt;c:FieldDescription Text=&quot;Enable multi-factor authentication. If you do not have a two-factor device, you can use a one-time code sent to your email.&quot; /&gt;&#10;    &lt;/c:FieldContent&gt;&#10;    &lt;ToggleSwitch Name=&quot;mfa&quot; a:Web.Id=&quot;mfa&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;  &lt;c:Field Orientation=&quot;Horizontal&quot;&gt;&#10;    &lt;c:FieldContent&gt;&#10;      &lt;c:FieldTitle Text=&quot;Kubernetes&quot; /&gt;&#10;      &lt;c:FieldDescription Text=&quot;Run GPU workloads on a K8s configured cluster.&quot; /&gt;&#10;    &lt;/c:FieldContent&gt;&#10;    &lt;CheckBox Name=&quot;k8s&quot; a:Web.Id=&quot;k8s&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;&lt;/c:FieldGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Responsive" />
+      <TextBlock Classes="sm muted" Text="The responsive class makes a row when its field group is at least 448 px wide and a stack below it, on both targets; narrow the window to see it stack." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:FieldGroup MaxWidth="560">
+            <c:Field Classes="responsive">
+              <c:FieldContent>
+                <c:FieldLabel Content="Name" Target="{Binding #fullname}" />
+                <c:FieldDescription Text="Provide your full name for identification." />
+              </c:FieldContent>
+              <TextBox Name="fullname" a:Web.Id="fullname" MinWidth="200" PlaceholderText="Evil Rabbit" />
+            </c:Field>
+          </c:FieldGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:FieldGroup MaxWidth=&quot;560&quot;&gt;&#10;  &lt;c:Field Classes=&quot;responsive&quot;&gt;&#10;    &lt;c:FieldContent&gt;&#10;      &lt;c:FieldLabel Content=&quot;Name&quot; Target=&quot;{Binding #fullname}&quot; /&gt;&#10;      &lt;c:FieldDescription Text=&quot;Provide your full name for identification.&quot; /&gt;&#10;    &lt;/c:FieldContent&gt;&#10;    &lt;TextBox Name=&quot;fullname&quot; a:Web.Id=&quot;fullname&quot; MinWidth=&quot;200&quot; PlaceholderText=&quot;Evil Rabbit&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;&lt;/c:FieldGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Conditional parts" />
+      <TextBlock Classes="sm muted" Text="A part whose IsVisible is bound leaves no gap while it is hidden, on both targets: switch the updates off and save, and the description goes with its 12 px." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:FieldGroup MaxWidth="448">
+            <c:Field Orientation="Horizontal">
+              <ToggleSwitch Name="updates" a:Web.Id="updates" IsChecked="{Binding Updates}" />
+              <c:FieldLabel Content="Product updates" Target="{Binding #updates}" />
+            </c:Field>
+            <c:Field>
+              <c:FieldLabel Content="Email" Target="{Binding #updatesmail}" />
+              <TextBox Name="updatesmail" a:Web.Id="updatesmail" PlaceholderText="m@example.com" />
+              <c:FieldDescription IsVisible="{Binding Updates}" Text="We send one email a month." />
+            </c:Field>
+            <c:Field>
+              <c:FieldLabel Content="Name" Target="{Binding #updatesname}" />
+              <TextBox Name="updatesname" a:Web.Id="updatesname" PlaceholderText="Evil Rabbit" />
+            </c:Field>
+            <Button Content="Save" Command="{Binding SaveUpdatesCommand}" HorizontalAlignment="Left" />
+          </c:FieldGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:FieldGroup MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Field Orientation=&quot;Horizontal&quot;&gt;&#10;    &lt;ToggleSwitch Name=&quot;updates&quot; a:Web.Id=&quot;updates&quot; IsChecked=&quot;{Binding Updates}&quot; /&gt;&#10;    &lt;c:FieldLabel Content=&quot;Product updates&quot; Target=&quot;{Binding #updates}&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;  &lt;c:Field&gt;&#10;    &lt;c:FieldLabel Content=&quot;Email&quot; Target=&quot;{Binding #updatesmail}&quot; /&gt;&#10;    &lt;TextBox Name=&quot;updatesmail&quot; a:Web.Id=&quot;updatesmail&quot; PlaceholderText=&quot;m@example.com&quot; /&gt;&#10;    &lt;c:FieldDescription IsVisible=&quot;{Binding Updates}&quot; Text=&quot;We send one email a month.&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;  &lt;c:Field&gt;&#10;    &lt;c:FieldLabel Content=&quot;Name&quot; Target=&quot;{Binding #updatesname}&quot; /&gt;&#10;    &lt;TextBox Name=&quot;updatesname&quot; a:Web.Id=&quot;updatesname&quot; PlaceholderText=&quot;Evil Rabbit&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;  &lt;Button Content=&quot;Save&quot; Command=&quot;{Binding SaveUpdatesCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;&lt;/c:FieldGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Invalid control" />
+      <TextBlock Classes="sm muted" Text="A button that is an invalid field&#x27;s control, or that has an error of its own, takes the destructive border and focus ring." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:Field Classes="invalid">
+            <c:FieldLabel Content="Plan" />
+            <Button Classes="outline" Content="Choose a plan" HorizontalAlignment="Left" />
+            <c:FieldError Text="Choose a plan to continue." />
+          </c:Field>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Field Classes=&quot;invalid&quot;&gt;&#10;  &lt;c:FieldLabel Content=&quot;Plan&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Choose a plan&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;  &lt;c:FieldError Text=&quot;Choose a plan to continue.&quot; /&gt;&#10;&lt;/c:Field&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Validation" />
+      <TextBlock Classes="sm muted" Text="The view model is an ObservableValidator: its data annotations put errors on the bound TextBox, shown below it in the destructive color; the invalid class, bound to the model, turns the label destructive. See the Forms example." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:FieldGroup MaxWidth="448">
+            <c:Field Classes.invalid="{Binding TitleInvalid}">
+              <c:FieldLabel Content="Bug title" />
+              <TextBox Text="{Binding Title}" PlaceholderText="Login button not working on mobile" AutomationProperties.Name="Bug title" />
+              <c:FieldDescription Text="At least 5 characters." />
+            </c:Field>
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Command="{Binding SubmitCommand}" Content="Submit" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+            </StackPanel>
+          </c:FieldGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:FieldGroup MaxWidth=&quot;448&quot;&gt;&#10;  &lt;c:Field Classes.invalid=&quot;{Binding TitleInvalid}&quot;&gt;&#10;    &lt;c:FieldLabel Content=&quot;Bug title&quot; /&gt;&#10;    &lt;TextBox Text=&quot;{Binding Title}&quot; PlaceholderText=&quot;Login button not working on mobile&quot; AutomationProperties.Name=&quot;Bug title&quot; /&gt;&#10;    &lt;c:FieldDescription Text=&quot;At least 5 characters.&quot; /&gt;&#10;  &lt;/c:Field&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Command=&quot;{Binding SubmitCommand}&quot; Content=&quot;Submit&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/c:FieldGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Field" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A Grid of its shown parts: label, control, description and error 12 px apart (Spacing); Orientation=Horizontal puts them in a row, centered, where a FieldContent (or else a label) takes the room the others leave; the responsive class turns it into a row when its field group is at least 448 px wide; the invalid class (bindable: Classes.invalid) turns its texts and its control destructive." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FieldGroup" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Fields 28 px apart (16 px for a nested group); a container its responsive fields follow." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FieldSet" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A legend, its description and fields 24 px apart; a &lt;fieldset&gt; on the web." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FieldContent" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A label or title and its description, 6 px apart, beside its control in a row." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FieldTitle" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A field&#x27;s title where its label would be: 14 px medium on a 19.25 px line." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FieldLabel" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A Label on the field&#x27;s 19.25 px line; Target links it to its control." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FieldLegend" /><TextBlock Grid.Column="1" Classes="sm muted" Text="16 px medium title of a field set, its &lt;legend&gt; on the web; the label class makes it 14 px." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FieldDescription" /><TextBlock Grid.Column="1" Classes="sm muted" Text="14 px muted helper text on a 21 px line." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:FieldError" /><TextBlock Grid.Column="1" Classes="sm muted" Text="14 px destructive message; a control&#x27;s data validation errors are shown the same way automatically." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

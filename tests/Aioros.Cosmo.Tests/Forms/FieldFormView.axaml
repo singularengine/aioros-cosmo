@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:sys="using:System" x:Class="Aioros.Cosmo.Tests.Forms.FieldFormView">
+  <Border Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:FieldGroup Name="Group" Width="448" HorizontalAlignment="Left">
+      <c:Field>
+        <c:FieldLabel Content="Username" Target="{Binding #username}" />
+        <TextBox Name="username" PlaceholderText="evilrabbit" />
+        <c:FieldDescription Text="Choose a unique username for your account." />
+      </c:Field>
+      <c:Field Classes="invalid">
+        <c:FieldLabel Content="Email" Target="{Binding #mail}" />
+        <TextBox Name="mail" Text="not-an-email">
+          <DataValidationErrors.Error>
+            <sys:Exception>
+              <x:Arguments>
+                <x:String>Enter a valid email address.</x:String>
+              </x:Arguments>
+            </sys:Exception>
+          </DataValidationErrors.Error>
+        </TextBox>
+      </c:Field>
+      <c:FieldSet>
+        <c:FieldLegend Text="Notifications" />
+        <c:FieldDescription Text="Choose what we email you about." />
+        <c:Field Orientation="Horizontal">
+          <CheckBox Name="news" IsChecked="True" />
+          <c:FieldLabel Content="Product news" FontWeight="Normal" Target="{Binding #news}" />
+        </c:Field>
+      </c:FieldSet>
+    </c:FieldGroup>
+  </Border>
+</UserControl>

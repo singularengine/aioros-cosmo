@@ -1,0 +1,72 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Display"
+             x:Class="Aioros.Cosmo.Tests.Display.NavigationView" x:DataType="t:NavigationModel">
+  <UserControl.Resources>
+    <DataTemplate x:Key="Slash">
+      <TextBlock Text="/" />
+    </DataTemplate>
+  </UserControl.Resources>
+  <StackPanel Spacing="16" Margin="24" Width="592" HorizontalAlignment="Left">
+    <TabControl Name="Tabs" ItemsSource="{Binding Tabs}" SelectedIndex="{Binding SelectedTab}">
+      <TabControl.ItemTemplate>
+        <DataTemplate x:DataType="t:TabModel">
+          <TextBlock Text="{Binding Header}" />
+        </DataTemplate>
+      </TabControl.ItemTemplate>
+      <TabControl.ContentTemplate>
+        <DataTemplate x:DataType="t:TabModel">
+          <TextBlock Text="{Binding Body}" />
+        </DataTemplate>
+      </TabControl.ContentTemplate>
+    </TabControl>
+
+    <c:Accordion Name="Questions" ItemsSource="{Binding Questions}">
+      <c:Accordion.ItemTemplate>
+        <DataTemplate x:DataType="t:QuestionModel">
+          <TextBlock Text="{Binding Ask}" />
+        </DataTemplate>
+      </c:Accordion.ItemTemplate>
+      <c:Accordion.ContentTemplate>
+        <DataTemplate x:DataType="t:QuestionModel">
+          <TextBlock Text="{Binding Answer}" />
+        </DataTemplate>
+      </c:Accordion.ContentTemplate>
+      <c:Accordion.Styles>
+        <Style Selector="Expander" x:DataType="t:QuestionModel">
+          <Setter Property="IsExpanded" Value="{Binding Open}" />
+        </Style>
+      </c:Accordion.Styles>
+    </c:Accordion>
+
+    <Expander Name="Starred" Classes="collapsible" Header="Starred" IsExpanded="{Binding Open}">
+      <TextBlock Text="@radix-ui/colors" />
+    </Expander>
+
+    <c:Breadcrumb Name="Crumbs" ItemsSource="{Binding Crumbs}" SeparatorTemplate="{StaticResource Slash}">
+      <c:Breadcrumb.ItemTemplate>
+        <DataTemplate x:DataType="x:String">
+          <HyperlinkButton Content="{Binding}" />
+        </DataTemplate>
+      </c:Breadcrumb.ItemTemplate>
+    </c:Breadcrumb>
+
+    <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Center">
+      <c:PaginationPrevious Name="Previous" Command="{Binding Previous}" />
+      <c:Pagination Name="Pages" ItemsSource="{Binding Pages}">
+        <c:Pagination.ItemTemplate>
+          <DataTemplate x:DataType="t:PageModel">
+            <Button Classes="icon" Classes.ghost="{Binding IsOther}" Classes.outline="{Binding IsCurrent}" Content="{Binding Number}"
+                    Command="{Binding $parent[ItemsControl].((t:NavigationModel)DataContext).GoTo}" CommandParameter="{Binding Number}" />
+          </DataTemplate>
+        </c:Pagination.ItemTemplate>
+      </c:Pagination>
+      <c:PaginationNext Name="Next" Command="{Binding Next}" />
+    </StackPanel>
+
+    <c:ButtonGroup Name="Actions">
+      <Button Name="Archive" Classes="outline" Classes.secondary="{Binding ArchiveChosen}" Content="Archive" Command="{Binding Choose}" CommandParameter="Archive" />
+      <Button Name="Report" Classes="outline" Classes.secondary="{Binding ReportChosen}" Content="Report" Command="{Binding Choose}" CommandParameter="Report" />
+      <Button Name="Snooze" Classes="outline" Content="Snooze" IsVisible="{Binding SnoozeShown}" />
+    </c:ButtonGroup>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,100 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Popover" a:Page.Description="Displays rich content in a portal, triggered by a button.">
+  <UserControl.Styles>
+    <Style Selector="FlyoutPresenter.w-80">
+      <Setter Property="Width" Value="320" />
+    </Style>
+  </UserControl.Styles>
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Popover" />
+      <TextBlock Classes="lead" Text="Displays rich content in a portal, triggered by a button." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: popover" />
+        <c:Badge Classes="secondary" Content="Avalonia: Flyout" />
+        <c:Badge Classes="secondary" Content="Web: popover API" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Button.Flyout is the trigger; the presenter is shadcn&#x27;s PopoverContent (288 px, w-72; the w-80 class is an app style). Return opens it with the focus on its first field, Escape and a click outside close it, and the focus goes back to the button." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline" Content="Open popover">
+            <Button.Flyout>
+              <Flyout Placement="Bottom" FlyoutPresenterClasses="w-80">
+                <StackPanel Spacing="16">
+                  <StackPanel Spacing="8">
+                    <TextBlock Text="Dimensions" FontSize="16" LineHeight="16" FontWeight="Medium" />
+                    <TextBlock Classes="sm muted" Text="Set the dimensions for the layer." TextWrapping="Wrap" />
+                  </StackPanel>
+                  <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="16" RowSpacing="8">
+              <Label Grid.Row="0" Content="Width" VerticalAlignment="Center" />
+              <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="100%" Height="32" MinHeight="32" Padding="12,4" AutomationProperties.Name="Width" />
+              <Label Grid.Row="1" Content="Max. width" VerticalAlignment="Center" />
+              <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="300px" Height="32" MinHeight="32" Padding="12,4" AutomationProperties.Name="Max. width" />
+              <Label Grid.Row="2" Content="Height" VerticalAlignment="Center" />
+              <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="25px" Height="32" MinHeight="32" Padding="12,4" AutomationProperties.Name="Height" />
+              <Label Grid.Row="3" Content="Max. height" VerticalAlignment="Center" />
+              <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="none" Height="32" MinHeight="32" Padding="12,4" AutomationProperties.Name="Max. height" />
+                  </Grid>
+                </StackPanel>
+              </Flyout>
+            </Button.Flyout>
+          </Button>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline&quot; Content=&quot;Open popover&quot;&gt;&#10;  &lt;Button.Flyout&gt;&#10;    &lt;Flyout Placement=&quot;Bottom&quot; FlyoutPresenterClasses=&quot;w-80&quot;&gt;&#10;      &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;        &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;          &lt;TextBlock Text=&quot;Dimensions&quot; FontSize=&quot;16&quot; LineHeight=&quot;16&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;          &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Set the dimensions for the layer.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;Grid ColumnDefinitions=&quot;*,*,*&quot; RowDefinitions=&quot;Auto,Auto,Auto,Auto&quot; ColumnSpacing=&quot;16&quot; RowSpacing=&quot;8&quot;&gt;&#10;    &lt;Label Grid.Row=&quot;0&quot; Content=&quot;Width&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;TextBox Grid.Row=&quot;0&quot; Grid.Column=&quot;1&quot; Grid.ColumnSpan=&quot;2&quot; Text=&quot;100%&quot; Height=&quot;32&quot; MinHeight=&quot;32&quot; Padding=&quot;12,4&quot; AutomationProperties.Name=&quot;Width&quot; /&gt;&#10;    &lt;Label Grid.Row=&quot;1&quot; Content=&quot;Max. width&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;TextBox Grid.Row=&quot;1&quot; Grid.Column=&quot;1&quot; Grid.ColumnSpan=&quot;2&quot; Text=&quot;300px&quot; Height=&quot;32&quot; MinHeight=&quot;32&quot; Padding=&quot;12,4&quot; AutomationProperties.Name=&quot;Max. width&quot; /&gt;&#10;    &lt;Label Grid.Row=&quot;2&quot; Content=&quot;Height&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;TextBox Grid.Row=&quot;2&quot; Grid.Column=&quot;1&quot; Grid.ColumnSpan=&quot;2&quot; Text=&quot;25px&quot; Height=&quot;32&quot; MinHeight=&quot;32&quot; Padding=&quot;12,4&quot; AutomationProperties.Name=&quot;Height&quot; /&gt;&#10;    &lt;Label Grid.Row=&quot;3&quot; Content=&quot;Max. height&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;TextBox Grid.Row=&quot;3&quot; Grid.Column=&quot;1&quot; Grid.ColumnSpan=&quot;2&quot; Text=&quot;none&quot; Height=&quot;32&quot; MinHeight=&quot;32&quot; Padding=&quot;12,4&quot; AutomationProperties.Name=&quot;Max. height&quot; /&gt;&#10;        &lt;/Grid&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/Flyout&gt;&#10;  &lt;/Button.Flyout&gt;&#10;&lt;/Button&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Placement" />
+      <TextBlock Classes="sm muted" Text="Flyouts sit 4 px from their trigger (Radix&#x27;s sideOffset): Cosmo sets VerticalOffset to 4 by default, so a flyout above its trigger takes -4." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button Classes="outline" Content="Bottom start">
+              <Button.Flyout><Flyout Placement="BottomEdgeAlignedLeft"><TextBlock Classes="sm" Text="Aligned with the trigger's left edge." TextWrapping="Wrap" /></Flyout></Button.Flyout>
+            </Button>
+            <Button Classes="outline" Content="Top">
+              <Button.Flyout><Flyout Placement="Top" VerticalOffset="-4"><TextBlock Classes="sm" Text="Above the trigger, 4 px away." TextWrapping="Wrap" /></Flyout></Button.Flyout>
+            </Button>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Bottom start&quot;&gt;&#10;    &lt;Button.Flyout&gt;&lt;Flyout Placement=&quot;BottomEdgeAlignedLeft&quot;&gt;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Aligned with the trigger&#x27;s left edge.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&lt;/Flyout&gt;&lt;/Button.Flyout&gt;&#10;  &lt;/Button&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Top&quot;&gt;&#10;    &lt;Button.Flyout&gt;&lt;Flyout Placement=&quot;Top&quot; VerticalOffset=&quot;-4&quot;&gt;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Above the trigger, 4 px away.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&lt;/Flyout&gt;&lt;/Button.Flyout&gt;&#10;  &lt;/Button&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="The content binds the page&#x27;s model (compiled bindings) and runs its commands; c:Popover.IsOpen binds the open state two way on the desktop." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Edit layer">
+              <Button.Flyout>
+                <Flyout>
+                  <StackPanel Spacing="12">
+                    <TextBox Text="{Binding Width}" AutomationProperties.Name="Layer width" />
+                    <TextBox Text="{Binding Height}" AutomationProperties.Name="Layer height" />
+                    <Button Content="Apply" Command="{Binding ApplyCommand}" CommandParameter="popover" HorizontalAlignment="Right" />
+                  </StackPanel>
+                </Flyout>
+              </Button.Flyout>
+            </Button>
+            <TextBlock Classes="sm muted" Text="{Binding Status}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Edit layer&quot;&gt;&#10;    &lt;Button.Flyout&gt;&#10;      &lt;Flyout&gt;&#10;        &lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;          &lt;TextBox Text=&quot;{Binding Width}&quot; AutomationProperties.Name=&quot;Layer width&quot; /&gt;&#10;          &lt;TextBox Text=&quot;{Binding Height}&quot; AutomationProperties.Name=&quot;Layer height&quot; /&gt;&#10;          &lt;Button Content=&quot;Apply&quot; Command=&quot;{Binding ApplyCommand}&quot; CommandParameter=&quot;popover&quot; HorizontalAlignment=&quot;Right&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/Flyout&gt;&#10;    &lt;/Button.Flyout&gt;&#10;  &lt;/Button&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Button.Flyout, Flyout" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The trigger and the content (FlyoutBase.AttachedFlyout for other controls)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Placement" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Bottom (centered, Radix&#x27;s default), BottomEdgeAlignedLeft (align start), Top…" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="FlyoutPresenterClasses" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Classes for the presenter, styled by the app (w-80)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Popover.IsOpen" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The open state, two way (Radix&#x27;s open and onOpenChange)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

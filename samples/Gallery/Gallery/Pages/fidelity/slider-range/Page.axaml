@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: slider-range">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Orientation="Horizontal" Spacing="48" VerticalAlignment="Top">
+      <c:Field Width="360" VerticalAlignment="Top">
+        <c:FieldTitle Text="Price Range" />
+        <c:FieldDescription>
+          <Run Text="Set your budget range ($" /><Run Text="200" FontWeight="Medium" /><Run Text=" -" /><Run Text="800" FontWeight="Medium" /><Run Text=")." />
+        </c:FieldDescription>
+        <c:RangeSlider Margin="0,8,0,0" Minimum="0" Maximum="1000" TickFrequency="10" IsSnapToTickEnabled="True" LowerValue="200" UpperValue="800" AutomationProperties.Name="Price Range" />
+      </c:Field>
+      <c:RangeSlider Orientation="Vertical" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" LowerValue="20" UpperValue="60" VerticalAlignment="Top" AutomationProperties.Name="Levels" />
+    </StackPanel>
+  </Border>
+</UserControl>

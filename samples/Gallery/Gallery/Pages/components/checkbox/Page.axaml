@@ -1,0 +1,79 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:ChoiceExamples"
+             a:Page.Title="Checkbox" a:Page.Description="A control that allows the user to toggle between checked and not checked.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Checkbox" />
+      <TextBlock Classes="lead" Text="A control that allows the user to toggle between checked and not checked." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: checkbox" />
+        <c:Badge Classes="secondary" Content="Avalonia: CheckBox" />
+        <c:Badge Classes="secondary" Content="Web: &lt;input type=checkbox&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="The content sits 12 px after the box in the label&#x27;s look, as shadcn&#x27;s checkbox beside a Label." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <CheckBox Content="Accept terms and conditions" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;CheckBox Content=&quot;Accept terms and conditions&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="States" />
+      <TextBlock Classes="sm muted" Text="IsThreeState with IsChecked null is Radix&#x27;s indeterminate state." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="16">
+            <CheckBox Content="Enable notifications" IsChecked="True" />
+            <CheckBox Content="Select all" IsThreeState="True" IsChecked="{x:Null}" />
+            <CheckBox Content="Disabled" IsEnabled="False" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;  &lt;CheckBox Content=&quot;Enable notifications&quot; IsChecked=&quot;True&quot; /&gt;&#10;  &lt;CheckBox Content=&quot;Select all&quot; IsThreeState=&quot;True&quot; IsChecked=&quot;{x:Null}&quot; /&gt;&#10;  &lt;CheckBox Content=&quot;Disabled&quot; IsEnabled=&quot;False&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="With text" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+            <CheckBox Name="terms2" a:Web.Id="terms2" VerticalAlignment="Top" />
+            <StackPanel Grid.Column="1" Spacing="8">
+              <Label Content="Accept terms and conditions" Target="{Binding #terms2}" />
+              <TextBlock Classes="sm muted" Text="By clicking this checkbox, you agree to the terms and conditions." TextWrapping="Wrap" />
+            </StackPanel>
+          </Grid>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Grid ColumnDefinitions=&quot;Auto,*&quot; ColumnSpacing=&quot;12&quot;&gt;&#10;  &lt;CheckBox Name=&quot;terms2&quot; a:Web.Id=&quot;terms2&quot; VerticalAlignment=&quot;Top&quot; /&gt;&#10;  &lt;StackPanel Grid.Column=&quot;1&quot; Spacing=&quot;8&quot;&gt;&#10;    &lt;Label Content=&quot;Accept terms and conditions&quot; Target=&quot;{Binding #terms2}&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;By clicking this checkbox, you agree to the terms and conditions.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/Grid&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="IsChecked is bound two way: on the web the post binds it before the command runs." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <CheckBox Content="Email me about new features" IsChecked="{Binding Notifications}" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Classes="outline" Command="{Binding SaveCommand}" Content="Save" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;CheckBox Content=&quot;Email me about new features&quot; IsChecked=&quot;{Binding Notifications}&quot; /&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Command=&quot;{Binding SaveCommand}&quot; Content=&quot;Save&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsChecked" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable; null with IsThreeState is indeterminate." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The label beside the box (14 px medium)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Command, CommandParameter" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Runs on each toggle (desktop) or with the post (web)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Lightweight styling" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Fluent&#x27;s CheckBox… brush keys, defined by Cosmo, recolor it." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

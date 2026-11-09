@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor" x:DataType="m:ChartSamples" a:Page.Title="Fidelity: chart-pie-legend">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:ChartSamples">
+      <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /></c:ChartConfig></Border.Resources>
+      <c:Card>
+        <c:CardHeader Title="Pie Chart - Legend" Description="January - June 2024" />
+        <c:CardContent>
+          <p:PieChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Browsers}" Width="300" Height="300" HorizontalAlignment="Center">
+            <p:Pie Data="{Binding Browsers}" DataKey="Visitors" NameKey="Label" IsAnimationActive="False"><p:Cell Fill="{DynamicResource PictorPalette1}" /><p:Cell Fill="{DynamicResource PictorPalette2}" /><p:Cell Fill="{DynamicResource PictorPalette3}" /><p:Cell Fill="{DynamicResource PictorPalette4}" /><p:Cell Fill="{DynamicResource PictorPalette5}" /></p:Pie>
+            <p:Legend><p:Legend.Template><c:ChartLegendContent Spacing="8" ItemBasis="0.25" /></p:Legend.Template><p:Legend.ContentTemplate><c:ChartLegendItem /></p:Legend.ContentTemplate></p:Legend>
+          </p:PieChart>
+        </c:CardContent>
+
+      </c:Card>
+    </Border>
+  </Border>
+</UserControl>

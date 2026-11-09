@@ -1,0 +1,97 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:RangeExamples"
+             a:Page.Title="Slider" a:Page.Description="An input where the user selects a value from within a given range.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Slider" />
+      <TextBlock Classes="lead" Text="An input where the user selects a value from within a given range." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: slider" />
+        <c:Badge Classes="secondary" Content="Avalonia: Slider" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:RangeSlider" />
+        <c:Badge Classes="secondary" Content="Web: &lt;input type=range&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="TickFrequency with IsSnapToTickEnabled is shadcn&#x27;s step." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Slider Value="50" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" MaxWidth="320" AutomationProperties.Name="Volume" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Slider Value=&quot;50&quot; Maximum=&quot;100&quot; TickFrequency=&quot;1&quot; IsSnapToTickEnabled=&quot;True&quot; MaxWidth=&quot;320&quot; AutomationProperties.Name=&quot;Volume&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Range" />
+      <TextBlock Classes="sm muted" Text="c:RangeSlider: two thumbs as Radix&#x27;s: a press moves the closest thumb, the values stay ordered, Shift and the page keys step by ten, Home and End move the first and the last thumb." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:RangeSlider LowerValue="25" UpperValue="75" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" MaxWidth="320" AutomationProperties.Name="Range" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:RangeSlider LowerValue=&quot;25&quot; UpperValue=&quot;75&quot; Maximum=&quot;100&quot; TickFrequency=&quot;1&quot; IsSnapToTickEnabled=&quot;True&quot; MaxWidth=&quot;320&quot; AutomationProperties.Name=&quot;Range&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Vertical" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Slider Orientation="Vertical" Value="40" Maximum="100" AutomationProperties.Name="Level" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Slider Orientation=&quot;Vertical&quot; Value=&quot;40&quot; Maximum=&quot;100&quot; AutomationProperties.Name=&quot;Level&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Slider Value="33" Maximum="100" IsEnabled="False" MaxWidth="320" AutomationProperties.Name="Locked" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Slider Value=&quot;33&quot; Maximum=&quot;100&quot; IsEnabled=&quot;False&quot; MaxWidth=&quot;320&quot; AutomationProperties.Name=&quot;Locked&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Value is bound two way: the arrows, the pointer and touch move it on the desktop; the web posts the range input&#x27;s value." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <Label Content="{Binding Volume, StringFormat='Volume: {0:0}'}" />
+            <Slider Value="{Binding Volume}" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" AutomationProperties.Name="Bound volume" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Classes="outline" Command="{Binding ApplyCommand}" Content="Apply" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;Label Content=&quot;{Binding Volume, StringFormat=&#x27;Volume: {0:0}&#x27;}&quot; /&gt;&#10;  &lt;Slider Value=&quot;{Binding Volume}&quot; Maximum=&quot;100&quot; TickFrequency=&quot;1&quot; IsSnapToTickEnabled=&quot;True&quot; AutomationProperties.Name=&quot;Bound volume&quot; /&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Command=&quot;{Binding ApplyCommand}&quot; Content=&quot;Apply&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Range binding" />
+      <TextBlock Classes="sm muted" Text="LowerValue and UpperValue are bound two way; the web posts both thumbs&#x27; values, in order." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <Label Content="{Binding Low, StringFormat='Budget from ${0:0}'}" />
+            <c:RangeSlider LowerValue="{Binding Low}" UpperValue="{Binding High}" Maximum="1000" TickFrequency="10" IsSnapToTickEnabled="True" AutomationProperties.Name="Budget" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Classes="outline" Command="{Binding ApplyRangeCommand}" Content="Apply budget" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;Label Content=&quot;{Binding Low, StringFormat=&#x27;Budget from ${0:0}&#x27;}&quot; /&gt;&#10;  &lt;c:RangeSlider LowerValue=&quot;{Binding Low}&quot; UpperValue=&quot;{Binding High}&quot; Maximum=&quot;1000&quot; TickFrequency=&quot;10&quot; IsSnapToTickEnabled=&quot;True&quot; AutomationProperties.Name=&quot;Budget&quot; /&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Command=&quot;{Binding ApplyRangeCommand}&quot; Content=&quot;Apply budget&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Value, Minimum, Maximum" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable value in its range." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="TickFrequency, IsSnapToTickEnabled" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The step." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Orientation" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Vertical: 6 px wide, at least 176 px high." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:RangeSlider" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two thumbs: LowerValue and UpperValue (two way, kept ordered), Minimum, Maximum, TickFrequency, IsSnapToTickEnabled, Orientation." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

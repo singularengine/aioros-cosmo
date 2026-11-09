@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:TraceToolCallsExample" a:Web.Live="True" a:Page.Title="Fidelity: trace-tool-calls">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <DockPanel Width="384" HorizontalAlignment="Left" MinHeight="240" Margin="0,24">
+      <Button DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Margin="0,16,0,0" Classes="outline sm" Height="28" Padding="12,0" CornerRadius="16" HorizontalAlignment="Left" Content="{Binding Chat.Action}" IsVisible="{Binding Chat.Idle}" Command="{Binding ActCommand}" />
+      <StackPanel Spacing="16" VerticalAlignment="Top"><c:Message IsVisible="{Binding Chat.Asked}" Classes="end"><c:MessageContent><c:Bubble Classes="muted" Content="Which package managers are installed?" /></c:MessageContent></c:Message><c:Message IsVisible="{Binding Chat.Answering}"><c:MessageContent Spacing="16"><c:Trace>
+      <c:TraceLine IsVisible="{Binding Chat.ToolsRunning[0]}" Content="Running node --version" Status="Running"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine>
+    <Expander IsVisible="{Binding Chat.ToolsShown[0]}" Classes="trace">
+      <Expander.Header><c:TraceLine Content="Ran node --version"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="v24.18.0" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+      <c:TraceLine IsVisible="{Binding Chat.ToolsRunning[1]}" Content="Running npm --version" Status="Running"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine>
+    <Expander IsVisible="{Binding Chat.ToolsShown[1]}" Classes="trace">
+      <Expander.Header><c:TraceLine Content="Ran npm --version"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="11.6.2" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+      <c:TraceLine IsVisible="{Binding Chat.ToolsRunning[2]}" Content="Running pnpm --version" Status="Running"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine>
+    <Expander IsVisible="{Binding Chat.ToolsShown[2]}" Classes="trace">
+      <Expander.Header><c:TraceLine Content="Failed to run pnpm --version" Status="Error"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="command not found: pnpm" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+    </c:Trace><TextBlock IsVisible="{Binding Chat.HasAnswer}" Text="{Binding Chat.Answer}" TextWrapping="Wrap" Foreground="{DynamicResource CosmoForegroundBrush}" /></c:MessageContent></c:Message></StackPanel>
+    </DockPanel>
+  </Border>
+</UserControl>

@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo"
+             a:Page.Title="Installation" a:Page.Description="Add Cosmo to an Aioros or Avalonia app in two steps.">
+  <StackPanel Spacing="28" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Installation" />
+      <TextBlock Classes="lead" Text="Cosmo is one package of control themes and resource dictionaries. It needs only Avalonia, so it works in any Aioros app on the web and the desktop, and in a plain Avalonia app." />
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="1. Add the package" />
+      <Border Classes="code"><TextBlock Text="dotnet add package Aioros.Cosmo" /></Border>
+      <TextBlock Classes="sm muted" Text="Until Aioros is published, the package is built from this repository (eng/pack.sh) and consumed from a local folder, as Aioros itself is." />
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="2. Include the theme" />
+      <Border Classes="code"><TextBlock Text="&lt;Application xmlns:c=&quot;https://aioros.dev/cosmo&quot; …&gt;&#10;  &lt;Application.Styles&gt;&#10;    &lt;FluentTheme /&gt;&#10;    &lt;c:CosmoTheme /&gt;&#10;  &lt;/Application.Styles&gt;&#10;&lt;/Application&gt;" /></Border>
+      <TextBlock Classes="sm muted" Text="CosmoTheme comes after FluentTheme: Cosmo themes the controls it ports (Button, HyperlinkButton, its own Badge and Card) and Fluent keeps the rest until Cosmo covers them. Color and Radius pick one of shadcn's themes; the default is neutral with a 0.625rem radius." />
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="3. Use the components" />
+      <Border Classes="code"><TextBlock Text="&lt;c:Card&gt;&#10;  &lt;c:CardHeader Title=&quot;Create project&quot; Description=&quot;Deploy your new project in one click.&quot; /&gt;&#10;  &lt;c:CardFooter&gt;&#10;    &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;      &lt;Button Classes=&quot;outline&quot; Content=&quot;Cancel&quot; /&gt;&#10;      &lt;Button Command=&quot;{Binding Deploy}&quot; Content=&quot;Deploy&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:CardFooter&gt;&#10;&lt;/c:Card&gt;" /></Border>
+      <c:Card MaxWidth="384" HorizontalAlignment="Left">
+        <c:CardHeader Title="Create project" Description="Deploy your new project in one click." />
+        <c:CardFooter>
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button Classes="outline" Content="Cancel" />
+            <Button Content="Deploy" />
+          </StackPanel>
+        </c:CardFooter>
+      </c:Card>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Coming from shadcn/ui" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="2*,3*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="variant=&quot;outline&quot; size=&quot;sm&quot;" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Classes=&quot;outline sm&quot;" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="2*,3*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="--primary in globals.css" /><TextBlock Grid.Column="1" Classes="sm muted" Text="CosmoPrimaryColor and CosmoPrimaryBrush in the Light and Dark theme dictionaries" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="2*,3*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="--radius: 0.5rem" /><TextBlock Grid.Column="1" Classes="sm muted" Text="&lt;c:CosmoTheme Radius=&quot;Medium&quot; /&gt; (CosmoRadiusSm … CosmoRadius4Xl)" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="2*,3*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="&lt;Button asChild&gt;&lt;Link /&gt;" /><TextBlock Grid.Column="1" Classes="sm muted" Text="&lt;HyperlinkButton NavigateUri=&quot;/…&quot; /&gt; with the same classes" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="2*,3*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="onClick" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Command=&quot;{Binding …}&quot; and CommandParameter" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="2*,3*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="className" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A style, a local value or another class" /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

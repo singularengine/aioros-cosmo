@@ -1,0 +1,62 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:CompositeExamples"
+             a:Page.Title="Combobox" a:Page.Description="Autocomplete input and command palette with a list of suggestions.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Combobox" />
+      <TextBlock Classes="lead" Text="Autocomplete input and command palette with a list of suggestions." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: combobox" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Combobox (Popover + Command)" />
+        <c:Badge Classes="secondary" Content="Web: a popover" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Choosing an item selects it and closes the popover; choosing it again clears it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:Combobox PlaceholderText="Select framework..." SearchPlaceholder="Search framework..." Empty="No framework found.">
+            <x:String>Next.js</x:String>
+            <x:String>SvelteKit</x:String>
+            <x:String>Nuxt.js</x:String>
+            <x:String>Remix</x:String>
+            <x:String>Astro</x:String>
+          </c:Combobox>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Combobox PlaceholderText=&quot;Select framework...&quot; SearchPlaceholder=&quot;Search framework...&quot; Empty=&quot;No framework found.&quot;&gt;&#10;  &lt;x:String&gt;Next.js&lt;/x:String&gt;&#10;  &lt;x:String&gt;SvelteKit&lt;/x:String&gt;&#10;  &lt;x:String&gt;Nuxt.js&lt;/x:String&gt;&#10;  &lt;x:String&gt;Remix&lt;/x:String&gt;&#10;  &lt;x:String&gt;Astro&lt;/x:String&gt;&#10;&lt;/c:Combobox&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Items from the model, SelectedItem two way (Remix chosen by the model); objects take an ItemTemplate or DisplayMemberBinding." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="8">
+            <c:Combobox PlaceholderText="Select framework..." SearchPlaceholder="Search framework..." Empty="No framework found."
+                        ItemsSource="{Binding Frameworks}" SelectedItem="{Binding Framework}" />
+            <TextBlock Classes="sm muted" Text="{Binding FrameworkText}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;  &lt;c:Combobox PlaceholderText=&quot;Select framework...&quot; SearchPlaceholder=&quot;Search framework...&quot; Empty=&quot;No framework found.&quot;&#10;              ItemsSource=&quot;{Binding Frameworks}&quot; SelectedItem=&quot;{Binding Framework}&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding FrameworkText}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Multiple" />
+      <TextBlock Classes="sm muted" Text="SelectionMode Multiple keeps the popover open and shows the chosen items as badges; SelectedItems binds to the model&#x27;s collection." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Combobox MaxWidth="320" PlaceholderText="Select frameworks..." SearchPlaceholder="Search framework..." SelectionMode="Multiple"
+                      ItemsSource="{Binding Frameworks}" SelectedItems="{Binding ChosenFrameworks}" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Combobox MaxWidth=&quot;320&quot; PlaceholderText=&quot;Select frameworks...&quot; SearchPlaceholder=&quot;Search framework...&quot; SelectionMode=&quot;Multiple&quot;&#10;            ItemsSource=&quot;{Binding Frameworks}&quot; SelectedItems=&quot;{Binding ChosenFrameworks}&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Combobox" /><TextBlock Grid.Column="1" Classes="sm muted" Text="ItemsSource, ItemTemplate or DisplayMemberBinding, SelectedItem, SelectedItems, SelectionMode, IsDropDownOpen (two way), PlaceholderText, SearchPlaceholder, Empty." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

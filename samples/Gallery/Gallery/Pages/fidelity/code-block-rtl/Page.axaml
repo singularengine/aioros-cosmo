@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-rtl">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Width="448" HorizontalAlignment="Left" Spacing="12" FlowDirection="RightToLeft" TextElement.FontFamily="avares://Aioros.Cosmo/Assets/Fonts#Geist, avares://Aioros.Cosmo/Assets/Fonts#Cosmo Symbols, avares://Aioros.Cosmo/Assets/Fonts#Cosmo Emoji, avares://Gallery/Assets/Fonts#Noto Naskh Arabic">
+      <TextBlock Text="ثبّت الحزم، ثم شغّل خادم التطوير." LineHeight="20" />
+      <c:CodeBlock>
+      <c:CodeBlock.Title><StackPanel Orientation="Horizontal" Spacing="6"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox><TextBlock Text="الطرفية" VerticalAlignment="Center" /></StackPanel></c:CodeBlock.Title><c:CodeBlock.Actions><StackPanel Orientation="Horizontal" Spacing="4"><c:CodeBlockCopyButton Value="pnpm add ai @ai-sdk/react zod&#10;pnpm dev" /></StackPanel></c:CodeBlock.Actions>
+      <c:CodeBlockContent LineNumbers="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock><Run Text="pnpm" Foreground="{DynamicResource CosmoCodeFunctionBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="add" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="ai" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="@ai-sdk/react" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="zod" Foreground="{DynamicResource CosmoCodeStringBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="pnpm" Foreground="{DynamicResource CosmoCodeFunctionBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="dev" Foreground="{DynamicResource CosmoCodeStringBrush}" /></TextBlock></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </StackPanel>
+  </Border>
+</UserControl>

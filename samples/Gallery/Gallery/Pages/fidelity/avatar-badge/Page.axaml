@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: avatar-badge">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Orientation="Horizontal" Spacing="48">
+      <c:Avatar Classes="sm" Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn">
+        <c:Avatar.Badge><c:AvatarBadge /></c:Avatar.Badge>
+      </c:Avatar>
+      <c:Avatar Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn">
+        <c:Avatar.Badge><c:AvatarBadge /></c:Avatar.Badge>
+      </c:Avatar>
+      <c:Avatar Classes="lg" Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn">
+        <c:Avatar.Badge><c:AvatarBadge /></c:Avatar.Badge>
+      </c:Avatar>
+      <c:Avatar Content="ER">
+        <c:Avatar.Badge><c:AvatarBadge><Viewbox Width="8" Height="8"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPrimaryForegroundBrush}" Data="M5,12 L19,12 M12,5 L12,19" /></Viewbox></c:AvatarBadge></c:Avatar.Badge>
+      </c:Avatar>
+      <c:Avatar Classes="lg" Content="ER">
+        <c:Avatar.Badge><c:AvatarBadge><Viewbox Width="8" Height="8"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPrimaryForegroundBrush}" Data="M5,12 L19,12 M12,5 L12,19" /></Viewbox></c:AvatarBadge></c:Avatar.Badge>
+      </c:Avatar>
+    </StackPanel>
+  </Border>
+</UserControl>

@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:StructureExamples"
+             a:Page.Title="Menubar" a:Page.Description="A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Menubar" />
+      <TextBlock Classes="lead" Text="A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: menubar" />
+        <c:Badge Classes="secondary" Content="Avalonia: Menu, MenuItem" />
+        <c:Badge Classes="secondary" Content="Web: &lt;menu&gt; with popovers" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Left and Right move between menus, Down enters a menu, Escape closes it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Panel Height="240" VerticalAlignment="Top" MaxWidth="400">
+            <Menu VerticalAlignment="Top">
+              <MenuItem Header="File">
+                <MenuItem Header="New Tab" InputGesture="Ctrl+T" />
+                <MenuItem Header="New Window" InputGesture="Ctrl+N" />
+                <MenuItem Header="New Incognito Window" IsEnabled="False" />
+                <Separator />
+                <MenuItem Header="Share">
+                  <MenuItem Header="Email link" />
+                  <MenuItem Header="Messages" />
+                  <MenuItem Header="Notes" />
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Print..." InputGesture="Ctrl+P" />
+              </MenuItem>
+              <MenuItem Header="Edit">
+                <MenuItem Header="Undo" InputGesture="Ctrl+Z" />
+                <MenuItem Header="Redo" InputGesture="Ctrl+Shift+Z" />
+                <Separator />
+                <MenuItem Header="Cut" />
+                <MenuItem Header="Copy" />
+                <MenuItem Header="Paste" />
+              </MenuItem>
+              <MenuItem Header="Profiles">
+                <MenuItem Header="Andy" ToggleType="Radio" GroupName="gallery-profiles" />
+                <MenuItem Header="Benoit" ToggleType="Radio" GroupName="gallery-profiles" IsChecked="True" />
+                <MenuItem Header="Luis" ToggleType="Radio" GroupName="gallery-profiles" />
+              </MenuItem>
+            </Menu>
+          </Panel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Panel Height=&quot;240&quot; VerticalAlignment=&quot;Top&quot; MaxWidth=&quot;400&quot;&gt;&#10;  &lt;Menu VerticalAlignment=&quot;Top&quot;&gt;&#10;    &lt;MenuItem Header=&quot;File&quot;&gt;&#10;      &lt;MenuItem Header=&quot;New Tab&quot; InputGesture=&quot;Ctrl+T&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;New Window&quot; InputGesture=&quot;Ctrl+N&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;New Incognito Window&quot; IsEnabled=&quot;False&quot; /&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;Share&quot;&gt;&#10;        &lt;MenuItem Header=&quot;Email link&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;Messages&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;Notes&quot; /&gt;&#10;      &lt;/MenuItem&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;Print...&quot; InputGesture=&quot;Ctrl+P&quot; /&gt;&#10;    &lt;/MenuItem&gt;&#10;    &lt;MenuItem Header=&quot;Edit&quot;&gt;&#10;      &lt;MenuItem Header=&quot;Undo&quot; InputGesture=&quot;Ctrl+Z&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Redo&quot; InputGesture=&quot;Ctrl+Shift+Z&quot; /&gt;&#10;      &lt;Separator /&gt;&#10;      &lt;MenuItem Header=&quot;Cut&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Copy&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Paste&quot; /&gt;&#10;    &lt;/MenuItem&gt;&#10;    &lt;MenuItem Header=&quot;Profiles&quot;&gt;&#10;      &lt;MenuItem Header=&quot;Andy&quot; ToggleType=&quot;Radio&quot; GroupName=&quot;gallery-profiles&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Benoit&quot; ToggleType=&quot;Radio&quot; GroupName=&quot;gallery-profiles&quot; IsChecked=&quot;True&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Luis&quot; ToggleType=&quot;Radio&quot; GroupName=&quot;gallery-profiles&quot; /&gt;&#10;    &lt;/MenuItem&gt;&#10;  &lt;/Menu&gt;&#10;&lt;/Panel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Items run the model&#x27;s command with their parameter; the checkable item&#x27;s state is the model&#x27;s, two way." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="400">
+            <Menu>
+              <MenuItem Header="File">
+                <MenuItem Header="New Tab" Command="{Binding ActCommand}" CommandParameter="New Tab" />
+                <MenuItem Header="Print..." Command="{Binding ActCommand}" CommandParameter="Print" />
+              </MenuItem>
+              <MenuItem Header="View">
+                <MenuItem Header="Always Show Bookmarks Bar" ToggleType="CheckBox" IsChecked="{Binding ShowBookmarks, Mode=TwoWay}" />
+              </MenuItem>
+            </Menu>
+            <TextBlock Classes="sm muted" Text="{Binding LastAction, StringFormat='Last action: {0}'}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;400&quot;&gt;&#10;  &lt;Menu&gt;&#10;    &lt;MenuItem Header=&quot;File&quot;&gt;&#10;      &lt;MenuItem Header=&quot;New Tab&quot; Command=&quot;{Binding ActCommand}&quot; CommandParameter=&quot;New Tab&quot; /&gt;&#10;      &lt;MenuItem Header=&quot;Print...&quot; Command=&quot;{Binding ActCommand}&quot; CommandParameter=&quot;Print&quot; /&gt;&#10;    &lt;/MenuItem&gt;&#10;    &lt;MenuItem Header=&quot;View&quot;&gt;&#10;      &lt;MenuItem Header=&quot;Always Show Bookmarks Bar&quot; ToggleType=&quot;CheckBox&quot; IsChecked=&quot;{Binding ShowBookmarks, Mode=TwoWay}&quot; /&gt;&#10;    &lt;/MenuItem&gt;&#10;  &lt;/Menu&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding LastAction, StringFormat=&#x27;Last action: {0}&#x27;}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Menu" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The bar: its top-level items open their menus 8 px below." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="MenuItem" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Header, InputGesture, Command, ToggleType (CheckBox, Radio), Classes inset and destructive, submenus." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

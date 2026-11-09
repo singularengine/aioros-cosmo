@@ -1,0 +1,65 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="https://aioros.dev/pictor"
+        xmlns:c="https://aioros.dev/cosmo"
+        x:Class="Aioros.Cosmo.Charts.CosmoChartsTheme">
+  <Styles.Resources>
+    <ControlTheme x:Key="CosmoChartToggle" TargetType="ListBoxItem">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+      <Setter Property="Padding" Value="32,24" />
+      <Setter Property="HorizontalContentAlignment" Value="Left" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="FocusAdorner" Value="{x:Null}" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}"
+                            Foreground="{TemplateBinding Foreground}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:selected">
+        <Setter Property="Background" Value="{DynamicResource CosmoMutedHalfBrush}" />
+      </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="CosmoChartToggles" TargetType="ListBox">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="ItemContainerTheme" Value="{StaticResource CosmoChartToggle}" />
+      <Setter Property="FocusAdorner" Value="{x:Null}" />
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <StackPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Name="border" Background="{TemplateBinding Background}">
+            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="{TemplateBinding Padding}" />
+          </Border>
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <Style Selector="p|Legend">
+    <Setter Property="Template"><c:ChartLegendContent /></Setter>
+    <Setter Property="ContentTemplate"><c:ChartLegendItem /></Setter>
+  </Style>
+  <Style Selector=":is(p|Chart)">
+    <Setter Property="TextElement.FontSize" Value="12" />
+    <Setter Property="TextElement.FontFamily" Value="{DynamicResource CosmoFontSans}" />
+  </Style>
+  <Style Selector="ListBox.chart-toggles">
+    <Setter Property="Theme" Value="{StaticResource CosmoChartToggles}" />
+  </Style>
+</Styles>

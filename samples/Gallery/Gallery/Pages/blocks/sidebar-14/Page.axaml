@@ -1,0 +1,97 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="sidebar-14" a:Page.Description="A sidebar on the right.">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="sidebar-14" />
+      <TextBlock Classes="lead" Text="A sidebar on the right." />
+    </StackPanel>
+    <Border Height="800" CornerRadius="{DynamicResource CosmoRadiusXl}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" ClipToBounds="True">
+      <c:SidebarProvider MobileBreakpoint="0">
+        <c:Sidebar Side="Right">
+          <c:SidebarContent>
+            <c:SidebarGroup>
+              <c:SidebarGroupLabel Content="Table of Contents" />
+              <c:SidebarMenu>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton FontWeight="Medium" Content="Getting Started" />
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton Content="Installation" />
+                    <c:SidebarMenuSubButton Content="Project Structure" />
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton FontWeight="Medium" Content="Build Your Application" />
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton Content="Routing" />
+                    <c:SidebarMenuSubButton Content="Data Fetching" IsActive="True" />
+                    <c:SidebarMenuSubButton Content="Rendering" />
+                    <c:SidebarMenuSubButton Content="Caching" />
+                    <c:SidebarMenuSubButton Content="Styling" />
+                    <c:SidebarMenuSubButton Content="Optimizing" />
+                    <c:SidebarMenuSubButton Content="Configuring" />
+                    <c:SidebarMenuSubButton Content="Testing" />
+                    <c:SidebarMenuSubButton Content="Authentication" />
+                    <c:SidebarMenuSubButton Content="Deploying" />
+                    <c:SidebarMenuSubButton Content="Upgrading" />
+                    <c:SidebarMenuSubButton Content="Examples" />
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton FontWeight="Medium" Content="API Reference" />
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton Content="Components" />
+                    <c:SidebarMenuSubButton Content="File Conventions" />
+                    <c:SidebarMenuSubButton Content="Functions" />
+                    <c:SidebarMenuSubButton Content="next.config.js Options" />
+                    <c:SidebarMenuSubButton Content="CLI" />
+                    <c:SidebarMenuSubButton Content="Edge Runtime" />
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton FontWeight="Medium" Content="Architecture" />
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton Content="Accessibility" />
+                    <c:SidebarMenuSubButton Content="Fast Refresh" />
+                    <c:SidebarMenuSubButton Content="Next.js Compiler" />
+                    <c:SidebarMenuSubButton Content="Supported Browsers" />
+                    <c:SidebarMenuSubButton Content="Turbopack" />
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton FontWeight="Medium" Content="Community" />
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton Content="Contribution Guide" />
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </c:SidebarGroup>
+          </c:SidebarContent>
+          <c:SidebarRail />
+        </c:Sidebar>
+        <c:SidebarInset>
+          <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Height="64">
+              <Border DockPanel.Dock="Bottom" Height="1" Background="{DynamicResource CosmoBorderBrush}" />
+              <c:SidebarTrigger DockPanel.Dock="Right" Margin="0,0,12,0" VerticalAlignment="Center" RenderTransform="rotate(180deg)" />
+              <StackPanel Orientation="Horizontal" Margin="16,0" VerticalAlignment="Center">
+                <c:Breadcrumb VerticalAlignment="Center">
+                  <HyperlinkButton Content="Build Your Application" NavigateUri="#" />
+                  <c:BreadcrumbPage Text="Data Fetching" />
+                </c:Breadcrumb>
+              </StackPanel>
+            </DockPanel>
+            <DockPanel Margin="16">
+              <UniformGrid DockPanel.Dock="Top" Columns="3" ColumnSpacing="16" Margin="0,0,0,16">
+                <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+              </UniformGrid>
+              <Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            </DockPanel>
+          </DockPanel>
+        </c:SidebarInset>
+      </c:SidebarProvider>
+    </Border>
+  </StackPanel>
+</UserControl>

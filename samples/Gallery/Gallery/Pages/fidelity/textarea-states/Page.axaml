@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: textarea-states">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="16" Width="384" HorizontalAlignment="Left">
+      <TextBox AcceptsReturn="True" PlaceholderText="Type your message here." />
+      <TextBox AcceptsReturn="True" IsEnabled="False" PlaceholderText="Disabled" />
+    </StackPanel>
+  </Border>
+</UserControl>

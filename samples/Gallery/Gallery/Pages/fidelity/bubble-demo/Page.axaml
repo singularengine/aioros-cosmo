@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: bubble-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+          <StackPanel Width="384" HorizontalAlignment="Left" Margin="0,48" Spacing="32">
+    <c:Bubble Classes="end" Content="Hey there! what&apos;s up?" />
+    <c:BubbleGroup><c:Bubble Classes="muted" Content="Hey! Want to see chat bubbles?" /><c:Bubble Classes="muted" Content="I can group messages, switch sides, and keep the whole thread easy to scan."><c:Bubble.Reactions><StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="👍" /></StackPanel></c:Bubble.Reactions></c:Bubble></c:BubbleGroup>
+    <c:Bubble Classes="end" Content="Sure. Hit me with your best demo." />
+    <c:Bubble Classes="muted" Content="Yes. You are reading a demo that is demoing itself. Very meta. Very on-brand."><c:Bubble.Reactions><StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="👍" /><TextBlock Text="🔥" /><TextBlock Text="👀" /><TextBlock Text="+2" /></StackPanel></c:Bubble.Reactions></c:Bubble>
+          </StackPanel>
+  </Border>
+</UserControl>

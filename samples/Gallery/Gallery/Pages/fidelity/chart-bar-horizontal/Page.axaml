@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor" x:DataType="m:ChartSamples" a:Page.Title="Fidelity: chart-bar-horizontal">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:ChartSamples">
+      <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /></c:ChartConfig></Border.Resources>
+      <c:Card>
+        <c:CardHeader Title="Bar Chart - Horizontal" Description="January - June 2024" />
+        <c:CardContent>
+          <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Months}" Aspect="1.7777777777777777" ResponsiveWidths="542" Layout="Vertical" Padding="-20,0,0,0">
+
+            <p:XAxis Type="Number" DataKey="Desktop" Hide="True" />
+            <p:YAxis DataKey="Month" Type="Category" TickLine="False" TickMargin="10" AxisLine="False" TickFormat="{}{0:MMM}" />
+            <p:Tooltip Cursor="False" LabelFormat="{}{0:MMMM}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideLabel="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+            <p:Bar DataKey="Desktop" Radius="5" IsAnimationActive="False" />
+          </p:BarChart>
+        </c:CardContent>
+        <c:CardFooter>
+          <StackPanel Spacing="8">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <TextBlock Text="Trending up by 5.2% this month" FontSize="14" LineHeight="14" FontWeight="Medium" VerticalAlignment="Top" />
+              <Viewbox Width="16" Height="16" VerticalAlignment="Top"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M22,7 L13.5,15.5 L8.5,10.5 L2,17 M16,7 L22,7 L22,13" /></Viewbox>
+            </StackPanel>
+            <TextBlock Text="Showing total visitors for the last 6 months" FontSize="14" LineHeight="14" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+          </StackPanel>
+        </c:CardFooter>
+      </c:Card>
+    </Border>
+  </Border>
+</UserControl>

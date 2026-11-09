@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:NavigationExamples"
+             a:Page.Title="Breadcrumb" a:Page.Description="Displays the path to the current resource using a hierarchy of links.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Breadcrumb" />
+      <TextBlock Classes="lead" Text="Displays the path to the current resource using a hierarchy of links." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: breadcrumb" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Breadcrumb" />
+        <c:Badge Classes="secondary" Content="Web: &lt;a href&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Links, a menu button with collapsed items and the current page; the separators come between them." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:Breadcrumb>
+            <HyperlinkButton Content="Home" a:Web.Href="/" />
+            <Button AutomationProperties.Name="Toggle menu">
+              <c:BreadcrumbEllipsis Width="16" Height="16" />
+              <Button.Flyout>
+                <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                  <MenuItem Header="Documentation" a:Web.Href="/installation" />
+                  <MenuItem Header="Themes" a:Web.Href="/themes" />
+                  <MenuItem Header="GitHub" a:Web.Href="/" />
+                </MenuFlyout>
+              </Button.Flyout>
+            </Button>
+            <HyperlinkButton Content="Components" a:Web.Href="/components/button" />
+            <c:BreadcrumbPage Text="Breadcrumb" />
+          </c:Breadcrumb>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Breadcrumb&gt;&#10;  &lt;HyperlinkButton Content=&quot;Home&quot; a:Web.Href=&quot;/&quot; /&gt;&#10;  &lt;Button AutomationProperties.Name=&quot;Toggle menu&quot;&gt;&#10;    &lt;c:BreadcrumbEllipsis Width=&quot;16&quot; Height=&quot;16&quot; /&gt;&#10;    &lt;Button.Flyout&gt;&#10;      &lt;MenuFlyout Placement=&quot;BottomEdgeAlignedLeft&quot;&gt;&#10;        &lt;MenuItem Header=&quot;Documentation&quot; a:Web.Href=&quot;/installation&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;Themes&quot; a:Web.Href=&quot;/themes&quot; /&gt;&#10;        &lt;MenuItem Header=&quot;GitHub&quot; a:Web.Href=&quot;/&quot; /&gt;&#10;      &lt;/MenuFlyout&gt;&#10;    &lt;/Button.Flyout&gt;&#10;  &lt;/Button&gt;&#10;  &lt;HyperlinkButton Content=&quot;Components&quot; a:Web.Href=&quot;/components/button&quot; /&gt;&#10;  &lt;c:BreadcrumbPage Text=&quot;Breadcrumb&quot; /&gt;&#10;&lt;/c:Breadcrumb&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Custom separator" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:Breadcrumb>
+            <c:Breadcrumb.SeparatorTemplate>
+              <DataTemplate><a:Icon Kind="slash" Size="14" /></DataTemplate>
+            </c:Breadcrumb.SeparatorTemplate>
+            <HyperlinkButton Content="Home" a:Web.Href="/" />
+            <HyperlinkButton Content="Components" a:Web.Href="/components/button" />
+            <c:BreadcrumbPage Text="Breadcrumb" />
+          </c:Breadcrumb>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Breadcrumb&gt;&#10;  &lt;c:Breadcrumb.SeparatorTemplate&gt;&#10;    &lt;DataTemplate&gt;&lt;a:Icon Kind=&quot;slash&quot; Size=&quot;14&quot; /&gt;&lt;/DataTemplate&gt;&#10;  &lt;/c:Breadcrumb.SeparatorTemplate&gt;&#10;  &lt;HyperlinkButton Content=&quot;Home&quot; a:Web.Href=&quot;/&quot; /&gt;&#10;  &lt;HyperlinkButton Content=&quot;Components&quot; a:Web.Href=&quot;/components/button&quot; /&gt;&#10;  &lt;c:BreadcrumbPage Text=&quot;Breadcrumb&quot; /&gt;&#10;&lt;/c:Breadcrumb&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Crumbs come from the model through an item template, each a link to its bound address; a separator stands between them, none before the first, on both targets." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <c:Breadcrumb ItemsSource="{Binding Crumbs}">
+              <c:Breadcrumb.ItemTemplate>
+                <DataTemplate x:DataType="m:Crumb">
+                  <HyperlinkButton Content="{Binding Name}" a:Web.Href="{Binding Href}" />
+                </DataTemplate>
+              </c:Breadcrumb.ItemTemplate>
+            </c:Breadcrumb>
+            <Button Classes="outline sm" Content="Go deeper" Command="{Binding DeeperCommand}" HorizontalAlignment="Left" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;c:Breadcrumb ItemsSource=&quot;{Binding Crumbs}&quot;&gt;&#10;    &lt;c:Breadcrumb.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;m:Crumb&quot;&gt;&#10;        &lt;HyperlinkButton Content=&quot;{Binding Name}&quot; a:Web.Href=&quot;{Binding Href}&quot; /&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/c:Breadcrumb.ItemTemplate&gt;&#10;  &lt;/c:Breadcrumb&gt;&#10;  &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Go deeper&quot; Command=&quot;{Binding DeeperCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Items, ItemsSource, ItemTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Links (HyperlinkButton), a menu Button, c:BreadcrumbEllipsis, c:BreadcrumbPage." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="SeparatorTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="What separates the items (chevron-right by default)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

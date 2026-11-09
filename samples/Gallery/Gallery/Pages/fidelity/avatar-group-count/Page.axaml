@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: avatar-group-count">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="32">
+      <c:AvatarGroup>
+        <c:Avatar Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn" />
+        <c:Avatar Source="/Assets/avatar-maxleiter.png" Content="LR" AutomationProperties.Name="@maxleiter" />
+        <c:Avatar Source="/Assets/avatar-evilrabbit.png" Content="ER" AutomationProperties.Name="@evilrabbit" />
+        <c:AvatarGroupCount Content="+3" />
+      </c:AvatarGroup>
+      <c:AvatarGroup>
+        <c:Avatar Classes="sm" Content="CN" />
+        <c:Avatar Classes="sm" Content="LR" />
+        <c:AvatarGroupCount Content="+2" />
+      </c:AvatarGroup>
+      <c:AvatarGroup>
+        <c:Avatar Classes="lg" Content="CN" />
+        <c:Avatar Classes="lg" Content="LR" />
+        <c:AvatarGroupCount><Viewbox Width="20" Height="20"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M5,12 L19,12 M12,5 L12,19" /></Viewbox></c:AvatarGroupCount>
+      </c:AvatarGroup>
+    </StackPanel>
+  </Border>
+</UserControl>

@@ -1,0 +1,393 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo"
+             a:Page.Title="Aioros.Cosmo" a:Page.TitleTemplate="%s · Aioros.Cosmo">
+  <UserControl.Styles>
+    <Style Selector="Border.nav a|Icon">
+      <Setter Property="Size" Value="16" />
+    </Style>
+  </UserControl.Styles>
+  <Panel c:OverlayHost.IsHost="True">
+  <SplitView DisplayMode="Inline" IsPaneOpen="True" OpenPaneLength="256" PaneBackground="{DynamicResource CosmoSidebarBrush}"
+             a:Web.Id="nav" a:Web.CollapseBelow="1024">
+    <SplitView.Pane>
+      <Border Padding="12,16" BorderBrush="{DynamicResource CosmoSidebarBorderBrush}" BorderThickness="0,0,1,0">
+        <ScrollViewer>
+          <StackPanel Spacing="1" a:Web.Tag="nav">
+            <Border Classes="brand" a:Web.Href="/" AutomationProperties.Name="Aioros.Cosmo home" Padding="6" Margin="0,0,0,8">
+              <StackPanel Orientation="Horizontal" Spacing="10">
+                <Viewbox Width="28" Height="28">
+                  <Canvas Width="64" Height="64">
+                    <Rectangle Width="64" Height="64" RadiusX="14" RadiusY="14">
+                      <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                          <GradientStop Offset="0" Color="#27272A" />
+                          <GradientStop Offset="1" Color="#09090B" />
+                        </LinearGradientBrush>
+                      </Rectangle.Fill>
+                    </Rectangle>
+                    <Path Data="M52.78,20 A24,10 -30 1 1 11.22,44 A24,10 -30 1 1 52.78,20 Z" Stroke="#71717A" StrokeThickness="2" />
+                    <Path Data="M32,14 C33.5,26 38,30.5 50,32 C38,33.5 33.5,38 32,50 C30.5,38 26,33.5 14,32 C26,30.5 30.5,26 32,14 Z" Fill="#FAFAFA" />
+                    <Ellipse Canvas.Left="49.58" Canvas.Top="16.8" Width="6.4" Height="6.4" Fill="#FAFAFA" />
+                  </Canvas>
+                </Viewbox>
+                <StackPanel VerticalAlignment="Center">
+                  <TextBlock Text="Aioros.Cosmo" FontSize="15" FontWeight="SemiBold" Foreground="{DynamicResource CosmoSidebarForegroundBrush}" />
+                  <TextBlock Text="Components for Aioros" FontSize="12" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </StackPanel>
+            </Border>
+
+            <Border Classes="segment" HorizontalAlignment="Left" Margin="0,4,0,4" AutomationProperties.Name="Theme">
+              <StackPanel Orientation="Horizontal" Spacing="2">
+                <Border Classes="seg" Background="{DynamicResource GalleryLightSegment}" BoxShadow="{DynamicResource GalleryLightSegmentShadow}" a:Web.Href="/theme/light" AutomationProperties.Name="Light theme">
+                  <StackPanel Orientation="Horizontal" Spacing="6"><a:Icon Kind="sun" Size="14" /><TextBlock Text="Light" /></StackPanel>
+                </Border>
+                <Border Classes="seg" Background="{DynamicResource GalleryDarkSegment}" BoxShadow="{DynamicResource GalleryDarkSegmentShadow}" a:Web.Href="/theme/dark" AutomationProperties.Name="Dark theme">
+                  <StackPanel Orientation="Horizontal" Spacing="6"><a:Icon Kind="moon" Size="14" /><TextBlock Text="Dark" /></StackPanel>
+                </Border>
+                <Border Classes="seg" a:Web.Href="/theme/system" AutomationProperties.Name="System theme, following the device">
+                  <StackPanel Orientation="Horizontal" Spacing="6"><a:Icon Kind="monitor" Size="14" /><TextBlock Text="System" /></StackPanel>
+                </Border>
+              </StackPanel>
+            </Border>
+
+            <TextBlock Classes="group" Text="Getting started" />
+            <Border Classes="nav" a:Web.Href="/" a:Web.Exact="True">
+              <StackPanel Orientation="Horizontal" Spacing="10"><a:Icon Kind="sparkles" /><TextBlock Text="Introduction" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/installation">
+              <StackPanel Orientation="Horizontal" Spacing="10"><a:Icon Kind="rocket" /><TextBlock Text="Installation" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/themes">
+              <StackPanel Orientation="Horizontal" Spacing="10"><a:Icon Kind="layers" /><TextBlock Text="Themes" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/binding">
+              <StackPanel Orientation="Horizontal" Spacing="10"><a:Icon Kind="code" /><TextBlock Text="Binding and MVVM" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/fidelity">
+              <StackPanel Orientation="Horizontal" Spacing="10"><a:Icon Kind="target" /><TextBlock Text="Fidelity" /></StackPanel>
+            </Border>
+
+            <TextBlock Classes="group" Text="Components" />
+            <Border Classes="nav" a:Web.Href="/components/accordion">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Accordion" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/alert">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Alert" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/alert-dialog">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Alert Dialog" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/aspect-ratio">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Aspect Ratio" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/attachment">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Attachment" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/avatar">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Avatar" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/badge">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Badge" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/breadcrumb">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Breadcrumb" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/bubble">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Bubble" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/button">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Button" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/button-group">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Button Group" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/calendar">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Calendar" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/card">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Card" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/carousel">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Carousel" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/chart">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Chart" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/checkbox">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Checkbox" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/code-block">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Code Block" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/collapsible">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Collapsible" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/combobox">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Combobox" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/command">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Command" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/context-menu">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Context Menu" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/data-table">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Data Table" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/date-picker">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Date Picker" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/dialog">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Dialog" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/drawer">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Drawer" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/dropdown-menu">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Dropdown Menu" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/empty">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Empty" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/field">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Field" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/hover-card">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Hover Card" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/input">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Input" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/input-group">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Input Group" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/input-otp">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Input OTP" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/item">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Item" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/kbd">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Kbd" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/label">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Label" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/marker">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Marker" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/menubar">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Menubar" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/message">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Message" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/message-scroller">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Message Scroller" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/native-select">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Native Select" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/navigation-menu">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Navigation Menu" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/pagination">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Pagination" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/popover">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Popover" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/progress">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Progress" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/questionnaire">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Questionnaire" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/radio-group">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Radio Group" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/resizable">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Resizable" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/scroll-area">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Scroll Area" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/select">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Select" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/separator">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Separator" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/sheet">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sheet" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/sidebar">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/skeleton">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Skeleton" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/slider">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Slider" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/sonner">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sonner" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/spinner">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Spinner" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/switch">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Switch" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/table">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Table" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/tabs">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Tabs" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/textarea">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Textarea" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/toggle">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Toggle" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/toggle-group">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Toggle Group" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/tooltip">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Tooltip" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/trace">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Trace" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/components/typography">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Typography" /></StackPanel>
+            </Border>
+
+            <TextBlock Classes="group" Text="Blocks" />
+            <Border Classes="nav" a:Web.Href="/blocks/login-01">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Login-01" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/login-02">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Login-02" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/login-03">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Login-03" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/login-04">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Login-04" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/login-05">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Login-05" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/signup-01">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Signup-01" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/signup-02">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Signup-02" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/signup-03">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Signup-03" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/signup-04">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Signup-04" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/signup-05">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Signup-05" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/dashboard-01">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Dashboard-01" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-01">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-01" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-02">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-02" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-03">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-03" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-04">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-04" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-05">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-05" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-06">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-06" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-07">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-07" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-08">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-08" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-09">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-09" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-10">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-10" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-11">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-11" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-12">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-12" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-13">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-13" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-14">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-14" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-15">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-15" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/blocks/sidebar-16">
+              <StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="Sidebar-16" /></StackPanel>
+            </Border>
+
+            <TextBlock Classes="group" Text="Examples" />
+            <Border Classes="nav" a:Web.Href="/examples/dashboard">
+              <StackPanel Orientation="Horizontal" Spacing="10"><a:Icon Kind="dashboard" /><TextBlock Text="Dashboard" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/examples/forms">
+              <StackPanel Orientation="Horizontal" Spacing="10"><a:Icon Kind="check" /><TextBlock Text="Forms" /></StackPanel>
+            </Border>
+            <Border Classes="nav" a:Web.Href="/examples/workspace">
+              <StackPanel Orientation="Horizontal" Spacing="10"><a:Icon Kind="panel-left" /><TextBlock Text="Workspace" /></StackPanel>
+            </Border>
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+    </SplitView.Pane>
+
+    <DockPanel>
+      <Border DockPanel.Dock="Top" a:Web.Tag="header" a:Web.HideAbove="1024" IsVisible="{a:OnPlatform Default=False, Web=True}"
+              Padding="12,8" BorderBrush="{DynamicResource CosmoBorderBrush}" BorderThickness="0,0,0,1" Background="{DynamicResource CosmoBackgroundBrush}">
+        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+          <Button Classes="ghost icon" AutomationProperties.Name="Menu" a:Web.Toggles="nav" VerticalAlignment="Center">
+            <a:Icon Kind="menu" Size="18" />
+          </Button>
+          <TextBlock Grid.Column="1" Text="Aioros.Cosmo" FontWeight="SemiBold" VerticalAlignment="Center" />
+          <Border Grid.Column="2" Classes="seg" a:Web.Href="/theme/toggle" AutomationProperties.Name="Switch theme" VerticalAlignment="Center" Padding="8">
+            <a:Icon Kind="{DynamicResource ThemeIcon}" Size="18" />
+          </Border>
+        </Grid>
+      </Border>
+      <ScrollViewer>
+        <StackPanel>
+          <Border Padding="24,32,24,16" a:Web.Tag="main">
+            <a:Outlet />
+          </Border>
+          <Border Padding="24,8,24,32">
+            <TextBlock Classes="xs muted" MaxWidth="760" HorizontalAlignment="Left"
+                       Text="Cosmo is an independent port of shadcn/ui and is not affiliated with or endorsed by shadcn. shadcn/ui and Radix UI are MIT-licensed, Lucide is ISC-licensed and Inter is under the SIL Open Font License; see THIRD-PARTY-NOTICES." />
+          </Border>
+        </StackPanel>
+      </ScrollViewer>
+    </DockPanel>
+  </SplitView>
+  </Panel>
+</UserControl>

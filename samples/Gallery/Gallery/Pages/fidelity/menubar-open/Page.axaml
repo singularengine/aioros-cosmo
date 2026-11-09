@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: menubar-open">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="300" VerticalAlignment="Top">
+      <Menu VerticalAlignment="Top">
+        <MenuItem Header="File">
+          <MenuItem Header="New Tab" InputGesture="Ctrl+T" />
+          <MenuItem Header="New Window" InputGesture="Ctrl+N" />
+          <MenuItem Header="New Incognito Window" IsEnabled="False" />
+          <MenuItem Header="-" />
+          <MenuItem Header="Share">
+            <MenuItem Header="Email link" />
+            <MenuItem Header="Messages" />
+            <MenuItem Header="Notes" />
+          </MenuItem>
+          <MenuItem Header="-" />
+          <MenuItem Header="Print..." InputGesture="Ctrl+P" />
+        </MenuItem>
+        <MenuItem Header="Edit">
+          <MenuItem Header="Undo" InputGesture="Ctrl+Z" />
+          <MenuItem Header="Redo" InputGesture="Ctrl+Shift+Z" />
+          <MenuItem Header="-" />
+          <MenuItem Header="Cut" />
+          <MenuItem Header="Copy" />
+          <MenuItem Header="Paste" />
+        </MenuItem>
+        <MenuItem Header="View">
+          <MenuItem Header="Always Show Bookmarks Bar" ToggleType="CheckBox" />
+          <MenuItem Header="Always Show Full URLs" ToggleType="CheckBox" IsChecked="True" />
+          <MenuItem Header="-" />
+          <MenuItem Header="Reload" InputGesture="Ctrl+R" Classes="inset" />
+          <MenuItem Header="Toggle Fullscreen" Classes="inset" />
+        </MenuItem>
+        <MenuItem Header="Profiles">
+          <MenuItem Header="Andy" ToggleType="Radio" GroupName="profiles" />
+          <MenuItem Header="Benoit" ToggleType="Radio" GroupName="profiles" IsChecked="True" />
+          <MenuItem Header="Luis" ToggleType="Radio" GroupName="profiles" />
+          <MenuItem Header="-" />
+          <MenuItem Header="Add Profile..." Classes="inset" />
+        </MenuItem>
+      </Menu>
+    </Panel>
+  </Border>
+</UserControl>

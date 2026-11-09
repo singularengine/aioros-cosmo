@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: login-01">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border Classes="page" Padding="40">
+      <StackPanel MaxWidth="384">
+        <c:Card>
+          <c:CardHeader Title="Login to your account" Description="Enter your email below to login to your account" />
+          <c:CardContent>
+            <c:FieldGroup>
+              <c:Field>
+                <c:FieldLabel Content="Email" Target="{Binding #email}" />
+                <TextBox Name="email" a:Web.Id="email" a:Web.InputType="email" PlaceholderText="m@example.com" />
+              </c:Field>
+              <c:Field>
+                <Grid ColumnDefinitions="Auto,*">
+                  <c:FieldLabel Content="Password" Target="{Binding #password}" VerticalAlignment="Center" />
+                  <HyperlinkButton Classes="link" NavigateUri="#" Padding="0" Height="NaN" MinHeight="0" FontSize="14" FontWeight="Normal" Foreground="{DynamicResource CosmoForegroundBrush}" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"><TextBlock Text="Forgot your password?" TextWrapping="Wrap" /></HyperlinkButton>
+                </Grid>
+                <TextBox Name="password" a:Web.Id="password" PasswordChar="•" />
+              </c:Field>
+              <c:Field>
+                <Button Content="Login" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                <Button Classes="outline" Content="Login with Google" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                <c:FieldDescription TextAlignment="Center"><Run Text="Don't have an account? " /><Run Text="Sign up" a:Web.Href="#" TextDecorations="Underline" /></c:FieldDescription>
+              </c:Field>
+            </c:FieldGroup>
+          </c:CardContent>
+        </c:Card>
+      </StackPanel>
+    </Border>
+  </Border>
+</UserControl>

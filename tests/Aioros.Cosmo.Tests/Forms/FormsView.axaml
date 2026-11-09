@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Forms"
+             x:Class="Aioros.Cosmo.Tests.Forms.FormsView" x:DataType="t:FormsModel">
+  <StackPanel Spacing="12" Margin="16" Width="320" HorizontalAlignment="Left">
+    <Label Name="CountLabel" Content="{Binding Count, StringFormat='Name ({0} unread)'}" />
+    <TextBox Name="NameBox" Text="{Binding Name}" IsEnabled="{Binding Locked, Converter={x:Static BoolConverters.Not}}" />
+    <c:Field Name="Field" Classes.invalid="{Binding Invalid}">
+      <c:FieldLabel Name="FieldLabel" Content="Email" />
+      <TextBox Name="EmailBox" Text="{Binding Email}" />
+    </c:Field>
+    <CheckBox Name="Agree" Content="I agree" IsChecked="{Binding Agree}" Command="{Binding Toggle}" CommandParameter="terms" />
+    <StackPanel Name="Radios" Spacing="12">
+      <RadioButton Name="First" Content="Default" />
+      <RadioButton Name="Second" Content="Comfortable" IsChecked="{Binding Second}" />
+      <RadioButton Name="Third" Content="Compact" />
+    </StackPanel>
+    <ToggleSwitch Name="Airplane" IsChecked="{Binding Airplane}" Command="{Binding Toggle}" CommandParameter="airplane" />
+    <ToggleButton Name="Bold" Content="B" IsChecked="{Binding Bold}" Command="{Binding Toggle}" CommandParameter="bold" />
+    <ListBox Name="Alignment" Classes="toggle-group" SelectionMode="Toggle" ItemsSource="{Binding Alignments}" SelectedItem="{Binding Alignment}">
+      <ListBox.ItemTemplate>
+        <DataTemplate x:DataType="x:String">
+          <TextBlock Text="{Binding StringFormat='Align {0}'}" />
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+    <ListBox Name="Formats" Classes="toggle-group outline" SelectionMode="Multiple,Toggle">
+      <ListBoxItem Content="Bold" />
+      <ListBoxItem Content="Italic" />
+      <ListBoxItem Content="Underline" />
+    </ListBox>
+    <ComboBox Name="Fruits" ItemsSource="{Binding Fruits}" SelectedItem="{Binding Fruit}"
+              SelectedValueBinding="{Binding Code, x:DataType=t:FruitModel}" SelectedValue="{Binding Code}">
+      <ComboBox.ItemTemplate>
+        <DataTemplate x:DataType="t:FruitModel">
+          <TextBlock Text="{Binding Name, StringFormat='Fruit: {0}'}" />
+        </DataTemplate>
+      </ComboBox.ItemTemplate>
+    </ComboBox>
+  </StackPanel>
+</UserControl>

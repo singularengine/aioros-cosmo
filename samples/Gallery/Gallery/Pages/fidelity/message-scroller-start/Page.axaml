@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: message-scroller-start">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Card Width="384" Height="400" Padding="0" ClipToBounds="True" HorizontalAlignment="Center" VerticalAlignment="Top">
+      <c:Card.ItemsPanel><ItemsPanelTemplate><Panel /></ItemsPanelTemplate></c:Card.ItemsPanel>
+      <DockPanel>
+        <Border DockPanel.Dock="Top" Padding="24,16,24,24" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoBorderBrush}">
+          <StackPanel Spacing="4">
+            <TextBlock Text="Support" FontWeight="SemiBold" LineHeight="16" />
+            <TextBlock Text="A conversation about a failed deploy." FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+          </StackPanel>
+        </Border>
+        <c:MessageScroller DefaultScrollPosition="Start">
+          <StackPanel Margin="24" Spacing="16">
+            <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="Deploying to prod real quick." /></c:MessageContent></c:Message>
+            <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="It&apos;s 4:55 PM. On a Friday." /></c:MessageContent></c:Message>
+            <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="It&apos;s a one-line change." /></c:MessageContent></c:Message>
+            <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="It&apos;s always a one-line change. Alright, let me take a look." /></c:MessageContent></c:Message>
+            <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="The build failed during dependency installation." /></c:MessageContent></c:Message>
+            <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="Can you share the exact error?" /></c:MessageContent></c:Message>
+            <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="Something went wrong with the build. The libraries are not installed correctly." /></c:MessageContent></c:Message>
+            <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="Try running the build again. I cleared the cache." /></c:MessageContent></c:Message>
+            <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="It worked. Thanks!" /></c:MessageContent></c:Message>
+          </StackPanel>
+        </c:MessageScroller>
+      </DockPanel>
+    </c:Card>
+  </Border>
+</UserControl>

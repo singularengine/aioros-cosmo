@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: switch-states">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="24">
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <ToggleSwitch Name="airplane" a:Web.Id="airplane" />
+        <Label Content="Airplane Mode" Target="{Binding #airplane}" />
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <ToggleSwitch Name="wifi" a:Web.Id="wifi" IsChecked="True" />
+        <Label Content="Wi-Fi" Target="{Binding #wifi}" />
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <ToggleSwitch Name="locked" a:Web.Id="locked" IsEnabled="False" />
+        <Label Content="Disabled" Target="{Binding #locked}" IsEnabled="False" />
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <ToggleSwitch Name="small" a:Web.Id="small" Classes="sm" IsChecked="True" />
+        <Label Content="Small" Target="{Binding #small}" />
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

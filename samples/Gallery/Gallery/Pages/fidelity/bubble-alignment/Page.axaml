@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: bubble-alignment">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+          <StackPanel Width="384" HorizontalAlignment="Left" Margin="0,48" Spacing="32">
+    <c:Bubble Classes="muted" Content="This bubble is aligned to the start. This is the default alignment." />
+    <c:Bubble Classes="end" Content="This bubble is aligned to the end. Use this for user messages." />
+          </StackPanel>
+  </Border>
+</UserControl>

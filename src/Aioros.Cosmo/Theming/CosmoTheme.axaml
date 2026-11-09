@@ -1,0 +1,825 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="https://aioros.dev/cosmo" xmlns:a="https://aioros.dev"
+        x:Class="Aioros.Cosmo.Theming.CosmoTheme">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <FontFamily x:Key="CosmoFontSans">avares://Aioros.Cosmo/Assets/Fonts#Geist, avares://Aioros.Cosmo/Assets/Fonts#Cosmo Symbols, avares://Aioros.Cosmo/Assets/Fonts#Cosmo Emoji</FontFamily>
+      <FontFamily x:Key="CosmoFontMono">avares://Aioros.Cosmo/Assets/Fonts#Geist Mono</FontFamily>
+      <FontFamily x:Key="CosmoFontCode">avares://Aioros.Cosmo/Assets/Fonts#Geist Mono, avares://Aioros.Cosmo/Assets/Fonts#Cosmo Mono Symbols, avares://Aioros.Cosmo/Assets/Fonts#Cosmo Emoji</FontFamily>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Aioros.Cosmo/Buttons/Button.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Display/Badge.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Display/Card.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Display/Display.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Navigation/Navigation.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Navigation/Menus.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Display/ScrollArea.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Display/Table.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/Label.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/TextBox.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Navigation/SidebarInput.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/Field.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/ComboBox.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/CheckBox.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/RadioButton.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/ToggleSwitch.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/ToggleButton.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/Slider.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/RangeSlider.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/ProgressBar.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/InputGroup.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/InputOtp.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/FileInput.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Forms/DataValidationErrors.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Overlays/Overlays.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Overlays/Flyout.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Overlays/ToolTip.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Overlays/Menu.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Overlays/Dialog.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Overlays/Toast.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Layout/Resizable.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Display/Carousel.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Search/Command.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Navigation/Sidebar.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Dates/Calendar.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Dates/DatePicker.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Dates/DateRangePicker.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Chat/Chat.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Chat/CodeBlock.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Chat/Trace.axaml" />
+        <ResourceInclude Source="avares://Aioros.Cosmo/Chat/Questionnaire.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
+  <Style Selector="Calendar TextBlock.week-number">
+    <Setter Property="Width" Value="32" />
+    <Setter Property="FontSize" Value="12.8" />
+    <Setter Property="TextAlignment" Value="Center" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+  </Style>
+  <Style Selector="Calendar TextBlock.week-number.week">
+    <Setter Property="LineHeight" Value="32" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Margin" Value="0,8,0,0" />
+  </Style>
+  <Style Selector="c|Field.invalid > Button">
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoDestructiveBrush}" />
+  </Style>
+  <Style Selector="c|Field.invalid > Button:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoDestructiveBrush}" />
+    <Setter Property="BoxShadow" Value="{DynamicResource CosmoDestructiveFocusRingShadow}" />
+  </Style>
+  <Style Selector="ToolTip c|Kbd">
+    <Setter Property="Background" Value="{DynamicResource CosmoKbdTooltipBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoBackgroundBrush}" />
+  </Style>
+  <Style Selector="c|ItemHeader > :is(Control), c|ItemFooter > :is(Control)">
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="c|ItemHeader > :is(Control):nth-last-child(1), c|ItemFooter > :is(Control):nth-last-child(1)">
+    <Setter Property="DockPanel.Dock" Value="Right" />
+  </Style>
+  <Style Selector="c|Pagination Button.outline">
+    <Setter Property="a:Web.Current" Value="page" />
+  </Style>
+  <Style Selector="c|Field.invalid > Button.outline">
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoButtonOutlineInvalidBorderBrush}" />
+  </Style>
+  <Style Selector="c|Field.invalid > Button.outline:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoButtonOutlineInvalidBorderBrush}" />
+    <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineDestructiveFocusShadow}" />
+  </Style>
+  <Style Selector="c|FieldContent > c|FieldLabel">
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </Style>
+  <ContainerQuery Name="field-group" Query="min-width:448">
+    <Style Selector="c|Field.responsive">
+      <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+  </ContainerQuery>
+  <Style Selector="Calendar.sidebar CalendarDayButton">
+    <Setter Property="Width" Value="33" />
+    <Setter Property="Height" Value="33" />
+  </Style>
+  <Style Selector="Calendar.sidebar CalendarDayButton:today, Calendar.sidebar CalendarDayButton:selected">
+    <Setter Property="Background" Value="{DynamicResource CosmoSidebarPrimaryBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" />
+  </Style>
+  <Style Selector="c|Collapsible">
+    <Setter Property="a:Web.Flag" Value="IsOpen" />
+  </Style>
+  <Style Selector="c|CollapsibleTrigger">
+    <Setter Property="a:Web.Flips" Value="IsOpen" />
+  </Style>
+  <Style Selector="c|Collapsible :is(Control).chevron">
+    <Setter Property="RenderTransform" Value="rotate(0deg)" />
+  </Style>
+  <Style Selector="c|Collapsible:open :is(Control).chevron">
+    <Setter Property="RenderTransform" Value="rotate(180deg)" />
+  </Style>
+  <Style Selector="c|Bubble > :is(Button)">
+    <Setter Property="Theme" Value="{StaticResource CosmoBubbleAction}" />
+  </Style>
+  <Style Selector="c|Bubble > :is(Button):pointerover /template/ Border#PART_Box">
+    <Setter Property="Background" Value="{DynamicResource CosmoBubbleHoverBrush}" />
+  </Style>
+  <Style Selector="c|Bubble.secondary > :is(Button):pointerover /template/ Border#PART_Box">
+    <Setter Property="Background" Value="{DynamicResource CosmoBubbleSecondaryHoverBrush}" />
+  </Style>
+  <Style Selector="c|Bubble.muted > :is(Button):pointerover /template/ Border#PART_Box">
+    <Setter Property="Background" Value="{DynamicResource CosmoBubbleMutedHoverBrush}" />
+  </Style>
+  <Style Selector="c|Bubble.tinted > :is(Button):pointerover /template/ Border#PART_Box">
+    <Setter Property="Background" Value="{DynamicResource CosmoBubbleTintedHoverBrush}" />
+  </Style>
+  <Style Selector="c|Bubble.outline > :is(Button):pointerover /template/ Border#PART_Box">
+    <Setter Property="Background" Value="{DynamicResource CosmoBubbleOutlineHoverBrush}" />
+  </Style>
+  <Style Selector="c|Bubble.outline > :is(Button):pointerover">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+  </Style>
+  <Style Selector="c|Bubble.ghost > :is(Button):pointerover /template/ Border#PART_Box">
+    <Setter Property="Background" Value="{DynamicResource CosmoBubbleGhostHoverBrush}" />
+  </Style>
+  <Style Selector="c|Bubble.ghost > :is(Button):pointerover">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+  </Style>
+  <Style Selector="c|Bubble.destructive > :is(Button):pointerover /template/ Border#PART_Box">
+    <Setter Property="Background" Value="{DynamicResource CosmoBubbleDestructiveHoverBrush}" />
+  </Style>
+  <Style Selector="c|Sidebar > c|SidebarHeader">
+    <Setter Property="Grid.Row" Value="0" />
+    <Setter Property="Margin" Value="8" />
+  </Style>
+  <Style Selector="c|Sidebar > c|SidebarContent">
+    <Setter Property="Grid.Row" Value="1" />
+  </Style>
+  <Style Selector="c|Sidebar > c|SidebarFooter">
+    <Setter Property="Grid.Row" Value="2" />
+    <Setter Property="Margin" Value="8" />
+  </Style>
+  <Style Selector="c|Sidebar > c|SidebarRail">
+    <Setter Property="Grid.RowSpan" Value="3" />
+  </Style>
+  <Style Selector="c|Sidebar:floating > c|SidebarRail">
+    <Setter Property="Margin" Value="0,-9,-16,-9" />
+  </Style>
+  <Style Selector="c|Sidebar:inset > c|SidebarRail">
+    <Setter Property="Margin" Value="0,-8,-15,-8" />
+  </Style>
+  <Style Selector="c|SidebarGroup">
+    <Setter Property="Margin" Value="8" />
+  </Style>
+  <Style Selector="c|Sidebar:icon c|SidebarGroupLabel">
+    <Setter Property="Margin" Value="0,-32,0,0" />
+    <Setter Property="Opacity" Value="0" />
+  </Style>
+  <Style Selector="c|Sidebar:icon :is(Control).icon-hidden">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|Sidebar:icon c|SidebarMenuSub">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|Sidebar:icon c|SidebarMenuAction">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|Sidebar:icon c|SidebarMenuBadge">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem:action > c|SidebarMenuButton">
+    <Setter Property="Padding" Value="8,6,32,6" />
+  </Style>
+  <Style Selector="c|Sidebar:icon c|SidebarMenuButton">
+    <Setter Property="Width" Value="32" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </Style>
+  <Style Selector="c|Sidebar:icon c|SidebarMenuButton.lg">
+    <Setter Property="Padding" Value="0" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem:collapsible:not(:expanded) > c|SidebarMenuSub">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem:collapsible > c|SidebarMenuButton /template/ Viewbox#PART_Chevron">
+    <Setter Property="IsVisible" Value="True" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem:action-toggles > c|SidebarMenuButton /template/ Viewbox#PART_Chevron">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|Sidebar:icon c|SidebarMenuButton /template/ Viewbox#PART_Chevron">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem:expanded > c|SidebarMenuButton /template/ Viewbox#PART_Chevron">
+    <Setter Property="RenderTransform" Value="rotate(90deg)" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem > c|SidebarMenuAction[Toggles=True]">
+    <Setter Property="RenderTransform" Value="none" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" />
+      </Transitions>
+    </Setter>
+  </Style>
+  <Style Selector="c|SidebarMenuItem:expanded > c|SidebarMenuAction[Toggles=True]">
+    <Setter Property="RenderTransform" Value="rotate(90deg)" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem.plus > c|SidebarMenuButton /template/ Viewbox#PART_Chevron > Path">
+    <Setter Property="Data" Value="{StaticResource CosmoLucidePlusGeometry}" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem.plus > c|SidebarMenuButton /template/ Viewbox#PART_Chevron">
+    <Setter Property="RenderTransform" Value="none" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem.plus:expanded > c|SidebarMenuButton /template/ Viewbox#PART_Chevron">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem.plus:expanded > c|SidebarMenuButton /template/ Viewbox#PART_Minus">
+    <Setter Property="IsVisible" Value="True" />
+  </Style>
+  <Style Selector="c|SidebarMenuSub.flat">
+    <Setter Property="Margin" Value="1,0,13,0" />
+    <Setter Property="Padding" Value="6,2" />
+    <Setter Property="BorderThickness" Value="0" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem > c|SidebarMenuAction.show-on-hover">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
+  <Style Selector="c|SidebarMenuItem:pointerover > c|SidebarMenuAction.show-on-hover">
+    <Setter Property="Opacity" Value="1" />
+  </Style>
+  <Style Selector="c|SidebarMenuButton > StackPanel">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="c|SidebarMenuButton > StackPanel > TextBlock">
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+  </Style>
+  <Style Selector="c|DialogSurface.command c|Command /template/ Border#PART_InputWrapper">
+    <Setter Property="Height" Value="48" />
+  </Style>
+  <Style Selector="c|DialogSurface.command c|Command /template/ TextBox#PART_Input">
+    <Setter Property="Height" Value="48" />
+  </Style>
+  <Style Selector="c|DialogSurface.command c|CommandGroup">
+    <Setter Property="Padding" Value="8,4" />
+  </Style>
+  <Style Selector="c|DialogSurface.command c|CommandGroup:following">
+    <Setter Property="Padding" Value="8,0,8,4" />
+  </Style>
+  <Style Selector="c|DialogSurface.command c|CommandItem">
+    <Setter Property="Padding" Value="8,12" />
+  </Style>
+  <Style Selector="c|DialogSurface.command c|CommandItem Viewbox">
+    <Setter Property="Width" Value="20" />
+    <Setter Property="Height" Value="20" />
+  </Style>
+  <Style Selector="c|CommandItem > StackPanel">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="c|CommandItem > StackPanel > TextBlock">
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="FlyoutPresenter.combobox">
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="Width" Value="NaN" />
+  </Style>
+  <Style Selector="Button.carousel-indicator">
+    <Setter Property="Theme" Value="{DynamicResource CosmoCarouselIndicator}" />
+  </Style>
+  <Style Selector="Button > StackPanel">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="Button.sm > StackPanel">
+    <Setter Property="Spacing" Value="6" />
+  </Style>
+  <Style Selector="Button.xs > StackPanel">
+    <Setter Property="Spacing" Value="4" />
+  </Style>
+  <Style Selector="Button.navigation-menu-link > StackPanel">
+    <Setter Property="Orientation" Value="Vertical" />
+    <Setter Property="Spacing" Value="4" />
+  </Style>
+  <Style Selector="HyperlinkButton.navigation-menu-link > StackPanel">
+    <Setter Property="Orientation" Value="Vertical" />
+    <Setter Property="Spacing" Value="4" />
+  </Style>
+  <Style Selector="Button > StackPanel > TextBlock">
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="c|Badge > StackPanel">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="4" />
+  </Style>
+  <Style Selector="c|Badge > StackPanel > TextBlock">
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="c|Field[Orientation=Horizontal] > :is(Control)">
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="c|Field[Orientation=Horizontal]:content > :is(Control)">
+    <Setter Property="VerticalAlignment" Value="Top" />
+  </Style>
+  <Style Selector="c|Field[Orientation=Horizontal]:content > CheckBox, c|Field[Orientation=Horizontal]:content > RadioButton">
+    <Setter Property="Margin" Value="0,1,0,0" />
+  </Style>
+  <Style Selector="c|Field[Orientation=Vertical] > ComboBox">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+  <Style Selector="c|Message.end c|MessageContent > :is(Control):not(c|Bubble)">
+    <Setter Property="HorizontalAlignment" Value="Right" />
+  </Style>
+  <Style Selector="c|Message.end c|Bubble /template/ Panel#PART_Area">
+    <Setter Property="Grid.Column" Value="1" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+  </Style>
+  <Style Selector="c|Message.end c|Bubble:wraps /template/ Panel#PART_Area">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+  <Style Selector="Button.code-block">
+    <Setter Property="Theme" Value="{StaticResource CosmoCodeBlockButton}" />
+  </Style>
+  <Style Selector="c|CodeBlock:header c|CodeBlockContent">
+    <Setter Property="Padding" Value="16,8,16,16" />
+  </Style>
+  <Style Selector="c|CodeBlock:footer c|CodeBlockContent">
+    <Setter Property="Padding" Value="16,16,16,8" />
+  </Style>
+  <Style Selector="c|CodeBlock:header:footer c|CodeBlockContent">
+    <Setter Property="Padding" Value="16,8" />
+  </Style>
+  <Style Selector="c|CodeBlock.sm c|CodeBlockContent">
+    <Setter Property="Padding" Value="12" />
+  </Style>
+  <Style Selector="c|CodeBlock.sm:header c|CodeBlockContent">
+    <Setter Property="Padding" Value="12,6,12,12" />
+  </Style>
+  <Style Selector="c|CodeBlock.sm c|CodeBlockContent /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="TextBlock.LineHeight" Value="19.5" />
+  </Style>
+  <Style Selector="c|CodeBlock.sm c|CodeBlockLine">
+    <Setter Property="Margin" Value="-12,0" />
+    <Setter Property="Padding" Value="12,0" />
+  </Style>
+  <Style Selector="c|CodeBlockContent :is(Layoutable)">
+    <Setter Property="UseLayoutRounding" Value="False" />
+  </Style>
+  <Style Selector="c|Questionnaire.animated c|QuestionnaireItem">
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Property="Opacity" Duration="0:0:0.3" Easing="0.25,0.1,0.25,1" />
+        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.3" Easing="0.25,0.1,0.25,1" />
+      </Transitions>
+    </Setter>
+  </Style>
+  <Style Selector="c|Questionnaire.card c|QuestionnaireItem /template/ StackPanel#PART_Body">
+    <Setter Property="Margin" Value="24,0" />
+  </Style>
+  <Style Selector="c|Questionnaire.card c|QuestionnaireItem /template/ ContentPresenter#PART_Title">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+  <Style Selector="c|Questionnaire.card c|QuestionnaireItem /template/ ContentPresenter#PART_Description">
+    <Setter Property="Margin" Value="0,8,0,0" />
+  </Style>
+  <Style Selector="c|Questionnaire.card-title c|QuestionnaireItem /template/ ContentPresenter#PART_Title">
+    <Setter Property="TextBlock.LineHeight" Value="16" />
+  </Style>
+  <Style Selector="c|Questionnaire.card c|QuestionnaireItem /template/ TextBlock#PART_Progress">
+    <Setter Property="IsVisible" Value="True" />
+    <Setter Property="MinWidth" Value="114" />
+  </Style>
+  <Style Selector="c|Questionnaire.card.fit-progress c|QuestionnaireItem /template/ TextBlock#PART_Progress">
+    <Setter Property="MinWidth" Value="0" />
+  </Style>
+  <Style Selector="Border.questionnaire-segment">
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+  </Style>
+  <Style Selector="Border.questionnaire-segment.done">
+    <Setter Property="Background" Value="{DynamicResource CosmoPrimaryBrush}" />
+  </Style>
+  <Style Selector=":is(Button).trace">
+    <Setter Property="Theme" Value="{StaticResource CosmoTraceAction}" />
+  </Style>
+  <Style Selector=":is(Button).trace:pointerover c|TraceLine:not(:error)">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+  </Style>
+  <Style Selector="c|CodeBlockLine.hunk">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+  </Style>
+  <Style Selector="c|DialogHeader.mono /template/ ContentPresenter#PART_Title">
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontMono}" />
+  </Style>
+  <Style Selector="StackPanel.markdown-body, StackPanel.markdown-body :is(Layoutable)">
+    <Setter Property="UseLayoutRounding" Value="False" />
+  </Style>
+  <Style Selector="Border.markdown-code">
+    <Setter Property="a:Web.Tag" Value="code" />
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="CornerRadius" Value="6" />
+    <Setter Property="Padding" Value="4,2" />
+    <Setter Property="Margin" Value="0,0,0,-5.09" />
+  </Style>
+  <Style Selector="Border.markdown-code > TextBlock">
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontCode}" />
+    <Setter Property="FontSize" Value="12.6" />
+    <Setter Property="LineHeight" Value="15.12" />
+  </Style>
+  <Style Selector="Border.markdown-quote">
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoMarkdownQuoteBrush}" />
+    <Setter Property="BorderThickness" Value="4,0,0,0" />
+    <Setter Property="Padding" Value="16,0,0,0" />
+  </Style>
+  <Style Selector="Border.markdown-quote TextBlock">
+    <Setter Property="FontStyle" Value="Italic" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+  </Style>
+  <Style Selector="c|CodeBlock:floating c|CodeBlockCopyButton /template/ Border#PART_Box">
+    <Setter Property="BoxShadow" Value="{DynamicResource CosmoCodeBlockFloatingShadow}" />
+  </Style>
+  <Style Selector="c|CodeBlockContent.show-more /template/ ScrollViewer#PART_Viewport">
+    <Setter Property="a:Web.ScrollFade" Value="y" />
+  </Style>
+  <Style Selector="c|Collapsible:not(:open) c|CodeBlockContent.show-more">
+    <Setter Property="MaxHeight" Value="256" />
+  </Style>
+  <Style Selector="c|Collapsible:not(:open) c|CodeBlockContent.show-more /template/ ScrollViewer#PART_Viewport">
+    <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
+  </Style>
+  <Style Selector="c|Collapsible:open c|CodeBlockContent.show-more.scroll">
+    <Setter Property="MaxHeight" Value="384" />
+  </Style>
+  <Style Selector="c|CodeBlock c|CollapsibleTrigger.ghost.xs">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+  </Style>
+  <Style Selector="c|CollapsibleTrigger.code-block">
+    <Setter Property="Theme" Value="{StaticResource CosmoCodeBlockButton}" />
+  </Style>
+  <Style Selector="c|Collapsible:open c|CollapsibleTrigger.code-block">
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+  </Style>
+  <Style Selector="c|Collapsible:open c|CodeBlockContent.wrap-toggle">
+    <Setter Property="Wrap" Value="True" />
+  </Style>
+  <Style Selector="c|CodeBlockContent:wrap TextBlock">
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+  <Style Selector="c|FieldGroup > c|FieldGroup">
+    <Setter Property="Spacing" Value="16" />
+  </Style>
+  <Style Selector="c|Field[Orientation=Horizontal] c|FieldDescription">
+    <Setter Property="a:Web.TextWrap" Value="balance" />
+  </Style>
+  <Style Selector="c|Field > c|FieldDescription:nth-last-child(2)">
+    <Setter Property="Margin" Value="0,-4,0,0" />
+  </Style>
+  <Style Selector="c|FieldSet > c|FieldDescription:nth-child(2)">
+    <Setter Property="Margin" Value="0,-6,0,0" />
+  </Style>
+  <Style Selector="ToggleButton > StackPanel">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="ListBox.toggle-group">
+    <Setter Property="Theme" Value="{StaticResource CosmoToggleGroup}" />
+  </Style>
+  <Style Selector="ListBox.toggle-group > ListBoxItem:nth-child(1)">
+    <Setter Property="CornerRadius" Value="8,0,0,8" />
+  </Style>
+  <Style Selector="ListBox.toggle-group > ListBoxItem:nth-last-child(1)">
+    <Setter Property="CornerRadius" Value="0,8,8,0" />
+  </Style>
+  <Style Selector="ListBox.toggle-group > ListBoxItem:nth-child(1):nth-last-child(1)">
+    <Setter Property="CornerRadius" Value="8" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.outline > ListBoxItem">
+    <Setter Property="BorderThickness" Value="0,1,1,1" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.outline > ListBoxItem:nth-child(1)">
+    <Setter Property="BorderThickness" Value="1" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.outline > ListBoxItem:pointerover">
+    <Setter Property="Background" Value="{DynamicResource CosmoAccentBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoAccentForegroundBrush}" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.spacing > ListBoxItem">
+    <Setter Property="CornerRadius" Value="8" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.spacing.outline > ListBoxItem">
+    <Setter Property="BorderThickness" Value="1" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.spacing.outline > ListBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowXs}" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.sm > ListBoxItem">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="MinHeight" Value="32" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.lg > ListBoxItem">
+    <Setter Property="Height" Value="40" />
+    <Setter Property="MinHeight" Value="40" />
+  </Style>
+  <Style Selector="ListBox.toggle-group > ListBoxItem > StackPanel">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="c|InputGroup > TextBox">
+    <Setter Property="Grid.Column" Value="1" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="8,4" />
+    <Setter Property="Margin" Value="0,-1" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="c|InputGroup > TextBox /template/ Border#PART_BorderElement">
+    <Setter Property="BoxShadow" Value="none" />
+  </Style>
+  <Style Selector="c|InputGroup > TextBox:focus /template/ Border#PART_BorderElement">
+    <Setter Property="BoxShadow" Value="none" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+  </Style>
+  <Style Selector="c|InputGroup > TextBox[AcceptsReturn=True]">
+    <Setter Property="Padding" Value="12" />
+    <Setter Property="Margin" Value="0" />
+    <Setter Property="Grid.Column" Value="0" />
+    <Setter Property="Grid.ColumnSpan" Value="3" />
+  </Style>
+  <Style Selector="c|InputGroupAddon > StackPanel">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="c|RangeSlider /template/ Slider /template/ RepeatButton">
+    <Setter Property="IsHitTestVisible" Value="False" />
+  </Style>
+  <Style Selector="c|InputOtp Border.otp-box">
+    <Setter Property="Background" Value="{DynamicResource CosmoInputBackgroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="0,1,1,1" />
+    <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowXs}" />
+  </Style>
+  <Style Selector="c|InputOtp Border.otp-box.first">
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="8,0,0,8" />
+  </Style>
+  <Style Selector="c|InputOtp Border.otp-box.last">
+    <Setter Property="CornerRadius" Value="0,8,8,0" />
+  </Style>
+  <Style Selector="c|InputOtp Border.otp-box.first.last">
+    <Setter Property="CornerRadius" Value="8" />
+  </Style>
+  <Style Selector="c|InputOtp Border.otp-box.active">
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineFocusShadow}" />
+    <Setter Property="ZIndex" Value="10" />
+  </Style>
+  <Style Selector="MenuFlyoutPresenter Separator, ContextMenu Separator, MenuItem Separator">
+    <Setter Property="Theme" Value="{StaticResource CosmoMenuSeparator}" />
+  </Style>
+  <Style Selector="c|DialogFooter">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="8" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+  </Style>
+  <Style Selector="c|DialogSurface.alert c|DialogHeader /template/ StackPanel#PART_Stack">
+    <Setter Property="Spacing" Value="6" />
+  </Style>
+  <Style Selector="c|DialogSurface.alert c|DialogHeader /template/ ContentPresenter#PART_Title">
+    <Setter Property="TextBlock.LineHeight" Value="28" />
+  </Style>
+  <Style Selector="c|DialogSurface.sheet c|DialogHeader, c|DialogSurface.drawer c|DialogHeader">
+    <Setter Property="Padding" Value="16" />
+  </Style>
+  <Style Selector="c|DialogSurface.sheet c|DialogHeader /template/ StackPanel#PART_Stack">
+    <Setter Property="Spacing" Value="6" />
+  </Style>
+  <Style Selector="c|DialogSurface.drawer c|DialogHeader /template/ StackPanel#PART_Stack">
+    <Setter Property="Spacing" Value="2" />
+  </Style>
+  <Style Selector="c|DialogSurface.sheet c|DialogHeader /template/ ContentPresenter#PART_Title, c|DialogSurface.drawer c|DialogHeader /template/ ContentPresenter#PART_Title">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="TextBlock.LineHeight" Value="24" />
+  </Style>
+  <Style Selector="c|DialogSurface.drawer c|DialogHeader /template/ ContentPresenter">
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+  </Style>
+  <Style Selector="c|DialogSurface.sheet c|DialogFooter, c|DialogSurface.drawer c|DialogFooter">
+    <Setter Property="Orientation" Value="Vertical" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Margin" Value="16" />
+  </Style>
+  <Style Selector="c|DialogSurface.sheet c|DialogFooter > Button, c|DialogSurface.drawer c|DialogFooter > Button">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+  <Style Selector="Border.cosmo-overlay">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+    <Setter Property="c:Motion.EnterOpacity" Value="0" />
+    <Setter Property="c:Motion.ExitOpacity" Value="0" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Property="Opacity" Duration="0:0:0.150" Easing="0.25,0.1,0.25,1" />
+      </Transitions>
+    </Setter>
+  </Style>
+  <Style Selector="Path.spin">
+    <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+    <Style.Animations>
+      <Animation Duration="0:0:1" IterationCount="Infinite">
+        <KeyFrame Cue="0%">
+          <Setter Property="RotateTransform.Angle" Value="0" />
+        </KeyFrame>
+        <KeyFrame Cue="100%">
+          <Setter Property="RotateTransform.Angle" Value="360" />
+        </KeyFrame>
+      </Animation>
+    </Style.Animations>
+  </Style>
+  <StyleInclude Source="avares://Aioros.Cosmo/Display/Typography.axaml" />
+  <Style Selector="ScrollViewer.scroll-area">
+    <Setter Property="Theme" Value="{StaticResource CosmoScrollArea}" />
+  </Style>
+  <Style Selector="Button.navigation-menu-trigger">
+    <Setter Property="Theme" Value="{StaticResource CosmoNavigationMenuItem}" />
+  </Style>
+  <Style Selector="HyperlinkButton.navigation-menu-trigger">
+    <Setter Property="Theme" Value="{StaticResource CosmoNavigationMenuItem}" />
+  </Style>
+  <Style Selector="HyperlinkButton.navigation-menu-link">
+    <Setter Property="Theme" Value="{StaticResource CosmoNavigationMenuLink}" />
+  </Style>
+  <Style Selector="Button.navigation-menu-link">
+    <Setter Property="Theme" Value="{StaticResource CosmoNavigationMenuLink}" />
+  </Style>
+  <Style Selector="c|Skeleton">
+    <Style.Animations>
+      <Animation Duration="0:0:2" IterationCount="Infinite" Easing="0.4,0,0.6,1">
+        <KeyFrame Cue="0%">
+          <Setter Property="Opacity" Value="1" />
+        </KeyFrame>
+        <KeyFrame Cue="50%">
+          <Setter Property="Opacity" Value="0.5" />
+        </KeyFrame>
+        <KeyFrame Cue="100%">
+          <Setter Property="Opacity" Value="1" />
+        </KeyFrame>
+      </Animation>
+    </Style.Animations>
+  </Style>
+  <Style Selector="c|Spinner">
+    <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+    <Style.Animations>
+      <Animation Duration="0:0:1" IterationCount="Infinite">
+        <KeyFrame Cue="0%">
+          <Setter Property="RotateTransform.Angle" Value="0" />
+        </KeyFrame>
+        <KeyFrame Cue="100%">
+          <Setter Property="RotateTransform.Angle" Value="360" />
+        </KeyFrame>
+      </Animation>
+    </Style.Animations>
+  </Style>
+  <Style Selector="c|Badge > StackPanel > c|Spinner">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="c|KbdGroup">
+    <Setter Property="Orientation" Value="Horizontal" />
+    <Setter Property="Spacing" Value="4" />
+  </Style>
+  <Style Selector="c|KbdGroup > TextBlock">
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="c|AvatarGroup c|Avatar /template/ Border#PART_Ring">
+    <Setter Property="BoxShadow" Value="{DynamicResource CosmoRingBackgroundShadow}" />
+  </Style>
+  <Style Selector="TabControl[TabStripPlacement=Left] TabItem">
+    <Setter Property="Height" Value="NaN" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+  <Style Selector="TabControl[TabStripPlacement=Left] TabItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </Style>
+  <Style Selector="TabControl[TabStripPlacement=Left] TabItem /template/ Border#PART_SelectedPipe">
+    <Setter Property="Width" Value="2" />
+    <Setter Property="Height" Value="NaN" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+    <Setter Property="Margin" Value="0,0,-4,0" />
+  </Style>
+  <Style Selector="TabControl.line TabItem:selected">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+  </Style>
+  <Style Selector="TabControl.line TabItem:selected /template/ Border#PART_LayoutRoot">
+    <Setter Property="BoxShadow" Value="0 0 0 0 Transparent" />
+  </Style>
+  <Style Selector="TabControl.line TabItem:selected /template/ Border#PART_SelectedPipe">
+    <Setter Property="Opacity" Value="1" />
+  </Style>
+  <Style Selector="TabControl.line TabItem:focus-visible /template/ Border#PART_LayoutRoot">
+    <Setter Property="BoxShadow" Value="{DynamicResource CosmoTabsFocusShadow}" />
+  </Style>
+  <Style Selector="TabControl.line TabItem:selected:focus-visible /template/ Border#PART_LayoutRoot">
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoTabsLineFocusBorderBrush}" />
+  </Style>
+  <Style Selector="c|AvatarGroup:sm c|AvatarGroupCount">
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+  </Style>
+  <Style Selector="c|AvatarGroup:lg c|AvatarGroupCount">
+    <Setter Property="Width" Value="40" />
+    <Setter Property="Height" Value="40" />
+  </Style>
+  <Style Selector="c|Avatar.sm c|AvatarBadge">
+    <Setter Property="Width" Value="8" />
+    <Setter Property="Height" Value="8" />
+  </Style>
+  <Style Selector="c|Avatar.sm c|AvatarBadge /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="c|Avatar.lg c|AvatarBadge">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="c|List.inside > c|ListItem">
+    <Setter Property="Margin" Value="0" />
+  </Style>
+  <Style Selector="c|List.inside > c|ListItem /template/ Ellipse#PART_Bullet">
+    <Setter Property="Width" Value="4" />
+    <Setter Property="Height" Value="4" />
+    <Setter Property="Margin" Value="0.5,9,0,0" />
+  </Style>
+  <Style Selector="c|List.inside > c|ListItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Margin" Value="19,0,0,0" />
+  </Style>
+  <Style Selector="c|QuestionnaireItem:invalid :is(ToggleButton) /template/ Border#PART_Card">
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoDestructiveBrush}" />
+  </Style>
+  <Style Selector="Expander.trace">
+    <Setter Property="Theme" Value="{StaticResource CosmoTraceCollapsible}" />
+  </Style>
+  <Style Selector="Expander.collapsible">
+    <Setter Property="Theme" Value="{StaticResource CosmoCollapsible}" />
+  </Style>
+  <Style Selector="Expander.sidebar-group">
+    <Setter Property="Theme" Value="{StaticResource CosmoSidebarGroup}" />
+  </Style>
+  <Style Selector="Expander:not(.collapsible):not(.sidebar-group) /template/ ToggleButton#ExpanderHeader:pointerover TextBlock">
+    <Setter Property="TextDecorations" Value="Underline" />
+  </Style>
+  <Style Selector="c|Accordion > Expander:nth-last-child(1)">
+    <Setter Property="BorderThickness" Value="0" />
+  </Style>
+  <Style Selector="c|Breadcrumb Button">
+    <Setter Property="Theme" Value="{StaticResource CosmoBreadcrumbTrigger}" />
+  </Style>
+  <Style Selector="c|Breadcrumb HyperlinkButton">
+    <Setter Property="Theme" Value="{StaticResource CosmoBreadcrumbLink}" />
+  </Style>
+  <Style Selector="c|ButtonGroup">
+    <Setter Property="Orientation" Value="Horizontal" />
+  </Style>
+  <Style Selector="c|ButtonGroup > :is(TemplatedControl):nth-child(1):not(:nth-last-child(1))">
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMdStart}" />
+  </Style>
+  <Style Selector="c|ButtonGroup > :is(TemplatedControl):nth-last-child(1):not(:nth-child(1))">
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMdEnd}" />
+  </Style>
+  <Style Selector="c|ButtonGroup > :is(TemplatedControl):not(:nth-child(1)):not(:nth-last-child(1))">
+    <Setter Property="CornerRadius" Value="0" />
+  </Style>
+  <Style Selector="c|ButtonGroup > Button.outline:not(:nth-child(1)), c|ButtonGroup > TextBox:not(:nth-child(1)), c|ButtonGroup > ComboBox:not(:nth-child(1)), c|ButtonGroup > c|ButtonGroupText:not(:nth-child(1))">
+    <Setter Property="BorderThickness" Value="0,1,1,1" />
+  </Style>
+  <Style Selector="c|ButtonGroup[Orientation=Vertical] > :is(TemplatedControl):nth-child(1):not(:nth-last-child(1))">
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMdTop}" />
+  </Style>
+  <Style Selector="c|ButtonGroup[Orientation=Vertical] > :is(TemplatedControl):nth-last-child(1):not(:nth-child(1))">
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMdBottom}" />
+  </Style>
+  <Style Selector="c|ButtonGroup[Orientation=Vertical] > Button.outline:not(:nth-child(1)), c|ButtonGroup[Orientation=Vertical] > TextBox:not(:nth-child(1)), c|ButtonGroup[Orientation=Vertical] > ComboBox:not(:nth-child(1)), c|ButtonGroup[Orientation=Vertical] > c|ButtonGroupText:not(:nth-child(1))">
+    <Setter Property="BorderThickness" Value="1,0,1,1" />
+  </Style>
+  <Style Selector="c|ButtonGroup > c|ButtonGroup:not(:nth-child(1))">
+    <Setter Property="Margin" Value="8,0,0,0" />
+  </Style>
+  <Style Selector="c|ButtonGroup > Separator">
+    <Setter Property="Background" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="Width" Value="1" />
+    <Setter Property="Height" Value="NaN" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+  </Style>
+  <Style Selector="c|ButtonGroup > :is(Control):focus-visible">
+    <Setter Property="ZIndex" Value="10" />
+  </Style>
+  <Style Selector="Window">
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontSans}" />
+    <Setter Property="Background" Value="{DynamicResource CosmoBackgroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+  </Style>
+</Styles>

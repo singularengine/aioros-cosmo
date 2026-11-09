@@ -1,0 +1,119 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <MenuFlyout x:Key="CosmoTextBoxContextFlyout">
+    <MenuItem Header="{DynamicResource StringTextFlyoutCutText}" Command="{Binding $parent[TextBox].Cut}" IsEnabled="{Binding $parent[TextBox].CanCut}" InputGesture="{x:Static TextBox.CutGesture}" />
+    <MenuItem Header="{DynamicResource StringTextFlyoutCopyText}" Command="{Binding $parent[TextBox].Copy}" IsEnabled="{Binding $parent[TextBox].CanCopy}" InputGesture="{x:Static TextBox.CopyGesture}" />
+    <MenuItem Header="{DynamicResource StringTextFlyoutPasteText}" Command="{Binding $parent[TextBox].Paste}" IsEnabled="{Binding $parent[TextBox].CanPaste}" InputGesture="{x:Static TextBox.PasteGesture}" />
+  </MenuFlyout>
+
+  <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
+    <Setter Property="ContextFlyout" Value="{StaticResource CosmoTextBoxContextFlyout}" />
+    <Setter Property="Background" Value="{DynamicResource CosmoInputBackgroundBrush}" />
+    <Setter Property="CaretBrush" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource CosmoPrimaryForegroundBrush}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="Padding" Value="12,4" />
+    <Setter Property="MinHeight" Value="36" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DataValidationErrors>
+          <Panel MinHeight="{TemplateBinding MinHeight}">
+            <Border Name="PART_BorderElement"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}" />
+            <Border Margin="{TemplateBinding BorderThickness}">
+              <Grid ColumnDefinitions="Auto,*,Auto">
+                <ContentPresenter Grid.Column="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Content="{TemplateBinding InnerLeftContent}" />
+                <DockPanel Name="PART_InnerDockPanel" Grid.Column="1" Margin="{TemplateBinding Padding}">
+                  <ScrollViewer Name="PART_ScrollViewer"
+                                HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+                    <Panel>
+                      <TextBlock Name="PART_Placeholder"
+                                 Foreground="{TemplateBinding PlaceholderForeground}"
+                                 Text="{TemplateBinding PlaceholderText}"
+                                 TextAlignment="{TemplateBinding TextAlignment}"
+                                 TextWrapping="{TemplateBinding TextWrapping}"
+                                 LineHeight="{TemplateBinding LineHeight}"
+                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        <TextBlock.IsVisible>
+                          <MultiBinding Converter="{x:Static BoolConverters.And}">
+                            <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                          </MultiBinding>
+                        </TextBlock.IsVisible>
+                      </TextBlock>
+                      <TextPresenter Name="PART_TextPresenter"
+                                     Text="{TemplateBinding Text, Mode=TwoWay}"
+                                     CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                     CaretIndex="{TemplateBinding CaretIndex}"
+                                     SelectionStart="{TemplateBinding SelectionStart}"
+                                     SelectionEnd="{TemplateBinding SelectionEnd}"
+                                     TextAlignment="{TemplateBinding TextAlignment}"
+                                     TextWrapping="{TemplateBinding TextWrapping}"
+                                     LineHeight="{TemplateBinding LineHeight}"
+                                     LetterSpacing="{TemplateBinding LetterSpacing}"
+                                     PasswordChar="{TemplateBinding PasswordChar}"
+                                     RevealPassword="{TemplateBinding RevealPassword}"
+                                     SelectionBrush="{TemplateBinding SelectionBrush}"
+                                     SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                     CaretBrush="{TemplateBinding CaretBrush}"
+                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Panel>
+                    <ScrollViewer.Styles>
+                      <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Cursor" Value="IBeam" />
+                      </Style>
+                    </ScrollViewer.Styles>
+                  </ScrollViewer>
+                </DockPanel>
+                <ContentPresenter Grid.Column="2" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Content="{TemplateBinding InnerRightContent}" />
+              </Grid>
+            </Border>
+          </Panel>
+        </DataValidationErrors>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Border#PART_BorderElement">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowXs}" />
+    </Style>
+    <Style Selector="^[AcceptsReturn=True]">
+      <Setter Property="MinHeight" Value="64" />
+      <Setter Property="Padding" Value="12,8" />
+      <Setter Property="TextWrapping" Value="Wrap" />
+      <Setter Property="VerticalContentAlignment" Value="Top" />
+    </Style>
+    <Style Selector="^:focus /template/ Border#PART_BorderElement">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineFocusShadow}" />
+    </Style>
+    <Style Selector="^:error /template/ Border#PART_BorderElement">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoDestructiveBrush}" />
+    </Style>
+    <Style Selector="^:error:focus /template/ Border#PART_BorderElement">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoInvalidFocusShadow}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

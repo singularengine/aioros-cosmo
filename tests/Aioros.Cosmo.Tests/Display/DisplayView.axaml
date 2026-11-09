@@ -1,0 +1,96 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Display"
+             x:Class="Aioros.Cosmo.Tests.Display.DisplayView" x:DataType="t:DisplayModel">
+  <StackPanel Spacing="16" Margin="24" Width="592" HorizontalAlignment="Left">
+    <StackPanel Name="SeparatorRow" Orientation="Horizontal" Height="20" Spacing="16">
+      <TextBlock Text="Blog" />
+      <Separator Name="BoundSeparator" IsVisible="{Binding HideSeparator, Converter={x:Static BoolConverters.Not}}" Classes.vertical="{Binding Vertical}" />
+      <TextBlock Text="Docs" />
+    </StackPanel>
+    <Separator Name="WideSeparator" IsVisible="{Binding HideSeparator, Converter={x:Static BoolConverters.Not}}" Classes.vertical="{Binding Vertical}" />
+
+    <ItemsControl Name="FileItems" ItemsSource="{Binding Files}">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate><c:ItemGroup /></ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+        <DataTemplate x:DataType="t:ProjectModel">
+          <c:Item Title="{Binding Name}" Description="{Binding Files, StringFormat='{}{0} files'}">
+            <c:Item.Actions>
+              <Button Content="Remove" Command="{Binding $parent[ItemsControl].((t:DisplayModel)DataContext).RemoveProject}" CommandParameter="{Binding}" />
+            </c:Item.Actions>
+          </c:Item>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+    <StackPanel Name="Skeletons" Spacing="8" IsVisible="{Binding Loading}">
+      <c:Skeleton Width="250" Height="16" />
+      <c:Skeleton Width="200" Height="16" />
+    </StackPanel>
+    <ItemsControl Name="LoadedFiles" ItemsSource="{Binding Files}" IsVisible="{Binding Loading, Converter={x:Static BoolConverters.Not}}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate x:DataType="t:ProjectModel">
+          <TextBlock Text="{Binding Name}" />
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+    <Button Name="SaveButton" Classes="has-icon" Command="{Binding Save}" IsEnabled="{Binding !Saving}">
+      <StackPanel>
+        <c:Spinner Name="SaveSpinner" IsVisible="{Binding Saving}" />
+        <TextBlock Name="SaveText" Text="{Binding Saving, Converter={x:Static t:DisplayLabels.Save}}" />
+      </StackPanel>
+    </Button>
+
+    <ItemsControl Name="Keys" ItemsSource="{Binding Keys}">
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate><c:KbdGroup /></ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate>
+        <DataTemplate x:DataType="x:String">
+          <c:Kbd Content="{Binding}" />
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+    <c:AvatarGroup Name="Members" ItemsSource="{Binding Members}">
+      <c:AvatarGroup.ItemTemplate>
+        <DataTemplate x:DataType="t:MemberModel">
+          <c:Avatar Source="{Binding Picture}" Content="{Binding Name, Converter={x:Static t:DisplayModel.Initials}}" />
+        </DataTemplate>
+      </c:AvatarGroup.ItemTemplate>
+    </c:AvatarGroup>
+
+    <c:Alert Name="BoundAlert" Classes.destructive="{Binding Failed}" Title="{Binding AlertTitle}">
+      <TextBlock Text="{Binding Saves, StringFormat='Saved {0} time(s).'}" IsVisible="{Binding !Failed}" />
+    </c:Alert>
+    <TextBlock Name="AlertError" Text="{Binding AlertMessage}" IsVisible="{Binding Failed}" />
+
+    <c:AspectRatio Name="BoundRatio" Ratio="{Binding Ratio}" Width="450" HorizontalAlignment="Left">
+      <Border Background="{DynamicResource CosmoMutedBrush}" />
+    </c:AspectRatio>
+
+    <TextBlock Name="LevelsHeading" Classes="typography h4" Text="{Binding Levels.Count, StringFormat='{}{0} levels'}" />
+    <TextBlock Name="Lead" Classes="typography lead" Text="Lead" IsVisible="{Binding ShowLead}" />
+    <c:List Name="LevelList" ItemsSource="{Binding Levels}">
+      <c:List.ItemTemplate>
+        <DataTemplate x:DataType="x:String">
+          <TextBlock Text="{Binding}" />
+        </DataTemplate>
+      </c:List.ItemTemplate>
+    </c:List>
+
+    <ItemsControl Name="Projects" ItemsSource="{Binding Projects}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate x:DataType="t:ProjectModel">
+          <TextBlock Text="{Binding Name}" />
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+    <c:Empty Name="NoProjects" Title="No projects" Description="Create one." IsVisible="{Binding !Projects.Count}">
+      <Button Name="CreateProject" Content="Create" Command="{Binding AddProject}" />
+    </c:Empty>
+
+  </StackPanel>
+</UserControl>

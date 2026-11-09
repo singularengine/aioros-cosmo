@@ -1,0 +1,87 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:ChoiceExamples"
+             a:Page.Title="Toggle Group" a:Page.Description="A set of two-state buttons that can be toggled on or off.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Toggle Group" />
+      <TextBlock Classes="lead" Text="A set of two-state buttons that can be toggled on or off." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: toggle-group" />
+        <c:Badge Classes="secondary" Content="Avalonia: ListBox (toggle-group class)" />
+        <c:Badge Classes="secondary" Content="Web: radios or checkboxes" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="A ListBox with the toggle-group class: SelectionMode Multiple,Toggle is shadcn&#x27;s type=multiple, Toggle (single, deselectable) its type=single." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ListBox Classes="toggle-group outline" SelectionMode="Multiple,Toggle">
+            <ListBoxItem AutomationProperties.Name="Heart"><a:Icon Kind="heart" Size="16" /></ListBoxItem>
+            <ListBoxItem AutomationProperties.Name="Star"><a:Icon Kind="star" Size="16" /></ListBoxItem>
+            <ListBoxItem AutomationProperties.Name="Bell"><a:Icon Kind="bell" Size="16" /></ListBoxItem>
+          </ListBox>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ListBox Classes=&quot;toggle-group outline&quot; SelectionMode=&quot;Multiple,Toggle&quot;&gt;&#10;  &lt;ListBoxItem AutomationProperties.Name=&quot;Heart&quot;&gt;&lt;a:Icon Kind=&quot;heart&quot; Size=&quot;16&quot; /&gt;&lt;/ListBoxItem&gt;&#10;  &lt;ListBoxItem AutomationProperties.Name=&quot;Star&quot;&gt;&lt;a:Icon Kind=&quot;star&quot; Size=&quot;16&quot; /&gt;&lt;/ListBoxItem&gt;&#10;  &lt;ListBoxItem AutomationProperties.Name=&quot;Bell&quot;&gt;&lt;a:Icon Kind=&quot;bell&quot; Size=&quot;16&quot; /&gt;&lt;/ListBoxItem&gt;&#10;&lt;/ListBox&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Single" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ListBox Classes="toggle-group" SelectionMode="Toggle" SelectedIndex="1">
+            <ListBoxItem Content="Left" />
+            <ListBoxItem Content="Center" />
+            <ListBoxItem Content="Right" />
+          </ListBox>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ListBox Classes=&quot;toggle-group&quot; SelectionMode=&quot;Toggle&quot; SelectedIndex=&quot;1&quot;&gt;&#10;  &lt;ListBoxItem Content=&quot;Left&quot; /&gt;&#10;  &lt;ListBoxItem Content=&quot;Center&quot; /&gt;&#10;  &lt;ListBoxItem Content=&quot;Right&quot; /&gt;&#10;&lt;/ListBox&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Spacing and size" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ListBox Classes="toggle-group outline sm spacing" SelectionMode="Toggle" SelectedIndex="0">
+            <ListBoxItem Content="Day" />
+            <ListBoxItem Content="Week" />
+            <ListBoxItem Content="Month" />
+          </ListBox>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ListBox Classes=&quot;toggle-group outline sm spacing&quot; SelectionMode=&quot;Toggle&quot; SelectedIndex=&quot;0&quot;&gt;&#10;  &lt;ListBoxItem Content=&quot;Day&quot; /&gt;&#10;  &lt;ListBoxItem Content=&quot;Week&quot; /&gt;&#10;  &lt;ListBoxItem Content=&quot;Month&quot; /&gt;&#10;&lt;/ListBox&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding and templates" />
+      <TextBlock Classes="sm muted" Text="Items from the model with an ItemTemplate; the single group&#x27;s SelectedItem is bound two way (a bound SelectedItems is not planned on the web yet)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <ListBox Classes="toggle-group outline" SelectionMode="Multiple,Toggle" ItemsSource="{Binding FormatChoices}" AutomationProperties.Name="Formats">
+              <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                  <TextBlock Text="{Binding}" />
+                </DataTemplate>
+              </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Classes="toggle-group" SelectionMode="Toggle" ItemsSource="{Binding Alignments}" SelectedItem="{Binding Alignment}" AutomationProperties.Name="Alignment" />
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Classes="outline" Command="{Binding AlignCommand}" Content="Apply" />
+              <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;ListBox Classes=&quot;toggle-group outline&quot; SelectionMode=&quot;Multiple,Toggle&quot; ItemsSource=&quot;{Binding FormatChoices}&quot; AutomationProperties.Name=&quot;Formats&quot;&gt;&#10;    &lt;ListBox.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;x:String&quot;&gt;&#10;        &lt;TextBlock Text=&quot;{Binding}&quot; /&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/ListBox.ItemTemplate&gt;&#10;  &lt;/ListBox&gt;&#10;  &lt;ListBox Classes=&quot;toggle-group&quot; SelectionMode=&quot;Toggle&quot; ItemsSource=&quot;{Binding Alignments}&quot; SelectedItem=&quot;{Binding Alignment}&quot; AutomationProperties.Name=&quot;Alignment&quot; /&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Command=&quot;{Binding AlignCommand}&quot; Content=&quot;Apply&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; VerticalAlignment=&quot;Center&quot; Text=&quot;{Binding Status}&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="toggle-group" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Gives the ListBox the toggle group&#x27;s look." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="SelectionMode" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Toggle (type=single, deselectable) or Multiple,Toggle (type=multiple)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="outline, sm, lg, spacing" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Bordered items, 32 or 40 px items, items 8 px apart each rounded." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="SelectedItem, SelectedItems, ItemTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The ListBox&#x27;s own selection and templates, bindable." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

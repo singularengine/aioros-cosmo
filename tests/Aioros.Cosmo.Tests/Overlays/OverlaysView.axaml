@@ -1,0 +1,119 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Overlays"
+             x:Class="Aioros.Cosmo.Tests.Overlays.OverlaysView" x:DataType="t:OverlaysModel">
+  <StackPanel Spacing="16" Margin="24" HorizontalAlignment="Left">
+    <Button Name="PopoverTrigger" Classes="outline" Content="Layers" c:Popover.IsOpen="{Binding PopoverOpen}">
+      <Button.Flyout>
+        <Flyout>
+          <StackPanel Spacing="8">
+            <ContentControl Name="PopoverLayer" Content="{Binding Layer}">
+              <ContentControl.ContentTemplate>
+                <DataTemplate x:DataType="x:String">
+                  <TextBlock Text="{Binding StringFormat='Layer: {0}'}" />
+                </DataTemplate>
+              </ContentControl.ContentTemplate>
+            </ContentControl>
+            <Button Name="PopoverApply" Content="Apply" Command="{Binding Run}" CommandParameter="apply" />
+          </StackPanel>
+        </Flyout>
+      </Button.Flyout>
+    </Button>
+    <Button Name="UnreadTip" Content="Inbox" ToolTip.Tip="{Binding Unread, StringFormat='{}{0} unread'}" />
+    <Button Name="NoteTip" Content="Note">
+      <ToolTip.Tip>
+        <ToolTip Content="{Binding Note}">
+          <ToolTip.ContentTemplate>
+            <DataTemplate x:DataType="t:NoteModel">
+              <TextBlock Text="{Binding Text, StringFormat='Note: {0}'}" />
+            </DataTemplate>
+          </ToolTip.ContentTemplate>
+        </ToolTip>
+      </ToolTip.Tip>
+    </Button>
+    <HyperlinkButton Name="UserLink" Classes="link" Content="{Binding User.Handle}" c:HoverCard.OpenDelay="0" c:HoverCard.CloseDelay="0">
+      <c:HoverCard.Card>
+        <StackPanel Spacing="4">
+          <TextBlock Name="CardName" Text="{Binding User.Name}" FontWeight="SemiBold" />
+          <ContentControl Name="CardJoined" Content="{Binding User}">
+            <ContentControl.ContentTemplate>
+              <DataTemplate x:DataType="t:UserModel">
+                <TextBlock Text="{Binding Joined, StringFormat='Joined {0}'}" />
+              </DataTemplate>
+            </ContentControl.ContentTemplate>
+          </ContentControl>
+        </StackPanel>
+      </c:HoverCard.Card>
+    </HyperlinkButton>
+    <Button Name="MenuTrigger" Classes="outline" Content="Menu" c:Popover.IsOpen="{Binding MenuOpen}">
+      <Button.Flyout>
+        <MenuFlyout>
+          <MenuItem Name="ProfileItem" Header="Profile" Command="{Binding Run}" CommandParameter="profile" />
+          <MenuItem Name="DeleteItem" Header="Delete" Command="{Binding Blocked}" />
+          <MenuItem Name="StatusItem" Header="Status Bar" ToggleType="CheckBox" IsChecked="{Binding StatusBar, Mode=TwoWay}" />
+          <Separator />
+          <MenuItem Name="TopItem" Header="Top" ToggleType="Radio" GroupName="position" IsChecked="True" />
+          <MenuItem Name="BottomItem" Header="Bottom" ToggleType="Radio" GroupName="position" />
+        </MenuFlyout>
+      </Button.Flyout>
+    </Button>
+    <Button Name="RecentTrigger" Classes="outline" Content="Recent">
+      <Button.Flyout>
+        <MenuFlyout ItemsSource="{Binding Recent}">
+          <MenuFlyout.ItemTemplate>
+            <DataTemplate x:DataType="t:RecentFile">
+              <TextBlock Text="{Binding Name, StringFormat='Open {0}'}" />
+            </DataTemplate>
+          </MenuFlyout.ItemTemplate>
+        </MenuFlyout>
+      </Button.Flyout>
+    </Button>
+    <Border Name="ContextArea" Width="200" Height="80" Background="Transparent" Focusable="True">
+      <Border.ContextMenu>
+        <ContextMenu>
+          <MenuItem Name="CopyItem" Header="Copy" Command="{Binding Run}" CommandParameter="copy" />
+          <MenuItem Name="UrlsItem" Header="Show Full URLs" ToggleType="CheckBox" IsChecked="{Binding FullUrls, Mode=TwoWay}" />
+        </ContextMenu>
+      </Border.ContextMenu>
+      <TextBlock Text="Right click here" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Border>
+    <Button Name="DialogTrigger" Classes="outline" Content="Edit profile" Command="{Binding OpenDialog}" />
+    <c:Dialog Name="EditDialog" IsOpen="{Binding DialogOpen}" MaxWidth="425">
+      <StackPanel Spacing="16">
+        <c:DialogHeader Title="{Binding Name, StringFormat='Edit {0}'}" Description="Make changes to your profile here." />
+        <TextBox Name="DialogName" Text="{Binding Name}" />
+        <ContentControl Name="DialogUser" Content="{Binding User}">
+          <ContentControl.ContentTemplate>
+            <DataTemplate x:DataType="t:UserModel">
+              <TextBlock Text="{Binding Handle, StringFormat='Signed in as {0}'}" />
+            </DataTemplate>
+          </ContentControl.ContentTemplate>
+        </ContentControl>
+        <c:DialogFooter>
+          <Button Name="DialogSave" Content="Save" Command="{Binding Answer}" CommandParameter="save" />
+        </c:DialogFooter>
+      </StackPanel>
+    </c:Dialog>
+    <Button Name="ConfirmTrigger" Classes="outline" Content="Delete account" Command="{Binding Confirm}" />
+    <c:AlertDialog Name="ConfirmDialog" IsOpen="{Binding ConfirmOpen}">
+      <StackPanel Spacing="16">
+        <c:DialogHeader Title="Are you absolutely sure?" Description="This action cannot be undone." />
+        <c:DialogFooter>
+          <Button Name="ConfirmCancel" Classes="outline" Content="Cancel" IsCancel="True" Command="{Binding Answer}" CommandParameter="cancel" />
+          <Button Name="ConfirmContinue" Content="Continue" Command="{Binding Answer}" CommandParameter="continue" />
+        </c:DialogFooter>
+      </StackPanel>
+    </c:AlertDialog>
+    <c:Sheet Name="SettingsSheet" IsOpen="{Binding SheetOpen}" Side="Left">
+      <c:DialogHeader Title="Settings" Description="{Binding Name}" />
+    </c:Sheet>
+    <c:Drawer Name="GoalDrawer" IsOpen="{Binding DrawerOpen}">
+      <StackPanel MaxWidth="384">
+        <c:DialogHeader Title="Move Goal" Description="Set your daily activity goal." />
+        <c:DialogFooter>
+          <Button Name="DrawerCancel" Classes="outline" Content="Cancel" c:Dialog.Closes="True" />
+        </c:DialogFooter>
+      </StackPanel>
+    </c:Drawer>
+    <c:Toaster Name="ViewToaster" Toasts="{Binding Toasts}" />
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor" x:DataType="m:ChartSamples" a:Page.Title="Fidelity: chart-tooltip-indicator-none">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:ChartSamples">
+      <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Running" Label="Running" Color="PictorPalette1" /><c:ChartConfigItem Key="Swimming" Label="Swimming" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+      <c:Card>
+        <c:CardHeader Title="Tooltip - No Indicator" Description="Tooltip with no indicator." />
+        <c:CardContent>
+          <p:BarChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Activities}" Aspect="1.7777777777777777" ResponsiveWidths="542">
+            <p:XAxis DataKey="Date" TickLine="False" TickMargin="10" AxisLine="False" TickFormat="{}{0:ddd}" />
+            <p:Bar DataKey="Running" StackId="a" Radius="0, 0, 4, 4" IsAnimationActive="False" />
+            <p:Bar DataKey="Swimming" StackId="a" Radius="4, 4, 0, 0" IsAnimationActive="False" />
+            <p:Tooltip Cursor="False" DefaultIndex="1" LabelFormat="{}{0:yyyy-MM-dd}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent HideIndicator="True" /></p:Tooltip.ContentTemplate></p:Tooltip>
+          </p:BarChart>
+        </c:CardContent>
+
+      </c:Card>
+    </Border>
+  </Border>
+</UserControl>

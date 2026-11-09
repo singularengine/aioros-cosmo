@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: popover-open">
+  <UserControl.Styles>
+    <Style Selector="FlyoutPresenter.w-80">
+      <Setter Property="Width" Value="320" />
+    </Style>
+  </UserControl.Styles>
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="300">
+      <Button Classes="outline" Content="Open popover" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button.Flyout>
+          <Flyout Placement="BottomEdgeAlignedLeft" FlyoutPresenterClasses="w-80">
+            <StackPanel Spacing="16">
+              <StackPanel Spacing="8">
+                <TextBlock Text="Dimensions" FontSize="16" LineHeight="16" FontWeight="Medium" />
+                <TextBlock Text="Set the dimensions for the layer." FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" TextWrapping="Wrap" />
+              </StackPanel>
+              <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="16" RowSpacing="8">
+                <Label Grid.Row="0" Content="Width" VerticalAlignment="Center" />
+                <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="100%" Height="32" MinHeight="32" Padding="12,4" AutomationProperties.Name="Width" />
+                <Label Grid.Row="1" Content="Max. width" VerticalAlignment="Center" />
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="300px" Height="32" MinHeight="32" Padding="12,4" AutomationProperties.Name="Max. width" />
+                <Label Grid.Row="2" Content="Height" VerticalAlignment="Center" />
+                <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="25px" Height="32" MinHeight="32" Padding="12,4" AutomationProperties.Name="Height" />
+                <Label Grid.Row="3" Content="Max. height" VerticalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="none" Height="32" MinHeight="32" Padding="12,4" AutomationProperties.Name="Max. height" />
+              </Grid>
+            </StackPanel>
+          </Flyout>
+        </Button.Flyout>
+      </Button>
+    </Panel>
+  </Border>
+</UserControl>

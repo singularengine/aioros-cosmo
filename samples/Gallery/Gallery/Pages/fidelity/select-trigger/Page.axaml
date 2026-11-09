@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: select-trigger">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="16">
+      <ComboBox Width="180" PlaceholderText="Select a fruit">
+        <ComboBoxItem Content="Apple" />
+      </ComboBox>
+      <ComboBox Width="180" SelectedIndex="0">
+        <ComboBoxItem Content="Banana" />
+      </ComboBox>
+      <ComboBox Classes="sm" Width="180" SelectedIndex="0">
+        <ComboBoxItem Content="Banana" />
+      </ComboBox>
+      <ComboBox Width="180" SelectedIndex="0" IsEnabled="False">
+        <ComboBoxItem Content="Banana" />
+      </ComboBox>
+    </StackPanel>
+  </Border>
+</UserControl>

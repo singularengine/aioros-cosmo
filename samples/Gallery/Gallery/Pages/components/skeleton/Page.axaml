@@ -1,0 +1,76 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Skeleton" a:Page.Description="Use to show a placeholder while content is loading.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Skeleton" />
+      <TextBlock Classes="lead" Text="Use to show a placeholder while content is loading." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: skeleton" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Skeleton" />
+        <c:Badge Classes="secondary" Content="Web: &lt;div&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="A box in --accent that pulses (opacity 1, 0.5, 1 over 2 s); size it with Width and Height, round it with CornerRadius." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="16">
+            <c:Skeleton Width="48" Height="48" CornerRadius="9999" VerticalAlignment="Center" />
+            <StackPanel Spacing="8" VerticalAlignment="Center">
+              <c:Skeleton Width="250" Height="16" />
+              <c:Skeleton Width="200" Height="16" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;16&quot;&gt;&#10;  &lt;c:Skeleton Width=&quot;48&quot; Height=&quot;48&quot; CornerRadius=&quot;9999&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;StackPanel Spacing=&quot;8&quot; VerticalAlignment=&quot;Center&quot;&gt;&#10;    &lt;c:Skeleton Width=&quot;250&quot; Height=&quot;16&quot; /&gt;&#10;    &lt;c:Skeleton Width=&quot;200&quot; Height=&quot;16&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Card" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <c:Skeleton Width="250" Height="125" CornerRadius="{DynamicResource CosmoRadiusXl}" />
+            <StackPanel Spacing="8">
+              <c:Skeleton Width="250" Height="16" />
+              <c:Skeleton Width="200" Height="16" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;c:Skeleton Width=&quot;250&quot; Height=&quot;125&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusXl}&quot; /&gt;&#10;  &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;    &lt;c:Skeleton Width=&quot;250&quot; Height=&quot;16&quot; /&gt;&#10;    &lt;c:Skeleton Width=&quot;200&quot; Height=&quot;16&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Skeletons stand in while the model loads; the items show through their template once it is done." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="320">
+            <Button Classes="outline" Content="Toggle loading" Command="{Binding LoadCommand}" HorizontalAlignment="Left" />
+            <StackPanel Spacing="8" IsVisible="{Binding Loading}">
+              <c:Skeleton Width="250" Height="16" />
+              <c:Skeleton Width="200" Height="16" />
+            </StackPanel>
+            <ItemsControl ItemsSource="{Binding Projects}" IsVisible="{Binding !Loading}">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="m:Project">
+                  <TextBlock Classes="sm" Text="{Binding Name}" />
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;320&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Toggle loading&quot; Command=&quot;{Binding LoadCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;  &lt;StackPanel Spacing=&quot;8&quot; IsVisible=&quot;{Binding Loading}&quot;&gt;&#10;    &lt;c:Skeleton Width=&quot;250&quot; Height=&quot;16&quot; /&gt;&#10;    &lt;c:Skeleton Width=&quot;200&quot; Height=&quot;16&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;  &lt;ItemsControl ItemsSource=&quot;{Binding Projects}&quot; IsVisible=&quot;{Binding !Loading}&quot;&gt;&#10;    &lt;ItemsControl.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;m:Project&quot;&gt;&#10;        &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;{Binding Name}&quot; /&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/ItemsControl.ItemTemplate&gt;&#10;  &lt;/ItemsControl&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Width, Height, CornerRadius" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The placeholder&#x27;s size and corners (--radius-md by default)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Background" /><TextBlock Grid.Column="1" Classes="sm muted" Text="--accent by default." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

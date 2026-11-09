@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-resume">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Questionnaire Width="448" HorizontalAlignment="Center" ShowProgress="True" SubmitContent="Update draft" CurrentIndex="1" ResetContent="Reset changes">
+      <c:QuestionnaireItem Name="change" Title="What kind of migration is this?" Description="This answer was saved during the previous session." IsRequired="True">
+        <c:QuestionnaireChoice Value="incremental" Content="Incremental migration" IsChecked="True" />
+        <c:QuestionnaireChoice Value="cutover" Content="Single cutover" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="verification" Title="How should the migration be verified?" Description="These checks were selected during the previous session." IsRequired="True">
+        <c:QuestionnaireCheck Value="tests" Content="Run migration tests" IsChecked="True" />
+        <c:QuestionnaireCheck Value="typecheck" Content="Run the typecheck" IsChecked="True" />
+        <c:QuestionnaireCheck Value="manual" Content="Perform a manual smoke test" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="notes" Title="Anything else the agent should remember?" Description="This note was saved with the draft.">
+        <c:QuestionnaireInput Text="Keep the existing public API stable." AutomationProperties.Name="Saved migration note" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+  </Border>
+</UserControl>

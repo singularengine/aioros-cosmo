@@ -1,0 +1,106 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Aioros.Cosmo/Display/Icons.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <StreamGeometry x:Key="CosmoLucideArrowLeftGeometry">M12,19 L5,12 L12,5 M19,12 L5,12</StreamGeometry>
+  <StreamGeometry x:Key="CosmoLucideArrowRightGeometry">M5,12 L19,12 M12,5 L19,12 L12,19</StreamGeometry>
+
+  <ControlTheme x:Key="CosmoCarouselScrollViewer" TargetType="ScrollViewer">
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ScrollContentPresenter Name="PART_ContentPresenter" ClipToBounds="False" Background="{TemplateBinding Background}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="IsSwipeEnabled" Value="True" />
+    <Setter Property="PageTransition">
+      <PageSlide Duration="0:0:0.3" Orientation="Horizontal" SlideInEasing="0.25,1,0.5,1" SlideOutEasing="0.25,1,0.5,1" />
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel>
+          <c:CarouselIndicators Name="PART_Indicators" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="0,8,0,0" IsVisible="False"
+                                Count="{TemplateBinding ItemCount}" SelectedIndex="{TemplateBinding SelectedIndex, Mode=TwoWay}" />
+          <Panel>
+            <Border Name="PART_Viewport" ClipToBounds="True" Background="{TemplateBinding Background}">
+              <ScrollViewer Name="PART_ScrollViewer" Theme="{StaticResource CosmoCarouselScrollViewer}" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+              </ScrollViewer>
+            </Border>
+            <Button Name="PART_Previous" Classes="outline icon-sm carousel-control" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Margin="-48,0,0,0" AutomationProperties.Name="Previous slide">
+              <Viewbox Width="16" Height="16">
+                <Path Theme="{StaticResource CosmoIcon}" Stroke="{Binding $parent[Button].Foreground}" Data="{StaticResource CosmoLucideArrowLeftGeometry}" />
+              </Viewbox>
+            </Button>
+            <Button Name="PART_Next" Classes="outline icon-sm carousel-control" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Margin="0,0,-48,0" AutomationProperties.Name="Next slide">
+              <Viewbox Width="16" Height="16">
+                <Path Theme="{StaticResource CosmoIcon}" Stroke="{Binding $parent[Button].Foreground}" Data="{StaticResource CosmoLucideArrowRightGeometry}" />
+              </Viewbox>
+            </Button>
+          </Panel>
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ Button.carousel-control">
+      <Setter Property="CornerRadius" Value="9999" />
+    </Style>
+    <Style Selector="^.first:not(.loop) /template/ Button#PART_Previous">
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+    <Style Selector="^.last:not(.loop) /template/ Button#PART_Next">
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+    <Style Selector="^.indicators /template/ c|CarouselIndicators#PART_Indicators">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.vertical">
+      <Setter Property="PageTransition">
+        <PageSlide Duration="0:0:0.3" Orientation="Vertical" SlideInEasing="0.25,1,0.5,1" SlideOutEasing="0.25,1,0.5,1" />
+      </Setter>
+    </Style>
+    <Style Selector="^.vertical /template/ Button#PART_Previous">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="Margin" Value="0,-48,0,0" />
+      <Setter Property="RenderTransform" Value="rotate(90deg)" />
+    </Style>
+    <Style Selector="^.vertical /template/ Button#PART_Next">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Margin" Value="0,0,0,-48" />
+      <Setter Property="RenderTransform" Value="rotate(90deg)" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoCarouselIndicator" TargetType="Button">
+    <Setter Property="Width" Value="8" />
+    <Setter Property="Height" Value="8" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="CornerRadius" Value="9999" />
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Dot" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    </Style>
+    <Style Selector="^.selected">
+      <Setter Property="Background" Value="{DynamicResource CosmoPrimaryBrush}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#PART_Dot">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoFocusRingShadow}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

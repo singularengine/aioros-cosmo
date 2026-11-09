@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: item-header-footer">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Width="448" HorizontalAlignment="Left">
+      <c:Item Classes="outline" Title="Acme Inc." Description="Design system subscription, October.">
+        <c:Item.Header>
+          <c:ItemHeader>
+            <TextBlock Text="Invoice #1042" FontSize="14" LineHeight="20" FontWeight="Medium" />
+            <c:Badge Classes="secondary" Content="Paid" />
+          </c:ItemHeader>
+        </c:Item.Header>
+        <c:Item.Actions>
+          <Button Classes="outline sm" Content="View" />
+        </c:Item.Actions>
+        <c:Item.Footer>
+          <c:ItemFooter>
+            <TextBlock Text="Due Oct 31" FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+            <TextBlock Text="$249.00" FontSize="14" LineHeight="20" FontWeight="Medium" />
+          </c:ItemFooter>
+        </c:Item.Footer>
+      </c:Item>
+    </StackPanel>
+  </Border>
+</UserControl>

@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: signup-03">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border Classes="page" Padding="40" Background="{DynamicResource CosmoMutedBrush}">
+      <StackPanel MaxWidth="384" Spacing="24">
+        <Border a:Web.Href="#" HorizontalAlignment="Center"><StackPanel Orientation="Horizontal" Spacing="8"><Border Width="24" Height="24" CornerRadius="{DynamicResource CosmoRadiusMd}" Background="{DynamicResource CosmoPrimaryBrush}"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPrimaryForegroundBrush}" Data="M7 2h10 M5 6h14 M5,10 L19,10 A2,2 0 0 1 21,12 L21,20 A2,2 0 0 1 19,22 L5,22 A2,2 0 0 1 3,20 L3,12 A2,2 0 0 1 5,10 Z" /></Viewbox></Border><TextBlock Text="Acme Inc." FontSize="16" LineHeight="24" FontWeight="Medium" VerticalAlignment="Center" /></StackPanel></Border>
+        <c:Card>
+          <c:CardHeader><c:CardHeader.Title><TextBlock Text="Create your account" FontSize="20" LineHeight="28" TextAlignment="Center" /></c:CardHeader.Title><c:CardHeader.Description><TextBlock Text="Enter your email below to create your account" TextAlignment="Center" /></c:CardHeader.Description></c:CardHeader>
+          <c:CardContent>
+            <c:FieldGroup>
+              <c:Field>
+                <c:FieldLabel Content="Full Name" Target="{Binding #name}" />
+                <TextBox Name="name" a:Web.Id="name" PlaceholderText="John Doe" />
+              </c:Field>
+              <c:Field>
+                <c:FieldLabel Content="Email" Target="{Binding #email}" />
+                <TextBox Name="email" a:Web.Id="email" a:Web.InputType="email" PlaceholderText="m@example.com" />
+              </c:Field>
+              <c:Field>
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                  <c:Field>
+                <c:FieldLabel Content="Password" Target="{Binding #password}" />
+                <TextBox Name="password" a:Web.Id="password" PasswordChar="•" />
+              </c:Field>
+                  <Border Grid.Column="1"><c:Field>
+                <c:FieldLabel Content="Confirm Password" Target="{Binding #confirm}" />
+                <TextBox Name="confirm" a:Web.Id="confirm" PasswordChar="•" />
+              </c:Field></Border>
+                </Grid>
+                <c:FieldDescription Text="Must be at least 8 characters long." />
+              </c:Field>
+              <c:Field>
+                <Button Content="Create Account" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                <c:FieldDescription TextAlignment="Center"><Run Text="Already have an account? " /><Run Text="Sign in" a:Web.Href="#" TextDecorations="Underline" /></c:FieldDescription>
+              </c:Field>
+            </c:FieldGroup>
+          </c:CardContent>
+        </c:Card>
+        <c:FieldDescription TextAlignment="Center" Margin="24,0"><Run Text="By clicking continue, you agree to our " /><Run Text="Terms of Service" a:Web.Href="#" TextDecorations="Underline" /><Run Text=" and " /><Run Text="Privacy Policy" a:Web.Href="#" TextDecorations="Underline" /><Run Text="." /></c:FieldDescription>
+      </StackPanel>
+    </Border>
+  </Border>
+</UserControl>

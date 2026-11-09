@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: input-group">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Width="384" Spacing="24" HorizontalAlignment="Left">
+      <c:InputGroup>
+        <TextBox PlaceholderText="Search..." />
+        <c:InputGroupAddon><a:Icon Kind="search" Size="16" /></c:InputGroupAddon>
+        <c:InputGroupAddon Classes="inline-end" Content="12 results" />
+      </c:InputGroup>
+      <c:InputGroup>
+        <TextBox PlaceholderText="example.com" />
+        <c:InputGroupAddon><TextBlock Text="https://" FontWeight="Normal" /></c:InputGroupAddon>
+      </c:InputGroup>
+      <c:InputGroup>
+        <TextBox AcceptsReturn="True" PlaceholderText="Ask, Search or Chat..." />
+        <c:InputGroupAddon Classes="block-end">
+          <DockPanel>
+            <Button DockPanel.Dock="Right" Classes="icon-xs" CornerRadius="9999" AutomationProperties.Name="Send"><a:Icon Kind="plus" Size="14" /></Button>
+            <TextBlock Text="52% used" FontWeight="Normal" VerticalAlignment="Center" />
+          </DockPanel>
+        </c:InputGroupAddon>
+      </c:InputGroup>
+    </StackPanel>
+  </Border>
+</UserControl>

@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-skip">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Questionnaire Width="448" HorizontalAlignment="Center" ShowProgress="True" SubmitContent="Submit brief">
+      <c:QuestionnaireItem Name="task" Title="What kind of change is this?" Description="Choose the category that best describes the work." IsRequired="True">
+        <c:QuestionnaireChoice Value="feature" Content="New feature" />
+        <c:QuestionnaireChoice Value="fix" Content="Bug fix" />
+        <c:QuestionnaireChoice Value="refactor" Content="Refactor" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="constraints" Title="Are there any implementation constraints?" Description="Answer if needed, or intentionally skip this question.">
+        <c:QuestionnaireChoice Value="no-dependencies" Content="Do not add dependencies" />
+        <c:QuestionnaireChoice Value="no-migrations" Content="Do not change the database" />
+        <c:QuestionnaireChoice Value="preserve-api" Content="Preserve the public API" />
+        <c:QuestionnaireInput PlaceholderText="Describe another constraint…" AutomationProperties.Name="Another implementation constraint" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="review" Title="How should the work be reviewed?" Description="Choose the checks the agent should complete before handoff." IsRequired="True">
+        <c:QuestionnaireChoice Value="tests" Content="Run the test suite" />
+        <c:QuestionnaireChoice Value="diff" Content="Review the final diff" />
+        <c:QuestionnaireChoice Value="both" Content="Tests and diff review" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+  </Border>
+</UserControl>

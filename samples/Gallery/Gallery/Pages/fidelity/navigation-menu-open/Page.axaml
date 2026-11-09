@@ -1,0 +1,91 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: navigation-menu-open">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="340" VerticalAlignment="Top">
+      <c:NavigationMenu VerticalAlignment="Top">
+        <c:NavigationMenuTrigger Content="Home">
+          <c:NavigationMenuTrigger.Flyout>
+            <Flyout>
+              <StackPanel Spacing="8" Width="400">
+                <Button Classes="navigation-menu-link" Width="384">
+                  <StackPanel>
+                    <TextBlock Text="Introduction" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="Re-usable components built using Radix UI and Tailwind CSS." FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+                <Button Classes="navigation-menu-link" Width="384">
+                  <StackPanel>
+                    <TextBlock Text="Installation" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="How to install dependencies and structure your app." FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+                <Button Classes="navigation-menu-link" Width="384">
+                  <StackPanel>
+                    <TextBlock Text="Typography" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="Styles for headings, paragraphs, lists...etc" FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+              </StackPanel>
+            </Flyout>
+          </c:NavigationMenuTrigger.Flyout>
+        </c:NavigationMenuTrigger>
+        <c:NavigationMenuTrigger Content="Components">
+          <c:NavigationMenuTrigger.Flyout>
+            <Flyout>
+              <UniformGrid Columns="2" Width="500" ColumnSpacing="8" RowSpacing="8">
+                <Button Classes="navigation-menu-link" Width="246">
+                  <StackPanel>
+                    <TextBlock Text="Alert Dialog" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="A modal dialog that interrupts the user with important content and expects a response." FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+                <Button Classes="navigation-menu-link" Width="246">
+                  <StackPanel>
+                    <TextBlock Text="Hover Card" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="For sighted users to preview content available behind a link." FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+                <Button Classes="navigation-menu-link" Width="246">
+                  <StackPanel>
+                    <TextBlock Text="Progress" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="Displays an indicator showing the completion progress of a task, typically displayed as a progress bar." FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+                <Button Classes="navigation-menu-link" Width="246">
+                  <StackPanel>
+                    <TextBlock Text="Scroll-area" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="Visually or semantically separates content." FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+                <Button Classes="navigation-menu-link" Width="246">
+                  <StackPanel>
+                    <TextBlock Text="Tabs" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="A set of layered sections of content—known as tab panels—that are displayed one at a time." FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+                <Button Classes="navigation-menu-link" Width="246">
+                  <StackPanel>
+                    <TextBlock Text="Tooltip" FontSize="14" LineHeight="14" FontWeight="Medium" />
+                    <TextBlock Text="A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it." FontSize="14" LineHeight="19.25" MaxLines="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  </StackPanel>
+                </Button>
+              </UniformGrid>
+            </Flyout>
+          </c:NavigationMenuTrigger.Flyout>
+        </c:NavigationMenuTrigger>
+        <HyperlinkButton Classes="navigation-menu-trigger" Content="Docs" />
+        <c:NavigationMenuTrigger Content="List">
+          <c:NavigationMenuTrigger.Flyout>
+            <Flyout>
+              <StackPanel Width="300">
+                <Button Classes="navigation-menu-link"><StackPanel><TextBlock Text="Components" FontWeight="Medium" /><TextBlock Text="Browse all components in the library." Foreground="{DynamicResource CosmoMutedForegroundBrush}" /></StackPanel></Button>
+                <Button Classes="navigation-menu-link"><StackPanel><TextBlock Text="Documentation" FontWeight="Medium" /><TextBlock Text="Learn how to use the library." Foreground="{DynamicResource CosmoMutedForegroundBrush}" /></StackPanel></Button>
+                <Button Classes="navigation-menu-link"><StackPanel><TextBlock Text="Blog" FontWeight="Medium" /><TextBlock Text="Read our latest blog posts." Foreground="{DynamicResource CosmoMutedForegroundBrush}" /></StackPanel></Button>
+              </StackPanel>
+            </Flyout>
+          </c:NavigationMenuTrigger.Flyout>
+        </c:NavigationMenuTrigger>
+      </c:NavigationMenu>
+    </Panel>
+  </Border>
+</UserControl>

@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-languages">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="16">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left" Title="app/globals.css">
+
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock><Run Text="@import" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;tailwindcss&quot;" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text=";" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text=" " /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text=":root" Foreground="{DynamicResource CosmoCodeFunctionBrush}" /><Run Text=" {" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="--radius" Foreground="{DynamicResource CosmoCodeVariableBrush}" /><Run Text=": " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="0.625" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text="rem" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=";" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="}" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    <c:CodeBlock Width="448" HorizontalAlignment="Left" Title="main.py">
+
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock><Run Text="def" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="greet" Foreground="{DynamicResource CosmoCodeFunctionBrush}" /><Run Text="(name: " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="str" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text=") -&gt; " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="str" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text=":" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="    " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="return" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text=" " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="f" Foreground="{DynamicResource CosmoCodeKeywordBrush}" /><Run Text="&quot;Hello, " Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text="{}{" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text="name" Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="}" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text="!&quot;" Foreground="{DynamicResource CosmoCodeStringBrush}" /></TextBlock></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    <c:CodeBlock Width="448" HorizontalAlignment="Left" Title="notes.txt">
+
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="A language that is not in the list renders as plain text." /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </StackPanel>
+  </Border>
+</UserControl>

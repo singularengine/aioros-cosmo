@@ -1,0 +1,90 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="Message Scroller" a:Page.Description="A scroll container for chat transcripts that opens at the newest message, follows new messages and offers a scroll-to-end button.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Message Scroller" />
+      <TextBlock Classes="lead" Text="A scroll container for chat transcripts that opens at the newest message, follows new messages and offers a scroll-to-end button." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: message-scroller" />
+        <c:Badge Classes="secondary" Content="Avalonia: ContentControl" />
+        <c:Badge Classes="secondary" Content="Web: &lt;div&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="c:MessageScroller opens at its end and keeps the newest message in view while it is there." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Card MaxWidth="384" Height="400" Padding="0" ClipToBounds="True" VerticalAlignment="Top">
+            <c:Card.ItemsPanel><ItemsPanelTemplate><Panel /></ItemsPanelTemplate></c:Card.ItemsPanel>
+            <DockPanel>
+              <Border DockPanel.Dock="Top" Padding="24,16,24,24" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoBorderBrush}">
+                <StackPanel Spacing="4">
+                  <TextBlock Text="Support" FontWeight="SemiBold" LineHeight="16" />
+                  <TextBlock Text="A conversation about a failed deploy." FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </Border>
+              <c:MessageScroller DefaultScrollPosition="End">
+                <StackPanel Margin="24" Spacing="16">
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="Deploying to prod real quick." /></c:MessageContent></c:Message>
+                  <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="It&apos;s 4:55 PM. On a Friday." /></c:MessageContent></c:Message>
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="It&apos;s a one-line change." /></c:MessageContent></c:Message>
+                  <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="It&apos;s always a one-line change. Alright, let me take a look." /></c:MessageContent></c:Message>
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="The build failed during dependency installation." /></c:MessageContent></c:Message>
+                  <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="Can you share the exact error?" /></c:MessageContent></c:Message>
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="Something went wrong with the build. The libraries are not installed correctly." /></c:MessageContent></c:Message>
+                  <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="Try running the build again. I cleared the cache." /></c:MessageContent></c:Message>
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="It worked. Thanks!" /></c:MessageContent></c:Message>
+                </StackPanel>
+              </c:MessageScroller>
+            </DockPanel>
+          </c:Card>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Card MaxWidth=&quot;384&quot; Height=&quot;400&quot; Padding=&quot;0&quot; ClipToBounds=&quot;True&quot; VerticalAlignment=&quot;Top&quot;&gt;&#10;  &lt;c:Card.ItemsPanel&gt;&lt;ItemsPanelTemplate&gt;&lt;Panel /&gt;&lt;/ItemsPanelTemplate&gt;&lt;/c:Card.ItemsPanel&gt;&#10;  &lt;DockPanel&gt;&#10;    &lt;Border DockPanel.Dock=&quot;Top&quot; Padding=&quot;24,16,24,24&quot; BorderThickness=&quot;0,0,0,1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot;&gt;&#10;      &lt;StackPanel Spacing=&quot;4&quot;&gt;&#10;        &lt;TextBlock Text=&quot;Support&quot; FontWeight=&quot;SemiBold&quot; LineHeight=&quot;16&quot; /&gt;&#10;        &lt;TextBlock Text=&quot;A conversation about a failed deploy.&quot; FontSize=&quot;14&quot; LineHeight=&quot;20&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/Border&gt;&#10;    &lt;c:MessageScroller DefaultScrollPosition=&quot;End&quot;&gt;&#10;      &lt;StackPanel Margin=&quot;24&quot; Spacing=&quot;16&quot;&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;Deploying to prod real quick.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;It&amp;apos;s 4:55 PM. On a Friday.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;It&amp;apos;s a one-line change.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;It&amp;apos;s always a one-line change. Alright, let me take a look.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;The build failed during dependency installation.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;Can you share the exact error?&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;Something went wrong with the build. The libraries are not installed correctly.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;Try running the build again. I cleared the cache.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;It worked. Thanks!&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:MessageScroller&gt;&#10;  &lt;/DockPanel&gt;&#10;&lt;/c:Card&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Start" />
+      <TextBlock Classes="sm muted" Text="DefaultScrollPosition=&quot;Start&quot; opens at the first message; the button scrolls to the end. The transcript fades at its bottom while there is more below." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Card MaxWidth="384" Height="400" Padding="0" ClipToBounds="True" VerticalAlignment="Top">
+            <c:Card.ItemsPanel><ItemsPanelTemplate><Panel /></ItemsPanelTemplate></c:Card.ItemsPanel>
+            <DockPanel>
+              <Border DockPanel.Dock="Top" Padding="24,16,24,24" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoBorderBrush}">
+                <StackPanel Spacing="4">
+                  <TextBlock Text="Support" FontWeight="SemiBold" LineHeight="16" />
+                  <TextBlock Text="A conversation about a failed deploy." FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                </StackPanel>
+              </Border>
+              <c:MessageScroller DefaultScrollPosition="Start">
+                <StackPanel Margin="24" Spacing="16">
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="Deploying to prod real quick." /></c:MessageContent></c:Message>
+                  <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="It&apos;s 4:55 PM. On a Friday." /></c:MessageContent></c:Message>
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="It&apos;s a one-line change." /></c:MessageContent></c:Message>
+                  <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="It&apos;s always a one-line change. Alright, let me take a look." /></c:MessageContent></c:Message>
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="The build failed during dependency installation." /></c:MessageContent></c:Message>
+                  <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="Can you share the exact error?" /></c:MessageContent></c:Message>
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="Something went wrong with the build. The libraries are not installed correctly." /></c:MessageContent></c:Message>
+                  <c:Message><c:MessageContent><c:Bubble Classes="muted" Content="Try running the build again. I cleared the cache." /></c:MessageContent></c:Message>
+                  <c:Message Classes="end"><c:MessageContent><c:Bubble Classes="end" Content="It worked. Thanks!" /></c:MessageContent></c:Message>
+                </StackPanel>
+              </c:MessageScroller>
+            </DockPanel>
+          </c:Card>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Card MaxWidth=&quot;384&quot; Height=&quot;400&quot; Padding=&quot;0&quot; ClipToBounds=&quot;True&quot; VerticalAlignment=&quot;Top&quot;&gt;&#10;  &lt;c:Card.ItemsPanel&gt;&lt;ItemsPanelTemplate&gt;&lt;Panel /&gt;&lt;/ItemsPanelTemplate&gt;&lt;/c:Card.ItemsPanel&gt;&#10;  &lt;DockPanel&gt;&#10;    &lt;Border DockPanel.Dock=&quot;Top&quot; Padding=&quot;24,16,24,24&quot; BorderThickness=&quot;0,0,0,1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot;&gt;&#10;      &lt;StackPanel Spacing=&quot;4&quot;&gt;&#10;        &lt;TextBlock Text=&quot;Support&quot; FontWeight=&quot;SemiBold&quot; LineHeight=&quot;16&quot; /&gt;&#10;        &lt;TextBlock Text=&quot;A conversation about a failed deploy.&quot; FontSize=&quot;14&quot; LineHeight=&quot;20&quot; Foreground=&quot;{DynamicResource CosmoMutedForegroundBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/Border&gt;&#10;    &lt;c:MessageScroller DefaultScrollPosition=&quot;Start&quot;&gt;&#10;      &lt;StackPanel Margin=&quot;24&quot; Spacing=&quot;16&quot;&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;Deploying to prod real quick.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;It&amp;apos;s 4:55 PM. On a Friday.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;It&amp;apos;s a one-line change.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;It&amp;apos;s always a one-line change. Alright, let me take a look.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;The build failed during dependency installation.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;Can you share the exact error?&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;Something went wrong with the build. The libraries are not installed correctly.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;Try running the build again. I cleared the cache.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;        &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;end&quot; Content=&quot;It worked. Thanks!&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:MessageScroller&gt;&#10;  &lt;/DockPanel&gt;&#10;&lt;/c:Card&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The transcript: messages stacked in a panel." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="DefaultScrollPosition" /><TextBlock Grid.Column="1" Classes="sm muted" Text="End (the default) or Start." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ScrollToEnd(), ScrollToStart()" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Scroll to the newest or the first message; at the end the scroller follows new messages." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text=":end, :following" /><TextBlock Grid.Column="1" Classes="sm muted" Text="At its end (the button hidden); keeping the newest message in view (the scroll bar&#x27;s gutter hidden)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

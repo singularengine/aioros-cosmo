@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: separator-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel>
+      <StackPanel Spacing="4">
+        <TextBlock Text="Radix Primitives" FontSize="14" LineHeight="14" FontWeight="Medium" />
+        <TextBlock Text="An open-source UI component library." FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+      </StackPanel>
+      <Separator Margin="0,16" />
+      <StackPanel Orientation="Horizontal" Height="20" Spacing="16">
+        <TextBlock Text="Blog" FontSize="14" LineHeight="20" VerticalAlignment="Center" />
+        <Separator Classes="vertical" />
+        <TextBlock Text="Docs" FontSize="14" LineHeight="20" VerticalAlignment="Center" />
+        <Separator Classes="vertical" />
+        <TextBlock Text="Source" FontSize="14" LineHeight="20" VerticalAlignment="Center" />
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

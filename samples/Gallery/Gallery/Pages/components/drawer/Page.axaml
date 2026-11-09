@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Drawer" a:Page.Description="A panel that slides up from the bottom of the screen.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Drawer" />
+      <TextBlock Classes="lead" Text="A panel that slides up from the bottom of the screen." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: drawer" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Drawer" />
+        <c:Badge Classes="secondary" Content="Web: &lt;dialog&gt; (showModal)" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="vaul&#x27;s bottom drawer: rounded top corners, the handle, 80% of the window at most; Escape, a click outside and a drag down past a quarter of its height (or a flick) close it, as vaul&#x27;s. The goal&#x27;s buttons run commands while the drawer stays open." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Open Drawer" Command="{Binding DrawerCommand}" />
+            <c:Drawer IsOpen="{Binding DrawerOpen}">
+              <StackPanel MaxWidth="384">
+                <c:DialogHeader Title="Move Goal" Description="Set your daily activity goal." />
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8" Margin="16,16,16,0">
+                  <Button Classes="outline icon" Width="32" Height="32" CornerRadius="16" VerticalAlignment="Center" AutomationProperties.Name="Decrease" Command="{Binding AdjustCommand}" CommandParameter="-10">
+                    <a:Icon Kind="minus" Size="16" />
+                  </Button>
+                  <StackPanel Grid.Column="1">
+                    <TextBlock Text="{Binding Goal}" FontSize="72" LineHeight="72" FontWeight="Bold" LetterSpacing="-3.6" HorizontalAlignment="Center" />
+                    <TextBlock Classes="muted" Text="CALORIES/DAY" FontSize="11.2" HorizontalAlignment="Center" />
+                  </StackPanel>
+                  <Button Grid.Column="2" Classes="outline icon" Width="32" Height="32" CornerRadius="16" VerticalAlignment="Center" AutomationProperties.Name="Increase" Command="{Binding AdjustCommand}" CommandParameter="10">
+                    <a:Icon Kind="plus" Size="16" />
+                  </Button>
+                </Grid>
+                <c:DialogFooter>
+                  <Button Content="Submit" Command="{Binding AnswerCommand}" CommandParameter="submit" />
+                  <Button Classes="outline" Content="Cancel" c:Dialog.Closes="True" />
+                </c:DialogFooter>
+              </StackPanel>
+            </c:Drawer>
+            <TextBlock Classes="sm muted" Text="{Binding Outcome}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Open Drawer&quot; Command=&quot;{Binding DrawerCommand}&quot; /&gt;&#10;  &lt;c:Drawer IsOpen=&quot;{Binding DrawerOpen}&quot;&gt;&#10;    &lt;StackPanel MaxWidth=&quot;384&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Move Goal&quot; Description=&quot;Set your daily activity goal.&quot; /&gt;&#10;      &lt;Grid ColumnDefinitions=&quot;Auto,*,Auto&quot; ColumnSpacing=&quot;8&quot; Margin=&quot;16,16,16,0&quot;&gt;&#10;        &lt;Button Classes=&quot;outline icon&quot; Width=&quot;32&quot; Height=&quot;32&quot; CornerRadius=&quot;16&quot; VerticalAlignment=&quot;Center&quot; AutomationProperties.Name=&quot;Decrease&quot; Command=&quot;{Binding AdjustCommand}&quot; CommandParameter=&quot;-10&quot;&gt;&#10;          &lt;a:Icon Kind=&quot;minus&quot; Size=&quot;16&quot; /&gt;&#10;        &lt;/Button&gt;&#10;        &lt;StackPanel Grid.Column=&quot;1&quot;&gt;&#10;          &lt;TextBlock Text=&quot;{Binding Goal}&quot; FontSize=&quot;72&quot; LineHeight=&quot;72&quot; FontWeight=&quot;Bold&quot; LetterSpacing=&quot;-3.6&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;TextBlock Classes=&quot;muted&quot; Text=&quot;CALORIES/DAY&quot; FontSize=&quot;11.2&quot; HorizontalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;Button Grid.Column=&quot;2&quot; Classes=&quot;outline icon&quot; Width=&quot;32&quot; Height=&quot;32&quot; CornerRadius=&quot;16&quot; VerticalAlignment=&quot;Center&quot; AutomationProperties.Name=&quot;Increase&quot; Command=&quot;{Binding AdjustCommand}&quot; CommandParameter=&quot;10&quot;&gt;&#10;          &lt;a:Icon Kind=&quot;plus&quot; Size=&quot;16&quot; /&gt;&#10;        &lt;/Button&gt;&#10;      &lt;/Grid&gt;&#10;      &lt;c:DialogFooter&gt;&#10;        &lt;Button Content=&quot;Submit&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;submit&quot; /&gt;&#10;        &lt;Button Classes=&quot;outline&quot; Content=&quot;Cancel&quot; c:Dialog.Closes=&quot;True&quot; /&gt;&#10;      &lt;/c:DialogFooter&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Drawer&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Outcome}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Opened in the browser" />
+      <TextBlock Classes="sm muted" Text="Trigger is vaul&#x27;s DrawerTrigger: on the web the browser opens the drawer with no request and closes it there; IsOpen, unbound here, stays in the browser." TextWrapping="Wrap" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button x:Name="shortcutsTrigger" Classes="outline" Content="Shortcuts" />
+            <c:Drawer Trigger="{Binding #shortcutsTrigger}">
+              <StackPanel Spacing="16" Margin="16">
+                <c:DialogHeader Title="Shortcuts" Description="Ctrl+K opens the palette and Ctrl+B folds the sidebar." />
+                <Button Classes="outline" Content="Done" c:Dialog.Closes="True" HorizontalAlignment="Left" />
+              </StackPanel>
+            </c:Drawer>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button x:Name=&quot;shortcutsTrigger&quot; Classes=&quot;outline&quot; Content=&quot;Shortcuts&quot; /&gt;&#10;  &lt;c:Drawer Trigger=&quot;{Binding #shortcutsTrigger}&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot; Margin=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Shortcuts&quot; Description=&quot;Ctrl+K opens the palette and Ctrl+B folds the sidebar.&quot; /&gt;&#10;      &lt;Button Classes=&quot;outline&quot; Content=&quot;Done&quot; c:Dialog.Closes=&quot;True&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Drawer&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Trigger" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The button that opens it; on the web the browser opens it with no request." TextWrapping="Wrap" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsOpen, Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="As the dialog&#x27;s." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Dialog.Closes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A button that closes the drawer (DrawerClose)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,147 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="sidebar-12" a:Page.Description="A sidebar with a calendar.">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="sidebar-12" />
+      <TextBlock Classes="lead" Text="A sidebar with a calendar." />
+    </StackPanel>
+    <Border Height="800" CornerRadius="{DynamicResource CosmoRadiusXl}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" ClipToBounds="True">
+      <c:SidebarProvider MobileBreakpoint="0">
+        <c:SidebarProvider.Styles>
+          <Style Selector="Expander.calendars">
+            <Setter Property="Margin" Value="8,0" />
+          </Style>
+          <Style Selector="Border.calendar-check">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CosmoSidebarBorderBrush}" />
+          </Style>
+          <Style Selector="Border.calendar-check > Viewbox">
+            <Setter Property="IsVisible" Value="False" />
+          </Style>
+          <Style Selector="Border.calendar-check.on">
+            <Setter Property="Background" Value="{DynamicResource CosmoSidebarPrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CosmoSidebarPrimaryBrush}" />
+          </Style>
+          <Style Selector="Border.calendar-check.on > Viewbox">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+        </c:SidebarProvider.Styles>
+        <c:Sidebar>
+          <Border Height="64" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoSidebarBorderBrush}">
+            <c:SidebarHeader Margin="8">
+              <c:SidebarMenu>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton Classes="lg" Tooltip="shadcn">
+                    <DockPanel>
+                      <Viewbox Width="16" Height="16" DockPanel.Dock="Right" Margin="8,0,0,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M7 15 l5 5 5-5 M7 9 l5-5 5 5" /></Viewbox>
+                      <c:Avatar Width="32" Height="32" Content="CN" CornerRadius="{DynamicResource CosmoRadiusLg}" />
+                      <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="shadcn" FontWeight="Medium" LineHeight="17.5" TextTrimming="CharacterEllipsis" />
+                        <TextBlock Text="m@example.com" FontSize="12" LineHeight="15" TextTrimming="CharacterEllipsis" />
+                      </StackPanel>
+                    </DockPanel>
+                    <c:SidebarMenuButton.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Classes="label">
+                          <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                              <c:Avatar Width="32" Height="32" Content="CN" CornerRadius="{DynamicResource CosmoRadiusLg}" />
+                              <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="shadcn" FontWeight="Medium" FontSize="14" LineHeight="17.5" />
+                                <TextBlock Text="m@example.com" FontWeight="Normal" FontSize="12" LineHeight="15" />
+                              </StackPanel>
+                            </StackPanel>
+                          </MenuItem.Header>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Header="Upgrade to Pro"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z M20 3v4 M22 5h-4 M4 17v2 M5 18H3" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Account"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z M9 12 l2 2 4-4" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Billing"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M4,5 L20,5 A2,2 0 0 1 22,7 L22,17 A2,2 0 0 1 20,19 L4,19 A2,2 0 0 1 2,17 L2,7 A2,2 0 0 1 4,5 Z M2,10 L22,10" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Notifications"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M10.268 21a2 2 0 0 0 3.464 0 M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Log out"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4 M16,17 L21,12 L16,7 M21,12 L9,12" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuButton.Flyout>
+                  </c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </c:SidebarHeader>
+          </Border>
+          <c:SidebarContent>
+            <c:SidebarGroup Margin="0,8"><Calendar Classes="sidebar" Background="Transparent" SelectionMode="SingleDate" /></c:SidebarGroup>
+            <c:SidebarSeparator Margin="0" />
+            <Expander Classes="sidebar-group calendars" IsExpanded="True">
+              <Expander.Header><TextBlock Text="My Calendars" /></Expander.Header>
+              <c:SidebarMenu>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="4"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Personal" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="4"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Work" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check" CornerRadius="4"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Family" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <c:SidebarSeparator Margin="0" />
+            <Expander Classes="sidebar-group calendars">
+              <Expander.Header><TextBlock Text="Favorites" /></Expander.Header>
+              <c:SidebarMenu>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="4"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Holidays" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="4"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Birthdays" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <c:SidebarSeparator Margin="0" />
+            <Expander Classes="sidebar-group calendars">
+              <Expander.Header><TextBlock Text="Other" /></Expander.Header>
+              <c:SidebarMenu>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="4"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Travel" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="4"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Reminders" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check" CornerRadius="4"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Deadlines" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <c:SidebarSeparator Margin="0" />
+          </c:SidebarContent>
+          <c:SidebarFooter>
+            <c:SidebarMenu><c:SidebarMenuItem><c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M5 12h14 M12 5v14" /></Viewbox><TextBlock Text="New Calendar" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton></c:SidebarMenuItem></c:SidebarMenu>
+          </c:SidebarFooter>
+          <c:SidebarRail />
+        </c:Sidebar>
+        <c:SidebarInset>
+          <DockPanel>
+            <Border DockPanel.Dock="Top" Height="64" Padding="16,0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoBorderBrush}" Background="{DynamicResource CosmoBackgroundBrush}">
+              <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                <c:SidebarTrigger Margin="-4,0,0,0" VerticalAlignment="Center" />
+                <Separator Classes="vertical" Height="16" Margin="0,0,8,0" VerticalAlignment="Center" />
+                <c:Breadcrumb VerticalAlignment="Center"><c:BreadcrumbPage Text="October 2024" TextTrimming="CharacterEllipsis" MaxLines="1" /></c:Breadcrumb>
+              </StackPanel>
+            </Border>
+            <ScrollViewer Theme="{DynamicResource CosmoScrollArea}" HorizontalScrollBarVisibility="Disabled">
+              <UniformGrid Columns="5" ColumnSpacing="16" RowSpacing="16" Margin="16">
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+                <c:AspectRatio Ratio="1"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+              </UniformGrid>
+            </ScrollViewer>
+          </DockPanel>
+        </c:SidebarInset>
+      </c:SidebarProvider>
+    </Border>
+  </StackPanel>
+</UserControl>

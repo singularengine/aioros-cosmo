@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-destructive">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left" Title="Error" Classes="destructive">
+      <c:CodeBlock.Actions><StackPanel Orientation="Horizontal" Spacing="4"><c:CodeBlockCopyButton Value="TypeError: Cannot read properties of undefined (reading 'map')&#10;    at MessageList (components/message-list.tsx:18:22)&#10;    at renderWithHooks (react-dom.development.js:16305:18)" /></StackPanel></c:CodeBlock.Actions>
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="TypeError: Cannot read properties of undefined (reading 'map')" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="    at MessageList (components/message-list.tsx:18:22)" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="    at renderWithHooks (react-dom.development.js:16305:18)" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: trace-commit">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Trace Width="384" HorizontalAlignment="Left">
+      <Expander Classes="trace" IsExpanded="True">
+      <Expander.Header><c:TraceLine Content="Committed a1b2c3: Fix the login redirect"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M9,12 A3,3 0 1 1 15,12 A3,3 0 1 1 9,12 Z M3,12 L9,12 M15,12 L21,12" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:Trace>
+      <Button Classes="trace" x:Name="commitFile0"><c:TraceLine Content="Edited app/login/page.tsx"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5 M14 2v4a2 2 0 0 0 2 2h4 M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" /></Viewbox></c:TraceLine.Icon><c:TraceLine.Description><TextBlock Text="+2 −2" FontFamily="{DynamicResource CosmoFontMono}" /></c:TraceLine.Description><c:TraceLine.Trailing><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M9 18 l6-6-6-6" /></Viewbox></c:TraceLine.Trailing></c:TraceLine></Button><c:Sheet Trigger="{Binding #commitFile0}"><StackPanel Spacing="16"><c:DialogHeader Title="app/login/page.tsx" Description="2 additions, 2 deletions" Classes="mono" />
+          <c:CodeBlock Margin="24,0,24,24">
+
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine Classes="hunk"><TextBlock Text="@@ -14,7 +14,7 @@ export default async function LoginPage({" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  searchParams," /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="}) {" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  const { next } = await searchParams" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="removed"><TextBlock Text="  const redirectTo =" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="removed"><TextBlock Text="    next &amp;&amp; next.startsWith(&quot;/&quot;) ? next : &quot;/&quot;" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="  const redirectTo = safeRedirect(next)" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text=" " /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  return &lt;LoginForm redirectTo={redirectTo} /&gt;" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="}" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock></StackPanel></c:Sheet>
+      <Button Classes="trace" x:Name="commitFile1"><c:TraceLine Content="Added lib/auth/redirect.ts"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M9 15h6 M12 18v-6" /></Viewbox></c:TraceLine.Icon><c:TraceLine.Description><TextBlock Text="+7 −0" FontFamily="{DynamicResource CosmoFontMono}" /></c:TraceLine.Description><c:TraceLine.Trailing><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M9 18 l6-6-6-6" /></Viewbox></c:TraceLine.Trailing></c:TraceLine></Button><c:Sheet Trigger="{Binding #commitFile1}"><StackPanel Spacing="16"><c:DialogHeader Title="lib/auth/redirect.ts" Description="7 additions, 0 deletions" Classes="mono" />
+          <c:CodeBlock Margin="24,0,24,24">
+
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine Classes="hunk"><TextBlock Text="@@ -0,0 +1,7 @@" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="export function safeRedirect(next: string | undefined) {" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="  if (!next || !next.startsWith(&quot;/&quot;) || next.startsWith(&quot;//&quot;)) {" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="    return &quot;/&quot;" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="  }" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text=" " /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="  return next" /></c:CodeBlockLine>
+          <c:CodeBlockLine Classes="added"><TextBlock Text="}" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock></StackPanel></c:Sheet>
+    </c:Trace>
+    </Expander>
+    </c:Trace>
+  </Border>
+</UserControl>

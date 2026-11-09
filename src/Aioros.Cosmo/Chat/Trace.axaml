@@ -1,0 +1,100 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo" xmlns:a="https://aioros.dev">
+  <StreamGeometry x:Key="CosmoTraceChevronGeometry">M9,18 L15,12 L9,6</StreamGeometry>
+
+  <ControlTheme x:Key="{x:Type c:Trace}" TargetType="c:Trace">
+    <Setter Property="Spacing" Value="8" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:TraceLine}" TargetType="c:TraceLine">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid ColumnDefinitions="Auto,*,Auto,Auto">
+          <ContentPresenter Name="PART_Icon" Content="{TemplateBinding Icon}" Width="16" Height="16" Margin="0,0,8,0" VerticalAlignment="Center"
+                            Foreground="{TemplateBinding Foreground}" IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+          <ContentPresenter Name="PART_ContentPresenter" Grid.Column="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            TextBlock.LineHeight="20" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Foreground="{TemplateBinding Foreground}" />
+          <ContentPresenter Name="PART_Description" Grid.Column="2" Content="{TemplateBinding Description}" Margin="8,0,0,0" TextBlock.LineHeight="20"
+                            Foreground="{DynamicResource CosmoTraceDescriptionBrush}" IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+          <ContentPresenter Name="PART_Trailing" Grid.Column="3" Content="{TemplateBinding Trailing}" Width="16" Height="16" Margin="4,0,0,0" VerticalAlignment="Center"
+                            Foreground="{TemplateBinding Foreground}" IsVisible="{TemplateBinding Trailing, Converter={x:Static ObjectConverters.IsNotNull}}" />
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:error">
+      <Setter Property="Foreground" Value="{DynamicResource CosmoDestructiveBrush}" />
+    </Style>
+    <Style Selector="^:pending">
+      <Setter Property="Opacity" Value="0.6" />
+    </Style>
+    <Style Selector="^:running /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="a:Web.Shimmer" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoTraceTrigger" TargetType="ToggleButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel Background="{TemplateBinding Background}">
+          <Viewbox Name="PART_Chevron" DockPanel.Dock="Right" Width="16" Height="16" Margin="4,0,0,0" VerticalAlignment="Center">
+            <Path Theme="{StaticResource CosmoIcon}" Stroke="{TemplateBinding Foreground}" Data="{StaticResource CosmoTraceChevronGeometry}" />
+          </Viewbox>
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" VerticalAlignment="Center" />
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    </Style>
+    <Style Selector="^:checked /template/ Viewbox#PART_Chevron">
+      <Setter Property="RenderTransform" Value="rotate(90deg)" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoTraceAction" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="CornerRadius" Value="8" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoTraceCollapsible" TargetType="Expander">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel Background="{TemplateBinding Background}">
+          <ToggleButton Name="ExpanderHeader" Theme="{StaticResource CosmoTraceTrigger}" IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+                        Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" IsEnabled="{TemplateBinding IsEnabled}"
+                        AutomationProperties.Name="Toggle" />
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Margin="7,8,0,4" Padding="16,0,4,0" BorderThickness="1,0,0,0" BorderBrush="{DynamicResource CosmoBorderBrush}"
+                            FontSize="16" TextBlock.LineHeight="26" Foreground="{TemplateBinding Foreground}" IsVisible="{TemplateBinding IsExpanded}" />
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:error /template/ ToggleButton#ExpanderHeader">
+      <Setter Property="Foreground" Value="{DynamicResource CosmoDestructiveBrush}" />
+    </Style>
+    <Style Selector="^:error /template/ ToggleButton#ExpanderHeader:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource CosmoDestructiveBrush}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

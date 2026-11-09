@@ -1,0 +1,414 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:ShellExample"
+             a:Page.Title="sidebar-15" a:Page.Description="A left and right sidebar.">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="sidebar-15" />
+      <TextBlock Classes="lead" Text="A left and right sidebar." />
+    </StackPanel>
+    <Border Height="800" CornerRadius="{DynamicResource CosmoRadiusXl}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" ClipToBounds="True">
+      <c:SidebarProvider MobileBreakpoint="0" x:DataType="m:ShellExample">
+        <c:SidebarProvider.Styles>
+          <Style Selector="c|SidebarMenuAction.start">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="8,6,0,0" />
+            <Setter Property="Background" Value="{DynamicResource CosmoSidebarAccentBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource CosmoSidebarAccentForegroundBrush}" />
+          </Style>
+          <Style Selector="FlyoutPresenter.actions">
+            <Setter Property="Width" Value="224" />
+            <Setter Property="Padding" Value="0" />
+          </Style>
+          <Style Selector="Expander.calendars">
+            <Setter Property="Margin" Value="8,0" />
+          </Style>
+          <Style Selector="Border.calendar-check">
+            <Setter Property="Width" Value="16" />
+            <Setter Property="Height" Value="16" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CosmoSidebarBorderBrush}" />
+          </Style>
+          <Style Selector="Border.calendar-check > Viewbox">
+            <Setter Property="IsVisible" Value="False" />
+          </Style>
+          <Style Selector="Border.calendar-check.on">
+            <Setter Property="Background" Value="{DynamicResource CosmoSidebarPrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CosmoSidebarPrimaryBrush}" />
+          </Style>
+          <Style Selector="Border.calendar-check.on > Viewbox">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+        </c:SidebarProvider.Styles>
+        <c:Sidebar Classes="borderless">
+          <c:SidebarHeader>
+            <c:SidebarMenu>
+              <c:SidebarMenuItem>
+                <c:SidebarMenuButton Padding="6,6" HorizontalAlignment="Left">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Border Width="20" Height="20" CornerRadius="{DynamicResource CosmoRadiusMd}" Background="{DynamicResource CosmoSidebarPrimaryBrush}"><Panel><Viewbox Width="12" Height="12" IsVisible="{Binding ShowsGallery}"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M7 2h10 M5 6h14 M5,10 L19,10 A2,2 0 0 1 21,12 L21,20 A2,2 0 0 1 19,22 L5,22 A2,2 0 0 1 3,20 L3,12 A2,2 0 0 1 5,10 Z" /></Viewbox><Viewbox Width="12" Height="12" IsVisible="{Binding ShowsWaveform}"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0V4a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2" /></Viewbox><Viewbox Width="12" Height="12" IsVisible="{Binding ShowsCommand}"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" /></Viewbox></Panel></Border>
+                    <TextBlock Text="{Binding ActiveTeam.Name}" FontWeight="Medium" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
+                    <Viewbox Width="16" Height="16" Opacity="0.5" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M6 9 l6 6 6-6" /></Viewbox>
+                  </StackPanel>
+                  <c:SidebarMenuButton.Flyout>
+                    <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                      <MenuItem Classes="label" Header="Teams" />
+                      <MenuItem Header="Acme Inc" InputGesture="Ctrl+D1" Command="{Binding SelectTeam}" CommandParameter="Acme Inc" />
+                      <MenuItem Header="Acme Corp." InputGesture="Ctrl+D2" Command="{Binding SelectTeam}" CommandParameter="Acme Corp." />
+                      <MenuItem Header="Evil Corp." InputGesture="Ctrl+D3" Command="{Binding SelectTeam}" CommandParameter="Evil Corp." />
+                      <Separator />
+                      <MenuItem Header="Add team"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M5 12h14 M12 5v14" /></Viewbox></MenuItem.Icon></MenuItem>
+                    </MenuFlyout>
+                  </c:SidebarMenuButton.Flyout>
+                </c:SidebarMenuButton>
+              </c:SidebarMenuItem>
+            </c:SidebarMenu>
+            <c:SidebarMenu>
+              <c:SidebarMenuItem><c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3" /></Viewbox><TextBlock Text="Search" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              <c:SidebarMenuItem><c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z M20 3v4 M22 5h-4 M4 17v2 M5 18H3" /></Viewbox><TextBlock Text="Ask AI" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              <c:SidebarMenuItem><c:SidebarMenuButton IsActive="True"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8 M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></Viewbox><TextBlock Text="Home" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              <c:SidebarMenuItem><c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M22,12 L16,12 L14,15 L10,15 L8,12 L2,12 M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /></Viewbox><TextBlock Text="Inbox" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+            </c:SidebarMenu>
+          </c:SidebarHeader>
+          <c:SidebarContent>
+            <c:SidebarContent.ItemsPanel><ItemsPanelTemplate><DockPanel LastChildFill="False" VerticalSpacing="8" /></ItemsPanelTemplate></c:SidebarContent.ItemsPanel>
+            <c:SidebarGroup DockPanel.Dock="Top" Classes="icon-hidden">
+              <c:SidebarGroupLabel Content="Favorites" />
+              <c:SidebarMenu>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Project Management &amp; Task Tracking"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="📊" /><TextBlock Text="Project Management &amp; Task Tracking" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Family Recipe Collection &amp; Meal Planning"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🍳" /><TextBlock Text="Family Recipe Collection &amp; Meal Planning" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Fitness Tracker &amp; Workout Routines"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="💪" /><TextBlock Text="Fitness Tracker &amp; Workout Routines" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Book Notes &amp; Reading List"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="📚" /><TextBlock Text="Book Notes &amp; Reading List" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Sustainable Gardening Tips &amp; Plant Care"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🌱" /><TextBlock Text="Sustainable Gardening Tips &amp; Plant Care" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Language Learning Progress &amp; Resources"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🗣️" /><TextBlock Text="Language Learning Progress &amp; Resources" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Home Renovation Ideas &amp; Budget Tracker"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🏠" /><TextBlock Text="Home Renovation Ideas &amp; Budget Tracker" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Personal Finance &amp; Investment Portfolio"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="💰" /><TextBlock Text="Personal Finance &amp; Investment Portfolio" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Movie &amp; TV Show Watchlist with Reviews"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🎬" /><TextBlock Text="Movie &amp; TV Show Watchlist with Reviews" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton ToolTip.Tip="Daily Habit Tracker &amp; Goal Setting"><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="✅" /><TextBlock Text="Daily Habit Tracker &amp; Goal Setting" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="More">
+                    <Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox>
+                    <c:SidebarMenuAction.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Header="Remove from Favorites"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8.34 8.34 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-.59-3.43 M18.42 12.76 22 9.27l-6.91-1L12 2l-1.44 2.91 M2,2 L22,22" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Copy Link"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Open in New Tab"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Delete"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuAction.Flyout>
+                  </c:SidebarMenuAction>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton Opacity="0.7"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox><TextBlock Text="More" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </c:SidebarGroup>
+            <c:SidebarGroup DockPanel.Dock="Top">
+              <c:SidebarGroupLabel Content="Workspaces" />
+              <c:SidebarMenu>
+                <c:SidebarMenuItem IsCollapsible="True">
+                  <c:SidebarMenuButton><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🏠" /><TextBlock Text="Personal Life Management" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Toggles="True" Classes="show-on-hover start" AutomationProperties.Name="Toggle"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarAccentForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="Add"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M5 12h14 M12 5v14" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="📔" /><TextBlock Text="Daily Journal &amp; Reflection" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🍏" /><TextBlock Text="Health &amp; Wellness Tracker" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🌟" /><TextBlock Text="Personal Growth &amp; Learning Goals" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem IsCollapsible="True">
+                  <c:SidebarMenuButton><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="💼" /><TextBlock Text="Professional Development" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Toggles="True" Classes="show-on-hover start" AutomationProperties.Name="Toggle"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarAccentForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="Add"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M5 12h14 M12 5v14" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🎯" /><TextBlock Text="Career Objectives &amp; Milestones" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🧠" /><TextBlock Text="Skill Acquisition &amp; Training Log" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🤝" /><TextBlock Text="Networking Contacts &amp; Events" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem IsCollapsible="True">
+                  <c:SidebarMenuButton><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🎨" /><TextBlock Text="Creative Projects" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Toggles="True" Classes="show-on-hover start" AutomationProperties.Name="Toggle"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarAccentForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="Add"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M5 12h14 M12 5v14" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="✍️" /><TextBlock Text="Writing Ideas &amp; Story Outlines" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🖼️" /><TextBlock Text="Art &amp; Design Portfolio" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🎵" /><TextBlock Text="Music Composition &amp; Practice Log" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem IsCollapsible="True">
+                  <c:SidebarMenuButton><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🏡" /><TextBlock Text="Home Management" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Toggles="True" Classes="show-on-hover start" AutomationProperties.Name="Toggle"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarAccentForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="Add"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M5 12h14 M12 5v14" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="💰" /><TextBlock Text="Household Budget &amp; Expense Tracking" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🔧" /><TextBlock Text="Home Maintenance Schedule &amp; Tasks" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="📅" /><TextBlock Text="Family Calendar &amp; Event Planning" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem IsCollapsible="True">
+                  <c:SidebarMenuButton><DockPanel><TextBlock DockPanel.Dock="Left" Margin="0,0,8,0" VerticalAlignment="Center" Text="🧳" /><TextBlock Text="Travel &amp; Adventure" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuAction Toggles="True" Classes="show-on-hover start" AutomationProperties.Name="Toggle"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarAccentForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuAction Classes="show-on-hover" AutomationProperties.Name="Add"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M5 12h14 M12 5v14" /></Viewbox></c:SidebarMenuAction>
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🗺️" /><TextBlock Text="Trip Planning &amp; Itineraries" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="🌎" /><TextBlock Text="Travel Bucket List &amp; Inspiration" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                    <c:SidebarMenuSubButton><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="📸" /><TextBlock Text="Travel Journal &amp; Photo Gallery" TextTrimming="CharacterEllipsis" /></StackPanel></c:SidebarMenuSubButton>
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton Opacity="0.7"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox><TextBlock Text="More" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </c:SidebarGroup>
+            <c:SidebarGroup DockPanel.Dock="Bottom">
+              <c:SidebarMenu>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M8 2v4 M16 2v4 M5,4 L19,4 A2,2 0 0 1 21,6 L21,20 A2,2 0 0 1 19,22 L5,22 A2,2 0 0 1 3,20 L3,6 A2,2 0 0 1 5,4 Z M3 10h18" /></Viewbox><TextBlock Text="Calendar" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 7h-9 M14 17H5 M14,17 A3,3 0 1 1 20,17 A3,3 0 1 1 14,17 Z M4,7 A3,3 0 1 1 10,7 A3,3 0 1 1 4,7 Z" /></Viewbox><TextBlock Text="Settings" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15,3 L20,3 A1,1 0 0 1 21,4 L21,9 A1,1 0 0 1 20,10 L15,10 A1,1 0 0 1 14,9 L14,4 A1,1 0 0 1 15,3 Z M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3" /></Viewbox><TextBlock Text="Templates" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M3 6h18 M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6 M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2 M10,11 L10,17 M14,11 L14,17" /></Viewbox><TextBlock Text="Trash" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M7.9 20A9 9 0 1 0 4 16.1L2 22Z M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3 M12 17h.01" /></Viewbox><TextBlock Text="Help" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </c:SidebarGroup>
+          </c:SidebarContent>
+          <c:SidebarRail />
+        </c:Sidebar>
+        <c:Sidebar Side="Right" Collapsible="None" Classes="bordered">
+          <Border Height="64" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoSidebarBorderBrush}">
+            <c:SidebarHeader Margin="8">
+              <c:SidebarMenu>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton Classes="lg" Tooltip="shadcn">
+                    <DockPanel>
+                      <Viewbox Width="16" Height="16" DockPanel.Dock="Right" Margin="8,0,0,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M7 15 l5 5 5-5 M7 9 l5-5 5 5" /></Viewbox>
+                      <c:Avatar Width="32" Height="32" Content="CN" CornerRadius="{DynamicResource CosmoRadiusLg}" />
+                      <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="shadcn" FontWeight="Medium" LineHeight="17.5" TextTrimming="CharacterEllipsis" />
+                        <TextBlock Text="m@example.com" FontSize="12" LineHeight="15" TextTrimming="CharacterEllipsis" />
+                      </StackPanel>
+                    </DockPanel>
+                    <c:SidebarMenuButton.Flyout>
+                      <MenuFlyout Placement="RightEdgeAlignedTop">
+                        <MenuItem Classes="label">
+                          <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                              <c:Avatar Width="32" Height="32" Content="CN" CornerRadius="{DynamicResource CosmoRadiusLg}" />
+                              <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="shadcn" FontWeight="Medium" FontSize="14" LineHeight="17.5" />
+                                <TextBlock Text="m@example.com" FontWeight="Normal" FontSize="12" LineHeight="15" />
+                              </StackPanel>
+                            </StackPanel>
+                          </MenuItem.Header>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Header="Upgrade to Pro"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z M20 3v4 M22 5h-4 M4 17v2 M5 18H3" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Account"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z M9 12 l2 2 4-4" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Billing"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M4,5 L20,5 A2,2 0 0 1 22,7 L22,17 A2,2 0 0 1 20,19 L4,19 A2,2 0 0 1 2,17 L2,7 A2,2 0 0 1 4,5 Z M2,10 L22,10" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <MenuItem Header="Notifications"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M10.268 21a2 2 0 0 0 3.464 0 M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></Viewbox></MenuItem.Icon></MenuItem>
+                        <Separator />
+                        <MenuItem Header="Log out"><MenuItem.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4 M16,17 L21,12 L16,7 M21,12 L9,12" /></Viewbox></MenuItem.Icon></MenuItem>
+                      </MenuFlyout>
+                    </c:SidebarMenuButton.Flyout>
+                  </c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </c:SidebarHeader>
+          </Border>
+          <c:SidebarContent>
+            <c:SidebarGroup Margin="0,8"><Calendar Classes="sidebar" Background="Transparent" SelectionMode="SingleDate" /></c:SidebarGroup>
+            <c:SidebarSeparator Margin="0" />
+            <Expander Classes="sidebar-group calendars" IsExpanded="True">
+              <Expander.Header><TextBlock Text="My Calendars" /></Expander.Header>
+              <c:SidebarMenu>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="2"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Personal" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="2"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Work" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check" CornerRadius="2"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Family" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <c:SidebarSeparator Margin="0" />
+            <Expander Classes="sidebar-group calendars">
+              <Expander.Header><TextBlock Text="Favorites" /></Expander.Header>
+              <c:SidebarMenu>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="2"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Holidays" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="2"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Birthdays" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <c:SidebarSeparator Margin="0" />
+            <Expander Classes="sidebar-group calendars">
+              <Expander.Header><TextBlock Text="Other" /></Expander.Header>
+              <c:SidebarMenu>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="2"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Travel" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check on" CornerRadius="2"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Reminders" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+                <c:SidebarMenuItem><c:SidebarMenuButton><StackPanel><Border Classes="calendar-check" CornerRadius="2"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox></Border><TextBlock Text="Deadlines" /></StackPanel></c:SidebarMenuButton></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <c:SidebarSeparator Margin="0" />
+          </c:SidebarContent>
+          <c:SidebarFooter>
+            <c:SidebarMenu><c:SidebarMenuItem><c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M5 12h14 M12 5v14" /></Viewbox><TextBlock Text="New Calendar" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton></c:SidebarMenuItem></c:SidebarMenu>
+          </c:SidebarFooter>
+        </c:Sidebar>
+        <c:SidebarInset>
+          <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Height="56" Background="{DynamicResource CosmoBackgroundBrush}">
+              <StackPanel Orientation="Horizontal" Spacing="8" Margin="12,0" VerticalAlignment="Center">
+                <c:SidebarTrigger Margin="0" VerticalAlignment="Center" />
+                <Separator Classes="vertical" Height="16" Margin="0,0,8,0" VerticalAlignment="Center" />
+                <c:Breadcrumb VerticalAlignment="Center"><c:BreadcrumbPage Text="Project Management &amp; Task Tracking" TextTrimming="CharacterEllipsis" MaxLines="1" /></c:Breadcrumb>
+              </StackPanel>
+            </DockPanel>
+            <ScrollViewer Theme="{DynamicResource CosmoScrollArea}" HorizontalScrollBarVisibility="Disabled">
+              <DockPanel Margin="16">
+                <Border DockPanel.Dock="Top" Height="96" MaxWidth="768" Margin="0,0,0,16" CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+                <Border Height="1000" MaxWidth="768" CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+              </DockPanel>
+            </ScrollViewer>
+          </DockPanel>
+        </c:SidebarInset>
+      </c:SidebarProvider>
+    </Border>
+  </StackPanel>
+</UserControl>

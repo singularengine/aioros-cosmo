@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: trace-link">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Trace Width="384" HorizontalAlignment="Left">
+      <HyperlinkButton Classes="trace" NavigateUri="#link"><c:TraceLine Content="Read apps/v4/lib/docs.ts"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8" /></Viewbox></c:TraceLine.Icon><c:TraceLine.Trailing><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M9 18 l6-6-6-6" /></Viewbox></c:TraceLine.Trailing></c:TraceLine></HyperlinkButton>
+      <HyperlinkButton Classes="trace" NavigateUri="https://docs.astro.build/en/install-and-setup/" AutomationProperties.Name="Install Astro | docs.astro.build (opens in a new tab)"><c:TraceLine Content="Install Astro | docs.astro.build"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M2,12 A10,10 0 1 1 22,12 A10,10 0 1 1 2,12 Z M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20 M2 12h20" /></Viewbox></c:TraceLine.Icon><c:TraceLine.Trailing><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M7 7h10v10 M7 17 17 7" /></Viewbox></c:TraceLine.Trailing></c:TraceLine></HyperlinkButton>
+    </c:Trace>
+  </Border>
+</UserControl>

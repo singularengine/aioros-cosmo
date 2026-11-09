@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo"
+             a:Page.Title="signup-01" a:Page.Description="A simple signup form.">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="signup-01" />
+      <TextBlock Classes="lead" Text="A simple signup form." />
+    </StackPanel>
+    <Border MinHeight="720" CornerRadius="{DynamicResource CosmoRadiusXl}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}"
+            Background="{DynamicResource CosmoBackgroundBrush}" ClipToBounds="True" Container.Name="block" Container.Sizing="Width">
+      <Border.Styles>
+        <Style Selector="Border.page"><Setter Property="Padding" Value="40" /></Style>
+        <Style Selector="StackPanel.split"><Setter Property="MaxWidth" Value="896" /></Style>
+        <Style Selector="c|FieldGroup.split"><Setter Property="Margin" Value="32" /></Style>
+        <ContainerQuery Name="block" Query="max-width:767">
+          <Style Selector="Border.page"><Setter Property="Padding" Value="24" /></Style>
+          <Style Selector="StackPanel.split"><Setter Property="MaxWidth" Value="384" /></Style>
+          <Style Selector="c|FieldGroup.split"><Setter Property="Margin" Value="24" /><Setter Property="Grid.ColumnSpan" Value="2" /></Style>
+          <Style Selector="Border.cover"><Setter Property="IsVisible" Value="False" /></Style>
+        </ContainerQuery>
+      </Border.Styles>
+      <Border VerticalAlignment="Center">
+        <Border Classes="page">
+          <StackPanel MaxWidth="384">
+            <c:Card>
+              <c:CardHeader Title="Create an account" Description="Enter your information below to create your account" />
+              <c:CardContent>
+                <c:FieldGroup>
+                  <c:Field>
+                    <c:FieldLabel Content="Full Name" Target="{Binding #name}" />
+                    <TextBox Name="name" a:Web.Id="name" PlaceholderText="John Doe" />
+                  </c:Field>
+                  <c:Field>
+                    <c:FieldLabel Content="Email" Target="{Binding #email}" />
+                    <TextBox Name="email" a:Web.Id="email" a:Web.InputType="email" PlaceholderText="m@example.com" />
+                    <c:FieldDescription Text="We'll use this to contact you. We will not share your email with anyone else." />
+                  </c:Field>
+                  <c:Field>
+                    <c:FieldLabel Content="Password" Target="{Binding #password}" />
+                    <TextBox Name="password" a:Web.Id="password" PasswordChar="•" />
+                    <c:FieldDescription Text="Must be at least 8 characters long." />
+                  </c:Field>
+                  <c:Field>
+                    <c:FieldLabel Content="Confirm Password" Target="{Binding #confirm}" />
+                    <TextBox Name="confirm" a:Web.Id="confirm" PasswordChar="•" />
+                    <c:FieldDescription Text="Please confirm your password." />
+                  </c:Field>
+                  <c:FieldGroup>
+                    <c:Field>
+                      <Button Content="Create Account" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                      <Button Classes="outline" Content="Sign up with Google" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                      <c:FieldDescription TextAlignment="Center" Margin="24,0"><Run Text="Already have an account? " /><Run Text="Sign in" a:Web.Href="#" TextDecorations="Underline" /></c:FieldDescription>
+                    </c:Field>
+                  </c:FieldGroup>
+                </c:FieldGroup>
+              </c:CardContent>
+            </c:Card>
+          </StackPanel>
+        </Border>
+      </Border>
+    </Border>
+  </StackPanel>
+</UserControl>

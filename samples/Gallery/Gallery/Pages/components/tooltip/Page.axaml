@@ -1,0 +1,71 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Tooltip" a:Page.Description="A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Tooltip" />
+      <TextBlock Classes="lead" Text="A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: tooltip" />
+        <c:Badge Classes="secondary" Content="Avalonia: ToolTip" />
+        <c:Badge Classes="secondary" Content="Web: role=tooltip" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Above its trigger with shadcn&#x27;s arrow, at once (shadcn&#x27;s TooltipProvider has no delay); Tab onto the button shows it and Escape hides it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline" Content="Hover" ToolTip.Tip="Add to library" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline&quot; Content=&quot;Hover&quot; ToolTip.Tip=&quot;Add to library&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Icon button" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline icon" AutomationProperties.Name="Add to library" ToolTip.Tip="Add to library">
+            <a:Icon Kind="plus" Size="16" />
+          </Button>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline icon&quot; AutomationProperties.Name=&quot;Add to library&quot; ToolTip.Tip=&quot;Add to library&quot;&gt;&#10;  &lt;a:Icon Kind=&quot;plus&quot; Size=&quot;16&quot; /&gt;&#10;&lt;/Button&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Delay" />
+      <TextBlock Classes="sm muted" Text="ToolTip.ShowDelay is Radix&#x27;s delayDuration (700 ms here); moving to the next button within ToolTip.BetweenShowDelay (300 ms, Radix&#x27;s skipDelayDuration) shows its tip at once." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button Classes="outline" Content="Bold" ToolTip.Tip="Bold" ToolTip.ShowDelay="700" />
+            <Button Classes="outline" Content="Italic" ToolTip.Tip="Italic" ToolTip.ShowDelay="700" />
+            <Button Classes="outline" Content="Underline" ToolTip.Tip="Underline" ToolTip.ShowDelay="700" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Bold&quot; ToolTip.Tip=&quot;Bold&quot; ToolTip.ShowDelay=&quot;700&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Italic&quot; ToolTip.Tip=&quot;Italic&quot; ToolTip.ShowDelay=&quot;700&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Underline&quot; ToolTip.Tip=&quot;Underline&quot; ToolTip.ShowDelay=&quot;700&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="The tip binds the model through a string format." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <Button Classes="outline" Content="Inbox" ToolTip.Tip="{Binding Unread, StringFormat='{}{0} unread messages'}" />
+            <Button Classes="ghost" Content="Mark one read" Command="{Binding ReadCommand}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Inbox&quot; ToolTip.Tip=&quot;{Binding Unread, StringFormat=&#x27;{}{0} unread messages&#x27;}&quot; /&gt;&#10;  &lt;Button Classes=&quot;ghost&quot; Content=&quot;Mark one read&quot; Command=&quot;{Binding ReadCommand}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ToolTip.Tip" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The tip&#x27;s content: text, a control, or a ToolTip with a ContentTemplate." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ToolTip.ShowDelay, BetweenShowDelay" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Radix&#x27;s delayDuration (0 in Cosmo, as shadcn) and skipDelayDuration (300 ms)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ToolTip.Placement" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Top in Cosmo (Radix&#x27;s side); the arrow is drawn for the top side." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

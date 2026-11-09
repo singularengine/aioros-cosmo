@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: skeleton-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="32">
+      <StackPanel Orientation="Horizontal" Spacing="16">
+        <c:Skeleton Width="48" Height="48" CornerRadius="9999" VerticalAlignment="Center" />
+        <StackPanel Spacing="8" VerticalAlignment="Center">
+          <c:Skeleton Width="250" Height="16" />
+          <c:Skeleton Width="200" Height="16" />
+        </StackPanel>
+      </StackPanel>
+      <StackPanel Spacing="12">
+        <c:Skeleton Width="250" Height="125" CornerRadius="{DynamicResource CosmoRadiusXl}" />
+        <StackPanel Spacing="8">
+          <c:Skeleton Width="250" Height="16" />
+          <c:Skeleton Width="200" Height="16" />
+        </StackPanel>
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

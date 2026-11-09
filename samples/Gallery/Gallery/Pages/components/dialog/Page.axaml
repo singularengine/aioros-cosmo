@@ -1,0 +1,101 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Dialog" a:Page.Description="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Dialog" />
+      <TextBlock Classes="lead" Text="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: dialog" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Dialog" />
+        <c:Badge Classes="secondary" Content="Web: &lt;dialog&gt; (showModal)" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="The trigger&#x27;s command opens the dialog (IsOpen, two way) and awaits its answer; the footer&#x27;s commands answer and close it. The focus moves to the first field and stays in the dialog; Escape, the close button and a click outside close it. On the web the open dialog is a modal &lt;dialog&gt; written by Aioros for the pending command." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Open Dialog" Command="{Binding EditCommand}" />
+            <c:Dialog IsOpen="{Binding EditOpen}" MaxWidth="425">
+              <StackPanel Spacing="16">
+                <c:DialogHeader Title="Edit profile" Description="Make changes to your profile here. Click save when you're done." />
+                <StackPanel Spacing="16">
+                  <StackPanel Spacing="12">
+                    <Label Content="Name" />
+                    <TextBox Text="{Binding Name}" AutomationProperties.Name="Name" />
+                  </StackPanel>
+                  <StackPanel Spacing="12">
+                    <Label Content="Username" />
+                    <TextBox Text="{Binding Username}" AutomationProperties.Name="Username" />
+                  </StackPanel>
+                </StackPanel>
+                <c:DialogFooter>
+                  <Button Classes="outline" Content="Cancel" Command="{Binding AnswerCommand}" CommandParameter="cancel" />
+                  <Button Content="Save changes" Command="{Binding AnswerCommand}" CommandParameter="save" />
+                </c:DialogFooter>
+              </StackPanel>
+            </c:Dialog>
+            <TextBlock Classes="sm muted" Text="{Binding Outcome}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Open Dialog&quot; Command=&quot;{Binding EditCommand}&quot; /&gt;&#10;  &lt;c:Dialog IsOpen=&quot;{Binding EditOpen}&quot; MaxWidth=&quot;425&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Edit profile&quot; Description=&quot;Make changes to your profile here. Click save when you&#x27;re done.&quot; /&gt;&#10;      &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;        &lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;          &lt;Label Content=&quot;Name&quot; /&gt;&#10;          &lt;TextBox Text=&quot;{Binding Name}&quot; AutomationProperties.Name=&quot;Name&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;          &lt;Label Content=&quot;Username&quot; /&gt;&#10;          &lt;TextBox Text=&quot;{Binding Username}&quot; AutomationProperties.Name=&quot;Username&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/StackPanel&gt;&#10;      &lt;c:DialogFooter&gt;&#10;        &lt;Button Classes=&quot;outline&quot; Content=&quot;Cancel&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;cancel&quot; /&gt;&#10;        &lt;Button Content=&quot;Save changes&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;save&quot; /&gt;&#10;      &lt;/c:DialogFooter&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Dialog&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Outcome}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Without a close button" />
+      <TextBlock Classes="sm muted" Text="ShowCloseButton is shadcn&#x27;s showCloseButton; c:Dialog.Closes on a button is its DialogClose." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Share" Command="{Binding ShareCommand}" />
+            <c:Dialog IsOpen="{Binding ShareOpen}" ShowCloseButton="False" MaxWidth="448">
+              <StackPanel Spacing="16">
+                <c:DialogHeader Title="Share link" Description="Anyone who has this link will be able to view this." />
+                <TextBox Text="https://ui.shadcn.com/docs/installation" IsReadOnly="True" AutomationProperties.Name="Link" />
+                <c:DialogFooter HorizontalAlignment="Left">
+                  <Button Classes="secondary" Content="Close" c:Dialog.Closes="True" />
+                </c:DialogFooter>
+              </StackPanel>
+            </c:Dialog>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Share&quot; Command=&quot;{Binding ShareCommand}&quot; /&gt;&#10;  &lt;c:Dialog IsOpen=&quot;{Binding ShareOpen}&quot; ShowCloseButton=&quot;False&quot; MaxWidth=&quot;448&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Share link&quot; Description=&quot;Anyone who has this link will be able to view this.&quot; /&gt;&#10;      &lt;TextBox Text=&quot;https://ui.shadcn.com/docs/installation&quot; IsReadOnly=&quot;True&quot; AutomationProperties.Name=&quot;Link&quot; /&gt;&#10;      &lt;c:DialogFooter HorizontalAlignment=&quot;Left&quot;&gt;&#10;        &lt;Button Classes=&quot;secondary&quot; Content=&quot;Close&quot; c:Dialog.Closes=&quot;True&quot; /&gt;&#10;      &lt;/c:DialogFooter&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Dialog&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Opened in the browser" />
+      <TextBlock Classes="sm muted" Text="Trigger is Radix&#x27;s DialogTrigger: on the web the browser opens the dialog with no request, and Escape, a click outside, the close button and c:Dialog.Closes close it there; IsOpen, unbound here, stays in the browser." TextWrapping="Wrap" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button x:Name="aboutTrigger" Classes="outline" Content="About" />
+            <c:Dialog Trigger="{Binding #aboutTrigger}" MaxWidth="425">
+              <StackPanel Spacing="16">
+                <c:DialogHeader Title="About Cosmo" Description="shadcn/ui's components in Avalonia XAML, on the desktop and on the web." />
+                <c:DialogFooter>
+                  <Button Classes="outline" Content="Done" c:Dialog.Closes="True" />
+                </c:DialogFooter>
+              </StackPanel>
+            </c:Dialog>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button x:Name=&quot;aboutTrigger&quot; Classes=&quot;outline&quot; Content=&quot;About&quot; /&gt;&#10;  &lt;c:Dialog Trigger=&quot;{Binding #aboutTrigger}&quot; MaxWidth=&quot;425&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;About Cosmo&quot; Description=&quot;shadcn/ui&#x27;s components in Avalonia XAML, on the desktop and on the web.&quot; /&gt;&#10;      &lt;c:DialogFooter&gt;&#10;        &lt;Button Classes=&quot;outline&quot; Content=&quot;Done&quot; c:Dialog.Closes=&quot;True&quot; /&gt;&#10;      &lt;/c:DialogFooter&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Dialog&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Trigger" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The button that opens it; on the web the browser opens it with no request." TextWrapping="Wrap" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsOpen" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable open state (Radix&#x27;s open and onOpenChange)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content, ContentTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="What the dialog shows, on the page&#x27;s model." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:DialogHeader Title, Description" /><TextBlock Grid.Column="1" Classes="sm muted" Text="shadcn&#x27;s DialogHeader, DialogTitle and DialogDescription." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:DialogFooter" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The buttons in a row at the end." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ShowCloseButton, IsLightDismissEnabled" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The close button, and whether a click outside closes it." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Dialog.Closes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A button that closes the dialog it is in (DialogClose)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:OverlayHost.IsHost" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The panel dialogs cover (the window&#x27;s root in the Gallery)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

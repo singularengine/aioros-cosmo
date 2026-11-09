@@ -1,0 +1,140 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: sidebar-11">
+  <Border a:Web.Id="fixture" Width="1280" Height="800" Padding="0" ClipToBounds="True" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:SidebarProvider Width="1280" Height="800" MobileBreakpoint="0">
+      <c:SidebarProvider.Styles>
+        <Style Selector="c|SidebarMenuItem.tree > c|SidebarMenuButton /template/ Viewbox#PART_Chevron">
+          <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="c|SidebarMenuItem.tree > c|SidebarMenuButton Viewbox.chevron">
+          <Setter Property="RenderTransform" Value="none" />
+        </Style>
+        <Style Selector="c|SidebarMenuItem.tree:expanded > c|SidebarMenuButton Viewbox.chevron">
+          <Setter Property="RenderTransform" Value="rotate(90deg)" />
+        </Style>
+        <Style Selector="c|SidebarMenuButton.file:active">
+          <Setter Property="Background" Value="Transparent" />
+        </Style>
+      </c:SidebarProvider.Styles>
+      <c:Sidebar>
+        <c:SidebarContent>
+          <c:SidebarGroup>
+            <c:SidebarGroupLabel Content="Changes" />
+            <c:SidebarMenu>
+              <c:SidebarMenuItem>
+                <c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="README.md" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                <c:SidebarMenuBadge Content="M" />
+              </c:SidebarMenuItem>
+              <c:SidebarMenuItem>
+                <c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="api/hello/route.ts" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                <c:SidebarMenuBadge Content="U" />
+              </c:SidebarMenuItem>
+              <c:SidebarMenuItem>
+                <c:SidebarMenuButton><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="app/layout.tsx" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                <c:SidebarMenuBadge Content="M" />
+              </c:SidebarMenuItem>
+            </c:SidebarMenu>
+          </c:SidebarGroup>
+          <c:SidebarGroup>
+            <c:SidebarGroupLabel Content="Files" />
+            <c:SidebarMenu>
+              <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="app" /></StackPanel></c:SidebarMenuButton>
+                <c:SidebarMenuSub>
+                  <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                    <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="api" /></StackPanel></c:SidebarMenuButton>
+                    <c:SidebarMenuSub>
+                      <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                        <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="hello" /></StackPanel></c:SidebarMenuButton>
+                        <c:SidebarMenuSub>
+                          <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                            <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="route.ts" /></StackPanel></c:SidebarMenuButton>
+                            <c:SidebarMenuSub>
+                            </c:SidebarMenuSub>
+                          </c:SidebarMenuItem>
+                        </c:SidebarMenuSub>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="page.tsx" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                      <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="layout.tsx" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                      <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                        <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="blog" /></StackPanel></c:SidebarMenuButton>
+                        <c:SidebarMenuSub>
+                          <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                            <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="page.tsx" /></StackPanel></c:SidebarMenuButton>
+                            <c:SidebarMenuSub>
+                            </c:SidebarMenuSub>
+                          </c:SidebarMenuItem>
+                        </c:SidebarMenuSub>
+                      </c:SidebarMenuItem>
+                    </c:SidebarMenuSub>
+                  </c:SidebarMenuItem>
+                </c:SidebarMenuSub>
+              </c:SidebarMenuItem>
+              <c:SidebarMenuItem IsCollapsible="True" Classes="tree" IsExpanded="True">
+                <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="components" /></StackPanel></c:SidebarMenuButton>
+                <c:SidebarMenuSub>
+                  <c:SidebarMenuItem IsCollapsible="True" Classes="tree" IsExpanded="True">
+                    <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="ui" /></StackPanel></c:SidebarMenuButton>
+                    <c:SidebarMenuSub>
+                      <c:SidebarMenuButton IsActive="True" Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="button.tsx" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                      <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="card.tsx" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                    </c:SidebarMenuSub>
+                  </c:SidebarMenuItem>
+                  <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="header.tsx" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="footer.tsx" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                </c:SidebarMenuSub>
+              </c:SidebarMenuItem>
+              <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="lib" /></StackPanel></c:SidebarMenuButton>
+                <c:SidebarMenuSub>
+                  <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                    <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="util.ts" /></StackPanel></c:SidebarMenuButton>
+                    <c:SidebarMenuSub>
+                    </c:SidebarMenuSub>
+                  </c:SidebarMenuItem>
+                </c:SidebarMenuSub>
+              </c:SidebarMenuItem>
+              <c:SidebarMenuItem IsCollapsible="True" Classes="tree">
+                <c:SidebarMenuButton><StackPanel><Viewbox Width="16" Height="16" Classes="chevron"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M9 18 l6-6-6-6" /></Viewbox><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></Viewbox><TextBlock Text="public" /></StackPanel></c:SidebarMenuButton>
+                <c:SidebarMenuSub>
+                  <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="favicon.ico" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                  <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="vercel.svg" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+                </c:SidebarMenuSub>
+              </c:SidebarMenuItem>
+              <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text=".eslintrc.json" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+              <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text=".gitignore" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+              <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="next.config.js" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+              <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="tailwind.config.js" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+              <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="package.json" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+              <c:SidebarMenuButton Classes="file"><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Left" Margin="0,0,8,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4" /></Viewbox><TextBlock Text="README.md" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" /></DockPanel></c:SidebarMenuButton>
+            </c:SidebarMenu>
+          </c:SidebarGroup>
+        </c:SidebarContent>
+        <c:SidebarRail />
+      </c:Sidebar>
+      <c:SidebarInset>
+        <DockPanel>
+          <Border DockPanel.Dock="Top" Height="64" Padding="16,0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoBorderBrush}">
+            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+              <c:SidebarTrigger Margin="-4,0,0,0" VerticalAlignment="Center" />
+              <Separator Classes="vertical" Height="16" Margin="0,0,8,0" VerticalAlignment="Center" />
+              <c:Breadcrumb VerticalAlignment="Center">
+                <HyperlinkButton Content="components" NavigateUri="#" />
+                <HyperlinkButton Content="ui" NavigateUri="#" />
+                <c:BreadcrumbPage Text="button.tsx" />
+              </c:Breadcrumb>
+            </StackPanel>
+          </Border>
+          <DockPanel Margin="16">
+            <UniformGrid DockPanel.Dock="Top" Columns="3" ColumnSpacing="16" Margin="0,0,0,16">
+              <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+              <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+              <c:AspectRatio Ratio="1.7778"><Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" /></c:AspectRatio>
+            </UniformGrid>
+            <Border CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+          </DockPanel>
+        </DockPanel>
+      </c:SidebarInset>
+    </c:SidebarProvider>
+  </Border>
+</UserControl>

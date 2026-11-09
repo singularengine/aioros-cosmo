@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Alert" a:Page.Description="Displays a callout for user attention.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Alert" />
+      <TextBlock Classes="lead" Text="Displays a callout for user attention." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: alert" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Alert" />
+        <c:Badge Classes="secondary" Content="Web: &lt;div&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Icon and Title are properties, the content is the description; destructive colors it with --destructive." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="16" MaxWidth="560">
+            <c:Alert Title="Success! Your changes have been saved" Content="This is an alert with icon, title and description.">
+              <c:Alert.Icon><a:Icon Kind="circle-check" Size="16" /></c:Alert.Icon>
+            </c:Alert>
+            <c:Alert Title="This Alert has a title and an icon. No description.">
+              <c:Alert.Icon><a:Icon Kind="popcorn" Size="16" /></c:Alert.Icon>
+            </c:Alert>
+            <c:Alert Classes="destructive" Title="Unable to process your payment.">
+              <c:Alert.Icon><a:Icon Kind="circle-alert" Size="16" /></c:Alert.Icon>
+              <StackPanel Spacing="4">
+                <TextBlock Text="Please verify your billing information and try again." LineHeight="22.75" TextWrapping="Wrap" />
+                <c:List Classes="inside" TextBlock.LineHeight="20">
+                  <x:String>Check your card details</x:String>
+                  <x:String>Ensure sufficient funds</x:String>
+                  <x:String>Verify billing address</x:String>
+                </c:List>
+              </StackPanel>
+            </c:Alert>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;16&quot; MaxWidth=&quot;560&quot;&gt;&#10;  &lt;c:Alert Title=&quot;Success! Your changes have been saved&quot; Content=&quot;This is an alert with icon, title and description.&quot;&gt;&#10;    &lt;c:Alert.Icon&gt;&lt;a:Icon Kind=&quot;circle-check&quot; Size=&quot;16&quot; /&gt;&lt;/c:Alert.Icon&gt;&#10;  &lt;/c:Alert&gt;&#10;  &lt;c:Alert Title=&quot;This Alert has a title and an icon. No description.&quot;&gt;&#10;    &lt;c:Alert.Icon&gt;&lt;a:Icon Kind=&quot;popcorn&quot; Size=&quot;16&quot; /&gt;&lt;/c:Alert.Icon&gt;&#10;  &lt;/c:Alert&gt;&#10;  &lt;c:Alert Classes=&quot;destructive&quot; Title=&quot;Unable to process your payment.&quot;&gt;&#10;    &lt;c:Alert.Icon&gt;&lt;a:Icon Kind=&quot;circle-alert&quot; Size=&quot;16&quot; /&gt;&lt;/c:Alert.Icon&gt;&#10;    &lt;StackPanel Spacing=&quot;4&quot;&gt;&#10;      &lt;TextBlock Text=&quot;Please verify your billing information and try again.&quot; LineHeight=&quot;22.75&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;      &lt;c:List Classes=&quot;inside&quot; TextBlock.LineHeight=&quot;20&quot;&gt;&#10;        &lt;x:String&gt;Check your card details&lt;/x:String&gt;&#10;        &lt;x:String&gt;Ensure sufficient funds&lt;/x:String&gt;&#10;        &lt;x:String&gt;Verify billing address&lt;/x:String&gt;&#10;      &lt;/c:List&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:Alert&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="The variant is a bound class, the title and description bind to the model." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="420">
+            <TextBox Text="{Binding Name}" PlaceholderText="Your name" AutomationProperties.Name="Name" />
+            <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" />
+            <c:Alert Classes.destructive="{Binding Failed}" Title="{Binding AlertTitle}" Content="{Binding AlertMessage}">
+              <c:Alert.Icon><a:Icon Kind="info" Size="16" /></c:Alert.Icon>
+            </c:Alert>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;420&quot;&gt;&#10;  &lt;TextBox Text=&quot;{Binding Name}&quot; PlaceholderText=&quot;Your name&quot; AutomationProperties.Name=&quot;Name&quot; /&gt;&#10;  &lt;Button Content=&quot;Save&quot; Command=&quot;{Binding SaveCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;  &lt;c:Alert Classes.destructive=&quot;{Binding Failed}&quot; Title=&quot;{Binding AlertTitle}&quot; Content=&quot;{Binding AlertMessage}&quot;&gt;&#10;    &lt;c:Alert.Icon&gt;&lt;a:Icon Kind=&quot;info&quot; Size=&quot;16&quot; /&gt;&lt;/c:Alert.Icon&gt;&#10;  &lt;/c:Alert&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Icon, Title, Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The 16 px icon, the medium title and the description." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Classes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="destructive." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

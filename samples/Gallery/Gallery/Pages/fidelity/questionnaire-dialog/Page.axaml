@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-dialog">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Width="448" HorizontalAlignment="Left">
+      <Button x:Name="clarification" Classes="outline" Height="32" Padding="12,0" CornerRadius="16" HorizontalAlignment="Left" Content="Open clarification" />
+      <c:Dialog Trigger="{Binding #clarification}" MaxWidth="448">
+        <c:Questionnaire ShowProgress="True" SubmitContent="Send answer">
+      <c:QuestionnaireItem Name="scope" Title="Which files are in scope?" Description="Choose how broadly the agent can update the workspace." IsRequired="True">
+        <c:QuestionnaireChoice Value="component" Content="Component only" />
+        <c:QuestionnaireChoice Value="feature" Content="Complete feature directory" />
+        <c:QuestionnaireChoice Value="workspace" Content="Any related workspace file" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="tests" Title="How much verification is needed?" Description="Choose the checks the agent should run before handoff." IsRequired="True">
+        <c:QuestionnaireChoice Value="targeted" Content="Targeted tests" />
+        <c:QuestionnaireChoice Value="package" Content="Package tests" />
+        <c:QuestionnaireChoice Value="full" Content="Full workspace verification" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+      </c:Dialog>
+    </StackPanel>
+  </Border>
+</UserControl>

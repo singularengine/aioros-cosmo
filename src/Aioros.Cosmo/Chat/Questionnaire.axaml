@@ -1,0 +1,245 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo" xmlns:a="https://aioros.dev">
+  <StreamGeometry x:Key="CosmoQuestionnaireCheckGeometry">M20 6 9 17l-5-5</StreamGeometry>
+
+  <ControlTheme x:Key="CosmoQuestionnaireButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="12,0" />
+    <Setter Property="CornerRadius" Value="16" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Questionnaire}" TargetType="c:Questionnaire">
+    <Setter Property="a:Web.State" Value="CurrentIndex" />
+    <Setter Property="a:Web.Answers" Value="True" />
+    <Setter Property="a:Web.KeyScope" Value="True" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Frame" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+        <Grid Name="PART_Root" RowDefinitions="Auto,Auto,Auto">
+          <StackPanel Name="PART_ProgressPanel" Spacing="8" Margin="0,0,0,24" IsVisible="{TemplateBinding ShowProgress}">
+            <UniformGrid Name="PART_Segments" Rows="1" ColumnSpacing="6" IsVisible="False" />
+            <TextBlock Name="PART_Progress" Text="{Binding Progress, RelativeSource={RelativeSource TemplatedParent}}" FontSize="12" LineHeight="16" FontWeight="Medium" FontFeatures="+tnum"
+                       Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+          </StackPanel>
+          <ItemsPresenter Grid.Row="1" ItemsPanel="{TemplateBinding ItemsPanel}" />
+          <Grid Name="PART_Actions" Grid.Row="2" ColumnDefinitions="*,Auto,Auto,Auto" Height="44" Margin="0,24,0,0">
+            <Button Name="PART_Previous" Theme="{StaticResource CosmoQuestionnaireButton}" Classes="outline" HorizontalAlignment="Left" VerticalAlignment="Center" a:Web.Keys="Left"
+                    Content="{TemplateBinding PreviousContent}" />
+            <Button Name="PART_Reset" Grid.Column="1" Theme="{StaticResource CosmoQuestionnaireButton}" Classes="outline" Margin="0,0,8,0" VerticalAlignment="Center"
+                    Content="{TemplateBinding ResetContent}" IsVisible="{TemplateBinding ResetContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <Button Name="PART_Skip" Grid.Column="2" Theme="{StaticResource CosmoQuestionnaireButton}" Classes="outline" Margin="0,0,8,0" VerticalAlignment="Center"
+                    Content="{TemplateBinding SkipContent}" IsVisible="False" />
+            <Button Name="PART_Next" Grid.Column="3" Theme="{StaticResource CosmoQuestionnaireButton}" VerticalAlignment="Center" Content="{TemplateBinding NextContent}"
+                    a:Web.Keys="Ctrl+Enter Enter Right" />
+            <Button Name="PART_Submit" Grid.Column="3" Theme="{StaticResource CosmoQuestionnaireButton}" VerticalAlignment="Center" Content="{TemplateBinding SubmitContent}"
+                    IsVisible="False" a:Web.Keys="Ctrl+Enter Enter" />
+          </Grid>
+        </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:first /template/ Button#PART_Previous">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:optional /template/ Button#PART_Skip">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:last /template/ Button#PART_Next">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:last /template/ Button#PART_Submit">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^[RequiresAnswer=True] /template/ Button#PART_Next">
+      <Setter Property="a:Web.NeedsAnswer" Value="True" />
+    </Style>
+    <Style Selector="^[RequiresAnswer=True] /template/ Button#PART_Submit">
+      <Setter Property="a:Web.NeedsAnswer" Value="True" />
+    </Style>
+    <Style Selector="^:waiting /template/ Button#PART_Next">
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+    <Style Selector="^:waiting /template/ Button#PART_Submit">
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+    <Style Selector="^.secondary-next /template/ Button#PART_Next">
+      <Setter Property="Background" Value="{DynamicResource CosmoSecondaryBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoSecondaryForegroundBrush}" />
+    </Style>
+    <Style Selector="^.segmented /template/ UniformGrid#PART_Segments">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.card">
+      <Setter Property="Background" Value="{DynamicResource CosmoCardBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusXl}" />
+      <Setter Property="Padding" Value="0,24" />
+    </Style>
+    <Style Selector="^.card /template/ Grid#PART_Actions">
+      <Setter Property="Margin" Value="24,24,24,0" />
+    </Style>
+    <Style Selector="^.card /template/ Border#PART_Frame">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowSm}" />
+    </Style>
+    <Style Selector="^.card /template/ StackPanel#PART_ProgressPanel">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:QuestionnaireItem}" TargetType="c:QuestionnaireItem">
+    <Setter Property="a:Web.State" Value="Status" />
+    <Setter Property="Focusable" Value="True" />
+    <Setter Property="IsTabStop" Value="False" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Spacing="12" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel Name="PART_Body">
+          <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+            <ContentPresenter Name="PART_Title" Content="{TemplateBinding Title}" HorizontalAlignment="Left" FontSize="16" FontWeight="SemiBold" TextBlock.LineHeight="24" TextWrapping="Wrap" />
+            <ContentPresenter Name="PART_Description" Grid.Row="1" Content="{TemplateBinding Description}" FontSize="14" TextBlock.LineHeight="20" TextWrapping="Wrap"
+                              Foreground="{DynamicResource CosmoMutedForegroundBrush}" IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <TextBlock Name="PART_Progress" Grid.Column="1" Grid.RowSpan="2" Margin="8,0,0,0" VerticalAlignment="Top" FontSize="12" LineHeight="16" FontWeight="Medium"
+                       Text="{TemplateBinding Progress}" FontFeatures="+tnum" Foreground="{DynamicResource CosmoMutedForegroundBrush}" IsVisible="False" />
+          </Grid>
+          <ItemsPresenter Name="PART_Choices" Margin="0,20,0,0" ItemsPanel="{TemplateBinding ItemsPanel}" />
+          <TextBlock Name="PART_Error" Text="{Binding Error, RelativeSource={RelativeSource TemplatedParent}}" Margin="0,28,0,0" FontSize="14" LineHeight="20"
+                     Foreground="{DynamicResource CosmoDestructiveBrush}" IsVisible="{TemplateBinding IsInvalid}" />
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:QuestionnaireChoice}" TargetType="c:QuestionnaireChoice">
+    <Setter Property="a:Web.State" Value="IsChecked" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="18" />
+    <Setter Property="Padding" Value="16,12" />
+    <Setter Property="MinHeight" Value="44" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Card" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+          <Grid ColumnDefinitions="Auto,*,Auto">
+            <Border Name="PART_Indicator" Width="16" Height="16" CornerRadius="8" Margin="0,0,12,0" RenderTransform="translate(0px,1.75px)" VerticalAlignment="Top" BorderThickness="1"
+                    BorderBrush="Transparent" Background="{DynamicResource CosmoQuestionnaireIndicatorBrush}">
+              <Ellipse Name="PART_Dot" Width="8" Height="8" Fill="{DynamicResource CosmoPrimaryForegroundBrush}" IsVisible="False" />
+            </Border>
+            <StackPanel Grid.Column="1" Spacing="4" VerticalAlignment="Top" UseLayoutRounding="False">
+              <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" TextBlock.LineHeight="19.25"
+                                TextWrapping="Wrap" UseLayoutRounding="False" />
+              <TextBlock Name="PART_Description" Text="{TemplateBinding Description}" LineHeight="19.25" TextWrapping="Wrap" UseLayoutRounding="False"
+                         Foreground="{DynamicResource CosmoMutedForegroundBrush}" IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </StackPanel>
+            <Border Name="PART_Shortcut" Grid.Column="2" Width="20" Height="20" CornerRadius="10" Margin="12,0,0,0" RenderTransform="translate(0px,1.75px)" VerticalAlignment="Top" BorderThickness="1"
+                    BorderBrush="{DynamicResource CosmoQuestionnaireShortcutBorderBrush}" Background="{DynamicResource CosmoQuestionnaireShortcutBrush}"
+                    IsVisible="{Binding Shortcut, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}">
+              <TextBlock Text="{Binding Shortcut, RelativeSource={RelativeSource TemplatedParent}}" FontFamily="{DynamicResource CosmoFontMono}" FontSize="10" FontWeight="Medium"
+                         LineHeight="10" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoQuestionnaireChoiceHoverBrush}" />
+    </Style>
+    <Style Selector="^:checked">
+      <Setter Property="Background" Value="{DynamicResource CosmoQuestionnaireChoiceCheckedBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoQuestionnaireChoiceCheckedBorderBrush}" />
+    </Style>
+    <Style Selector="^:checked /template/ Border#PART_Indicator">
+      <Setter Property="Background" Value="{DynamicResource CosmoPrimaryBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoPrimaryBrush}" />
+    </Style>
+    <Style Selector="^:checked /template/ Ellipse#PART_Dot">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:QuestionnaireCheck}" TargetType="c:QuestionnaireCheck">
+    <Setter Property="a:Web.State" Value="IsChecked" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="18" />
+    <Setter Property="Padding" Value="16,12" />
+    <Setter Property="MinHeight" Value="44" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Card" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+          <Grid ColumnDefinitions="Auto,*,Auto">
+            <Border Name="PART_Indicator" Width="16" Height="16" CornerRadius="5" Margin="0,0,12,0" RenderTransform="translate(0px,1.75px)" VerticalAlignment="Top" BorderThickness="1"
+                    BorderBrush="Transparent" Background="{DynamicResource CosmoQuestionnaireIndicatorBrush}">
+              <Viewbox Name="PART_Check" Width="14" Height="14" IsVisible="False">
+                <Path Theme="{StaticResource CosmoIcon}" Stroke="{DynamicResource CosmoPrimaryForegroundBrush}" Data="{StaticResource CosmoQuestionnaireCheckGeometry}" />
+              </Viewbox>
+            </Border>
+            <StackPanel Grid.Column="1" Spacing="4" VerticalAlignment="Top" UseLayoutRounding="False">
+              <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" TextBlock.LineHeight="19.25"
+                                TextWrapping="Wrap" UseLayoutRounding="False" />
+              <TextBlock Name="PART_Description" Text="{TemplateBinding Description}" LineHeight="19.25" TextWrapping="Wrap" UseLayoutRounding="False"
+                         Foreground="{DynamicResource CosmoMutedForegroundBrush}" IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </StackPanel>
+            <Border Name="PART_Shortcut" Grid.Column="2" Width="20" Height="20" CornerRadius="10" Margin="12,0,0,0" RenderTransform="translate(0px,1.75px)" VerticalAlignment="Top" BorderThickness="1"
+                    BorderBrush="{DynamicResource CosmoQuestionnaireShortcutBorderBrush}" Background="{DynamicResource CosmoQuestionnaireShortcutBrush}"
+                    IsVisible="{Binding Shortcut, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}">
+              <TextBlock Text="{Binding Shortcut, RelativeSource={RelativeSource TemplatedParent}}" FontFamily="{DynamicResource CosmoFontMono}" FontSize="10" FontWeight="Medium"
+                         LineHeight="10" Foreground="{DynamicResource CosmoMutedForegroundBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoQuestionnaireChoiceHoverBrush}" />
+    </Style>
+    <Style Selector="^:checked">
+      <Setter Property="Background" Value="{DynamicResource CosmoQuestionnaireChoiceCheckedBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoQuestionnaireChoiceCheckedBorderBrush}" />
+    </Style>
+    <Style Selector="^:checked /template/ Border#PART_Indicator">
+      <Setter Property="Background" Value="{DynamicResource CosmoPrimaryBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoPrimaryBrush}" />
+    </Style>
+    <Style Selector="^:checked /template/ Viewbox#PART_Check">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:QuestionnaireInput}" TargetType="c:QuestionnaireInput" BasedOn="{StaticResource {x:Type TextBox}}">
+    <Setter Property="a:Web.State" Value="Text" />
+    <Setter Property="Background" Value="{DynamicResource CosmoQuestionnaireInputBrush}" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="CornerRadius" Value="16" />
+    <Setter Property="Padding" Value="10,4" />
+    <Setter Property="MinHeight" Value="32" />
+    <Setter Property="Height" Value="32" />
+  </ControlTheme>
+</ResourceDictionary>

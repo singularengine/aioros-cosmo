@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: native-select">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="16">
+      <ComboBox Classes="native" SelectedIndex="0">
+        <ComboBoxItem Content="Select status" />
+        <ComboBoxItem Content="Todo" />
+        <ComboBoxItem Content="Done" />
+      </ComboBox>
+      <ComboBox Classes="native sm" SelectedIndex="0">
+        <ComboBoxItem Content="Todo" />
+        <ComboBoxItem Content="Done" />
+      </ComboBox>
+      <ComboBox Classes="native" SelectedIndex="0" IsEnabled="False">
+        <ComboBoxItem Content="Todo" />
+      </ComboBox>
+    </StackPanel>
+  </Border>
+</UserControl>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsAotCompatible>true</IsAotCompatible>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsPackable>true</IsPackable>
+    <RootNamespace>Aioros.Cosmo.Charts</RootNamespace>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <Description>shadcn/ui's charts for Aioros.Cosmo, drawn by Aioros.Pictor: the chart container's look, the tooltip's content (dot, line and dashed indicators, labels, every series) and the legend's content, in Cosmo's themes. An independent port, not affiliated with or endorsed by shadcn.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/singularengine/aioros-cosmo</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/singularengine/aioros-cosmo.git</RepositoryUrl>
+    <PackageTags>avalonia;xaml;aioros;shadcn;ui;charts;recharts;pictor</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Aioros.Pictor.Avalonia" />
+    <ProjectReference Include="..\Aioros.Cosmo\Aioros.Cosmo.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../../THIRD-PARTY-NOTICES.md" Pack="true" PackagePath="/" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

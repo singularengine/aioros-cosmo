@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: card-basic">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Card Width="384" HorizontalAlignment="Left">
+      <c:CardHeader Title="Login to your account" Description="Enter your email below to login to your account">
+        <c:CardHeader.Action>
+          <Button Classes="link" Content="Sign Up" />
+        </c:CardHeader.Action>
+      </c:CardHeader>
+      <c:CardContent>
+        <TextBlock Text="Your session expires in 30 days on this device." FontSize="14" LineHeight="20" TextWrapping="Wrap" />
+      </c:CardContent>
+      <c:CardFooter>
+        <StackPanel Spacing="8">
+          <Button Content="Login" HorizontalAlignment="Stretch" />
+          <Button Classes="outline" Content="Login with Google" HorizontalAlignment="Stretch" />
+        </StackPanel>
+      </c:CardFooter>
+    </c:Card>
+  </Border>
+</UserControl>

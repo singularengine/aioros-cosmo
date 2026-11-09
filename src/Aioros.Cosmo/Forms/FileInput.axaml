@@ -1,0 +1,36 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo">
+  <ControlTheme x:Key="{x:Type a:FilePicker}" TargetType="a:FilePicker">
+    <Setter Property="Background" Value="{DynamicResource CosmoInputBackgroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="Padding" Value="12,4" />
+    <Setter Property="Height" Value="36" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Root" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}"
+                BoxShadow="{DynamicResource CosmoShadowXs}">
+          <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+            <TextBlock Text="{TemplateBinding c:FileInput.ChooseText}" FontWeight="Medium" LineHeight="20" Foreground="{TemplateBinding Foreground}" />
+            <TextBlock Name="PART_FileName" Text="{TemplateBinding c:FileInput.EmptyText}" LineHeight="20" Foreground="{TemplateBinding Foreground}" />
+          </StackPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:focus-visible /template/ Border#PART_Root">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineFocusShadow}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

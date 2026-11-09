@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Settings">
+  <ScrollViewer Theme="{DynamicResource CosmoScrollArea}" HorizontalScrollBarVisibility="Disabled">
+    <StackPanel Spacing="16" Margin="24" MaxWidth="720" HorizontalAlignment="Left">
+      <c:Card>
+        <c:CardHeader Title="Theme" Description="Cosmo's color theme and radius are set in App.axaml: c:CosmoTheme Color and Radius." />
+        <c:CardFooter>
+          <HyperlinkButton Classes="outline" NavigateUri="/theme/toggle" Content="Switch light and dark" HorizontalAlignment="Left" />
+        </c:CardFooter>
+      </c:Card>
+      <c:Card>
+        <c:CardHeader Title="Pages" Description="A page is a folder with a Page.axaml; Layout.axaml wraps every page below it. Save a file and the page updates in place." />
+      </c:Card>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

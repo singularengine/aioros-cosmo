@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: badge-icons">
+  <UserControl.Styles>
+    <Style Selector="c|Badge.count">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="MinWidth" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontFeatures" Value="+tnum" />
+      <Setter Property="FontFamily" Value="{DynamicResource CosmoFontMono}" />
+    </Style>
+  </UserControl.Styles>
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <c:Badge Classes="secondary">
+        <StackPanel><a:Icon Kind="check" Size="12" /><TextBlock Text="Verified" /></StackPanel>
+      </c:Badge>
+      <c:Badge Classes="count" Content="8" />
+      <c:Badge Classes="count destructive" Content="99" />
+      <c:Badge Classes="count outline" Content="20+" />
+    </WrapPanel>
+  </Border>
+</UserControl>

@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:QuestionnaireExamples" a:Page.Title="Fidelity: questionnaire-validation">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:QuestionnaireExamples" Width="448" HorizontalAlignment="Center">
+      <c:Questionnaire Width="448" HorizontalAlignment="Center" ShowProgress="True" SubmitContent="Validate answers" Classes="card fit-progress" ProgressFormat="{}{0} / {1}" CurrentIndex="{Binding ValidationIndex}" SubmitCommand="{Binding ValidateCommand}">
+      <c:QuestionnaireItem Name="detail" Title="How much detail should the answer include?" Description="Choose the response depth." IsRequired="True" Message="{Binding DetailError, Mode=TwoWay}">
+        <c:QuestionnaireChoice Value="summary" Content="Concise summary" />
+        <c:QuestionnaireChoice Value="complete" Content="Complete answer" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="audience" Title="Who will read the answer?" Description="Public answers require complete context." IsRequired="True">
+        <c:QuestionnaireChoice Value="team" Content="My team" />
+        <c:QuestionnaireChoice Value="public" Content="Public audience" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+    </Border>
+  </Border>
+</UserControl>

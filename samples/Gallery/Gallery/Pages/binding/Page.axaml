@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             x:DataType="m:BindingExamples" a:Page.Title="Binding and MVVM"
+             a:Page.Description="Cosmo components with data binding, converters, commands and data templates, on the web and the desktop.">
+  <UserControl.Resources>
+    <m:OverLimit x:Key="OverLimit" />
+    <DataTemplate x:Key="PlanTemplate" x:DataType="m:Plan">
+      <StackPanel>
+        <TextBlock Text="{Binding Name}" />
+        <TextBlock Text="{Binding Price}" Opacity="0.7" />
+      </StackPanel>
+    </DataTemplate>
+  </UserControl.Resources>
+  <StackPanel Spacing="28" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Binding and MVVM" />
+      <TextBlock Classes="lead" Text="Every Cosmo component is an ordinary Avalonia control: its properties bind, through converters and string formats, its commands run with their parameters, and its content takes data templates. This page is a view model with no code-behind; on the web each post runs the command on the server and answers the page as the view model left it." />
+    </StackPanel>
+
+    <c:Card>
+      <c:CardHeader Title="{Binding Team, StringFormat='Team {0}'}" Description="{Binding Total}">
+        <c:CardHeader.Action>
+          <c:Badge Classes.destructive="{Binding Seats, Converter={StaticResource OverLimit}}" Content="{Binding Seats, StringFormat='{}{0:0} seats'}" />
+        </c:CardHeader.Action>
+      </c:CardHeader>
+      <c:CardContent>
+        <StackPanel Spacing="12">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBlock Classes="sm muted" Text="{Binding Total}" VerticalAlignment="Center" />
+            <c:CodeBlockCopyButton Value="{Binding Total}" AutomationProperties.Name="Copy the total" />
+          </StackPanel>
+          <StackPanel Spacing="6">
+            <TextBlock Classes="sm" FontWeight="Medium" Text="Team name" />
+            <TextBox Text="{Binding Team}" AutomationProperties.Name="Team name" MaxWidth="320" HorizontalAlignment="Stretch" />
+          </StackPanel>
+          <StackPanel Spacing="6">
+            <TextBlock Classes="sm" FontWeight="Medium" Text="Seats" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+              <Button Classes="outline icon" Command="{Binding AddCommand}" CommandParameter="-1" AutomationProperties.Name="One seat less"><a:Icon Kind="chevron-left" /></Button>
+              <NumericUpDown Value="{Binding Seats}" Minimum="0" Maximum="99" FormatString="0" Width="104" AutomationProperties.Name="Seats" />
+              <Button Classes="outline icon" Command="{Binding AddCommand}" CommandParameter="1" AutomationProperties.Name="One seat more"><a:Icon Kind="chevron-right" /></Button>
+              <Button Classes="secondary" Command="{Binding AddCommand}" CommandParameter="5" Content="+5" />
+            </WrapPanel>
+          </StackPanel>
+          <CheckBox IsChecked="{Binding Accepted}" Content="I accept the terms" />
+        </StackPanel>
+      </c:CardContent>
+      <c:CardFooter>
+        <WrapPanel ItemSpacing="12" LineSpacing="12">
+          <c:Badge Classes="outline" VerticalAlignment="Center" Content="{Binding Current}" ContentTemplate="{StaticResource PlanTemplate}" />
+          <Button Command="{Binding InviteCommand}" Content="Send invites" />
+          <TextBlock Classes="sm muted" VerticalAlignment="Center" Text="{Binding Status}" />
+        </WrapPanel>
+      </c:CardFooter>
+    </c:Card>
+
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="What this card uses" />
+      <Border Classes="code">
+        <TextBlock Text="&lt;c:CardHeader Title=&quot;{Binding Team, StringFormat='Team {0}'}&quot; Description=&quot;{Binding Total}&quot;&gt;&#10;  &lt;c:CardHeader.Action&gt;&#10;    &lt;c:Badge Classes.destructive=&quot;{Binding Seats, Converter={StaticResource OverLimit}}&quot;&#10;             Content=&quot;{Binding Seats, StringFormat='{}{0:0} seats'}&quot; /&gt;&#10;  &lt;/c:CardHeader.Action&gt;&#10;&lt;/c:CardHeader&gt;&#10;&lt;Button Classes=&quot;outline icon&quot; Command=&quot;{Binding AddCommand}&quot; CommandParameter=&quot;1&quot;&gt;…&lt;/Button&gt;&#10;&lt;c:Badge Content=&quot;{Binding Current}&quot; ContentTemplate=&quot;{StaticResource PlanTemplate}&quot; /&gt;&#10;&lt;Button Command=&quot;{Binding InviteCommand}&quot; Content=&quot;Send invites&quot; /&gt;" />
+      </Border>
+      <TextBlock Classes="sm muted" Text="The view model is a CommunityToolkit.Mvvm ObservableObject: [ObservableProperty] for Team, Seats and Accepted (two-way bound to the fields), [RelayCommand] for Add (with its string parameter) and Invite (enabled only once the terms are accepted and the team has a name). Compiled bindings (x:DataType) are on by default." />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,67 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Display" xmlns:m="using:Gallery.Models"
+             x:Class="Aioros.Cosmo.Tests.Display.StructureView" x:DataType="t:StructureModel">
+  <StackPanel Spacing="16" Margin="24" Width="592" HorizontalAlignment="Left">
+    <Menu Name="Bar">
+      <MenuItem Header="File">
+        <MenuItem Name="NewTab" Header="New Tab" Command="{Binding Act}" CommandParameter="New Tab" />
+        <MenuItem Name="Print" Header="Print..." Command="{Binding Act}" CommandParameter="Print" />
+      </MenuItem>
+      <MenuItem Header="View">
+        <MenuItem Name="Bookmarks" Header="Always Show Bookmarks Bar" ToggleType="CheckBox" IsChecked="{Binding Bookmarks, Mode=TwoWay}" />
+      </MenuItem>
+    </Menu>
+
+    <c:NavigationMenu Name="Navigation">
+      <c:NavigationMenuTrigger Name="Docs" Content="Getting started">
+        <c:NavigationMenuTrigger.Flyout>
+          <Flyout>
+            <ItemsControl ItemsSource="{Binding Links}" Width="300">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="t:LinkModel">
+                  <Button Classes="navigation-menu-link" Content="{Binding Title}"
+                          Command="{Binding $parent[ItemsControl].((t:StructureModel)DataContext).Navigate}" CommandParameter="{Binding Page}" />
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </Flyout>
+        </c:NavigationMenuTrigger.Flyout>
+      </c:NavigationMenuTrigger>
+    </c:NavigationMenu>
+    <TextBlock Name="Current" Text="{Binding Current}" />
+
+    <ScrollViewer Name="Tags" Classes="scroll-area" Height="200" Width="192" HorizontalAlignment="Left" Offset="{Binding Offset, Mode=TwoWay}">
+      <ItemsControl ItemsSource="{Binding Tags}" Margin="16">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate x:DataType="x:String">
+            <TextBlock Text="{Binding}" LineHeight="36" />
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+    <Button Name="Top" Content="Top" Command="{Binding Top}" />
+
+    <StackPanel>
+      <TableView Name="Invoices" ItemsSource="{Binding Invoices}" SelectedItem="{Binding Selected}">
+        <TableView.Columns>
+          <TableViewColumn Header="Invoice" Binding="{Binding Number}" Width="100" x:DataType="m:Invoice" />
+          <TableViewColumn Header="Status" Width="*" x:DataType="m:Invoice">
+            <TableViewColumn.CellTemplate>
+              <DataTemplate x:DataType="m:Invoice">
+                <c:Badge Content="{Binding Status}" Classes.outline="{Binding Status, Converter={x:Static t:StructureModel.Paid}}" HorizontalAlignment="Left" />
+              </DataTemplate>
+            </TableViewColumn.CellTemplate>
+          </TableViewColumn>
+          <TableViewColumn Header="Amount" Binding="{Binding Amount}" Width="*" HorizontalContentAlignment="Right" x:DataType="m:Invoice" />
+        </TableView.Columns>
+      </TableView>
+      <c:TableFooter>
+        <DockPanel>
+          <TextBlock Name="Total" DockPanel.Dock="Right" Text="{Binding Total}" />
+          <TextBlock Text="Total" />
+        </DockPanel>
+      </c:TableFooter>
+    </StackPanel>
+    <Button Name="AddInvoice" Content="Add invoice" Command="{Binding Add}" />
+  </StackPanel>
+</UserControl>

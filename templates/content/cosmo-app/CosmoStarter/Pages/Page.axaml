@@ -1,0 +1,294 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:p="https://aioros.dev/pictor"
+             xmlns:m="using:CosmoStarter.Models" x:DataType="m:Dashboard" a:Page.Title="Dashboard">
+  <UserControl.Resources>
+    <c:ChartConfig x:Key="VisitorsConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPrimary" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPrimary" /></c:ChartConfig>
+  </UserControl.Resources>
+  <Panel>
+    <ScrollViewer Theme="{DynamicResource CosmoScrollArea}" HorizontalScrollBarVisibility="Disabled">
+      <StackPanel Spacing="24" Margin="0,24">
+        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="16" RowSpacing="16" Margin="24,0" a:Web.StackBelow="768">
+          <c:Card Classes="section" Grid.Row="0" Grid.Column="0">
+            <c:CardHeader>
+              <c:CardHeader.Title>
+                <StackPanel Spacing="8">
+                  <TextBlock Text="Total Revenue" FontSize="14" LineHeight="20" FontWeight="Normal" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  <TextBlock Text="$1,250.00" FontSize="30" LineHeight="36" FontWeight="SemiBold" FontFeatures="+tnum" />
+                </StackPanel>
+              </c:CardHeader.Title>
+              <c:CardHeader.Action><c:Badge Classes="outline"><StackPanel><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 17l6 -6l4 4l8 -8 M14 7l7 0l0 7" /></Viewbox><TextBlock Text="+12.5%" /></StackPanel></c:Badge></c:CardHeader.Action>
+            </c:CardHeader>
+            <c:CardFooter>
+              <StackPanel Spacing="6">
+                <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="Trending up this month" FontSize="14" LineHeight="20" FontWeight="Medium" /><Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 17l6 -6l4 4l8 -8 M14 7l7 0l0 7" /></Viewbox></StackPanel>
+                <TextBlock Text="Visitors for the last 6 months" FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+              </StackPanel>
+            </c:CardFooter>
+          </c:Card>
+          <c:Card Classes="section" Grid.Row="0" Grid.Column="1">
+            <c:CardHeader>
+              <c:CardHeader.Title>
+                <StackPanel Spacing="8">
+                  <TextBlock Text="New Customers" FontSize="14" LineHeight="20" FontWeight="Normal" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  <TextBlock Text="1,234" FontSize="30" LineHeight="36" FontWeight="SemiBold" FontFeatures="+tnum" />
+                </StackPanel>
+              </c:CardHeader.Title>
+              <c:CardHeader.Action><c:Badge Classes="outline"><StackPanel><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 7l6 6l4 -4l8 8 M21 10l0 7l-7 0" /></Viewbox><TextBlock Text="-20%" /></StackPanel></c:Badge></c:CardHeader.Action>
+            </c:CardHeader>
+            <c:CardFooter>
+              <StackPanel Spacing="6">
+                <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="Down 20% this period" FontSize="14" LineHeight="20" FontWeight="Medium" /><Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 7l6 6l4 -4l8 8 M21 10l0 7l-7 0" /></Viewbox></StackPanel>
+                <TextBlock Text="Acquisition needs attention" FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+              </StackPanel>
+            </c:CardFooter>
+          </c:Card>
+          <c:Card Classes="section" Grid.Row="1" Grid.Column="0">
+            <c:CardHeader>
+              <c:CardHeader.Title>
+                <StackPanel Spacing="8">
+                  <TextBlock Text="Active Accounts" FontSize="14" LineHeight="20" FontWeight="Normal" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  <TextBlock Text="45,678" FontSize="30" LineHeight="36" FontWeight="SemiBold" FontFeatures="+tnum" />
+                </StackPanel>
+              </c:CardHeader.Title>
+              <c:CardHeader.Action><c:Badge Classes="outline"><StackPanel><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 17l6 -6l4 4l8 -8 M14 7l7 0l0 7" /></Viewbox><TextBlock Text="+12.5%" /></StackPanel></c:Badge></c:CardHeader.Action>
+            </c:CardHeader>
+            <c:CardFooter>
+              <StackPanel Spacing="6">
+                <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="Strong user retention" FontSize="14" LineHeight="20" FontWeight="Medium" /><Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 17l6 -6l4 4l8 -8 M14 7l7 0l0 7" /></Viewbox></StackPanel>
+                <TextBlock Text="Engagement exceed targets" FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+              </StackPanel>
+            </c:CardFooter>
+          </c:Card>
+          <c:Card Classes="section" Grid.Row="1" Grid.Column="1">
+            <c:CardHeader>
+              <c:CardHeader.Title>
+                <StackPanel Spacing="8">
+                  <TextBlock Text="Growth Rate" FontSize="14" LineHeight="20" FontWeight="Normal" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                  <TextBlock Text="4.5%" FontSize="30" LineHeight="36" FontWeight="SemiBold" FontFeatures="+tnum" />
+                </StackPanel>
+              </c:CardHeader.Title>
+              <c:CardHeader.Action><c:Badge Classes="outline"><StackPanel><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 17l6 -6l4 4l8 -8 M14 7l7 0l0 7" /></Viewbox><TextBlock Text="+4.5%" /></StackPanel></c:Badge></c:CardHeader.Action>
+            </c:CardHeader>
+            <c:CardFooter>
+              <StackPanel Spacing="6">
+                <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="Steady performance increase" FontSize="14" LineHeight="20" FontWeight="Medium" /><Viewbox Width="16" Height="16" VerticalAlignment="Center"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 17l6 -6l4 4l8 -8 M14 7l7 0l0 7" /></Viewbox></StackPanel>
+                <TextBlock Text="Meets growth projections" FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+              </StackPanel>
+            </c:CardFooter>
+          </c:Card>
+        </Grid>
+        <c:Card Margin="24,0">
+          <c:CardHeader Title="Total Visitors" Description="Total for the last 3 months">
+            <c:CardHeader.Action>
+              <ListBox Classes="toggle-group outline range" SelectionMode="Single,AlwaysSelected" SelectedIndex="{Binding Visitors.TimeRange}" AutomationProperties.Name="Time range">
+                <ListBoxItem Content="Last 3 months" />
+                <ListBoxItem Content="Last 30 days" />
+                <ListBoxItem Content="Last 7 days" />
+              </ListBox>
+            </c:CardHeader.Action>
+          </c:CardHeader>
+          <c:CardContent Padding="24,24,24,0">
+            <p:AreaChart c:ChartConfig.Config="{StaticResource VisitorsConfig}" Data="{Binding Visitors.Range}" Height="250" Margin="0,0,0,0">
+              <p:CartesianGrid Vertical="False" />
+              <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+              <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Dot" /></p:Tooltip.ContentTemplate></p:Tooltip>
+              <p:Area DataKey="Mobile" Type="Natural" StackId="a" IsAnimationActive="False">
+                <p:Area.Fill>
+                  <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0.05" Color="{DynamicResource CosmoPrimaryTopColor}" />
+                    <GradientStop Offset="0.95" Color="{DynamicResource CosmoPrimaryBottomColor}" />
+                  </LinearGradientBrush>
+                </p:Area.Fill>
+              </p:Area>
+              <p:Area DataKey="Desktop" Type="Natural" StackId="a" IsAnimationActive="False">
+                <p:Area.Fill>
+                  <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0.05" Color="{DynamicResource CosmoPrimaryColor}" />
+                    <GradientStop Offset="0.95" Color="{DynamicResource CosmoPrimaryBottomColor}" />
+                  </LinearGradientBrush>
+                </p:Area.Fill>
+              </p:Area>
+            </p:AreaChart>
+          </c:CardContent>
+        </c:Card>
+        <Panel Margin="24,0">
+          <TabControl SelectedIndex="{Binding Tab}">
+            <TabItem><TabItem.Header><StackPanel Orientation="Horizontal" Spacing="6"><TextBlock Text="Outline" VerticalAlignment="Center" /></StackPanel></TabItem.Header>
+              <StackPanel Spacing="16">
+                <Border BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True" a:Drag.Target="sections" a:Drag.Command="{Binding Move}">
+                  <TableView Classes="muted-header" ItemsSource="{Binding Sections.Rows}" c:DataTable.SelectsRows="True" c:DataTable.State="{Binding Sections.State}">
+                    <TableView.Columns>
+                      <TableViewColumn Width="44">
+                        <TableViewColumn.Header></TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><Border Classes="grip" Width="28" Height="28" CornerRadius="{DynamicResource CosmoRadiusMd}" Background="Transparent" HorizontalAlignment="Left" a:Drag.Item="{Binding Id}" AutomationProperties.Name="Drag to reorder"><Viewbox Width="12" Height="12"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M8 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0 M8 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0 M8 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0 M14 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0 M14 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0 M14 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></Viewbox></Border></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                      <TableViewColumn Width="24">
+                        <TableViewColumn.Header><CheckBox IsChecked="{Binding Sections.AllPageRowsSelected}" HorizontalAlignment="Center" AutomationProperties.Name="Select all" /></TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><CheckBox IsChecked="{Binding IsSelected}" HorizontalAlignment="Center" AutomationProperties.Name="Select row" /></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                      <TableViewColumn Width="306.27">
+                        <TableViewColumn.Header>Header</TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><Button Classes="link" Padding="0" Content="{Binding Header}" Foreground="{DynamicResource CosmoForegroundBrush}" Command="{Binding View}" /></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                      <TableViewColumn Width="144" IsVisible="{Binding Sections.Columns[3].IsVisible}">
+                        <TableViewColumn.Header>Section Type</TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><Border Width="128" HorizontalAlignment="Left"><c:Badge Classes="outline cell" Content="{Binding Type}" HorizontalAlignment="Left" /></Border></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                      <TableViewColumn Width="105.06" IsVisible="{Binding Sections.Columns[4].IsVisible}">
+                        <TableViewColumn.Header>Status</TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><c:Badge Classes="outline cell"><StackPanel><Panel><Viewbox Width="16" Height="16" IsVisible="{Binding IsDone}"><Path Theme="{DynamicResource CosmoIcon}" Fill="{DynamicResource DashboardDoneBrush}" StrokeThickness="0" Data="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" /></Viewbox><Viewbox Width="16" Height="16" IsVisible="{Binding !IsDone}"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M12 6l0 -3 M16.25 7.75l2.15 -2.15 M18 12l3 0 M16.25 16.25l2.15 2.15 M12 18l0 3 M7.75 16.25l-2.15 2.15 M6 12l-3 0 M7.75 7.75l-2.15 -2.15" /></Viewbox></Panel><TextBlock Text="{Binding Status}" /></StackPanel></c:Badge></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                      <TableViewColumn Width="80" IsVisible="{Binding Sections.Columns[5].IsVisible}" HorizontalContentAlignment="Stretch">
+                        <TableViewColumn.Header><TextBlock Text="Target" HorizontalAlignment="Right" /></TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><TextBox Classes="cell" Text="{Binding Target}" AutomationProperties.Name="Target" /></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                      <TableViewColumn Width="80" IsVisible="{Binding Sections.Columns[6].IsVisible}" HorizontalContentAlignment="Stretch">
+                        <TableViewColumn.Header><TextBlock Text="Limit" HorizontalAlignment="Right" /></TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><TextBox Classes="cell" Text="{Binding Limit}" AutomationProperties.Name="Limit" /></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                      <TableViewColumn Width="168" IsVisible="{Binding Sections.Columns[7].IsVisible}">
+                        <TableViewColumn.Header>Reviewer</TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><Panel>
+                        <TextBlock Text="{Binding Reviewer}" IsVisible="{Binding IsAssigned}" VerticalAlignment="Center" />
+                        <ComboBox Classes="sm" Width="152" PlaceholderText="Assign reviewer" SelectedItem="{Binding Assignee}" IsVisible="{Binding !IsAssigned}" AutomationProperties.Name="Reviewer">
+                          <x:String>Eddie Lake</x:String>
+                          <x:String>Jamik Tashpulatov</x:String>
+                        </ComboBox>
+                      </Panel></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                      <TableViewColumn Width="48">
+                        <TableViewColumn.Header></TableViewColumn.Header>
+                        <TableViewColumn.CellTemplate>
+                          <DataTemplate x:DataType="m:DashboardSection"><Button Classes="ghost icon" Width="32" Height="32" HorizontalAlignment="Left" AutomationProperties.Name="Open menu"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoMutedForegroundBrush}" Data="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0 M11 19a1 1 0 1 0 2 0a1 1 0 1 0 -2 0 M11 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></Viewbox>
+                      <Button.Flyout>
+                        <MenuFlyout Placement="BottomEdgeAlignedRight" FlyoutPresenterClasses="w-32">
+                          <MenuItem Header="Edit" />
+                          <MenuItem Header="Make a copy" />
+                          <MenuItem Header="Favorite" />
+                          <Separator />
+                          <MenuItem Header="Delete" Classes="destructive" />
+                        </MenuFlyout>
+                      </Button.Flyout></Button></DataTemplate>
+                        </TableViewColumn.CellTemplate>
+                      </TableViewColumn>
+                    </TableView.Columns>
+                  </TableView>
+                </Border>
+                <DockPanel Margin="16,0">
+                  <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="32">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                      <Label Content="Rows per page" Target="{Binding #rows}" VerticalAlignment="Center" />
+                      <ComboBox Name="rows" Classes="sm" Width="80" ItemsSource="{Binding PageSizes}" SelectedItem="{Binding Sections.PageSize}" />
+                    </StackPanel>
+                    <TextBlock FontSize="14" LineHeight="20" FontWeight="Medium" VerticalAlignment="Center">
+                      <TextBlock.Text><MultiBinding StringFormat="Page {0} of {1}"><Binding Path="Sections.PageNumber" /><Binding Path="Sections.PageCount" /></MultiBinding></TextBlock.Text>
+                    </TextBlock>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                      <Button Classes="outline icon" Width="32" Height="32" Command="{Binding Sections.FirstPageCommand}" AutomationProperties.Name="Go to first page"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M11 7l-5 5l5 5 M17 7l-5 5l5 5" /></Viewbox></Button>
+                      <Button Classes="outline icon" Width="32" Height="32" Command="{Binding Sections.PreviousPageCommand}" AutomationProperties.Name="Go to previous page"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M15 6l-6 6l6 6" /></Viewbox></Button>
+                      <Button Classes="outline icon" Width="32" Height="32" Command="{Binding Sections.NextPageCommand}" AutomationProperties.Name="Go to next page"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M9 6l6 6l-6 6" /></Viewbox></Button>
+                      <Button Classes="outline icon" Width="32" Height="32" Command="{Binding Sections.LastPageCommand}" AutomationProperties.Name="Go to last page"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M7 7l5 5l-5 5 M13 7l5 5l-5 5" /></Viewbox></Button>
+                    </StackPanel>
+                  </StackPanel>
+                  <TextBlock FontSize="14" LineHeight="20" VerticalAlignment="Center" Foreground="{DynamicResource CosmoMutedForegroundBrush}">
+                    <TextBlock.Text><MultiBinding StringFormat="{}{0} of {1} row(s) selected."><Binding Path="Sections.SelectedCount" /><Binding Path="Sections.FilteredCount" /></MultiBinding></TextBlock.Text>
+                  </TextBlock>
+                </DockPanel>
+              </StackPanel>
+            </TabItem>
+            <TabItem><TabItem.Header><StackPanel Orientation="Horizontal" Spacing="6"><TextBlock Text="Past Performance" VerticalAlignment="Center" /><c:Badge Classes="secondary count" Content="3" /></StackPanel></TabItem.Header><c:AspectRatio Ratio="1.7778"><Rectangle Stroke="{DynamicResource CosmoBorderBrush}" StrokeThickness="1" StrokeDashArray="3,3" RadiusX="8" RadiusY="8" /></c:AspectRatio></TabItem>
+            <TabItem><TabItem.Header><StackPanel Orientation="Horizontal" Spacing="6"><TextBlock Text="Key Personnel" VerticalAlignment="Center" /><c:Badge Classes="secondary count" Content="2" /></StackPanel></TabItem.Header><c:AspectRatio Ratio="1.7778"><Rectangle Stroke="{DynamicResource CosmoBorderBrush}" StrokeThickness="1" StrokeDashArray="3,3" RadiusX="8" RadiusY="8" /></c:AspectRatio></TabItem>
+            <TabItem><TabItem.Header><StackPanel Orientation="Horizontal" Spacing="6"><TextBlock Text="Focus Documents" VerticalAlignment="Center" /></StackPanel></TabItem.Header><c:AspectRatio Ratio="1.7778"><Rectangle Stroke="{DynamicResource CosmoBorderBrush}" StrokeThickness="1" StrokeDashArray="3,3" RadiusX="8" RadiusY="8" /></c:AspectRatio></TabItem>
+          </TabControl>
+          <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button Classes="outline sm has-icon">
+              <StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12 M12 4l0 16" /></Viewbox><TextBlock Text="Customize Columns" /><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M6 9l6 6l6 -6" /></Viewbox></StackPanel>
+              <Button.Flyout>
+                <MenuFlyout Placement="BottomEdgeAlignedRight" FlyoutPresenterClasses="w-56">
+            <MenuItem Header="Type" ToggleType="CheckBox" IsChecked="{Binding Sections.Columns[3].IsVisible, Mode=TwoWay}" />
+            <MenuItem Header="Status" ToggleType="CheckBox" IsChecked="{Binding Sections.Columns[4].IsVisible, Mode=TwoWay}" />
+            <MenuItem Header="Target" ToggleType="CheckBox" IsChecked="{Binding Sections.Columns[5].IsVisible, Mode=TwoWay}" />
+            <MenuItem Header="Limit" ToggleType="CheckBox" IsChecked="{Binding Sections.Columns[6].IsVisible, Mode=TwoWay}" />
+            <MenuItem Header="Reviewer" ToggleType="CheckBox" IsChecked="{Binding Sections.Columns[7].IsVisible, Mode=TwoWay}" />
+                </MenuFlyout>
+              </Button.Flyout>
+            </Button>
+            <Button Classes="outline sm has-icon"><StackPanel><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M12 5l0 14 M5 12l14 0" /></Viewbox><TextBlock Text="Add Section" /></StackPanel></Button>
+          </StackPanel>
+        </Panel>
+      </StackPanel>
+    </ScrollViewer>
+    <c:Drawer Side="Right" IsOpen="{Binding ViewerOpen}">
+      <DockPanel DataContext="{Binding Viewing}" x:DataType="m:DashboardSection">
+        <StackPanel DockPanel.Dock="Bottom" Spacing="8" Margin="16">
+          <Button Content="Submit" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" c:Dialog.Closes="True" />
+          <Button Classes="outline" Content="Done" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" c:Dialog.Closes="True" />
+        </StackPanel>
+        <c:DialogHeader DockPanel.Dock="Top" Padding="16" Title="{Binding Header}" Description="Showing total visitors for the last 6 months" />
+        <ScrollViewer Theme="{DynamicResource CosmoScrollArea}" HorizontalScrollBarVisibility="Disabled">
+          <StackPanel Spacing="16" Margin="16,0">
+            <p:AreaChart c:ChartConfig.Config="{StaticResource VisitorsConfig}" Data="{Binding Months}" Height="200" Padding="0,0,10,0">
+              <p:CartesianGrid Vertical="False" />
+              <p:XAxis DataKey="Month" Hide="True" />
+              <p:Tooltip Cursor="False"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Dot" /></p:Tooltip.ContentTemplate></p:Tooltip>
+              <p:Area DataKey="Mobile" Type="Natural" StackId="a" Fill="{DynamicResource PictorPrimary}" FillOpacity="0.6" Stroke="{DynamicResource PictorPrimary}" IsAnimationActive="False" />
+              <p:Area DataKey="Desktop" Type="Natural" StackId="a" Fill="{DynamicResource PictorPrimary}" FillOpacity="0.4" Stroke="{DynamicResource PictorPrimary}" IsAnimationActive="False" />
+            </p:AreaChart>
+            <Separator />
+            <StackPanel Spacing="8">
+              <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="Trending up by 5.2% this month" FontWeight="Medium" LineHeight="14" /><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3 17l6 -6l4 4l8 -8 M14 7l7 0l0 7" /></Viewbox></StackPanel>
+              <TextBlock Text="Showing total visitors for the last 6 months. This is just some random text to test the layout. It spans multiple lines and should wrap around." TextWrapping="Wrap" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+            </StackPanel>
+            <Separator />
+            <StackPanel Spacing="16">
+              <StackPanel Spacing="12">
+                <Label Content="Header" />
+                <TextBox Text="{Binding Header, Mode=OneWay}" AutomationProperties.Name="Header" />
+              </StackPanel>
+              <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                <StackPanel Spacing="12">
+                  <Label Content="Type" />
+                  <ComboBox HorizontalAlignment="Stretch" PlaceholderText="Select a type" SelectedItem="{Binding Type, Mode=OneWay}" AutomationProperties.Name="Type"><x:String>Table of Contents</x:String><x:String>Executive Summary</x:String><x:String>Technical Approach</x:String><x:String>Design</x:String><x:String>Capabilities</x:String><x:String>Focus Documents</x:String><x:String>Narrative</x:String><x:String>Cover Page</x:String></ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Spacing="12">
+                  <Label Content="Status" />
+                  <ComboBox HorizontalAlignment="Stretch" PlaceholderText="Select a status" SelectedItem="{Binding Status, Mode=OneWay}" AutomationProperties.Name="Status"><x:String>Done</x:String><x:String>In Progress</x:String><x:String>Not Started</x:String></ComboBox>
+                </StackPanel>
+              </Grid>
+              <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                <StackPanel Spacing="12">
+                  <Label Content="Target" />
+                  <TextBox Text="{Binding Target}" AutomationProperties.Name="Target" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Spacing="12">
+                  <Label Content="Limit" />
+                  <TextBox Text="{Binding Limit}" AutomationProperties.Name="Limit" />
+                </StackPanel>
+              </Grid>
+              <StackPanel Spacing="12">
+                <Label Content="Reviewer" />
+                <ComboBox HorizontalAlignment="Stretch" PlaceholderText="Select a reviewer" SelectedItem="{Binding Reviewer, Mode=OneWay}" AutomationProperties.Name="Reviewer"><x:String>Eddie Lake</x:String><x:String>Jamik Tashpulatov</x:String><x:String>Emily Whalen</x:String></ComboBox>
+              </StackPanel>
+            </StackPanel>
+          </StackPanel>
+        </ScrollViewer>
+      </DockPanel>
+    </c:Drawer>
+  </Panel>
+</UserControl>

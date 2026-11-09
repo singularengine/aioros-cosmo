@@ -1,0 +1,115 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:NavigationExamples"
+             a:Page.Title="Button Group" a:Page.Description="A container that groups related buttons together with consistent styling.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Button Group" />
+      <TextBlock Classes="lead" Text="A container that groups related buttons together with consistent styling." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: button-group" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:ButtonGroup" />
+        <c:Badge Classes="secondary" Content="Web: flex row" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Children are joined: inner corners square, shared borders single; nested groups sit 8 px apart." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:ButtonGroup>
+            <c:ButtonGroup>
+              <Button Classes="outline icon" AutomationProperties.Name="Go Back"><a:Icon Kind="arrow-right" /></Button>
+            </c:ButtonGroup>
+            <c:ButtonGroup>
+              <Button Classes="outline" Content="Archive" />
+              <Button Classes="outline" Content="Report" />
+            </c:ButtonGroup>
+            <c:ButtonGroup>
+              <Button Classes="outline" Content="Snooze" />
+              <Button Classes="outline icon" AutomationProperties.Name="More Options">
+                <a:Icon Kind="ellipsis" />
+                <Button.Flyout>
+                  <MenuFlyout Placement="BottomEdgeAlignedRight">
+                    <MenuItem Header="Mark as Read" />
+                    <MenuItem Header="Archive" />
+                    <Separator />
+                    <MenuItem Header="Trash" Classes="destructive" />
+                  </MenuFlyout>
+                </Button.Flyout>
+              </Button>
+            </c:ButtonGroup>
+          </c:ButtonGroup>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:ButtonGroup&gt;&#10;  &lt;c:ButtonGroup&gt;&#10;    &lt;Button Classes=&quot;outline icon&quot; AutomationProperties.Name=&quot;Go Back&quot;&gt;&lt;a:Icon Kind=&quot;arrow-right&quot; /&gt;&lt;/Button&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;  &lt;c:ButtonGroup&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Content=&quot;Archive&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Content=&quot;Report&quot; /&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;  &lt;c:ButtonGroup&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Content=&quot;Snooze&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline icon&quot; AutomationProperties.Name=&quot;More Options&quot;&gt;&#10;      &lt;a:Icon Kind=&quot;ellipsis&quot; /&gt;&#10;      &lt;Button.Flyout&gt;&#10;        &lt;MenuFlyout Placement=&quot;BottomEdgeAlignedRight&quot;&gt;&#10;          &lt;MenuItem Header=&quot;Mark as Read&quot; /&gt;&#10;          &lt;MenuItem Header=&quot;Archive&quot; /&gt;&#10;          &lt;Separator /&gt;&#10;          &lt;MenuItem Header=&quot;Trash&quot; Classes=&quot;destructive&quot; /&gt;&#10;        &lt;/MenuFlyout&gt;&#10;      &lt;/Button.Flyout&gt;&#10;    &lt;/Button&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;&lt;/c:ButtonGroup&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Sizes" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="16">
+            <c:ButtonGroup>
+              <Button Classes="outline sm" Content="Small" />
+              <Button Classes="outline sm" Content="Button" />
+              <Button Classes="outline sm" Content="Group" />
+            </c:ButtonGroup>
+            <c:ButtonGroup>
+              <Button Classes="outline lg" Content="Large" />
+              <Button Classes="outline lg" Content="Button" />
+              <Button Classes="outline lg" Content="Group" />
+            </c:ButtonGroup>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;  &lt;c:ButtonGroup&gt;&#10;    &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Small&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Button&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Group&quot; /&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;  &lt;c:ButtonGroup&gt;&#10;    &lt;Button Classes=&quot;outline lg&quot; Content=&quot;Large&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline lg&quot; Content=&quot;Button&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline lg&quot; Content=&quot;Group&quot; /&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Orientation, separator and text" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="32" LineSpacing="16">
+            <c:ButtonGroup Orientation="Vertical" VerticalAlignment="Top" AutomationProperties.Name="Media controls">
+              <Button Classes="outline icon" AutomationProperties.Name="Add"><a:Icon Kind="plus" /></Button>
+              <Button Classes="outline icon" AutomationProperties.Name="Remove"><a:Icon Kind="minus" /></Button>
+            </c:ButtonGroup>
+            <c:ButtonGroup VerticalAlignment="Top">
+              <Button Classes="secondary sm" Content="Copy" />
+              <Separator />
+              <Button Classes="secondary sm" Content="Paste" />
+            </c:ButtonGroup>
+            <c:ButtonGroup VerticalAlignment="Top">
+              <c:ButtonGroupText Content="https://" />
+              <TextBox PlaceholderText="my-app" Width="160" AutomationProperties.Name="Address" />
+              <Button Classes="outline" Content="Go" />
+            </c:ButtonGroup>
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;32&quot; LineSpacing=&quot;16&quot;&gt;&#10;  &lt;c:ButtonGroup Orientation=&quot;Vertical&quot; VerticalAlignment=&quot;Top&quot; AutomationProperties.Name=&quot;Media controls&quot;&gt;&#10;    &lt;Button Classes=&quot;outline icon&quot; AutomationProperties.Name=&quot;Add&quot;&gt;&lt;a:Icon Kind=&quot;plus&quot; /&gt;&lt;/Button&gt;&#10;    &lt;Button Classes=&quot;outline icon&quot; AutomationProperties.Name=&quot;Remove&quot;&gt;&lt;a:Icon Kind=&quot;minus&quot; /&gt;&lt;/Button&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;  &lt;c:ButtonGroup VerticalAlignment=&quot;Top&quot;&gt;&#10;    &lt;Button Classes=&quot;secondary sm&quot; Content=&quot;Copy&quot; /&gt;&#10;    &lt;Separator /&gt;&#10;    &lt;Button Classes=&quot;secondary sm&quot; Content=&quot;Paste&quot; /&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;  &lt;c:ButtonGroup VerticalAlignment=&quot;Top&quot;&gt;&#10;    &lt;c:ButtonGroupText Content=&quot;https://&quot; /&gt;&#10;    &lt;TextBox PlaceholderText=&quot;my-app&quot; Width=&quot;160&quot; AutomationProperties.Name=&quot;Address&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Content=&quot;Go&quot; /&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Each button runs a command with its parameter; the chosen one takes a bound class." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <c:ButtonGroup>
+              <Button Classes="outline" Classes.secondary="{Binding ArchiveChosen}" Content="Archive" Command="{Binding ChooseCommand}" CommandParameter="Archive" />
+              <Button Classes="outline" Classes.secondary="{Binding ReportChosen}" Content="Report" Command="{Binding ChooseCommand}" CommandParameter="Report" />
+              <Button Classes="outline" Classes.secondary="{Binding SnoozeChosen}" Content="Snooze" Command="{Binding ChooseCommand}" CommandParameter="Snooze" />
+            </c:ButtonGroup>
+            <TextBlock Classes="sm muted" Text="{Binding Action}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;c:ButtonGroup&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Classes.secondary=&quot;{Binding ArchiveChosen}&quot; Content=&quot;Archive&quot; Command=&quot;{Binding ChooseCommand}&quot; CommandParameter=&quot;Archive&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Classes.secondary=&quot;{Binding ReportChosen}&quot; Content=&quot;Report&quot; Command=&quot;{Binding ChooseCommand}&quot; CommandParameter=&quot;Report&quot; /&gt;&#10;    &lt;Button Classes=&quot;outline&quot; Classes.secondary=&quot;{Binding SnoozeChosen}&quot; Content=&quot;Snooze&quot; Command=&quot;{Binding ChooseCommand}&quot; CommandParameter=&quot;Snooze&quot; /&gt;&#10;  &lt;/c:ButtonGroup&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Action}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Orientation" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Horizontal (default) or Vertical." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Children" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Buttons, TextBox, ComboBox, c:ButtonGroupText, Separator, nested c:ButtonGroup." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,67 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:NavigationExamples"
+             a:Page.Title="Accordion" a:Page.Description="A vertically stacked set of interactive headings that each reveal a section of content.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Accordion" />
+      <TextBlock Classes="lead" Text="A vertically stacked set of interactive headings that each reveal a section of content." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: accordion" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Accordion of Expanders" />
+        <c:Badge Classes="secondary" Content="Web: &lt;details&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="One item opens at a time (IsMultiple for several); IsCollapsible lets the open item close; the content&#x27;s height animates over 200 ms." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:Accordion IsCollapsible="True" MaxWidth="560">
+            <Expander Header="Product Information" IsExpanded="True">
+              <StackPanel Spacing="16">
+                <TextBlock Text="Our flagship product combines cutting-edge technology with sleek design. Built with premium materials, it offers unparalleled performance and reliability." TextWrapping="Wrap" />
+                <TextBlock Text="Key features include advanced processing capabilities, and an intuitive user interface designed for both beginners and experts." TextWrapping="Wrap" />
+              </StackPanel>
+            </Expander>
+            <Expander Header="Shipping Details">
+              <TextBlock Text="We offer worldwide shipping through trusted courier partners. Standard delivery takes 3-5 business days, while express shipping ensures delivery within 1-2 business days." TextWrapping="Wrap" />
+            </Expander>
+            <Expander Header="Return Policy">
+              <TextBlock Text="We stand behind our products with a comprehensive 30-day return policy. If you're not completely satisfied, simply return the item in its original condition." TextWrapping="Wrap" />
+            </Expander>
+          </c:Accordion>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:Accordion IsCollapsible=&quot;True&quot; MaxWidth=&quot;560&quot;&gt;&#10;  &lt;Expander Header=&quot;Product Information&quot; IsExpanded=&quot;True&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;      &lt;TextBlock Text=&quot;Our flagship product combines cutting-edge technology with sleek design. Built with premium materials, it offers unparalleled performance and reliability.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;      &lt;TextBlock Text=&quot;Key features include advanced processing capabilities, and an intuitive user interface designed for both beginners and experts.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/Expander&gt;&#10;  &lt;Expander Header=&quot;Shipping Details&quot;&gt;&#10;    &lt;TextBlock Text=&quot;We offer worldwide shipping through trusted courier partners. Standard delivery takes 3-5 business days, while express shipping ensures delivery within 1-2 business days.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;  &lt;/Expander&gt;&#10;  &lt;Expander Header=&quot;Return Policy&quot;&gt;&#10;    &lt;TextBlock Text=&quot;We stand behind our products with a comprehensive 30-day return policy. If you&#x27;re not completely satisfied, simply return the item in its original condition.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;  &lt;/Expander&gt;&#10;&lt;/c:Accordion&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="An item&#x27;s IsExpanded binds two way. A c:Accordion also takes ItemsSource with ItemTemplate (the header) and ContentTemplate (the answer), written through their templates on both targets." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="560">
+            <c:Accordion IsMultiple="True">
+              <Expander Header="Is it accessible?" IsExpanded="{Binding AccessibleOpen}">
+                <TextBlock Text="{Binding FirstAnswer}" TextWrapping="Wrap" />
+              </Expander>
+              <Expander Header="Is it styled?">
+                <TextBlock Text="{Binding SecondAnswer}" TextWrapping="Wrap" />
+              </Expander>
+            </c:Accordion>
+            <Button Classes="outline sm" Content="Toggle the first answer" Command="{Binding ToggleAnswerCommand}" HorizontalAlignment="Left" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;560&quot;&gt;&#10;  &lt;c:Accordion IsMultiple=&quot;True&quot;&gt;&#10;    &lt;Expander Header=&quot;Is it accessible?&quot; IsExpanded=&quot;{Binding AccessibleOpen}&quot;&gt;&#10;      &lt;TextBlock Text=&quot;{Binding FirstAnswer}&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;    &lt;/Expander&gt;&#10;    &lt;Expander Header=&quot;Is it styled?&quot;&gt;&#10;      &lt;TextBlock Text=&quot;{Binding SecondAnswer}&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;    &lt;/Expander&gt;&#10;  &lt;/c:Accordion&gt;&#10;  &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Toggle the first answer&quot; Command=&quot;{Binding ToggleAnswerCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsMultiple" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Several items open at once (Radix&#x27;s type=multiple)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsCollapsible" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The open item of a single accordion can close." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ItemsSource, ItemTemplate, ContentTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Items from the model." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Expander IsExpanded" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two way; Header and Content for literal items." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

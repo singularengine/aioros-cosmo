@@ -1,0 +1,129 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:SelectExamples"
+             a:Page.Title="Select" a:Page.Description="Displays a list of options for the user to pick from—triggered by a button.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Select" />
+      <TextBlock Classes="lead" Text="Displays a list of options for the user to pick from—triggered by a button." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: select" />
+        <c:Badge Classes="secondary" Content="Avalonia: ComboBox" />
+        <c:Badge Classes="secondary" Content="Web: &lt;select&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="The label class is shadcn&#x27;s SelectLabel and the separator class its SelectSeparator. Keyboard: arrows move, a letter jumps to the first item starting with it, Space opens, Return and Escape close." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ComboBox PlaceholderText="Select a fruit" Width="180">
+            <ComboBoxItem Classes="label" Content="Fruits" />
+            <ComboBoxItem Content="Apple" />
+            <ComboBoxItem Content="Banana" />
+            <ComboBoxItem Content="Blueberry" />
+            <ComboBoxItem Content="Grapes" />
+            <ComboBoxItem Content="Pineapple" />
+          </ComboBox>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ComboBox PlaceholderText=&quot;Select a fruit&quot; Width=&quot;180&quot;&gt;&#10;  &lt;ComboBoxItem Classes=&quot;label&quot; Content=&quot;Fruits&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Apple&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Banana&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Blueberry&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Grapes&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Pineapple&quot; /&gt;&#10;&lt;/ComboBox&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Scrollable" />
+      <TextBlock Classes="sm muted" Text="A list taller than MaxDropDownHeight (384) shows shadcn&#x27;s scroll buttons instead of a scroll bar: hovering one scrolls the list an item at a time." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ComboBox PlaceholderText="Select a timezone" Width="280">
+            <ComboBoxItem Classes="label" Content="North America" />
+            <ComboBoxItem Content="Eastern Standard Time (EST)" />
+            <ComboBoxItem Content="Central Standard Time (CST)" />
+            <ComboBoxItem Content="Mountain Standard Time (MST)" />
+            <ComboBoxItem Content="Pacific Standard Time (PST)" />
+            <ComboBoxItem Content="Alaska Standard Time (AKST)" />
+            <ComboBoxItem Content="Hawaii Standard Time (HST)" />
+            <ComboBoxItem Classes="label" Content="Europe &amp; Africa" />
+            <ComboBoxItem Content="Greenwich Mean Time (GMT)" />
+            <ComboBoxItem Content="Central European Time (CET)" />
+            <ComboBoxItem Content="Eastern European Time (EET)" />
+            <ComboBoxItem Content="Western European Summer Time (WEST)" />
+            <ComboBoxItem Content="Central Africa Time (CAT)" />
+            <ComboBoxItem Content="East Africa Time (EAT)" />
+            <ComboBoxItem Classes="label" Content="Asia" />
+            <ComboBoxItem Content="Moscow Time (MSK)" />
+            <ComboBoxItem Content="India Standard Time (IST)" />
+            <ComboBoxItem Content="China Standard Time (CST)" />
+            <ComboBoxItem Content="Japan Standard Time (JST)" />
+            <ComboBoxItem Content="Korea Standard Time (KST)" />
+            <ComboBoxItem Content="Indonesia Central Standard Time (WITA)" />
+          </ComboBox>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ComboBox PlaceholderText=&quot;Select a timezone&quot; Width=&quot;280&quot;&gt;&#10;  &lt;ComboBoxItem Classes=&quot;label&quot; Content=&quot;North America&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Eastern Standard Time (EST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Central Standard Time (CST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Mountain Standard Time (MST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Pacific Standard Time (PST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Alaska Standard Time (AKST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Hawaii Standard Time (HST)&quot; /&gt;&#10;  &lt;ComboBoxItem Classes=&quot;label&quot; Content=&quot;Europe &amp;amp; Africa&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Greenwich Mean Time (GMT)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Central European Time (CET)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Eastern European Time (EET)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Western European Summer Time (WEST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Central Africa Time (CAT)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;East Africa Time (EAT)&quot; /&gt;&#10;  &lt;ComboBoxItem Classes=&quot;label&quot; Content=&quot;Asia&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Moscow Time (MSK)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;India Standard Time (IST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;China Standard Time (CST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Japan Standard Time (JST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Korea Standard Time (KST)&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Indonesia Central Standard Time (WITA)&quot; /&gt;&#10;&lt;/ComboBox&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Groups" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ComboBox PlaceholderText="Select a food" Width="180">
+            <ComboBoxItem Classes="label" Content="Fruits" />
+            <ComboBoxItem Content="Apple" />
+            <ComboBoxItem Content="Banana" />
+            <ComboBoxItem Classes="separator" />
+            <ComboBoxItem Classes="label" Content="Vegetables" />
+            <ComboBoxItem Content="Carrot" />
+            <ComboBoxItem Content="Leek" />
+          </ComboBox>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ComboBox PlaceholderText=&quot;Select a food&quot; Width=&quot;180&quot;&gt;&#10;  &lt;ComboBoxItem Classes=&quot;label&quot; Content=&quot;Fruits&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Apple&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Banana&quot; /&gt;&#10;  &lt;ComboBoxItem Classes=&quot;separator&quot; /&gt;&#10;  &lt;ComboBoxItem Classes=&quot;label&quot; Content=&quot;Vegetables&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Carrot&quot; /&gt;&#10;  &lt;ComboBoxItem Content=&quot;Leek&quot; /&gt;&#10;&lt;/ComboBox&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Small and disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="12" LineSpacing="12">
+            <ComboBox Classes="sm" SelectedIndex="0" Width="180">
+              <ComboBoxItem Content="Banana" />
+            </ComboBox>
+            <ComboBox SelectedIndex="0" Width="180" IsEnabled="False">
+              <ComboBoxItem Content="Banana" />
+            </ComboBox>
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;12&quot; LineSpacing=&quot;12&quot;&gt;&#10;  &lt;ComboBox Classes=&quot;sm&quot; SelectedIndex=&quot;0&quot; Width=&quot;180&quot;&gt;&#10;    &lt;ComboBoxItem Content=&quot;Banana&quot; /&gt;&#10;  &lt;/ComboBox&gt;&#10;  &lt;ComboBox SelectedIndex=&quot;0&quot; Width=&quot;180&quot; IsEnabled=&quot;False&quot;&gt;&#10;    &lt;ComboBoxItem Content=&quot;Banana&quot; /&gt;&#10;  &lt;/ComboBox&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding and templates" />
+      <TextBlock Classes="sm muted" Text="Items from the model with an ItemTemplate and SelectedItem bound two way; on the web the options show each item&#x27;s text." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <ComboBox ItemsSource="{Binding Fruits}" SelectedItem="{Binding Fruit}" PlaceholderText="Pick a fruit" Width="200" AutomationProperties.Name="Fruit">
+              <ComboBox.ItemTemplate>
+                <DataTemplate x:DataType="m:Fruit">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Ellipse Width="8" Height="8" Fill="{Binding Color}" VerticalAlignment="Center" />
+                    <TextBlock Text="{Binding Name}" />
+                  </StackPanel>
+                </DataTemplate>
+              </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Classes="sm muted" Text="{Binding Picked}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;ComboBox ItemsSource=&quot;{Binding Fruits}&quot; SelectedItem=&quot;{Binding Fruit}&quot; PlaceholderText=&quot;Pick a fruit&quot; Width=&quot;200&quot; AutomationProperties.Name=&quot;Fruit&quot;&gt;&#10;    &lt;ComboBox.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;m:Fruit&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;Ellipse Width=&quot;8&quot; Height=&quot;8&quot; Fill=&quot;{Binding Color}&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;TextBlock Text=&quot;{Binding Name}&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/ComboBox.ItemTemplate&gt;&#10;  &lt;/ComboBox&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Picked}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ItemsSource, ItemTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Items from the model, drawn by a data template on the desktop." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="SelectedItem, SelectedValue" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable selection (SelectedValueBinding picks the value)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="PlaceholderText" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Shown in the muted foreground while nothing is selected." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="label, separator" /><TextBlock Grid.Column="1" Classes="sm muted" Text="ComboBoxItem classes for shadcn&#x27;s SelectLabel and SelectSeparator." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="sm" /><TextBlock Grid.Column="1" Classes="sm muted" Text="32 px high." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

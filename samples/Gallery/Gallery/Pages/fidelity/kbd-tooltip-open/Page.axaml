@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: kbd-tooltip-open">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="96">
+      <Button Classes="outline sm" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+        <ToolTip.Tip>
+          <StackPanel Orientation="Horizontal" Spacing="3">
+            <TextBlock Text="Save Changes" VerticalAlignment="Center" />
+            <c:Kbd Content="S" />
+          </StackPanel>
+        </ToolTip.Tip>
+      </Button>
+    </Panel>
+  </Border>
+</UserControl>

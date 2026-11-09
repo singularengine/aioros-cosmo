@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: item-variant">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="24">
+      <c:Item Title="Default Variant" Description="Standard styling with subtle background and borders.">
+        <c:Item.Actions>
+          <Button Classes="outline sm" Content="Open" />
+        </c:Item.Actions>
+      </c:Item>
+      <c:Item Classes="outline" Title="Outline Variant" Description="Outlined style with clear borders and transparent background.">
+        <c:Item.Actions>
+          <Button Classes="outline sm" Content="Open" />
+        </c:Item.Actions>
+      </c:Item>
+      <c:Item Classes="muted" Title="Muted Variant" Description="Subdued appearance with muted colors for secondary content.">
+        <c:Item.Actions>
+          <Button Classes="outline sm" Content="Open" />
+        </c:Item.Actions>
+      </c:Item>
+    </StackPanel>
+  </Border>
+</UserControl>

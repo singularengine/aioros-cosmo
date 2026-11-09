@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo" xmlns:a="https://aioros.dev">
+  <ControlTheme x:Key="{x:Type ToolTip}" TargetType="ToolTip">
+    <Setter Property="Foreground" Value="{DynamicResource ToolTipForeground}" />
+    <Setter Property="a:Web.TextWrap" Value="balance" />
+    <Setter Property="Background" Value="{DynamicResource ToolTipBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource ToolTipBorderBrush}" />
+    <Setter Property="BorderThickness" Value="{DynamicResource ToolTipBorderThemeThickness}" />
+    <Setter Property="FontSize" Value="{DynamicResource ToolTipContentThemeFontSize}" />
+    <Setter Property="Padding" Value="{DynamicResource ToolTipBorderThemePadding}" />
+    <Setter Property="CornerRadius" Value="{DynamicResource OverlayCornerRadius}" />
+    <Setter Property="MaxWidth" Value="320" />
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontSans}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid RowDefinitions="Auto,10" RenderTransformOrigin="50%,100%" c:Motion.EnterOpacity="0" c:Motion.EnterScale="0.95" c:Motion.EnterOffset="0,8" c:Motion.ExitOpacity="0" c:Motion.ExitScale="0.95">
+          <Grid.Transitions>
+            <Transitions>
+              <DoubleTransition Property="Opacity" Duration="0:0:0.150" Easing="0.25,0.1,0.25,1" />
+              <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.150" Easing="0.25,0.1,0.25,1" />
+            </Transitions>
+          </Grid.Transitions>
+
+          <Border Name="PART_LayoutRoot"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              TextBlock.LineHeight="16"
+                              TextBlock.TextWrapping="Wrap" />
+          </Border>
+          <Border Name="PART_Arrow" Grid.Row="1" Width="10" Height="10" Margin="0,-7,0,0" CornerRadius="2"
+                  HorizontalAlignment="Center" VerticalAlignment="Top"
+                  Background="{TemplateBinding Background}" RenderTransform="rotate(45deg)" />
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

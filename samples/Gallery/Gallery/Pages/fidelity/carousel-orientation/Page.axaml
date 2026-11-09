@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: carousel-orientation">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Carousel Classes="vertical align-start" Width="320" Height="196" Margin="0,48" HorizontalAlignment="Center" ViewportFraction="0.7449">
+      <Border Padding="4,4,4,8"><c:Card VerticalAlignment="Top"><c:CardContent Padding="24"><TextBlock Text="1" FontSize="30" LineHeight="36" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" /></c:CardContent></c:Card></Border>
+      <Border Padding="4,4,4,8"><c:Card VerticalAlignment="Top"><c:CardContent Padding="24"><TextBlock Text="2" FontSize="30" LineHeight="36" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" /></c:CardContent></c:Card></Border>
+      <Border Padding="4,4,4,8"><c:Card VerticalAlignment="Top"><c:CardContent Padding="24"><TextBlock Text="3" FontSize="30" LineHeight="36" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" /></c:CardContent></c:Card></Border>
+      <Border Padding="4,4,4,8"><c:Card VerticalAlignment="Top"><c:CardContent Padding="24"><TextBlock Text="4" FontSize="30" LineHeight="36" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" /></c:CardContent></c:Card></Border>
+      <Border Padding="4,4,4,8"><c:Card VerticalAlignment="Top"><c:CardContent Padding="24"><TextBlock Text="5" FontSize="30" LineHeight="36" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" /></c:CardContent></c:Card></Border>
+    </Carousel>
+  </Border>
+</UserControl>

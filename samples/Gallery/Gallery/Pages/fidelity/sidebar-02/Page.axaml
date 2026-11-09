@@ -1,0 +1,132 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DocsExample" a:Page.Title="Fidelity: sidebar-02">
+  <Border a:Web.Id="fixture" Width="1280" Height="800" Padding="0" ClipToBounds="True" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:SidebarProvider Width="1280" Height="800" MobileBreakpoint="0" x:DataType="m:DocsExample">
+      <c:Sidebar>
+        <c:SidebarHeader>
+          <c:SidebarMenu>
+            <c:SidebarMenuItem>
+              <c:SidebarMenuButton Classes="lg">
+                <DockPanel>
+                  <Viewbox Width="16" Height="16" DockPanel.Dock="Right" Margin="8,0,0,0"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarForegroundBrush}" Data="M7 15 l5 5 5-5 M7 9 l5-5 5 5" /></Viewbox>
+                  <Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoSidebarPrimaryBrush}"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" Data="M7 2h10 M5 6h14 M5,10 L19,10 A2,2 0 0 1 21,12 L21,20 A2,2 0 0 1 19,22 L5,22 A2,2 0 0 1 3,20 L3,12 A2,2 0 0 1 5,10 Z" /></Viewbox></Border>
+                  <StackPanel Margin="8,0,0,0" Spacing="2" VerticalAlignment="Center">
+                    <TextBlock Text="Documentation" FontWeight="Medium" LineHeight="14" />
+                    <TextBlock Text="{Binding VersionText}" LineHeight="14" />
+                  </StackPanel>
+                </DockPanel>
+                <c:SidebarMenuButton.Flyout>
+                  <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                <MenuItem Command="{Binding SelectVersion}" CommandParameter="1.0.1"><MenuItem.Header><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Right" Margin="8,0,0,0" IsVisible="{Binding ShowsStable}"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox><TextBlock Text="v1.0.1" /></DockPanel></MenuItem.Header></MenuItem>
+                <MenuItem Command="{Binding SelectVersion}" CommandParameter="1.1.0-alpha"><MenuItem.Header><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Right" Margin="8,0,0,0" IsVisible="{Binding ShowsAlpha}"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox><TextBlock Text="v1.1.0-alpha" /></DockPanel></MenuItem.Header></MenuItem>
+                <MenuItem Command="{Binding SelectVersion}" CommandParameter="2.0.0-beta1"><MenuItem.Header><DockPanel><Viewbox Width="16" Height="16" DockPanel.Dock="Right" Margin="8,0,0,0" IsVisible="{Binding ShowsBeta}"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoPopoverForegroundBrush}" Data="M20 6 9 17l-5-5" /></Viewbox><TextBlock Text="v2.0.0-beta1" /></DockPanel></MenuItem.Header></MenuItem>
+                  </MenuFlyout>
+                </c:SidebarMenuButton.Flyout>
+              </c:SidebarMenuButton>
+            </c:SidebarMenuItem>
+          </c:SidebarMenu>
+          <Panel Margin="8,0">
+            <c:SidebarInput Padding="32,4,12,4" PlaceholderText="Search the docs..." AutomationProperties.Name="Search" />
+            <Viewbox Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0" Opacity="0.5" IsHitTestVisible="False"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M3,11 A8,8 0 1 1 19,11 A8,8 0 1 1 3,11 Z M21 21 l-4.3-4.3" /></Viewbox>
+          </Panel>
+        </c:SidebarHeader>
+        <c:SidebarContent>
+          <StackPanel>
+            <Expander Classes="sidebar-group" IsExpanded="True">
+              <Expander.Header><TextBlock Text="Getting Started" /></Expander.Header>
+              <c:SidebarMenu>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Installation" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Project Structure" /></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <Expander Classes="sidebar-group" IsExpanded="True">
+              <Expander.Header><TextBlock Text="Build Your Application" /></Expander.Header>
+              <c:SidebarMenu>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Routing" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton IsActive="True" Content="Data Fetching" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Rendering" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Caching" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Styling" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Optimizing" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Configuring" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Testing" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Authentication" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Deploying" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Upgrading" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Examples" /></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <Expander Classes="sidebar-group" IsExpanded="True">
+              <Expander.Header><TextBlock Text="API Reference" /></Expander.Header>
+              <c:SidebarMenu>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Components" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="File Conventions" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Functions" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="next.config.js Options" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="CLI" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Edge Runtime" /></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <Expander Classes="sidebar-group" IsExpanded="True">
+              <Expander.Header><TextBlock Text="Architecture" /></Expander.Header>
+              <c:SidebarMenu>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Accessibility" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Fast Refresh" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Next.js Compiler" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Supported Browsers" /></c:SidebarMenuItem>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Turbopack" /></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+            <Expander Classes="sidebar-group" IsExpanded="True">
+              <Expander.Header><TextBlock Text="Community" /></Expander.Header>
+              <c:SidebarMenu>
+                  <c:SidebarMenuItem><c:SidebarMenuButton Content="Contribution Guide" /></c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </Expander>
+          </StackPanel>
+        </c:SidebarContent>
+        <c:SidebarRail />
+      </c:Sidebar>
+      <c:SidebarInset>
+        <DockPanel>
+          <Border DockPanel.Dock="Top" Height="64" Padding="16,0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoBorderBrush}" Background="{DynamicResource CosmoBackgroundBrush}">
+            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+              <c:SidebarTrigger Margin="-4,0,0,0" VerticalAlignment="Center" />
+              <Separator Classes="vertical" Height="63" Margin="0,0,8,0" VerticalAlignment="Center" />
+              <c:Breadcrumb VerticalAlignment="Center">
+                <HyperlinkButton Content="Build Your Application" NavigateUri="#" />
+                <c:BreadcrumbPage Text="Data Fetching" />
+              </c:Breadcrumb>
+            </StackPanel>
+          </Border>
+          <StackPanel Margin="16" Spacing="16">
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+            <Border Height="48" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+          </StackPanel>
+        </DockPanel>
+      </c:SidebarInset>
+    </c:SidebarProvider>
+  </Border>
+</UserControl>

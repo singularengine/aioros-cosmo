@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             x:DataType="m:FidelityReport">
+  <StackPanel Spacing="28" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Fidelity" />
+      <TextBlock Classes="lead" Text="Each fixture is rendered twice in Chromium at 640 px: by shadcn/ui itself (React, Tailwind v4, the pinned new-york-v4 registry) and by Cosmo through Aioros. The verdict is the share of pixels whose channels differ by at most 16/255, and the mean difference." />
+      <c:Badge Classes="secondary" Content="{Binding Average}" />
+    </StackPanel>
+    <StackPanel>
+      <Border Classes="row">
+        <Grid ColumnDefinitions="2*,2*,2*,Auto" ColumnSpacing="12">
+          <TextBlock Classes="xs muted" Text="Fixture" />
+          <TextBlock Grid.Column="1" Classes="xs muted" Text="Light" />
+          <TextBlock Grid.Column="2" Classes="xs muted" Text="Dark" />
+          <TextBlock Grid.Column="3" Classes="xs muted" Text="shadcn/ui" />
+        </Grid>
+      </Border>
+      <ItemsControl ItemsSource="{Binding Rows}">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate x:DataType="m:FidelityRow">
+            <Border Classes="row">
+              <Grid ColumnDefinitions="2*,2*,2*,Auto" ColumnSpacing="12">
+                <Border Classes="link" a:Web.Href="{Binding Href}"><TextBlock Classes="sm" Text="{Binding Fixture}" /></Border>
+                <TextBlock Grid.Column="1" Classes="sm" Text="{Binding Light}" />
+                <TextBlock Grid.Column="2" Classes="sm" Text="{Binding Dark}" />
+                <HyperlinkButton Grid.Column="3" Classes="link xs" NavigateUri="{Binding Reference}" Content="PNG" />
+              </Grid>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </StackPanel>
+    <TextBlock Classes="sm muted" Text="Both sides use the Inter files Aioros serves, so the comparison measures the components, not the fonts; shadcn/ui's own default font is Geist (see the decisions). Run tools/shadcn/compare.mjs against a running Gallery to measure again." />
+  </StackPanel>
+</UserControl>

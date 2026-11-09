@@ -1,0 +1,88 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Alert Dialog" a:Page.Description="A modal dialog that interrupts the user with important content and expects a response.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Alert Dialog" />
+      <TextBlock Classes="lead" Text="A modal dialog that interrupts the user with important content and expects a response." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: alert-dialog" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:AlertDialog" />
+        <c:Badge Classes="secondary" Content="Web: &lt;dialog&gt; (showModal)" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="No close button and no dismissal by a click outside: the focus starts on the cancel button (IsCancel), and Escape cancels." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Show Dialog" Command="{Binding ConfirmCommand}" />
+            <c:AlertDialog IsOpen="{Binding ConfirmOpen}">
+              <StackPanel Spacing="16">
+                <c:DialogHeader Title="Are you absolutely sure?" Description="This action cannot be undone. This will permanently delete your account and remove your data from our servers." />
+                <c:DialogFooter>
+                  <Button Classes="outline" Content="Cancel" IsCancel="True" Command="{Binding AnswerCommand}" CommandParameter="cancel" />
+                  <Button Content="Continue" Command="{Binding AnswerCommand}" CommandParameter="continue" />
+                </c:DialogFooter>
+              </StackPanel>
+            </c:AlertDialog>
+            <TextBlock Classes="sm muted" Text="{Binding Outcome}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Show Dialog&quot; Command=&quot;{Binding ConfirmCommand}&quot; /&gt;&#10;  &lt;c:AlertDialog IsOpen=&quot;{Binding ConfirmOpen}&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Are you absolutely sure?&quot; Description=&quot;This action cannot be undone. This will permanently delete your account and remove your data from our servers.&quot; /&gt;&#10;      &lt;c:DialogFooter&gt;&#10;        &lt;Button Classes=&quot;outline&quot; Content=&quot;Cancel&quot; IsCancel=&quot;True&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;cancel&quot; /&gt;&#10;        &lt;Button Content=&quot;Continue&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;continue&quot; /&gt;&#10;      &lt;/c:DialogFooter&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:AlertDialog&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Outcome}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Small" />
+      <TextBlock Classes="sm muted" Text="The sm class is shadcn&#x27;s small size (320 px)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Show small dialog" Command="{Binding AllowCommand}" />
+            <c:AlertDialog Classes="sm" IsOpen="{Binding AllowOpen}">
+              <StackPanel Spacing="16">
+                <c:DialogHeader Title="Allow accessory to connect?" Description="Do you want to allow the USB accessory to connect to this device?" />
+                <c:DialogFooter>
+                  <Button Classes="outline" Content="Don't allow" IsCancel="True" Command="{Binding AnswerCommand}" CommandParameter="denied" />
+                  <Button Content="Allow" Command="{Binding AnswerCommand}" CommandParameter="allowed" />
+                </c:DialogFooter>
+              </StackPanel>
+            </c:AlertDialog>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Show small dialog&quot; Command=&quot;{Binding AllowCommand}&quot; /&gt;&#10;  &lt;c:AlertDialog Classes=&quot;sm&quot; IsOpen=&quot;{Binding AllowOpen}&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Allow accessory to connect?&quot; Description=&quot;Do you want to allow the USB accessory to connect to this device?&quot; /&gt;&#10;      &lt;c:DialogFooter&gt;&#10;        &lt;Button Classes=&quot;outline&quot; Content=&quot;Don&#x27;t allow&quot; IsCancel=&quot;True&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;denied&quot; /&gt;&#10;        &lt;Button Content=&quot;Allow&quot; Command=&quot;{Binding AnswerCommand}&quot; CommandParameter=&quot;allowed&quot; /&gt;&#10;      &lt;/c:DialogFooter&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:AlertDialog&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Opened in the browser" />
+      <TextBlock Classes="sm muted" Text="Trigger is Radix&#x27;s AlertDialogTrigger: on the web the browser opens the alert dialog with no request, and Escape and c:Dialog.Closes close it there; a click outside does not." TextWrapping="Wrap" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button x:Name="discardTrigger" Classes="outline" Content="Discard draft" />
+            <c:AlertDialog Trigger="{Binding #discardTrigger}">
+              <StackPanel Spacing="16">
+                <c:DialogHeader Title="Discard the draft?" Description="The draft is gone once you discard it." />
+                <c:DialogFooter>
+                  <Button Classes="outline" Content="Keep" c:Dialog.Closes="True" />
+                  <Button Content="Discard" c:Dialog.Closes="True" />
+                </c:DialogFooter>
+              </StackPanel>
+            </c:AlertDialog>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button x:Name=&quot;discardTrigger&quot; Classes=&quot;outline&quot; Content=&quot;Discard draft&quot; /&gt;&#10;  &lt;c:AlertDialog Trigger=&quot;{Binding #discardTrigger}&quot;&gt;&#10;    &lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;      &lt;c:DialogHeader Title=&quot;Discard the draft?&quot; Description=&quot;The draft is gone once you discard it.&quot; /&gt;&#10;      &lt;c:DialogFooter&gt;&#10;        &lt;Button Classes=&quot;outline&quot; Content=&quot;Keep&quot; c:Dialog.Closes=&quot;True&quot; /&gt;&#10;        &lt;Button Content=&quot;Discard&quot; c:Dialog.Closes=&quot;True&quot; /&gt;&#10;      &lt;/c:DialogFooter&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/c:AlertDialog&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Trigger" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The button that opens it; on the web the browser opens it with no request." TextWrapping="Wrap" /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="IsOpen, Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="As the dialog&#x27;s." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Button.IsCancel" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The cancel answer, focused when the dialog opens." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="sm" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The small alert dialog (320 px)." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

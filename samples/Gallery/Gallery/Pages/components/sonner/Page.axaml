@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples"
+             a:Page.Title="Sonner" a:Page.Description="An opinionated toast component.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Sonner" />
+      <TextBlock Classes="lead" Text="An opinionated toast component." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: sonner" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Toaster, c:Toast" />
+        <c:Badge Classes="secondary" Content="Web: notices (popover)" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="The command adds a c:Toast to the model&#x27;s collection, which the page&#x27;s c:Toaster shows at the window&#x27;s bottom right corner for 4 s (paused under the pointer); its Undo action runs a command. Drag a toast down or right to swipe it away, as sonner&#x27;s." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <Button Classes="outline" Content="Show Toast" Command="{Binding ToastCommand}" />
+            <TextBlock Classes="sm muted" Text="{Binding Undone}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Show Toast&quot; Command=&quot;{Binding ToastCommand}&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Undone}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Types" />
+      <TextBlock Classes="sm muted" Text="Kind picks sonner&#x27;s icon; a loading toast stays until Resolve turns it into its result (sonner&#x27;s toast.promise)." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <WrapPanel ItemSpacing="8" LineSpacing="8">
+            <Button Classes="outline" Content="Default" Command="{Binding KindCommand}" CommandParameter="Default" />
+            <Button Classes="outline" Content="Success" Command="{Binding KindCommand}" CommandParameter="Success" />
+            <Button Classes="outline" Content="Info" Command="{Binding KindCommand}" CommandParameter="Info" />
+            <Button Classes="outline" Content="Warning" Command="{Binding KindCommand}" CommandParameter="Warning" />
+            <Button Classes="outline" Content="Error" Command="{Binding KindCommand}" CommandParameter="Error" />
+            <Button Classes="outline" Content="Promise" Command="{Binding PromiseCommand}" />
+          </WrapPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;WrapPanel ItemSpacing=&quot;8&quot; LineSpacing=&quot;8&quot;&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Default&quot; Command=&quot;{Binding KindCommand}&quot; CommandParameter=&quot;Default&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Success&quot; Command=&quot;{Binding KindCommand}&quot; CommandParameter=&quot;Success&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Info&quot; Command=&quot;{Binding KindCommand}&quot; CommandParameter=&quot;Info&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Warning&quot; Command=&quot;{Binding KindCommand}&quot; CommandParameter=&quot;Warning&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Error&quot; Command=&quot;{Binding KindCommand}&quot; CommandParameter=&quot;Error&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline&quot; Content=&quot;Promise&quot; Command=&quot;{Binding PromiseCommand}&quot; /&gt;&#10;&lt;/WrapPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Stack" />
+      <TextBlock Classes="sm muted" Text="The newest toast in front, two more peeking 14 px behind it; under the pointer the stack expands." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline" Content="Show three toasts" Command="{Binding StackCommand}" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline&quot; Content=&quot;Show three toasts&quot; Command=&quot;{Binding StackCommand}&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Close button" />
+      <TextBlock Classes="sm muted" Text="A toast with CloseButton (or every toast of a toaster with CloseButton) shows sonner&#x27;s close button at its corner; in the browser it closes the toast with no request." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Button Classes="outline" Content="Show with close button" Command="{Binding ClosableCommand}" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Button Classes=&quot;outline&quot; Content=&quot;Show with close button&quot; Command=&quot;{Binding ClosableCommand}&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Toaster Toasts" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The model&#x27;s collection of c:Toast; declare the toaster once (here at the end of the page)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Position, Duration, IsExpanded, CloseButton" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The corner (bottom right), how long a toast stays (4 s), sonner&#x27;s expand, sonner&#x27;s close button on every toast." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Toast" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Title, Description, Kind, ActionText, ActionCommand, ActionParameter, Duration, CloseButton; Resolve for promises." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+    <c:Toaster Toasts="{Binding Toasts}" />
+  </StackPanel>
+</UserControl>

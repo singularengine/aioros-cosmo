@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-progress">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Questionnaire Width="448" HorizontalAlignment="Center" ShowProgress="True" SubmitContent="Finish plan" Classes="segmented" ProgressFormat="Checkpoint {0} of {1}">
+      <c:QuestionnaireItem Name="scope" Title="How large is the change?" IsRequired="True">
+        <c:QuestionnaireChoice Value="small" Content="Small patch" />
+        <c:QuestionnaireChoice Value="medium" Content="Feature-sized change" />
+        <c:QuestionnaireChoice Value="large" Content="Cross-package change" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="strategy" Title="How should commits be organized?" IsRequired="True">
+        <c:QuestionnaireChoice Value="single" Content="Single commit" />
+        <c:QuestionnaireChoice Value="logical" Content="Logical commits" />
+        <c:QuestionnaireChoice Value="squash" Content="Squash before review" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="tests" Title="Which tests should run?" IsRequired="True">
+        <c:QuestionnaireChoice Value="targeted" Content="Targeted tests" />
+        <c:QuestionnaireChoice Value="package" Content="Package suite" />
+        <c:QuestionnaireChoice Value="workspace" Content="Full workspace" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="delivery" Title="How should the work be delivered?" IsRequired="True">
+        <c:QuestionnaireChoice Value="patch" Content="Patch only" />
+        <c:QuestionnaireChoice Value="commit" Content="Committed locally" />
+        <c:QuestionnaireChoice Value="branch" Content="Push a review branch" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+  </Border>
+</UserControl>

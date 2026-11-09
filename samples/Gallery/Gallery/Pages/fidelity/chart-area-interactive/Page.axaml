@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor" x:DataType="m:ChartInteractive" a:Page.Title="Fidelity: chart-area-interactive">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:ChartInteractive">
+      <Border.Resources><c:ChartConfig x:Key="ChartConfig"><c:ChartConfigItem Key="Visitors" Label="Visitors" /><c:ChartConfigItem Key="Desktop" Label="Desktop" Color="PictorPalette1" /><c:ChartConfigItem Key="Mobile" Label="Mobile" Color="PictorPalette2" /></c:ChartConfig></Border.Resources>
+      <c:Card Padding="0,0,0,24">
+        <Border BorderBrush="{DynamicResource CosmoBorderBrush}" BorderThickness="0,0,0,1">
+          <c:CardHeader Padding="24,20" Title="Area Chart - Interactive" Description="Showing total visitors for the last 3 months">
+            <c:CardHeader.Action>
+              <ComboBox Width="160" SelectedIndex="{Binding TimeRange}"><ComboBoxItem Content="Last 3 months" /><ComboBoxItem Content="Last 30 days" /><ComboBoxItem Content="Last 7 days" /></ComboBox>
+            </c:CardHeader.Action>
+          </c:CardHeader>
+        </Border>
+        <c:CardContent Padding="24,24,24,0">
+          <p:AreaChart c:ChartConfig.Config="{StaticResource ChartConfig}" Data="{Binding Range}" Height="250" ResponsiveWidths="240 360 542 720">
+            <p:CartesianGrid Vertical="False" />
+            <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+            <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Dot" /></p:Tooltip.ContentTemplate></p:Tooltip>
+            <p:Area DataKey="Mobile" Type="Natural" StackId="a" IsAnimationActive="False">
+              <p:Area.Fill>
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                  <GradientStop Offset="0.05" Color="{DynamicResource CosmoChart2TopColor}" />
+                  <GradientStop Offset="0.95" Color="{DynamicResource CosmoChart2BottomColor}" />
+                </LinearGradientBrush>
+              </p:Area.Fill>
+            </p:Area>
+            <p:Area DataKey="Desktop" Type="Natural" StackId="a" IsAnimationActive="False">
+              <p:Area.Fill>
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                  <GradientStop Offset="0.05" Color="{DynamicResource CosmoChart1TopColor}" />
+                  <GradientStop Offset="0.95" Color="{DynamicResource CosmoChart1BottomColor}" />
+                </LinearGradientBrush>
+              </p:Area.Fill>
+            </p:Area>
+            <p:Legend><p:Legend.Template><c:ChartLegendContent /></p:Legend.Template><p:Legend.ContentTemplate><c:ChartLegendItem /></p:Legend.ContentTemplate></p:Legend>
+          </p:AreaChart>
+        </c:CardContent>
+      </c:Card>
+    </Border>
+  </Border>
+</UserControl>

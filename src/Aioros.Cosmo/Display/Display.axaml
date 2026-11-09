@@ -1,0 +1,388 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Aioros.Cosmo/Display/Icons.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
+    <Setter Property="Background" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="Height" Value="1" />
+    <Setter Property="Margin" Value="0" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.vertical">
+      <Setter Property="Height" Value="NaN" />
+      <Setter Property="Width" Value="1" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Skeleton}" TargetType="c:Skeleton">
+    <Setter Property="Background" Value="{DynamicResource CosmoAccentBrush}" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Spinner}" TargetType="c:Spinner">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+    <Setter Property="AutomationProperties.Name" Value="Loading" />
+    <Setter Property="AutomationProperties.LiveSetting" Value="Polite" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Viewbox Stretch="Uniform">
+          <Path Theme="{StaticResource CosmoIcon}" Data="{StaticResource CosmoLoaderGeometry}" Stroke="{TemplateBinding Foreground}" />
+        </Viewbox>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Kbd}" TargetType="c:Kbd">
+    <Setter Property="a:Web.Tag" Value="kbd" />
+    <Setter Property="Height" Value="20" />
+    <Setter Property="MinWidth" Value="20" />
+    <Setter Property="Padding" Value="4,0" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusSm}" />
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="IsHitTestVisible" Value="False" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+          <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}" TextBlock.LineHeight="16"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Avatar}" TargetType="c:Avatar">
+    <Setter Property="Width" Value="32" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="CornerRadius" Value="9999" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Ring" CornerRadius="{TemplateBinding CornerRadius}">
+          <Border Name="PART_Root" CornerRadius="{TemplateBinding CornerRadius}" ClipToBounds="True">
+            <Panel>
+              <Border Name="PART_Fallback" Background="{TemplateBinding Background}" CornerRadius="9999"
+                      IsVisible="{TemplateBinding Source, Converter={x:Static ObjectConverters.IsNull}}">
+                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Foreground="{TemplateBinding Foreground}" TextBlock.LineHeight="20"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+              <Image Name="PART_Image" Source="{TemplateBinding Source}" Stretch="UniformToFill" AutomationProperties.Name="{TemplateBinding AutomationProperties.Name}"
+                     IsVisible="{TemplateBinding Source, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              <ContentPresenter Name="PART_Badge" Content="{TemplateBinding Badge}" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                IsVisible="{TemplateBinding Badge, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </Panel>
+          </Border>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.sm">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.sm /template/ ContentPresenter">
+      <Setter Property="TextBlock.LineHeight" Value="16" />
+    </Style>
+    <Style Selector="^.lg">
+      <Setter Property="Width" Value="40" />
+      <Setter Property="Height" Value="40" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:AvatarGroup}" TargetType="c:AvatarGroup">
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Orientation="Horizontal" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" Margin="8,0,0,0" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:AvatarBadge}" TargetType="c:AvatarBadge">
+    <Setter Property="Width" Value="10" />
+    <Setter Property="Height" Value="10" />
+    <Setter Property="CornerRadius" Value="9999" />
+    <Setter Property="Background" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoPrimaryForegroundBrush}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" BoxShadow="{DynamicResource CosmoRingBackgroundShadow}">
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:AvatarGroupCount}" TargetType="c:AvatarGroupCount">
+    <Setter Property="Width" Value="32" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="CornerRadius" Value="9999" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" BoxShadow="{DynamicResource CosmoRingBackgroundShadow}">
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}" TextBlock.LineHeight="20" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Alert}" TargetType="c:Alert">
+    <Setter Property="AutomationProperties.LiveSetting" Value="Assertive" />
+    <Setter Property="Background" Value="{DynamicResource CosmoCardBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoCardForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusLg}" />
+    <Setter Property="Padding" Value="16,12" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+          <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+            <ContentPresenter Name="PART_Icon" Content="{TemplateBinding Icon}" Width="16" Height="16" Margin="0,2,12,0" VerticalAlignment="Top"
+                              Foreground="{TemplateBinding Foreground}" IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <ContentPresenter Name="PART_Title" Grid.Column="1" Content="{TemplateBinding Title}" FontWeight="Medium" MinHeight="16" LetterSpacing="-0.35"
+                              TextBlock.LineHeight="20" TextWrapping="Wrap" Foreground="{TemplateBinding Foreground}"
+                              IsVisible="{TemplateBinding Title, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <ContentPresenter Name="PART_Description" Grid.Column="1" Grid.Row="1" Margin="0,2,0,0" Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" Foreground="{DynamicResource CosmoMutedForegroundBrush}"
+                              TextBlock.LineHeight="20" TextWrapping="Wrap"
+                              IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.destructive">
+      <Setter Property="Foreground" Value="{DynamicResource CosmoDestructiveBrush}" />
+    </Style>
+    <Style Selector="^.destructive /template/ ContentPresenter#PART_Description">
+      <Setter Property="Foreground" Value="{DynamicResource CosmoAlertDestructiveDescriptionBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:List}" TargetType="c:List">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel a:Web.Tag="ul" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="TextBlock.LineHeight" Value="24" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Padding="{TemplateBinding Padding}">
+          <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.inside">
+      <Setter Property="FontSize" Value="14" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:ListItem}" TargetType="c:ListItem">
+    <Setter Property="a:Web.Tag" Value="li" />
+    <Setter Property="Margin" Value="0,8,0,0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Ellipse Name="PART_Bullet" Width="5" Height="5" Fill="{TemplateBinding Foreground}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,11,0,0" />
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" TextWrapping="Wrap" Margin="24,0,0,0" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Empty}" TargetType="c:Empty">
+    <Setter Property="a:Web.TextWrap" Value="balance" />
+    <Setter Property="Padding" Value="48" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusLg}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Rectangle Name="PART_Dashes" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="1" StrokeDashArray="3,3" IsVisible="False"
+                     RadiusX="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}"
+                     RadiusY="{Binding CornerRadius.TopLeft, RelativeSource={RelativeSource TemplatedParent}}" />
+          <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}"
+                  BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="Transparent">
+            <StackPanel Spacing="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+              <StackPanel Spacing="8" MaxWidth="384" HorizontalAlignment="Center">
+                <ContentPresenter Name="PART_Media" Content="{TemplateBinding Media}" HorizontalAlignment="Center" Margin="0,0,0,8"
+                                  IsVisible="{TemplateBinding Media, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <ContentPresenter Name="PART_Title" Content="{TemplateBinding Title}" FontSize="18" FontWeight="Medium" TextBlock.LineHeight="28" LetterSpacing="-0.45"
+                                  HorizontalAlignment="Center" IsVisible="{TemplateBinding Title, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <ContentPresenter Name="PART_Description" Content="{TemplateBinding Description}" FontSize="14" TextBlock.LineHeight="22.75"
+                                  Foreground="{DynamicResource CosmoMutedForegroundBrush}" TextWrapping="Wrap" TextAlignment="Center"
+                                  HorizontalAlignment="Center" IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              </StackPanel>
+              <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                HorizontalAlignment="Center" FontSize="14"
+                                IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </StackPanel>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.outline">
+      <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="^.outline /template/ Rectangle#PART_Dashes">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:EmptyMedia}" TargetType="c:EmptyMedia">
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+          <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Foreground="{TemplateBinding Foreground}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.icon">
+      <Setter Property="Width" Value="40" />
+      <Setter Property="Height" Value="40" />
+      <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusLg}" />
+      <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:Item}" TargetType="c:Item">
+    <Setter Property="Padding" Value="16" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+          <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto,Auto">
+            <ContentPresenter Name="PART_Header" Grid.ColumnSpan="3" Content="{TemplateBinding Header}" Margin="0,0,0,16"
+                              IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <ContentPresenter Name="PART_Media" Grid.Row="1" Content="{TemplateBinding Media}" VerticalAlignment="Center" Margin="0,0,16,0"
+                              IsVisible="{TemplateBinding Media, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <StackPanel Grid.Row="1" Grid.Column="1" Spacing="4" VerticalAlignment="Center">
+              <ContentPresenter Name="PART_Title" Content="{TemplateBinding Title}" FontWeight="Medium" TextBlock.LineHeight="19.25" TextWrapping="Wrap"
+                                IsVisible="{TemplateBinding Title, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              <ContentPresenter Name="PART_Description" Content="{TemplateBinding Description}" Foreground="{DynamicResource CosmoMutedForegroundBrush}"
+                                TextBlock.LineHeight="21" TextWrapping="Wrap" a:Web.TextWrap="balance"
+                                IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </StackPanel>
+            <ContentPresenter Name="PART_Actions" Grid.Row="1" Grid.Column="2" Content="{TemplateBinding Actions}" VerticalAlignment="Center" Margin="16,0,0,0"
+                              IsVisible="{TemplateBinding Actions, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <ContentPresenter Name="PART_Footer" Grid.Row="2" Grid.ColumnSpan="3" Content="{TemplateBinding Footer}" Margin="0,16,0,0"
+                              IsVisible="{TemplateBinding Footer, Converter={x:Static ObjectConverters.IsNotNull}}" />
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.outline">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+    </Style>
+    <Style Selector="^.muted">
+      <Setter Property="Background" Value="{DynamicResource CosmoMutedHalfBrush}" />
+    </Style>
+    <Style Selector="^.sm">
+      <Setter Property="Padding" Value="16,12" />
+    </Style>
+    <Style Selector="^.sm /template/ ContentPresenter#PART_Media">
+      <Setter Property="Margin" Value="0,0,10,0" />
+    </Style>
+    <Style Selector="^.sm /template/ ContentPresenter#PART_Header">
+      <Setter Property="Margin" Value="0,0,0,10" />
+    </Style>
+    <Style Selector="^.sm /template/ ContentPresenter#PART_Footer">
+      <Setter Property="Margin" Value="0,10,0,0" />
+    </Style>
+    <Style Selector="^.sm /template/ ContentPresenter#PART_Actions">
+      <Setter Property="Margin" Value="10,0,0,0" />
+    </Style>
+    <Style Selector="^.link">
+      <Setter Property="Cursor" Value="Hand" />
+    </Style>
+    <Style Selector="^.link:pointerover /template/ Border#PART_Border">
+      <Setter Property="Background" Value="{DynamicResource CosmoAccentHalfBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:ItemMedia}" TargetType="c:ItemMedia">
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}" ClipToBounds="{TemplateBinding ClipToBounds}">
+          <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Foreground="{TemplateBinding Foreground}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.icon">
+      <Setter Property="Width" Value="32" />
+      <Setter Property="Height" Value="32" />
+      <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusSm}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+      <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    </Style>
+    <Style Selector="^.image">
+      <Setter Property="Width" Value="40" />
+      <Setter Property="Height" Value="40" />
+      <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusSm}" />
+      <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

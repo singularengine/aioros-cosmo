@@ -1,0 +1,76 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             a:Page.Title="Message" a:Page.Description="Displays a message in a conversation, with optional avatar, header, footer, and alignment.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Message" />
+      <TextBlock Classes="lead" Text="Displays a message in a conversation, with optional avatar, header, footer, and alignment." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: message" />
+        <c:Badge Classes="secondary" Content="Avalonia: ContentControl" />
+        <c:Badge Classes="secondary" Content="Web: &lt;div&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="c:Message with an Avatar and a c:MessageContent; the end class reverses the row, a c:MessageFooter raises the avatar 32 px." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="24">
+          <c:Message Classes="end"><c:Message.Avatar><c:Avatar Content="ME" /></c:Message.Avatar><c:MessageContent><c:Bubble Content="Deploying to prod real quick." /></c:MessageContent></c:Message>
+          <c:Message><c:Message.Avatar><c:Avatar Content="R" /></c:Message.Avatar><c:MessageContent><c:Bubble Classes="muted" Content="It&apos;s 4:55 PM. On a Friday." /></c:MessageContent></c:Message>
+          <c:Message Classes="end"><c:Message.Avatar><c:Avatar Content="ME" /></c:Message.Avatar><c:MessageContent><c:Bubble Content="It&apos;s a one-line change." /><c:MessageFooter Text="Delivered" /></c:MessageContent></c:Message>
+          <c:Message><c:Message.Avatar><c:Avatar Content="R" /></c:Message.Avatar><c:MessageContent><c:BubbleGroup><c:Bubble Classes="muted" Content="It&apos;s always a one-line change 😭." /><c:Bubble Classes="muted" Content="Alright, let me take a look."><c:Bubble.Reactions><StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="👍" /></StackPanel></c:Bubble.Reactions></c:Bubble></c:BubbleGroup></c:MessageContent></c:Message>
+          <c:Marker><c:Marker.Content><TextBlock><Run Text="Oliver" FontWeight="Medium" /><Run Text=" is typing..." /></TextBlock></c:Marker.Content></c:Marker>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;24&quot;&gt;&#10;  &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:Message.Avatar&gt;&lt;c:Avatar Content=&quot;ME&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Content=&quot;Deploying to prod real quick.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;  &lt;c:Message&gt;&lt;c:Message.Avatar&gt;&lt;c:Avatar Content=&quot;R&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;It&amp;apos;s 4:55 PM. On a Friday.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;  &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:Message.Avatar&gt;&lt;c:Avatar Content=&quot;ME&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Content=&quot;It&amp;apos;s a one-line change.&quot; /&gt;&lt;c:MessageFooter Text=&quot;Delivered&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;  &lt;c:Message&gt;&lt;c:Message.Avatar&gt;&lt;c:Avatar Content=&quot;R&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:BubbleGroup&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;It&amp;apos;s always a one-line change 😭.&quot; /&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;Alright, let me take a look.&quot;&gt;&lt;c:Bubble.Reactions&gt;&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;4&quot;&gt;&lt;TextBlock Text=&quot;👍&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:Bubble.Reactions&gt;&lt;/c:Bubble&gt;&lt;/c:BubbleGroup&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;  &lt;c:Marker&gt;&lt;c:Marker.Content&gt;&lt;TextBlock&gt;&lt;Run Text=&quot;Oliver&quot; FontWeight=&quot;Medium&quot; /&gt;&lt;Run Text=&quot; is typing...&quot; /&gt;&lt;/TextBlock&gt;&lt;/c:Marker.Content&gt;&lt;/c:Marker&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Group" />
+      <TextBlock Classes="sm muted" Text="c:MessageGroup stacks messages 8 px apart; an empty avatar keeps the bubbles aligned." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="24">
+          <c:MessageGroup><c:Message><c:Message.Avatar><Border Width="32" /></c:Message.Avatar><c:MessageContent><c:Bubble Classes="muted" Content="I checked the registry addresses." /></c:MessageContent></c:Message><c:Message><c:Message.Avatar><c:Avatar Content="CN" /></c:Message.Avatar><c:MessageContent><c:Bubble Classes="muted" Content="The component and example JSON now live under the UI registry." /></c:MessageContent></c:Message></c:MessageGroup>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;24&quot;&gt;&#10;  &lt;c:MessageGroup&gt;&lt;c:Message&gt;&lt;c:Message.Avatar&gt;&lt;Border Width=&quot;32&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;I checked the registry addresses.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&lt;c:Message&gt;&lt;c:Message.Avatar&gt;&lt;c:Avatar Content=&quot;CN&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;The component and example JSON now live under the UI registry.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&lt;/c:MessageGroup&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Header and footer" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="32">
+          <c:Message><c:MessageContent><c:MessageHeader Text="Olivia" /><c:Bubble Classes="muted" Content="I already checked the logs." /></c:MessageContent></c:Message>
+          <c:Message Classes="end"><c:MessageContent><c:Bubble Content="Send the report to the team. Ping @shadcn if you need help." /><c:MessageFooter><Run Text="Read " /><Run Text="Yesterday" FontWeight="Normal" /></c:MessageFooter></c:MessageContent></c:Message>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;32&quot;&gt;&#10;  &lt;c:Message&gt;&lt;c:MessageContent&gt;&lt;c:MessageHeader Text=&quot;Olivia&quot; /&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;I already checked the logs.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;  &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Content=&quot;Send the report to the team. Ping @shadcn if you need help.&quot; /&gt;&lt;c:MessageFooter&gt;&lt;Run Text=&quot;Read &quot; /&gt;&lt;Run Text=&quot;Yesterday&quot; FontWeight=&quot;Normal&quot; /&gt;&lt;/c:MessageFooter&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Avatar" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <StackPanel MaxWidth="384" Spacing="24">
+          <c:Message><c:Message.Avatar><c:Avatar Content="R" /></c:Message.Avatar><c:MessageContent><c:Bubble Classes="muted" Content="The build failed during dependency installation." /></c:MessageContent></c:Message>
+          <c:Message Classes="end"><c:Message.Avatar><c:Avatar Content="R" /></c:Message.Avatar><c:MessageContent><c:Bubble Content="Can you share the exact error?" /></c:MessageContent></c:Message>
+          <c:Message><c:Message.Avatar><c:Avatar Content="R" /></c:Message.Avatar><c:MessageContent><c:BubbleGroup><c:Bubble Classes="muted" Content="Here&apos;s the error from the logs" /><c:Bubble Classes="muted" Content="Something went wrong with the build. The libraries are not installed correctly. Try running the build again." /></c:BubbleGroup></c:MessageContent></c:Message>
+                </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel MaxWidth=&quot;384&quot; Spacing=&quot;24&quot;&gt;&#10;  &lt;c:Message&gt;&lt;c:Message.Avatar&gt;&lt;c:Avatar Content=&quot;R&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;The build failed during dependency installation.&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;  &lt;c:Message Classes=&quot;end&quot;&gt;&lt;c:Message.Avatar&gt;&lt;c:Avatar Content=&quot;R&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:Bubble Content=&quot;Can you share the exact error?&quot; /&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;  &lt;c:Message&gt;&lt;c:Message.Avatar&gt;&lt;c:Avatar Content=&quot;R&quot; /&gt;&lt;/c:Message.Avatar&gt;&lt;c:MessageContent&gt;&lt;c:BubbleGroup&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;Here&amp;apos;s the error from the logs&quot; /&gt;&lt;c:Bubble Classes=&quot;muted&quot; Content=&quot;Something went wrong with the build. The libraries are not installed correctly. Try running the build again.&quot; /&gt;&lt;/c:BubbleGroup&gt;&lt;/c:MessageContent&gt;&lt;/c:Message&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Avatar" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The avatar at the row&#x27;s bottom edge, 8 px from the content." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="end" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The avatar on the far side and the content&#x27;s parts at its end." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:MessageContent, c:MessageHeader, c:MessageFooter, c:MessageGroup" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The content 10 px apart, its header and footer, and messages 8 px apart." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

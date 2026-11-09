@@ -1,0 +1,76 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
+    <Setter Property="Foreground" Value="{DynamicResource ToggleSwitchContentForeground}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Padding" Value="8,0,0,0" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="OnContent" Value="{x:Null}" />
+    <Setter Property="OffContent" Value="{x:Null}" />
+    <Setter Property="KnobTransitions">
+      <Transitions>
+        <DoubleTransition Property="Canvas.Left" Duration="0:0:0.15" Easing="0.4,0,0.2,1" />
+      </Transitions>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid Background="{TemplateBinding Background}" ColumnDefinitions="Auto,*">
+          <Panel Name="SwitchArea" VerticalAlignment="Center">
+            <Border Name="OuterBorder" Width="32" Height="18.390625" CornerRadius="9999" BorderThickness="1"
+                    Background="{DynamicResource ToggleSwitchFillOff}"
+                    BorderBrush="{DynamicResource ToggleSwitchStrokeOff}"
+                    BoxShadow="{DynamicResource CosmoShadowXs}" />
+            <Canvas Name="PART_SwitchKnob" Width="14" Height="16" Margin="1,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+              <Panel Name="PART_MovingKnobs" Width="16" Height="16">
+                <Ellipse Name="SwitchKnob" Fill="{DynamicResource ToggleSwitchKnobFillOff}" />
+              </Panel>
+            </Canvas>
+          </Panel>
+          <ContentPresenter Name="PART_ContentPresenter" Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            RecognizesAccessKey="True"
+                            TextBlock.LineHeight="14"
+                            IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          <ContentPresenter Name="PART_OffContentPresenter" IsVisible="False" Content="{TemplateBinding OffContent}" />
+          <ContentPresenter Name="PART_OnContentPresenter" IsVisible="False" Content="{TemplateBinding OnContent}" />
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:checked /template/ Border#OuterBorder">
+      <Setter Property="Background" Value="{DynamicResource ToggleSwitchFillOn}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource ToggleSwitchStrokeOn}" />
+    </Style>
+    <Style Selector="^:checked /template/ Ellipse#SwitchKnob">
+      <Setter Property="Fill" Value="{DynamicResource ToggleSwitchKnobFillOn}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#OuterBorder">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineFocusShadow}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^.sm /template/ Border#OuterBorder">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="14" />
+    </Style>
+    <Style Selector="^.sm /template/ Canvas#PART_SwitchKnob">
+      <Setter Property="Width" Value="10" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+    <Style Selector="^.sm /template/ Panel#PART_MovingKnobs">
+      <Setter Property="Width" Value="12" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

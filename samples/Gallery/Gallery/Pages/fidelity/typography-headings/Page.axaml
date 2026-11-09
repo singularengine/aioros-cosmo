@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: typography-headings">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel>
+      <TextBlock Classes="typography h1" Text="Taxing Laughter: The Joke Tax Chronicles" />
+      <Border Margin="0,40,0,0" Padding="0,0,0,8" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoBorderBrush}">
+        <TextBlock Classes="typography h2" Text="The People of the Kingdom" />
+      </Border>
+      <TextBlock Classes="typography h3" Margin="0,32,0,0" Text="The Joke Tax" />
+      <TextBlock Classes="typography h4" Margin="0,24,0,0" Text="People stopped telling jokes" />
+    </StackPanel>
+  </Border>
+</UserControl>

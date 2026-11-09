@@ -1,0 +1,201 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" xmlns:p="https://aioros.dev/pictor"
+             x:DataType="m:DashboardExample" a:Page.Title="Dashboard"
+             a:Page.Description="An app dashboard built with Aioros.Cosmo: summary cards, tabs, a paged table of sections with badges, a breadcrumb header and an avatar, an interactive area chart, bound to a view model.">
+  <UserControl.Styles>
+    <Style Selector="TextBlock.value">
+      <Setter Property="FontSize" Value="24" />
+      <Setter Property="LineHeight" Value="32" />
+      <Setter Property="FontWeight" Value="SemiBold" />
+      <Setter Property="FontFeatures" Value="+tnum" />
+    </Style>
+  </UserControl.Styles>
+  <StackPanel Spacing="24" MaxWidth="1100" HorizontalAlignment="Stretch">
+    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12" RowSpacing="12" a:Web.StackBelow="600">
+      <c:Breadcrumb VerticalAlignment="Center">
+        <HyperlinkButton Content="Home" a:Web.Href="/" />
+        <HyperlinkButton Content="Examples" a:Web.Href="/examples/forms" />
+        <c:BreadcrumbPage Text="Dashboard" />
+      </c:Breadcrumb>
+      <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+        <Button Classes="outline sm has-icon" Command="{Binding AddSectionCommand}">
+          <StackPanel><a:Icon Kind="plus" /><TextBlock Text="Add Section" /></StackPanel>
+        </Button>
+        <c:Avatar Content="AC" AutomationProperties.Name="Ada Cole" />
+      </StackPanel>
+    </Grid>
+
+    <StackPanel Spacing="8">
+      <TextBlock Classes="h1" Text="Dashboard" />
+      <TextBlock Classes="lead" Text="An app dashboard built with Aioros.Cosmo: the summary cards, the visitors chart, the document's sections in a paged table and the tabs above it, every state in the view model." />
+    </StackPanel>
+
+    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="16" RowSpacing="16" a:Web.StackBelow="640">
+      <c:Card>
+        <c:CardHeader>
+          <c:CardHeader.Title>
+            <StackPanel Spacing="6"><TextBlock Classes="sm muted" Text="Total Revenue" /><TextBlock Classes="value" Text="$1,250.00" /></StackPanel>
+          </c:CardHeader.Title>
+          <c:CardHeader.Action>
+            <c:Badge Classes="outline"><StackPanel><a:Icon Kind="trending-up" Size="12" /><TextBlock Text="+12.5%" /></StackPanel></c:Badge>
+          </c:CardHeader.Action>
+        </c:CardHeader>
+        <c:CardFooter>
+          <StackPanel Spacing="6">
+            <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Classes="sm" FontWeight="Medium" Text="Trending up this month" /><a:Icon Kind="trending-up" Size="16" /></StackPanel>
+            <TextBlock Classes="sm muted" Text="Visitors for the last 6 months" />
+          </StackPanel>
+        </c:CardFooter>
+      </c:Card>
+      <c:Card Grid.Column="1">
+        <c:CardHeader>
+          <c:CardHeader.Title>
+            <StackPanel Spacing="6"><TextBlock Classes="sm muted" Text="New Customers" /><TextBlock Classes="value" Text="1,234" /></StackPanel>
+          </c:CardHeader.Title>
+          <c:CardHeader.Action>
+            <c:Badge Classes="outline"><StackPanel><a:Icon Kind="trending-down" Size="12" /><TextBlock Text="-20%" /></StackPanel></c:Badge>
+          </c:CardHeader.Action>
+        </c:CardHeader>
+        <c:CardFooter>
+          <StackPanel Spacing="6">
+            <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Classes="sm" FontWeight="Medium" Text="Down 20% this period" /><a:Icon Kind="trending-down" Size="16" /></StackPanel>
+            <TextBlock Classes="sm muted" Text="Acquisition needs attention" />
+          </StackPanel>
+        </c:CardFooter>
+      </c:Card>
+      <c:Card Grid.Row="1">
+        <c:CardHeader>
+          <c:CardHeader.Title>
+            <StackPanel Spacing="6"><TextBlock Classes="sm muted" Text="Active Accounts" /><TextBlock Classes="value" Text="45,678" /></StackPanel>
+          </c:CardHeader.Title>
+          <c:CardHeader.Action>
+            <c:Badge Classes="outline"><StackPanel><a:Icon Kind="trending-up" Size="12" /><TextBlock Text="+12.5%" /></StackPanel></c:Badge>
+          </c:CardHeader.Action>
+        </c:CardHeader>
+        <c:CardFooter>
+          <StackPanel Spacing="6">
+            <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Classes="sm" FontWeight="Medium" Text="Strong user retention" /><a:Icon Kind="trending-up" Size="16" /></StackPanel>
+            <TextBlock Classes="sm muted" Text="Engagement exceed targets" />
+          </StackPanel>
+        </c:CardFooter>
+      </c:Card>
+      <c:Card Grid.Row="1" Grid.Column="1">
+        <c:CardHeader>
+          <c:CardHeader.Title>
+            <StackPanel Spacing="6"><TextBlock Classes="sm muted" Text="Growth Rate" /><TextBlock Classes="value" Text="4.5%" /></StackPanel>
+          </c:CardHeader.Title>
+          <c:CardHeader.Action>
+            <c:Badge Classes="outline"><StackPanel><a:Icon Kind="trending-up" Size="12" /><TextBlock Text="+4.5%" /></StackPanel></c:Badge>
+          </c:CardHeader.Action>
+        </c:CardHeader>
+        <c:CardFooter>
+          <StackPanel Spacing="6">
+            <StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Classes="sm" FontWeight="Medium" Text="Steady performance increase" /><a:Icon Kind="trending-up" Size="16" /></StackPanel>
+            <TextBlock Classes="sm muted" Text="Meets growth projections" />
+          </StackPanel>
+        </c:CardFooter>
+      </c:Card>
+    </Grid>
+
+    <Border DataContext="{Binding Visitors}" x:DataType="m:ChartInteractive">
+      <c:Card Padding="0,0,0,24">
+        <c:CardHeader Padding="24,24,24,0" Title="Total Visitors" Description="Total for the last 3 months">
+          <c:CardHeader.Action>
+            <ComboBox Width="160" SelectedIndex="{Binding TimeRange}"><ComboBoxItem Content="Last 3 months" /><ComboBoxItem Content="Last 30 days" /><ComboBoxItem Content="Last 7 days" /></ComboBox>
+          </c:CardHeader.Action>
+        </c:CardHeader>
+        <c:CardContent Padding="24,16,24,0">
+          <p:AreaChart Data="{Binding Range}" Height="250" ResponsiveWidths="360 542 720 1052">
+            <p:CartesianGrid Vertical="False" />
+            <p:XAxis DataKey="Date" TickLine="False" AxisLine="False" TickMargin="8" MinTickGap="32" TickFormat="{}{0:MMM d}" />
+            <p:Tooltip Cursor="False" LabelFormat="{}{0:MMM d}"><p:Tooltip.ContentTemplate><c:ChartTooltipContent Indicator="Dot" /></p:Tooltip.ContentTemplate></p:Tooltip>
+            <p:Area DataKey="Mobile" Name="Mobile" Type="Natural" Stroke="{DynamicResource PictorPalette2}" StackId="a" IsAnimationActive="False">
+              <p:Area.Fill>
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                  <GradientStop Offset="0.05" Color="{DynamicResource CosmoChart2TopColor}" />
+                  <GradientStop Offset="0.95" Color="{DynamicResource CosmoChart2BottomColor}" />
+                </LinearGradientBrush>
+              </p:Area.Fill>
+            </p:Area>
+            <p:Area DataKey="Desktop" Name="Desktop" Type="Natural" Stroke="{DynamicResource PictorPalette1}" StackId="a" IsAnimationActive="False">
+              <p:Area.Fill>
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                  <GradientStop Offset="0.05" Color="{DynamicResource CosmoChart1TopColor}" />
+                  <GradientStop Offset="0.95" Color="{DynamicResource CosmoChart1BottomColor}" />
+                </LinearGradientBrush>
+              </p:Area.Fill>
+            </p:Area>
+          </p:AreaChart>
+        </c:CardContent>
+      </c:Card>
+    </Border>
+
+    <TabControl Name="Views" SelectedIndex="{Binding SelectedTab, Mode=TwoWay}">
+      <TabItem Header="Outline">
+        <StackPanel Spacing="16" Margin="0,8,0,0">
+          <TableView ItemsSource="{Binding Visible}" SelectedItem="{Binding SelectedSection, Mode=TwoWay}" BorderThickness="1"
+                     BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}">
+            <TableView.Columns>
+              <TableViewColumn Header="Header" Width="3*" x:DataType="m:Section">
+                <TableViewColumn.CellTemplate>
+                  <DataTemplate x:DataType="m:Section"><TextBlock Text="{Binding Header}" FontWeight="Medium" TextTrimming="CharacterEllipsis" /></DataTemplate>
+                </TableViewColumn.CellTemplate>
+              </TableViewColumn>
+              <TableViewColumn Header="Section Type" Width="2*" x:DataType="m:Section">
+                <TableViewColumn.CellTemplate>
+                  <DataTemplate x:DataType="m:Section">
+                    <StackPanel Orientation="Horizontal"><c:Badge Classes="outline"><TextBlock Text="{Binding Type}" Foreground="{DynamicResource CosmoMutedForegroundBrush}" /></c:Badge></StackPanel>
+                  </DataTemplate>
+                </TableViewColumn.CellTemplate>
+              </TableViewColumn>
+              <TableViewColumn Header="Status" Width="2*" x:DataType="m:Section">
+                <TableViewColumn.CellTemplate>
+                  <DataTemplate x:DataType="m:Section">
+                    <StackPanel Orientation="Horizontal">
+                    <c:Badge Classes="outline">
+                      <StackPanel>
+                        <a:Icon Kind="status-done" Size="12" IsVisible="{Binding IsDone}" />
+                        <a:Icon Kind="status-progress" Size="12" IsVisible="{Binding InProcess}" />
+                        <TextBlock Text="{Binding Status}" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+                      </StackPanel>
+                    </c:Badge>
+                    </StackPanel>
+                  </DataTemplate>
+                </TableViewColumn.CellTemplate>
+              </TableViewColumn>
+              <TableViewColumn Header="Target" Binding="{Binding Target}" Width="*" HorizontalContentAlignment="Right" x:DataType="m:Section" />
+              <TableViewColumn Header="Limit" Binding="{Binding Limit}" Width="*" HorizontalContentAlignment="Right" x:DataType="m:Section" />
+              <TableViewColumn Header="Reviewer" Binding="{Binding Reviewer}" Width="2*" x:DataType="m:Section" />
+            </TableView.Columns>
+          </TableView>
+          <DockPanel>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="8">
+              <TextBlock Classes="sm" FontWeight="Medium" Text="{Binding PageLabel}" VerticalAlignment="Center" Margin="0,0,8,0" />
+              <Button Classes="outline icon-sm" AutomationProperties.Name="Go to first page" Command="{Binding FirstCommand}" IsEnabled="{Binding CanGoBack}"><a:Icon Kind="chevrons-left" /></Button>
+              <Button Classes="outline icon-sm" AutomationProperties.Name="Go to previous page" Command="{Binding PreviousCommand}" IsEnabled="{Binding CanGoBack}"><a:Icon Kind="chevron-left" /></Button>
+              <Button Classes="outline icon-sm" AutomationProperties.Name="Go to next page" Command="{Binding NextCommand}" IsEnabled="{Binding CanGoForward}"><a:Icon Kind="chevron-right" /></Button>
+              <Button Classes="outline icon-sm" AutomationProperties.Name="Go to last page" Command="{Binding LastCommand}" IsEnabled="{Binding CanGoForward}"><a:Icon Kind="chevrons-right" /></Button>
+            </StackPanel>
+            <TextBlock Classes="sm muted" Text="{Binding SelectionLabel}" VerticalAlignment="Center" />
+          </DockPanel>
+        </StackPanel>
+      </TabItem>
+      <TabItem>
+        <TabItem.Header>
+          <StackPanel Orientation="Horizontal" Spacing="6"><TextBlock Text="Past Performance" /><c:Badge Classes="secondary" Content="3" /></StackPanel>
+        </TabItem.Header>
+        <c:Empty Classes="outline" Margin="0,8,0,0" Title="Nothing here yet" Description="Past performance documents appear here." />
+      </TabItem>
+      <TabItem>
+        <TabItem.Header>
+          <StackPanel Orientation="Horizontal" Spacing="6"><TextBlock Text="Key Personnel" /><c:Badge Classes="secondary" Content="2" /></StackPanel>
+        </TabItem.Header>
+        <c:Empty Classes="outline" Margin="0,8,0,0" Title="Nothing here yet" Description="Key personnel appear here." />
+      </TabItem>
+      <TabItem Header="Focus Documents">
+        <c:Empty Classes="outline" Margin="0,8,0,0" Title="Nothing here yet" Description="Focus documents appear here." />
+      </TabItem>
+    </TabControl>
+    <TextBlock Classes="sm muted" Text="{Binding TabLabel, StringFormat='Showing: {0}'}" />
+  </StackPanel>
+</UserControl>

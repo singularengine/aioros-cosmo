@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: tabs-vertical">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <TabControl TabStripPlacement="Left" SelectedIndex="0" Width="384" HorizontalAlignment="Left">
+      <TabItem Header="Account">
+        <TextBlock Text="Make changes to your account here." FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" TextWrapping="Wrap" />
+      </TabItem>
+      <TabItem Header="Password">
+        <TextBlock Text="Change your password here." FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" TextWrapping="Wrap" />
+      </TabItem>
+      <TabItem Header="Notifications">
+        <TextBlock Text="Choose what we email you about." FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" TextWrapping="Wrap" />
+      </TabItem>
+    </TabControl>
+  </Border>
+</UserControl>

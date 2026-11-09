@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Questionnaire Width="448" HorizontalAlignment="Center" Shortcuts="Letters" ShowProgress="True" SubmitContent="Save plan">
+      <c:QuestionnaireItem Name="direction" Title="What should the agent build next?" Description="Choose a direction or describe another task." IsRequired="True">
+        <c:QuestionnaireChoice Value="tool-calls" Description="Show what the agent ran and what came back."><c:QuestionnaireChoice.Content><TextBlock Text="Tool call timeline" FontWeight="Medium" /></c:QuestionnaireChoice.Content></c:QuestionnaireChoice>
+        <c:QuestionnaireChoice Value="approvals" Description="Ask before sensitive or destructive actions."><c:QuestionnaireChoice.Content><TextBlock Text="Approval checkpoints" FontWeight="Medium" /></c:QuestionnaireChoice.Content></c:QuestionnaireChoice>
+        <c:QuestionnaireChoice Value="handoffs" Description="Make delegated work and results easier to follow."><c:QuestionnaireChoice.Content><TextBlock Text="Sub-agent handoffs" FontWeight="Medium" /></c:QuestionnaireChoice.Content></c:QuestionnaireChoice>
+        <c:QuestionnaireInput PlaceholderText="Describe another feature…" AutomationProperties.Name="Another agent feature" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="signals" Title="What should every progress update include?" Description="Select all that apply, or skip this question.">
+        <c:QuestionnaireCheck Value="progress" Content="Progress" />
+        <c:QuestionnaireCheck Value="decisions" Content="Decisions" />
+        <c:QuestionnaireCheck Value="risks" Content="Risks" />
+        <c:QuestionnaireCheck Value="next-step" Content="Next step" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="timing" Title="When should work begin?" Description="Choose when the agent should begin the work." IsRequired="True">
+        <c:QuestionnaireChoice Value="now" Content="Start now" />
+        <c:QuestionnaireChoice Value="next-cycle" Content="Next development cycle" />
+        <c:QuestionnaireChoice Value="backlog" Content="Add it to the backlog" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+  </Border>
+</UserControl>

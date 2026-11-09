@@ -1,0 +1,143 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:NavigationExamples"
+             a:Page.Title="Tabs" a:Page.Description="A set of layered sections of content—known as tab panels—that are displayed one at a time.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Tabs" />
+      <TextBlock Classes="lead" Text="A set of layered sections of content—known as tab panels—that are displayed one at a time." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: tabs" />
+        <c:Badge Classes="secondary" Content="Avalonia: TabControl, TabItem" />
+        <c:Badge Classes="secondary" Content="Web: role=tablist buttons" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Avalonia&#x27;s TabControl: the strip is shadcn&#x27;s TabsList, each TabItem a trigger; Right, Left, Home and End move and select." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TabControl MaxWidth="384" SelectedIndex="0">
+            <TabItem Header="Account">
+              <c:Card>
+                <c:CardHeader Title="Account" Description="Make changes to your account here. Click save when you're done." />
+                <c:CardContent>
+                  <StackPanel Spacing="12">
+                    <Label Content="Name" />
+                    <TextBox Text="Pedro Duarte" AutomationProperties.Name="Name" />
+                  </StackPanel>
+                </c:CardContent>
+                <c:CardFooter>
+                  <Button Content="Save changes" />
+                </c:CardFooter>
+              </c:Card>
+            </TabItem>
+            <TabItem Header="Password">
+              <c:Card>
+                <c:CardHeader Title="Password" Description="Change your password here. After saving, you'll be logged out." />
+                <c:CardContent>
+                  <StackPanel Spacing="12">
+                    <Label Content="New password" />
+                    <TextBox PasswordChar="•" AutomationProperties.Name="New password" />
+                  </StackPanel>
+                </c:CardContent>
+              </c:Card>
+            </TabItem>
+          </TabControl>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TabControl MaxWidth=&quot;384&quot; SelectedIndex=&quot;0&quot;&gt;&#10;  &lt;TabItem Header=&quot;Account&quot;&gt;&#10;    &lt;c:Card&gt;&#10;      &lt;c:CardHeader Title=&quot;Account&quot; Description=&quot;Make changes to your account here. Click save when you&#x27;re done.&quot; /&gt;&#10;      &lt;c:CardContent&gt;&#10;        &lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;          &lt;Label Content=&quot;Name&quot; /&gt;&#10;          &lt;TextBox Text=&quot;Pedro Duarte&quot; AutomationProperties.Name=&quot;Name&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/c:CardContent&gt;&#10;      &lt;c:CardFooter&gt;&#10;        &lt;Button Content=&quot;Save changes&quot; /&gt;&#10;      &lt;/c:CardFooter&gt;&#10;    &lt;/c:Card&gt;&#10;  &lt;/TabItem&gt;&#10;  &lt;TabItem Header=&quot;Password&quot;&gt;&#10;    &lt;c:Card&gt;&#10;      &lt;c:CardHeader Title=&quot;Password&quot; Description=&quot;Change your password here. After saving, you&#x27;ll be logged out.&quot; /&gt;&#10;      &lt;c:CardContent&gt;&#10;        &lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;          &lt;Label Content=&quot;New password&quot; /&gt;&#10;          &lt;TextBox PasswordChar=&quot;•&quot; AutomationProperties.Name=&quot;New password&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/c:CardContent&gt;&#10;    &lt;/c:Card&gt;&#10;  &lt;/TabItem&gt;&#10;&lt;/TabControl&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <TabControl SelectedIndex="0">
+            <TabItem Header="Overview" />
+            <TabItem Header="Analytics" />
+            <TabItem Header="Reports" />
+            <TabItem Header="Notifications" IsEnabled="False" />
+          </TabControl>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TabControl SelectedIndex=&quot;0&quot;&gt;&#10;  &lt;TabItem Header=&quot;Overview&quot; /&gt;&#10;  &lt;TabItem Header=&quot;Analytics&quot; /&gt;&#10;  &lt;TabItem Header=&quot;Reports&quot; /&gt;&#10;  &lt;TabItem Header=&quot;Notifications&quot; IsEnabled=&quot;False&quot; /&gt;&#10;&lt;/TabControl&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Line" />
+      <TextBlock Classes="sm muted" Text="The line class is shadcn&#x27;s variant=&quot;line&quot;: no strip, the selected tab marked by a line below it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <TabControl Classes="line" SelectedIndex="0">
+            <TabItem Header="Overview" />
+            <TabItem Header="Analytics" />
+            <TabItem Header="Reports" />
+          </TabControl>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TabControl Classes=&quot;line&quot; SelectedIndex=&quot;0&quot;&gt;&#10;  &lt;TabItem Header=&quot;Overview&quot; /&gt;&#10;  &lt;TabItem Header=&quot;Analytics&quot; /&gt;&#10;  &lt;TabItem Header=&quot;Reports&quot; /&gt;&#10;&lt;/TabControl&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Vertical" />
+      <TextBlock Classes="sm muted" Text="TabStripPlacement=&quot;Left&quot; is shadcn&#x27;s orientation=&quot;vertical&quot;: the strip on the left, its tabs full width, the page beside it; Up and Down move. With the line class the selected tab&#x27;s line stands on its right." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TabControl TabStripPlacement="Left" SelectedIndex="0" MaxWidth="384">
+            <TabItem Header="Account">
+              <TextBlock Classes="sm muted" Text="Make changes to your account here." TextWrapping="Wrap" />
+            </TabItem>
+            <TabItem Header="Password">
+              <TextBlock Classes="sm muted" Text="Change your password here." TextWrapping="Wrap" />
+            </TabItem>
+            <TabItem Header="Notifications">
+              <TextBlock Classes="sm muted" Text="Choose what we email you about." TextWrapping="Wrap" />
+            </TabItem>
+          </TabControl>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TabControl TabStripPlacement=&quot;Left&quot; SelectedIndex=&quot;0&quot; MaxWidth=&quot;384&quot;&gt;&#10;  &lt;TabItem Header=&quot;Account&quot;&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Make changes to your account here.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;  &lt;/TabItem&gt;&#10;  &lt;TabItem Header=&quot;Password&quot;&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Change your password here.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;  &lt;/TabItem&gt;&#10;  &lt;TabItem Header=&quot;Notifications&quot;&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Choose what we email you about.&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;  &lt;/TabItem&gt;&#10;&lt;/TabControl&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Tabs from the model: headers through ItemTemplate, pages through ContentTemplate, the selection two way." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="384">
+            <TabControl ItemsSource="{Binding Tabs}" SelectedIndex="{Binding SelectedTab}">
+              <TabControl.ItemTemplate>
+                <DataTemplate x:DataType="m:TabPage">
+                  <TextBlock Text="{Binding Header}" />
+                </DataTemplate>
+              </TabControl.ItemTemplate>
+              <TabControl.ContentTemplate>
+                <DataTemplate x:DataType="m:TabPage">
+                  <c:Card>
+                    <c:CardContent>
+                      <StackPanel Spacing="8">
+                        <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Classes="sm muted" Text="{Binding Body}" />
+                      </StackPanel>
+                    </c:CardContent>
+                  </c:Card>
+                </DataTemplate>
+              </TabControl.ContentTemplate>
+            </TabControl>
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Content="Save password" Command="{Binding SaveCommand}" CommandParameter="Password" />
+              <TextBlock Classes="sm muted" Text="{Binding Status}" VerticalAlignment="Center" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;384&quot;&gt;&#10;  &lt;TabControl ItemsSource=&quot;{Binding Tabs}&quot; SelectedIndex=&quot;{Binding SelectedTab}&quot;&gt;&#10;    &lt;TabControl.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;m:TabPage&quot;&gt;&#10;        &lt;TextBlock Text=&quot;{Binding Header}&quot; /&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/TabControl.ItemTemplate&gt;&#10;    &lt;TabControl.ContentTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;m:TabPage&quot;&gt;&#10;        &lt;c:Card&gt;&#10;          &lt;c:CardContent&gt;&#10;            &lt;StackPanel Spacing=&quot;8&quot;&gt;&#10;              &lt;TextBlock Text=&quot;{Binding Title}&quot; FontSize=&quot;16&quot; FontWeight=&quot;SemiBold&quot; /&gt;&#10;              &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Body}&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/c:CardContent&gt;&#10;        &lt;/c:Card&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/TabControl.ContentTemplate&gt;&#10;  &lt;/TabControl&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Content=&quot;Save password&quot; Command=&quot;{Binding SaveCommand}&quot; CommandParameter=&quot;Password&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Status}&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="TabItem Header, Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The trigger&#x27;s label and the tab&#x27;s page." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="line" /><TextBlock Grid.Column="1" Classes="sm muted" Text="On the TabControl: shadcn&#x27;s line variant." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="TabStripPlacement=&quot;Left&quot;" /><TextBlock Grid.Column="1" Classes="sm muted" Text="shadcn&#x27;s vertical orientation." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="SelectedIndex, SelectedItem" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two way." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ItemsSource, ItemTemplate, ContentTemplate" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Tabs from the model." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

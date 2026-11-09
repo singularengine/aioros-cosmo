@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-line-numbers">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left">
+
+      <c:CodeBlockContent LineNumbers="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="{}{" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  &quot;name&quot;: &quot;chat&quot;," /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  &quot;private&quot;: true," /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  &quot;scripts&quot;: {" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="    &quot;dev&quot;: &quot;next dev&quot;," /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="    &quot;build&quot;: &quot;next build&quot;" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="  }" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="}" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

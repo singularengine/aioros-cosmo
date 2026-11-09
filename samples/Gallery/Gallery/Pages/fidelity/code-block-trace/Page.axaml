@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-trace">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Trace Width="448" HorizontalAlignment="Left">
+      <Expander Classes="trace" IsExpanded="True">
+      <Expander.Header><c:TraceLine Content="Ran node --version"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="$ node --version" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="v24.18.0" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+      <Expander Classes="trace" IsExpanded="True">
+      <Expander.Header><c:TraceLine Content="Failed to run pnpm dev" Status="Error"><c:TraceLine.Icon><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{Binding $parent[c:TraceLine].Foreground}" Data="M4,17 L10,11 L4,5 M12,19 L20,19" /></Viewbox></c:TraceLine.Icon></c:TraceLine></Expander.Header>
+      <c:CodeBlock Classes="sm destructive">
+
+      <c:CodeBlockContent Wrap="True">
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock Text="$ pnpm dev" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="Error: listen EADDRINUSE: address already in use :::3000" /></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock Text="    at Server.setupListenHandle [as _listen2] (node:net:1908:16)" /></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+    </Expander>
+    </c:Trace>
+  </Border>
+</UserControl>

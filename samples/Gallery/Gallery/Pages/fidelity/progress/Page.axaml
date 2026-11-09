@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: progress">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Width="360" Spacing="16" HorizontalAlignment="Left">
+      <ProgressBar Value="33" />
+      <ProgressBar Value="66" />
+      <ProgressBar Value="100" />
+    </StackPanel>
+  </Border>
+</UserControl>

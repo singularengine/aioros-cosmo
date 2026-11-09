@@ -1,0 +1,30 @@
+<Application xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" x:Class="Gallery.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+          <x:String x:Key="ThemeIcon">moon</x:String>
+          <SolidColorBrush x:Key="GalleryLightSegment" Color="#FFFFFF" />
+          <SolidColorBrush x:Key="GalleryDarkSegment" Color="Transparent" />
+          <BoxShadows x:Key="GalleryLightSegmentShadow">0 1 2 0 #1A000000</BoxShadows>
+          <BoxShadows x:Key="GalleryDarkSegmentShadow">none</BoxShadows>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+          <x:String x:Key="ThemeIcon">sun</x:String>
+          <SolidColorBrush x:Key="GalleryLightSegment" Color="Transparent" />
+          <SolidColorBrush x:Key="GalleryDarkSegment" Color="#0A0A0A" />
+          <BoxShadows x:Key="GalleryLightSegmentShadow">none</BoxShadows>
+          <BoxShadows x:Key="GalleryDarkSegmentShadow">0 1 2 0 #66000000</BoxShadows>
+        </ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+      <c:ShikiTokens x:Key="CosmoCodeHighlighter" Source="avares://Gallery/Assets/highlighted-markdown.json" />
+    </ResourceDictionary>
+  </Application.Resources>
+  <Application.Styles>
+    <FluentTheme />
+    <c:CosmoTheme />
+    <c:CosmoChartsTheme />
+    <StyleInclude Source="avares://Gallery/Styles/Docs.axaml" />
+  </Application.Styles>
+</Application>

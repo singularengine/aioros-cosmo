@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:QuestionnaireExamples" a:Page.Title="Fidelity: questionnaire-conditional">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:QuestionnaireExamples" Width="448" HorizontalAlignment="Center">
+      <c:Questionnaire ShowProgress="True" SubmitContent="Save execution plan">
+      <c:QuestionnaireItem Name="runtime" Title="Where should the agent run?" Description="Cloud runs add an environment question to this flow." IsRequired="True">
+        <c:QuestionnaireChoice Value="local" Content="Local workspace" IsChecked="{Binding Local}" />
+        <c:QuestionnaireChoice Value="cloud" Content="Cloud workspace" IsChecked="{Binding Cloud}" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="environment" Title="Which cloud environment should it use?" IsRequired="True" IsEnabled="{Binding Cloud}">
+        <c:QuestionnaireChoice Value="preview" Content="Preview" />
+        <c:QuestionnaireChoice Value="staging" Content="Staging" />
+        <c:QuestionnaireChoice Value="isolated" Content="Isolated sandbox" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="approval" Title="When should the agent request approval?" IsRequired="True">
+        <c:QuestionnaireChoice Value="writes" Content="Before writing files" />
+        <c:QuestionnaireChoice Value="commands" Content="Before running commands" />
+        <c:QuestionnaireChoice Value="sensitive" Content="Only for sensitive actions" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+    </Border>
+  </Border>
+</UserControl>

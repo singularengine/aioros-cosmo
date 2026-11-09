@@ -1,0 +1,239 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo" xmlns:a="https://aioros.dev">
+  <ResourceDictionary.ThemeDictionaries>
+    <ResourceDictionary x:Key="Light">
+      <SolidColorBrush x:Key="CosmoCodeTextBrush" Color="#24292E" />
+      <SolidColorBrush x:Key="CosmoCodeKeywordBrush" Color="#D73A49" />
+      <SolidColorBrush x:Key="CosmoCodeStringBrush" Color="#032F62" />
+      <SolidColorBrush x:Key="CosmoCodeFunctionBrush" Color="#6F42C1" />
+      <SolidColorBrush x:Key="CosmoCodeConstantBrush" Color="#005CC5" />
+      <SolidColorBrush x:Key="CosmoCodeVariableBrush" Color="#E36209" />
+      <SolidColorBrush x:Key="CosmoCodeCommentBrush" Color="#6A737D" />
+      <SolidColorBrush x:Key="CosmoCodeTagBrush" Color="#22863A" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBlackBrush" Color="#24292E" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBlueBrush" Color="#0366D6" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightBlackBrush" Color="#959DA5" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightBlueBrush" Color="#005CC5" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightCyanBrush" Color="#3192AA" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightGreenBrush" Color="#22863A" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightMagentaBrush" Color="#5A32A3" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightRedBrush" Color="#CB2431" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightWhiteBrush" Color="#D1D5DA" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightYellowBrush" Color="#B08800" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiCyanBrush" Color="#1B7C83" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiGreenBrush" Color="#28A745" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiMagentaBrush" Color="#5A32A3" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiRedBrush" Color="#D73A49" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiWhiteBrush" Color="#6A737D" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiYellowBrush" Color="#DBAB09" />
+      <SolidColorBrush x:Key="CosmoCodeTextDimBrush" Color="#8024292E" />
+    </ResourceDictionary>
+    <ResourceDictionary x:Key="Dark">
+      <SolidColorBrush x:Key="CosmoCodeTextBrush" Color="#E1E4E8" />
+      <SolidColorBrush x:Key="CosmoCodeKeywordBrush" Color="#F97583" />
+      <SolidColorBrush x:Key="CosmoCodeStringBrush" Color="#9ECBFF" />
+      <SolidColorBrush x:Key="CosmoCodeFunctionBrush" Color="#B392F0" />
+      <SolidColorBrush x:Key="CosmoCodeConstantBrush" Color="#79B8FF" />
+      <SolidColorBrush x:Key="CosmoCodeVariableBrush" Color="#FFAB70" />
+      <SolidColorBrush x:Key="CosmoCodeCommentBrush" Color="#6A737D" />
+      <SolidColorBrush x:Key="CosmoCodeTagBrush" Color="#85E89D" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBlackBrush" Color="#586069" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBlueBrush" Color="#2188FF" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightBlackBrush" Color="#959DA5" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightBlueBrush" Color="#79B8FF" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightCyanBrush" Color="#56D4DD" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightGreenBrush" Color="#85E89D" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightMagentaBrush" Color="#B392F0" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightRedBrush" Color="#F97583" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightWhiteBrush" Color="#FAFBFC" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiBrightYellowBrush" Color="#FFEA7F" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiCyanBrush" Color="#39C5CF" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiGreenBrush" Color="#34D058" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiMagentaBrush" Color="#B392F0" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiRedBrush" Color="#EA4A5A" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiWhiteBrush" Color="#D1D5DA" />
+      <SolidColorBrush x:Key="CosmoCodeAnsiYellowBrush" Color="#FFEA7F" />
+      <SolidColorBrush x:Key="CosmoCodeTextDimBrush" Color="#80E1E4E8" />
+    </ResourceDictionary>
+  </ResourceDictionary.ThemeDictionaries>
+
+  <StreamGeometry x:Key="CosmoLucideCopyGeometry">M10,8 L20,8 A2,2 0 0 1 22,10 L22,20 A2,2 0 0 1 20,22 L10,22 A2,2 0 0 1 8,20 L8,10 A2,2 0 0 1 10,8 Z M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2</StreamGeometry>
+  <StreamGeometry x:Key="CosmoLucideCheckGeometry">M20 6 9 17l-5-5</StreamGeometry>
+
+  <ControlTheme x:Key="CosmoCodeBlockButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="CornerRadius" Value="12" />
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoCodeBlockButtonHoverBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:CodeBlockCopyButton}" TargetType="c:CodeBlockCopyButton" BasedOn="{StaticResource CosmoCodeBlockButton}">
+    <Setter Property="AutomationProperties.Name" Value="Copy" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Box" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+          <Viewbox Width="12" Height="12">
+            <Panel>
+              <Path Name="PART_Copy" Theme="{StaticResource CosmoIcon}" Stroke="{TemplateBinding Foreground}" Data="{StaticResource CosmoLucideCopyGeometry}" />
+              <Path Name="PART_Check" Theme="{StaticResource CosmoIcon}" Stroke="{TemplateBinding Foreground}" Data="{StaticResource CosmoLucideCheckGeometry}" Opacity="0" />
+            </Panel>
+          </Viewbox>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:copied /template/ Path#PART_Copy">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+    <Style Selector="^:copied /template/ Path#PART_Check">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:CodeBlock}" TargetType="c:CodeBlock">
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoCodeBlockRingBrush}" />
+    <Setter Property="CornerRadius" Value="18" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Ring" Margin="-1" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding CornerRadius}" />
+          <Border Name="PART_Box" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" ClipToBounds="True">
+            <DockPanel>
+              <Grid Name="PART_Header" DockPanel.Dock="Top" ColumnDefinitions="*,Auto" Margin="16,16,16,0" IsVisible="False">
+                <ContentPresenter Name="PART_Title" Content="{TemplateBinding Title}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="{TemplateBinding FontSize}"
+                                  FontWeight="Medium" TextBlock.LineHeight="20" Foreground="{TemplateBinding Foreground}" />
+                <ContentPresenter Name="PART_Actions" Grid.Column="1" Margin="8,-4,-6,-4" VerticalAlignment="Center"
+                                  IsVisible="{TemplateBinding Actions, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              </Grid>
+              <ContentPresenter Name="PART_Footer" DockPanel.Dock="Bottom" Content="{TemplateBinding Footer}" Margin="16,0,16,16" FontSize="{TemplateBinding FontSize}"
+                                Foreground="{DynamicResource CosmoMutedForegroundBrush}" IsVisible="False" />
+              <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </DockPanel>
+          </Border>
+          <ContentPresenter Name="PART_Floating" ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="12" Opacity="0" IsVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:not(:floating) /template/ ContentPresenter#PART_Actions">
+      <Setter Property="Content" Value="{TemplateBinding Actions}" />
+    </Style>
+    <Style Selector="^:floating /template/ ContentPresenter#PART_Floating">
+      <Setter Property="Content" Value="{TemplateBinding Actions}" />
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0:0:0.15" Easing="0.4,0,0.2,1" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^:floating:pointerover /template/ ContentPresenter#PART_Floating">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:floating:focus-within /template/ ContentPresenter#PART_Floating">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^.sm:floating /template/ ContentPresenter#PART_Floating">
+      <Setter Property="Margin" Value="8" />
+    </Style>
+    <Style Selector="^:floating /template/ ContentPresenter#PART_Floating :is(Button)">
+      <Setter Property="Background" Value="{DynamicResource CosmoBackgroundBrush}" />
+    </Style>
+    <Style Selector="^:header /template/ Grid#PART_Header">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:footer /template/ ContentPresenter#PART_Footer">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.destructive">
+      <Setter Property="Background" Value="{DynamicResource CosmoCodeBlockDestructiveBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoDestructiveBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoCodeBlockDestructiveRingBrush}" />
+    </Style>
+    <Style Selector="^.sm">
+      <Setter Property="CornerRadius" Value="14" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.sm /template/ Grid#PART_Header">
+      <Setter Property="Margin" Value="12,12,12,0" />
+    </Style>
+    <Style Selector="^.sm /template/ ContentPresenter#PART_Title">
+      <Setter Property="TextBlock.LineHeight" Value="16" />
+    </Style>
+    <Style Selector="^.sm /template/ ContentPresenter#PART_Actions">
+      <Setter Property="Margin" Value="8,-4,-6,-4" />
+    </Style>
+    <Style Selector="^.sm /template/ ContentPresenter#PART_Footer">
+      <Setter Property="Margin" Value="12,0,12,12" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:CodeBlockContent}" TargetType="c:CodeBlockContent">
+    <Setter Property="Padding" Value="16" />
+    <Setter Property="FlowDirection" Value="LeftToRight" />
+    <Setter Property="FontFamily" Value="{DynamicResource CosmoFontCode}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ScrollViewer Name="PART_Viewport" Classes="scroll-area" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" a:Web.ScrollFade="x">
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}" FontFamily="{TemplateBinding FontFamily}" TextBlock.LineHeight="22.75" />
+        </ScrollViewer>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:wrap /template/ ScrollViewer#PART_Viewport">
+      <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+      <Setter Property="a:Web.ScrollFade" Value="y" />
+    </Style>
+    <Style Selector="^.scroll-fade-y /template/ ScrollViewer#PART_Viewport">
+      <Setter Property="a:Web.ScrollFade" Value="y" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:CodeBlockLine}" TargetType="c:CodeBlockLine">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Margin" Value="-16,0" />
+    <Setter Property="Padding" Value="16,0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+          <Panel>
+            <Grid ColumnDefinitions="Auto,*">
+              <TextBlock Name="PART_Number" Text="{Binding Number, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="{TemplateBinding NumberWidth}" Margin="0,0,12,0"
+                         TextAlignment="Right" Foreground="{DynamicResource CosmoMutedForegroundBrush}" IsVisible="False" />
+              <ContentPresenter Name="PART_ContentPresenter" Grid.Column="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </Grid>
+            <TextBlock Name="PART_Marker" Margin="-12,0,0,0" HorizontalAlignment="Left" Foreground="{DynamicResource CosmoMutedForegroundBrush}" IsVisible="False" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:numbered /template/ TextBlock#PART_Number">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.highlighted">
+      <Setter Property="Background" Value="{DynamicResource CosmoCodeBlockLineHighlightedBrush}" />
+    </Style>
+    <Style Selector="^.added">
+      <Setter Property="Background" Value="{DynamicResource CosmoCodeBlockLineHighlightedBrush}" />
+    </Style>
+    <Style Selector="^.added /template/ TextBlock#PART_Marker">
+      <Setter Property="Text" Value="+" />
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.removed">
+      <Setter Property="Background" Value="{DynamicResource CosmoCodeBlockLineRemovedBrush}" />
+    </Style>
+    <Style Selector="^.removed /template/ TextBlock#PART_Marker">
+      <Setter Property="Text" Value="−" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoDestructiveBrush}" />
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

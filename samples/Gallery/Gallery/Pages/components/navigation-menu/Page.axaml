@@ -1,0 +1,138 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:StructureExamples"
+             a:Page.Title="Navigation Menu" a:Page.Description="A collection of links for navigating websites.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Navigation Menu" />
+      <TextBlock Classes="lead" Text="A collection of links for navigating websites." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: navigation-menu" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:NavigationMenu, c:NavigationMenuTrigger" />
+        <c:Badge Classes="secondary" Content="Web: popovers" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="Hover a trigger to open its content after Radix&#x27;s 200 ms, or click it; Left and Right move between items." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Panel Height="260" VerticalAlignment="Top">
+            <c:NavigationMenu VerticalAlignment="Top">
+              <c:NavigationMenuTrigger Content="Components">
+                <c:NavigationMenuTrigger.Flyout>
+                  <Flyout>
+                    <UniformGrid Columns="2" Width="500" ColumnSpacing="8" RowSpacing="8">
+                    <Button Classes="navigation-menu-link" Width="246">
+                      <StackPanel>
+                        <TextBlock Classes="sm" Text="Alert Dialog" FontWeight="Medium" />
+                        <TextBlock Classes="sm muted" Text="A modal dialog that interrupts the user with important content and expects a response." TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" />
+                      </StackPanel>
+                    </Button>
+                    <Button Classes="navigation-menu-link" Width="246">
+                      <StackPanel>
+                        <TextBlock Classes="sm" Text="Hover Card" FontWeight="Medium" />
+                        <TextBlock Classes="sm muted" Text="For sighted users to preview content available behind a link." TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" />
+                      </StackPanel>
+                    </Button>
+                    <Button Classes="navigation-menu-link" Width="246">
+                      <StackPanel>
+                        <TextBlock Classes="sm" Text="Progress" FontWeight="Medium" />
+                        <TextBlock Classes="sm muted" Text="Displays an indicator showing the completion progress of a task." TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" />
+                      </StackPanel>
+                    </Button>
+                    <Button Classes="navigation-menu-link" Width="246">
+                      <StackPanel>
+                        <TextBlock Classes="sm" Text="Tabs" FontWeight="Medium" />
+                        <TextBlock Classes="sm muted" Text="A set of layered sections of content, displayed one at a time." TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" />
+                      </StackPanel>
+                    </Button>
+                    </UniformGrid>
+                  </Flyout>
+                </c:NavigationMenuTrigger.Flyout>
+              </c:NavigationMenuTrigger>
+              <HyperlinkButton Classes="navigation-menu-trigger" Content="Docs" a:Web.Href="/components/navigation-menu" />
+            </c:NavigationMenu>
+          </Panel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Panel Height=&quot;260&quot; VerticalAlignment=&quot;Top&quot;&gt;&#10;  &lt;c:NavigationMenu VerticalAlignment=&quot;Top&quot;&gt;&#10;    &lt;c:NavigationMenuTrigger Content=&quot;Components&quot;&gt;&#10;      &lt;c:NavigationMenuTrigger.Flyout&gt;&#10;        &lt;Flyout&gt;&#10;          &lt;UniformGrid Columns=&quot;2&quot; Width=&quot;500&quot; ColumnSpacing=&quot;8&quot; RowSpacing=&quot;8&quot;&gt;&#10;          &lt;Button Classes=&quot;navigation-menu-link&quot; Width=&quot;246&quot;&gt;&#10;            &lt;StackPanel&gt;&#10;              &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Alert Dialog&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;              &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;A modal dialog that interrupts the user with important content and expects a response.&quot; TextWrapping=&quot;Wrap&quot; MaxLines=&quot;2&quot; TextTrimming=&quot;CharacterEllipsis&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/Button&gt;&#10;          &lt;Button Classes=&quot;navigation-menu-link&quot; Width=&quot;246&quot;&gt;&#10;            &lt;StackPanel&gt;&#10;              &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Hover Card&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;              &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;For sighted users to preview content available behind a link.&quot; TextWrapping=&quot;Wrap&quot; MaxLines=&quot;2&quot; TextTrimming=&quot;CharacterEllipsis&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/Button&gt;&#10;          &lt;Button Classes=&quot;navigation-menu-link&quot; Width=&quot;246&quot;&gt;&#10;            &lt;StackPanel&gt;&#10;              &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Progress&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;              &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;Displays an indicator showing the completion progress of a task.&quot; TextWrapping=&quot;Wrap&quot; MaxLines=&quot;2&quot; TextTrimming=&quot;CharacterEllipsis&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/Button&gt;&#10;          &lt;Button Classes=&quot;navigation-menu-link&quot; Width=&quot;246&quot;&gt;&#10;            &lt;StackPanel&gt;&#10;              &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Tabs&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;              &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;A set of layered sections of content, displayed one at a time.&quot; TextWrapping=&quot;Wrap&quot; MaxLines=&quot;2&quot; TextTrimming=&quot;CharacterEllipsis&quot; /&gt;&#10;            &lt;/StackPanel&gt;&#10;          &lt;/Button&gt;&#10;          &lt;/UniformGrid&gt;&#10;        &lt;/Flyout&gt;&#10;      &lt;/c:NavigationMenuTrigger.Flyout&gt;&#10;    &lt;/c:NavigationMenuTrigger&gt;&#10;    &lt;HyperlinkButton Classes=&quot;navigation-menu-trigger&quot; Content=&quot;Docs&quot; a:Web.Href=&quot;/components/navigation-menu&quot; /&gt;&#10;  &lt;/c:NavigationMenu&gt;&#10;&lt;/Panel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Moving between items" />
+      <TextBlock Classes="sm muted" Text="With one item open, move onto the next: its content slides in from the side of the one it replaces while that one slides out, as Radix&#x27;s data-motion plays them." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Panel Height="200" VerticalAlignment="Top">
+            <c:NavigationMenu VerticalAlignment="Top">
+              <c:NavigationMenuTrigger Content="Overview">
+                <c:NavigationMenuTrigger.Flyout>
+                  <Flyout>
+                    <StackPanel Width="240" Spacing="4">
+                      <TextBlock Classes="sm" FontWeight="Medium" Text="Introduction" />
+                      <TextBlock Classes="sm muted" TextWrapping="Wrap" Text="Re-usable components built using Radix UI and Tailwind CSS." />
+                    </StackPanel>
+                  </Flyout>
+                </c:NavigationMenuTrigger.Flyout>
+              </c:NavigationMenuTrigger>
+              <c:NavigationMenuTrigger Content="Primitives">
+                <c:NavigationMenuTrigger.Flyout>
+                  <Flyout>
+                    <StackPanel Width="240" Spacing="4">
+                      <TextBlock Classes="sm" FontWeight="Medium" Text="Alert Dialog" />
+                      <TextBlock Classes="sm muted" TextWrapping="Wrap" Text="A modal dialog that interrupts the user with important content." />
+                    </StackPanel>
+                  </Flyout>
+                </c:NavigationMenuTrigger.Flyout>
+              </c:NavigationMenuTrigger>
+            </c:NavigationMenu>
+          </Panel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Panel Height=&quot;200&quot; VerticalAlignment=&quot;Top&quot;&gt;&#10;  &lt;c:NavigationMenu VerticalAlignment=&quot;Top&quot;&gt;&#10;    &lt;c:NavigationMenuTrigger Content=&quot;Overview&quot;&gt;&#10;      &lt;c:NavigationMenuTrigger.Flyout&gt;&#10;        &lt;Flyout&gt;&#10;          &lt;StackPanel Width=&quot;240&quot; Spacing=&quot;4&quot;&gt;&#10;            &lt;TextBlock Classes=&quot;sm&quot; FontWeight=&quot;Medium&quot; Text=&quot;Introduction&quot; /&gt;&#10;            &lt;TextBlock Classes=&quot;sm muted&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;Re-usable components built using Radix UI and Tailwind CSS.&quot; /&gt;&#10;          &lt;/StackPanel&gt;&#10;        &lt;/Flyout&gt;&#10;      &lt;/c:NavigationMenuTrigger.Flyout&gt;&#10;    &lt;/c:NavigationMenuTrigger&gt;&#10;    &lt;c:NavigationMenuTrigger Content=&quot;Primitives&quot;&gt;&#10;      &lt;c:NavigationMenuTrigger.Flyout&gt;&#10;        &lt;Flyout&gt;&#10;          &lt;StackPanel Width=&quot;240&quot; Spacing=&quot;4&quot;&gt;&#10;            &lt;TextBlock Classes=&quot;sm&quot; FontWeight=&quot;Medium&quot; Text=&quot;Alert Dialog&quot; /&gt;&#10;            &lt;TextBlock Classes=&quot;sm muted&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;A modal dialog that interrupts the user with important content.&quot; /&gt;&#10;          &lt;/StackPanel&gt;&#10;        &lt;/Flyout&gt;&#10;      &lt;/c:NavigationMenuTrigger.Flyout&gt;&#10;    &lt;/c:NavigationMenuTrigger&gt;&#10;  &lt;/c:NavigationMenu&gt;&#10;&lt;/Panel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Links from the model through an item template, each running the model&#x27;s command with its page; the content closes when a link is chosen." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <c:NavigationMenu>
+              <c:NavigationMenuTrigger Content="Getting started">
+                <c:NavigationMenuTrigger.Flyout>
+                  <Flyout>
+                    <StackPanel Width="400">
+                    <Button Classes="navigation-menu-link" Content="Components" Command="{Binding NavigateCommand}" CommandParameter="/docs/components" />
+                    <ItemsControl ItemsSource="{Binding Links}">
+                      <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="m:MenuLink">
+                          <Button Classes="navigation-menu-link" Command="{Binding $parent[ItemsControl].((m:StructureExamples)DataContext).NavigateCommand}" CommandParameter="{Binding Page}">
+                            <StackPanel>
+                              <TextBlock Classes="sm" Text="{Binding Title}" FontWeight="Medium" />
+                              <TextBlock Classes="sm muted" Text="{Binding Description}" TextWrapping="Wrap" />
+                            </StackPanel>
+                          </Button>
+                        </DataTemplate>
+                      </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    </StackPanel>
+                  </Flyout>
+                </c:NavigationMenuTrigger.Flyout>
+              </c:NavigationMenuTrigger>
+            </c:NavigationMenu>
+            <TextBlock Classes="sm muted" Text="{Binding CurrentPage, StringFormat='Current page: {0}'}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;c:NavigationMenu&gt;&#10;    &lt;c:NavigationMenuTrigger Content=&quot;Getting started&quot;&gt;&#10;      &lt;c:NavigationMenuTrigger.Flyout&gt;&#10;        &lt;Flyout&gt;&#10;          &lt;StackPanel Width=&quot;400&quot;&gt;&#10;          &lt;Button Classes=&quot;navigation-menu-link&quot; Content=&quot;Components&quot; Command=&quot;{Binding NavigateCommand}&quot; CommandParameter=&quot;/docs/components&quot; /&gt;&#10;          &lt;ItemsControl ItemsSource=&quot;{Binding Links}&quot;&gt;&#10;            &lt;ItemsControl.ItemTemplate&gt;&#10;              &lt;DataTemplate x:DataType=&quot;m:MenuLink&quot;&gt;&#10;                &lt;Button Classes=&quot;navigation-menu-link&quot; Command=&quot;{Binding $parent[ItemsControl].((m:StructureExamples)DataContext).NavigateCommand}&quot; CommandParameter=&quot;{Binding Page}&quot;&gt;&#10;                  &lt;StackPanel&gt;&#10;                    &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;{Binding Title}&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;                    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Description}&quot; TextWrapping=&quot;Wrap&quot; /&gt;&#10;                  &lt;/StackPanel&gt;&#10;                &lt;/Button&gt;&#10;              &lt;/DataTemplate&gt;&#10;            &lt;/ItemsControl.ItemTemplate&gt;&#10;          &lt;/ItemsControl&gt;&#10;          &lt;/StackPanel&gt;&#10;        &lt;/Flyout&gt;&#10;      &lt;/c:NavigationMenuTrigger.Flyout&gt;&#10;    &lt;/c:NavigationMenuTrigger&gt;&#10;  &lt;/c:NavigationMenu&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding CurrentPage, StringFormat=&#x27;Current page: {0}&#x27;}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:NavigationMenu" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The row of items: DelayDuration (200 ms), CloseDelay (150 ms), Time (TimeProvider)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:NavigationMenuTrigger" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A trigger whose Flyout is its content, opened under its start." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Button.navigation-menu-link" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A link of the content: title and description, accent on hover." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="HyperlinkButton.navigation-menu-trigger" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A plain link in the row, as shadcn&#x27;s navigationMenuTriggerStyle." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

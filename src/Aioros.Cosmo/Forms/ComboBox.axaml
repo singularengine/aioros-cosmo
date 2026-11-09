@@ -1,0 +1,238 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo">
+  <StreamGeometry x:Key="CosmoChevronDownGeometry">M4,6 L8,10 L12,6</StreamGeometry>
+  <StreamGeometry x:Key="CosmoChevronUpGeometry">M4,10 L8,6 L12,10</StreamGeometry>
+  <StreamGeometry x:Key="CosmoCheckGeometry">M13.333,4 L6,11.333 L2.667,8</StreamGeometry>
+
+  <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
+    <Setter Property="Background" Value="{DynamicResource CosmoInputBackgroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="Padding" Value="12,8,8,8" />
+    <Setter Property="MinHeight" Value="36" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="MaxDropDownHeight" Value="384" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DataValidationErrors>
+          <Grid ColumnDefinitions="*,Auto">
+            <Border Name="Background" Grid.ColumnSpan="2"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    BoxShadow="{DynamicResource CosmoShadowXs}" />
+            <TextBlock Name="PlaceholderTextBlock"
+                       Margin="{TemplateBinding Padding}"
+                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                       Text="{TemplateBinding PlaceholderText}"
+                       Foreground="{TemplateBinding PlaceholderForeground}"
+                       LineHeight="20"
+                       IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+            <ContentControl Name="ContentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            TextBlock.LineHeight="20" />
+            <Path Name="DropDownGlyph" Grid.Column="1" Width="16" Height="16" Margin="0,0,12,0"
+                  Data="{StaticResource CosmoChevronDownGeometry}" Stretch="None"
+                  Stroke="{DynamicResource CosmoMutedForegroundBrush}" StrokeThickness="1.333"
+                  StrokeLineCap="Round" StrokeJoin="Round" Opacity="0.5"
+                  VerticalAlignment="Center" IsHitTestVisible="False" />
+            <Popup Name="PART_Popup"
+                   WindowManagerAddShadowHint="False"
+                   IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                   PlacementTarget="Background"
+                   Placement="Bottom"
+                   VerticalOffset="4"
+                   c:Collision.Padding="10"
+                   IsLightDismissEnabled="True"
+                   InheritsTransform="True">
+              <Border Name="PopupBorder" Margin="8"
+                      Background="{DynamicResource CosmoPopoverBrush}"
+                      BorderBrush="{DynamicResource CosmoBorderBrush}"
+                      BorderThickness="1"
+                      CornerRadius="{DynamicResource CosmoRadiusMd}"
+                      BoxShadow="{DynamicResource CosmoShadowMd}"
+                      MinWidth="128"
+                      MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                      TextElement.Foreground="{DynamicResource CosmoPopoverForegroundBrush}"
+                      RenderTransformOrigin="50%,0%" c:Motion.EnterOpacity="0" c:Motion.EnterScale="0.95" c:Motion.ExitOpacity="0" c:Motion.ExitScale="0.95">
+                <Border.Transitions>
+                  <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.150" Easing="0.25,0.1,0.25,1" />
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.150" Easing="0.25,0.1,0.25,1" />
+                  </Transitions>
+                </Border.Transitions>
+
+                <DockPanel>
+                  <c:SelectScrollUpButton DockPanel.Dock="Top" Target="{Binding #PART_ScrollViewer}" />
+                  <c:SelectScrollDownButton DockPanel.Dock="Bottom" Target="{Binding #PART_ScrollViewer}" />
+                  <ScrollViewer Name="PART_ScrollViewer"
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                IsScrollChainingEnabled="False">
+                    <ItemsPresenter Name="PART_ItemsPresenter" Margin="4" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                  </ScrollViewer>
+                </DockPanel>
+              </Border>
+            </Popup>
+          </Grid>
+        </DataValidationErrors>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^.sm">
+      <Setter Property="MinHeight" Value="32" />
+      <Setter Property="Padding" Value="12,6,8,6" />
+    </Style>
+    <Style Selector="^.native">
+      <Setter Property="a:Web.NativeList" Value="True" />
+      <Setter Property="Padding" Value="12,8,6,8" />
+    </Style>
+    <Style Selector="^.native.sm">
+      <Setter Property="Padding" Value="12,4,6,4" />
+    </Style>
+    <Style Selector="^.calendar-dropdown">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="MinHeight" Value="34" />
+      <Setter Property="Height" Value="34" />
+      <Setter Property="Padding" Value="8,0,0,0" />
+      <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+    <Style Selector="^.calendar-dropdown /template/ Path#DropDownGlyph">
+      <Setter Property="Margin" Value="3,0,3,0" />
+      <Setter Property="Opacity" Value="1" />
+      <Setter Property="RenderTransform" Value="scale(0.875)" />
+    </Style>
+    <Style Selector="^.calendar-dropdown:pointerover /template/ Border#Background">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="^.native /template/ Path#DropDownGlyph">
+      <Setter Property="Margin" Value="0,0,14,0" />
+    </Style>
+    <Style Selector="^:pointerover /template/ Border#Background">
+      <Setter Property="Background" Value="{DynamicResource CosmoInputHoverBackgroundBrush}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#Background">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineFocusShadow}" />
+    </Style>
+    <Style Selector="^:error /template/ Border#Background">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoDestructiveBrush}" />
+    </Style>
+    <Style Selector="^:error:focus-visible /template/ Border#Background">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoInvalidFocusShadow}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type c:SelectScrollUpButton}" TargetType="c:SelectScrollUpButton">
+    <Setter Property="a:Web.ScrollButton" Value="Up" />
+    <Setter Property="Padding" Value="0,4" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+          <Path Width="16" Height="16" Data="{StaticResource CosmoChevronUpGeometry}" Stretch="None" HorizontalAlignment="Center"
+                Stroke="{TemplateBinding Foreground}" StrokeThickness="1.333" StrokeLineCap="Round" StrokeJoin="Round" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type c:SelectScrollDownButton}" TargetType="c:SelectScrollDownButton">
+    <Setter Property="a:Web.ScrollButton" Value="Down" />
+    <Setter Property="Padding" Value="0,4" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+          <Path Width="16" Height="16" Data="{StaticResource CosmoChevronDownGeometry}" Stretch="None" HorizontalAlignment="Center"
+                Stroke="{TemplateBinding Foreground}" StrokeThickness="1.333" StrokeLineCap="Round" StrokeJoin="Round" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="8,6,32,6" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusSm}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}"
+                            TextBlock.LineHeight="20"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          <Path Name="Indicator" Width="16" Height="16" Margin="0,0,7,0" HorizontalAlignment="Right" VerticalAlignment="Center"
+                Data="{StaticResource CosmoCheckGeometry}" Stretch="None" StrokeThickness="1.333" StrokeLineCap="Round" StrokeJoin="Round"
+                Stroke="{Binding $parent[ComboBoxItem].Foreground}" IsVisible="False" IsHitTestVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:selected /template/ Path#Indicator">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^:focus">
+      <Setter Property="Background" Value="{DynamicResource CosmoAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^.label">
+      <Setter Property="Padding" Value="8,6" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+      <Setter Property="Opacity" Value="1" />
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+    <Style Selector="^.label /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="TextBlock.LineHeight" Value="16" />
+    </Style>
+    <Style Selector="^.separator">
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Margin" Value="-4,4" />
+      <Setter Property="Height" Value="1" />
+      <Setter Property="MinHeight" Value="1" />
+      <Setter Property="Background" Value="{DynamicResource CosmoBorderBrush}" />
+      <Setter Property="CornerRadius" Value="0" />
+      <Setter Property="Opacity" Value="1" />
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

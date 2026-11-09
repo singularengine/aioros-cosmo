@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Aspect Ratio" a:Page.Description="Displays content within a desired ratio.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Aspect Ratio" />
+      <TextBlock Classes="lead" Text="Displays content within a desired ratio." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: aspect-ratio" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:AspectRatio" />
+        <c:Badge Classes="secondary" Content="Web: sized box" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="The child is as wide as the room given and Ratio (16:9 here) times less high." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <c:AspectRatio Ratio="1.7777778" MaxWidth="450">
+            <Border CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedBrush}" ClipToBounds="True">
+              <Image Source="/Assets/photo-landscape.png" Stretch="UniformToFill" AutomationProperties.Name="A landscape at dusk" />
+            </Border>
+          </c:AspectRatio>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:AspectRatio Ratio=&quot;1.7777778&quot; MaxWidth=&quot;450&quot;&gt;&#10;  &lt;Border CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; Background=&quot;{DynamicResource CosmoMutedBrush}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;    &lt;Image Source=&quot;/Assets/photo-landscape.png&quot; Stretch=&quot;UniformToFill&quot; AutomationProperties.Name=&quot;A landscape at dusk&quot; /&gt;&#10;  &lt;/Border&gt;&#10;&lt;/c:AspectRatio&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Square" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <c:AspectRatio Ratio="1" Width="200">
+            <Border CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoMutedBrush}" />
+          </c:AspectRatio>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;c:AspectRatio Ratio=&quot;1&quot; Width=&quot;200&quot;&gt;&#10;  &lt;Border CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; Background=&quot;{DynamicResource CosmoMutedBrush}&quot; /&gt;&#10;&lt;/c:AspectRatio&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Ratio" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Width divided by height (1 by default); bindable." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

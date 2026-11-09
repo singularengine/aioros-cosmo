@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-animated">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Questionnaire Width="448" HorizontalAlignment="Center" ShowProgress="True" SubmitContent="Save workflow" Classes="animated">
+      <c:QuestionnaireItem Name="task" Title="What should the agent do?" Description="Choose the task for this run." IsRequired="True">
+        <c:QuestionnaireChoice Value="implement" Content="Implement the requested change" />
+        <c:QuestionnaireChoice Value="debug" Content="Debug the current behavior" />
+        <c:QuestionnaireChoice Value="review" Content="Review the implementation" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="review" Title="How should the work be reviewed?" Description="Select the verification depth." IsRequired="True">
+        <c:QuestionnaireChoice Value="targeted" Content="Targeted checks" />
+        <c:QuestionnaireChoice Value="complete" Content="Complete test suite" />
+        <c:QuestionnaireChoice Value="manual" Content="Tests and manual QA" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="delivery" Title="How should the result be delivered?" Description="Choose the final handoff format." IsRequired="True">
+        <c:QuestionnaireChoice Value="summary" Content="Concise summary" />
+        <c:QuestionnaireChoice Value="diff" Content="Summary and changed files" />
+        <c:QuestionnaireChoice Value="handoff" Content="Detailed review handoff" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+  </Border>
+</UserControl>

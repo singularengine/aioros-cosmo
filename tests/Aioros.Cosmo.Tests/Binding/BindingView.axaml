@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Binding"
+             x:Class="Aioros.Cosmo.Tests.Binding.BindingView" x:DataType="t:BindingModel">
+  <UserControl.Resources>
+    <t:OverFive x:Key="OverFive" />
+  </UserControl.Resources>
+  <StackPanel Spacing="8" Margin="16">
+    <c:Card Width="360">
+      <c:CardHeader Name="Header" Title="{Binding Count, StringFormat='{}{0} seats'}" />
+    </c:Card>
+    <Button Name="AddFive" Command="{Binding Add}" CommandParameter="5" Content="+5" />
+    <c:Badge Name="Limit" Classes.destructive="{Binding Count, Converter={StaticResource OverFive}}"
+             IsVisible="{Binding Note, Converter={x:Static ObjectConverters.IsNotNull}}" Content="Limit" />
+    <c:Badge Name="Plan" Content="{Binding Plan}">
+      <c:Badge.ContentTemplate>
+        <DataTemplate x:DataType="t:PlanModel">
+          <StackPanel>
+            <TextBlock Text="{Binding Name}" />
+            <TextBlock Text="{Binding Price}" />
+          </StackPanel>
+        </DataTemplate>
+      </c:Badge.ContentTemplate>
+    </c:Badge>
+  </StackPanel>
+</UserControl>

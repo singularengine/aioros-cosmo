@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Forms"
+             x:Class="Aioros.Cosmo.Tests.Forms.InputGroupView" x:DataType="t:FormsModel">
+  <Border Name="Fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Spacing="24">
+      <StackPanel Width="384" Spacing="24" HorizontalAlignment="Left">
+        <c:InputGroup Name="Search">
+          <TextBox Name="SearchBox" PlaceholderText="Search..." Text="{Binding Name}" />
+          <c:InputGroupAddon><Border Width="16" Height="16" /></c:InputGroupAddon>
+          <c:InputGroupAddon Classes="inline-end" Content="12 results" />
+        </c:InputGroup>
+        <c:InputGroup>
+          <TextBox PlaceholderText="example.com" />
+          <c:InputGroupAddon><TextBlock Text="https://" FontWeight="Normal" /></c:InputGroupAddon>
+        </c:InputGroup>
+        <c:InputGroup>
+          <TextBox AcceptsReturn="True" PlaceholderText="Ask, Search or Chat..." />
+          <c:InputGroupAddon Classes="block-end">
+            <DockPanel>
+              <Button DockPanel.Dock="Right" Classes="icon-xs" CornerRadius="9999" />
+              <TextBlock Text="52% used" FontWeight="Normal" VerticalAlignment="Center" />
+            </DockPanel>
+          </c:InputGroupAddon>
+        </c:InputGroup>
+      </StackPanel>
+      <c:InputOtp Name="Code" Length="6" GroupSize="3" Text="{Binding Code}" />
+      <c:InputOtp Name="Locked" Length="4" IsEnabled="False" />
+      <Slider Name="Volume" Width="360" HorizontalAlignment="Left" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding Volume}" />
+    </StackPanel>
+  </Border>
+</UserControl>

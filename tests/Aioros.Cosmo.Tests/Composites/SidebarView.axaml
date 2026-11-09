@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Composites"
+             x:Class="Aioros.Cosmo.Tests.Composites.SidebarView" x:DataType="t:SidebarModel">
+  <c:SidebarProvider Width="800" Height="500" HorizontalAlignment="Left" VerticalAlignment="Top" MobileBreakpoint="0"
+                     IsOpen="{Binding Open}" StateStore="{Binding Store}">
+    <c:Sidebar Collapsible="Icon">
+      <c:SidebarContent>
+        <c:SidebarGroup>
+          <c:SidebarGroupLabel Content="Platform" />
+          <c:SidebarMenu Name="Pages" ItemsSource="{Binding Pages}">
+            <c:SidebarMenu.ItemTemplate>
+              <DataTemplate x:DataType="t:SidebarPage">
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton Content="{Binding Title}" Tooltip="{Binding Title}" CommandParameter="{Binding Path}"
+                                       Command="{Binding $parent[c:SidebarMenu].((t:SidebarModel)DataContext).Navigate}">
+                    <c:SidebarMenuButton.IsActive>
+                      <MultiBinding Converter="{x:Static t:SidebarModel.IsCurrent}">
+                        <Binding Path="Path" />
+                        <Binding Path="$parent[c:SidebarMenu].((t:SidebarModel)DataContext).Current" />
+                      </MultiBinding>
+                    </c:SidebarMenuButton.IsActive>
+                  </c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+              </DataTemplate>
+            </c:SidebarMenu.ItemTemplate>
+          </c:SidebarMenu>
+        </c:SidebarGroup>
+      </c:SidebarContent>
+      <c:SidebarRail />
+    </c:Sidebar>
+    <c:SidebarInset>
+      <c:SidebarTrigger HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16" />
+    </c:SidebarInset>
+  </c:SidebarProvider>
+</UserControl>

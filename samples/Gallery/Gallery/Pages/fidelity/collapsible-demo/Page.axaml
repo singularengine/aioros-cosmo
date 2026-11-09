@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: collapsible-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Expander Classes="collapsible" Width="350" Padding="0,0,16,0">
+      <Expander.Header>
+        <StackPanel Spacing="8">
+          <Grid Height="32">
+            <TextBlock Text="@peduarte starred 3 repositories" FontSize="14" LineHeight="20" FontWeight="SemiBold" VerticalAlignment="Center" Margin="16,0,0,0" />
+          </Grid>
+          <Border CornerRadius="{DynamicResource CosmoRadiusMd}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" Padding="16,8"><TextBlock Text="@radix-ui/primitives" FontFamily="{DynamicResource CosmoFontMono}" FontSize="14" LineHeight="20" /></Border>
+        </StackPanel>
+      </Expander.Header>
+      <StackPanel Spacing="8">
+        <Border CornerRadius="{DynamicResource CosmoRadiusMd}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" Padding="16,8"><TextBlock Text="@radix-ui/colors" FontFamily="{DynamicResource CosmoFontMono}" FontSize="14" LineHeight="20" /></Border>
+        <Border CornerRadius="{DynamicResource CosmoRadiusMd}" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" Padding="16,8"><TextBlock Text="@stitches/react" FontFamily="{DynamicResource CosmoFontMono}" FontSize="14" LineHeight="20" /></Border>
+      </StackPanel>
+    </Expander>
+  </Border>
+</UserControl>

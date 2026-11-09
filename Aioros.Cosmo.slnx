@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Aioros.Cosmo/Aioros.Cosmo.csproj" />
+    <Project Path="src/Aioros.Cosmo.Charts/Aioros.Cosmo.Charts.csproj" />
+    <Project Path="src/Aioros.Cosmo.Markdown/Aioros.Cosmo.Markdown.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Aioros.Cosmo.Tests/Aioros.Cosmo.Tests.csproj" />
+    <Project Path="tests/Aioros.Cosmo.ArchitectureTests/Aioros.Cosmo.ArchitectureTests.csproj" />
+    <Project Path="tests/Aioros.Cosmo.Gallery.Tests/Aioros.Cosmo.Gallery.Tests.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Gallery/Gallery/Gallery.csproj" />
+  </Folder>
+</Solution>

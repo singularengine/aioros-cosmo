@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: questionnaire-card">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:Questionnaire Width="448" HorizontalAlignment="Center" Shortcuts="Numbers" ShowProgress="True" SubmitContent="Create task" Classes="card card-title">
+      <c:QuestionnaireItem Name="task" Title="What should the agent work on?" Description="Choose the task that should be handled next." IsRequired="True">
+        <c:QuestionnaireChoice Value="fix" Content="Fix the failing tests" />
+        <c:QuestionnaireChoice Value="refactor" Content="Refactor the data layer" />
+        <c:QuestionnaireChoice Value="docs" Content="Update the integration guide" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="output" Title="What should the final handoff include?" Description="Pick the level of detail needed for review." IsRequired="True">
+        <c:QuestionnaireChoice Value="summary" Content="Summary only" />
+        <c:QuestionnaireChoice Value="files" Content="Summary and changed files" />
+        <c:QuestionnaireChoice Value="review" Content="Full review handoff" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+  </Border>
+</UserControl>

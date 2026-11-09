@@ -1,0 +1,178 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="MinHeight" Value="36" />
+    <Setter Property="MinWidth" Value="36" />
+    <Setter Property="Height" Value="36" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Padding="{TemplateBinding Padding}"
+                          Foreground="{TemplateBinding Foreground}"
+                          TextBlock.LineHeight="20"
+                          RecognizesAccessKey="True"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Property="Background" Duration="0:0:0.15" Easing="0.4,0,0.2,1" />
+          <BrushTransition Property="BorderBrush" Duration="0:0:0.15" Easing="0.4,0,0.2,1" />
+          <BrushTransition Property="Foreground" Duration="0:0:0.15" Easing="0.4,0,0.2,1" />
+          <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.15" Easing="0.4,0,0.2,1" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundPointerOver}" />
+      <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundPointerOver}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundPressed}" />
+      <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
+    </Style>
+    <Style Selector="^:checked">
+      <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}" />
+      <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+    </Style>
+    <Style Selector="^:checked:pointerover">
+      <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundCheckedPointerOver}" />
+      <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundCheckedPointerOver}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoFocusRingShadow}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+
+    <Style Selector="^.outline">
+      <Setter Property="BorderThickness" Value="1" />
+    </Style>
+    <Style Selector="^.outline /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoShadowXs}" />
+    </Style>
+    <Style Selector="^.outline:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoAccentBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource CosmoAccentForegroundBrush}" />
+    </Style>
+    <Style Selector="^.outline:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoOutlineFocusShadow}" />
+    </Style>
+    <Style Selector="^.sm">
+      <Setter Property="Height" Value="32" />
+      <Setter Property="MinHeight" Value="32" />
+      <Setter Property="MinWidth" Value="32" />
+      <Setter Property="Padding" Value="6,0" />
+    </Style>
+    <Style Selector="^.lg">
+      <Setter Property="Height" Value="40" />
+      <Setter Property="MinHeight" Value="40" />
+      <Setter Property="MinWidth" Value="40" />
+      <Setter Property="Padding" Value="10,0" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoToggleGroupItem" TargetType="ListBoxItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="0" />
+    <Setter Property="Padding" Value="12,0" />
+    <Setter Property="MinHeight" Value="36" />
+    <Setter Property="Height" Value="36" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Padding="{TemplateBinding Padding}"
+                          Foreground="{TemplateBinding Foreground}"
+                          TextBlock.LineHeight="20"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundPointerOver}" />
+      <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundPointerOver}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundPressed}" />
+      <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundPressed}" />
+    </Style>
+    <Style Selector="^:selected">
+      <Setter Property="Background" Value="{DynamicResource ToggleButtonBackgroundChecked}" />
+      <Setter Property="Foreground" Value="{DynamicResource ToggleButtonForegroundChecked}" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoFocusRingShadow}" />
+    </Style>
+    <Style Selector="^:focus-visible">
+      <Setter Property="ZIndex" Value="10" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+
+  <ItemsPanelTemplate x:Key="CosmoToggleGroupPanel">
+    <StackPanel Orientation="Horizontal" />
+  </ItemsPanelTemplate>
+  <ItemsPanelTemplate x:Key="CosmoToggleGroupSpacedPanel">
+    <StackPanel Orientation="Horizontal" Spacing="8" />
+  </ItemsPanelTemplate>
+
+  <ControlTheme x:Key="CosmoToggleGroup" TargetType="ListBox">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="ItemsPanel" Value="{StaticResource CosmoToggleGroupPanel}" />
+    <Setter Property="ItemContainerTheme" Value="{StaticResource CosmoToggleGroupItem}" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="border" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"
+                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="{TemplateBinding Padding}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.spacing">
+      <Setter Property="ItemsPanel" Value="{StaticResource CosmoToggleGroupSpacedPanel}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

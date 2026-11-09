@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:CodeBlockMarkdownExample" a:Web.Live="True" a:Page.Title="Fidelity: code-block-markdown">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Width="448" HorizontalAlignment="Left" Spacing="16" Margin="0,24">
+      <c:Message IsVisible="{Binding Chat.Asked}" Classes="end"><c:MessageContent><c:Bubble Classes="muted" Content="How do I debounce a search input in React?" /></c:MessageContent></c:Message>
+      <c:Message IsVisible="{Binding Chat.Answering}"><c:MessageContent><c:Markdown Text="{Binding Chat.Answer}" LineNumbers="False" /></c:MessageContent></c:Message>
+      <Button Classes="outline sm" Height="28" Padding="12,0" CornerRadius="16" HorizontalAlignment="Left" Content="Replay" IsVisible="{Binding Chat.Idle}" Command="{Binding ReplayCommand}" />
+    </StackPanel>
+  </Border>
+</UserControl>

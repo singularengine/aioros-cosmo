@@ -1,0 +1,129 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Typography" a:Page.Description="Styles for headings, paragraphs, lists...etc">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Typography" />
+      <TextBlock Classes="lead" Text="Styles for headings, paragraphs, lists...etc" />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: typography" />
+        <c:Badge Classes="secondary" Content="Avalonia: TextBlock classes" />
+        <c:Badge Classes="secondary" Content="Web: &lt;h1&gt;, &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="h1" />
+      <TextBlock Classes="sm muted" Text="Every typography class goes with typography, as in Classes=typography h1." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <TextBlock Classes="typography h1" Text="Taxing Laughter: The Joke Tax Chronicles" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TextBlock Classes=&quot;typography h1&quot; Text=&quot;Taxing Laughter: The Joke Tax Chronicles&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="h2" />
+      <TextBlock Classes="sm muted" Text="shadcn&#x27;s h2 example draws its rule with border-b pb-2; here a Border does." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <Border Padding="0,0,0,8" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource CosmoBorderBrush}">
+            <TextBlock Classes="typography h2" Text="The People of the Kingdom" />
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border Padding=&quot;0,0,0,8&quot; BorderThickness=&quot;0,0,0,1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot;&gt;&#10;  &lt;TextBlock Classes=&quot;typography h2&quot; Text=&quot;The People of the Kingdom&quot; /&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="h3 and h4" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="16">
+            <TextBlock Classes="typography h3" Text="The Joke Tax" />
+            <TextBlock Classes="typography h4" Text="People stopped telling jokes" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;16&quot;&gt;&#10;  &lt;TextBlock Classes=&quot;typography h3&quot; Text=&quot;The Joke Tax&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;typography h4&quot; Text=&quot;People stopped telling jokes&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="p and blockquote" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="24" MaxWidth="520">
+            <TextBlock Classes="typography p" Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax." />
+            <Border Classes="typography blockquote">
+              <TextBlock Text="&quot;After all,&quot; he said, &quot;everyone enjoys a good joke, so it's only fair that they should pay for the privilege.&quot;" />
+            </Border>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;24&quot; MaxWidth=&quot;520&quot;&gt;&#10;  &lt;TextBlock Classes=&quot;typography p&quot; Text=&quot;The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax.&quot; /&gt;&#10;  &lt;Border Classes=&quot;typography blockquote&quot;&gt;&#10;    &lt;TextBlock Text=&quot;&amp;quot;After all,&amp;quot; he said, &amp;quot;everyone enjoys a good joke, so it&#x27;s only fair that they should pay for the privilege.&amp;quot;&quot; /&gt;&#10;  &lt;/Border&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="List and inline code" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="16" MaxWidth="520">
+            <c:List>
+              <x:String>1st level of puns: 5 gold coins</x:String>
+              <x:String>2nd level of jokes: 10 gold coins</x:String>
+              <x:String>3rd level of one-liners : 20 gold coins</x:String>
+            </c:List>
+            <Border Classes="typography inline-code">
+              <TextBlock Text="@radix-ui/react-alert-dialog" />
+            </Border>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;16&quot; MaxWidth=&quot;520&quot;&gt;&#10;  &lt;c:List&gt;&#10;    &lt;x:String&gt;1st level of puns: 5 gold coins&lt;/x:String&gt;&#10;    &lt;x:String&gt;2nd level of jokes: 10 gold coins&lt;/x:String&gt;&#10;    &lt;x:String&gt;3rd level of one-liners : 20 gold coins&lt;/x:String&gt;&#10;  &lt;/c:List&gt;&#10;  &lt;Border Classes=&quot;typography inline-code&quot;&gt;&#10;    &lt;TextBlock Text=&quot;@radix-ui/react-alert-dialog&quot; /&gt;&#10;  &lt;/Border&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Lead, large, small, muted" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="16" MaxWidth="520">
+            <TextBlock Classes="typography lead" Text="A modal dialog that interrupts the user with important content and expects a response." />
+            <TextBlock Classes="typography large" Text="Are you absolutely sure?" />
+            <TextBlock Classes="typography small" Text="Email address" />
+            <TextBlock Classes="typography muted" Text="Enter your email address." />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;16&quot; MaxWidth=&quot;520&quot;&gt;&#10;  &lt;TextBlock Classes=&quot;typography lead&quot; Text=&quot;A modal dialog that interrupts the user with important content and expects a response.&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;typography large&quot; Text=&quot;Are you absolutely sure?&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;typography small&quot; Text=&quot;Email address&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;typography muted&quot; Text=&quot;Enter your email address.&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Headings bind with StringFormat; a c:List takes ItemsSource and ItemTemplate." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="520">
+            <TextBlock Classes="typography h4" Text="{Binding Levels.Count, StringFormat='{}{0} levels of jokes'}" />
+            <c:List ItemsSource="{Binding Levels}" />
+            <Button Classes="outline sm" Content="Add a level" Command="{Binding AddLevelCommand}" HorizontalAlignment="Left" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;520&quot;&gt;&#10;  &lt;TextBlock Classes=&quot;typography h4&quot; Text=&quot;{Binding Levels.Count, StringFormat=&#x27;{}{0} levels of jokes&#x27;}&quot; /&gt;&#10;  &lt;c:List ItemsSource=&quot;{Binding Levels}&quot; /&gt;&#10;  &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Add a level&quot; Command=&quot;{Binding AddLevelCommand}&quot; HorizontalAlignment=&quot;Left&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Balanced lines" />
+      <TextBlock Classes="sm muted" Text="a:Web.TextWrap=balance evens the lines&#x27; widths, as shadcn&#x27;s text-balance: CSS&#x27;s text-wrap on the web, Cosmo&#x27;s balancing on the desktop." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TextBlock Classes="typography p" MaxWidth="360" TextWrapping="Wrap" a:Web.TextWrap="balance"
+                     Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax." />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TextBlock Classes=&quot;typography p&quot; MaxWidth=&quot;360&quot; TextWrapping=&quot;Wrap&quot; a:Web.TextWrap=&quot;balance&quot;&#10;           Text=&quot;The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax.&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="TextBlock classes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="typography with h1, h2, h3, h4, p, lead, large, small or muted." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Border classes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="typography with blockquote or inline-code, around a TextBlock." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:List" /><TextBlock Grid.Column="1" Classes="sm muted" Text="A bulleted ItemsControl; inside keeps the bullets inside (list-inside)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="a:Web.TextWrap" /><TextBlock Grid.Column="1" Classes="sm muted" Text="balance evens a text&#x27;s lines (shadcn&#x27;s text-balance), inherited by the texts inside." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

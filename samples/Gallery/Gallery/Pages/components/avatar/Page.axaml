@@ -1,0 +1,124 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:DisplayExamples"
+             a:Page.Title="Avatar" a:Page.Description="An image element with a fallback for representing the user.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Avatar" />
+      <TextBlock Classes="lead" Text="An image element with a fallback for representing the user." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: avatar" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:Avatar, c:AvatarBadge, c:AvatarGroup, c:AvatarGroupCount" />
+        <c:Badge Classes="secondary" Content="Web: &lt;img&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="The image fills a 32 px circle; a group overlaps its avatars by 8 px, each ringed with --background." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="48">
+            <c:Avatar Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn" />
+            <c:Avatar Source="/Assets/avatar-evilrabbit.png" Content="ER" CornerRadius="{DynamicResource CosmoRadiusLg}" AutomationProperties.Name="@evilrabbit" />
+            <c:AvatarGroup>
+              <c:Avatar Source="/Assets/avatar-shadcn.png" Content="CN" />
+              <c:Avatar Source="/Assets/avatar-maxleiter.png" Content="LR" />
+              <c:Avatar Source="/Assets/avatar-evilrabbit.png" Content="ER" />
+            </c:AvatarGroup>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;48&quot;&gt;&#10;  &lt;c:Avatar Source=&quot;/Assets/avatar-shadcn.png&quot; Content=&quot;CN&quot; AutomationProperties.Name=&quot;@shadcn&quot; /&gt;&#10;  &lt;c:Avatar Source=&quot;/Assets/avatar-evilrabbit.png&quot; Content=&quot;ER&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; AutomationProperties.Name=&quot;@evilrabbit&quot; /&gt;&#10;  &lt;c:AvatarGroup&gt;&#10;    &lt;c:Avatar Source=&quot;/Assets/avatar-shadcn.png&quot; Content=&quot;CN&quot; /&gt;&#10;    &lt;c:Avatar Source=&quot;/Assets/avatar-maxleiter.png&quot; Content=&quot;LR&quot; /&gt;&#10;    &lt;c:Avatar Source=&quot;/Assets/avatar-evilrabbit.png&quot; Content=&quot;ER&quot; /&gt;&#10;  &lt;/c:AvatarGroup&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Fallback and sizes" />
+      <TextBlock Classes="sm muted" Text="Without an image the fallback shows on --muted; sm is 24 px, lg 40 px." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="48">
+            <c:Avatar Classes="sm" Content="CN" />
+            <c:Avatar Content="CN" />
+            <c:Avatar Classes="lg" Content="CN" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;48&quot;&gt;&#10;  &lt;c:Avatar Classes=&quot;sm&quot; Content=&quot;CN&quot; /&gt;&#10;  &lt;c:Avatar Content=&quot;CN&quot; /&gt;&#10;  &lt;c:Avatar Classes=&quot;lg&quot; Content=&quot;CN&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Badge" />
+      <TextBlock Classes="sm muted" Text="A dot in the avatar&#x27;s bottom right corner, inside its circle: 8, 10 or 12 px with the avatar&#x27;s size, its icon hidden in a sm avatar; Background customizes it." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Orientation="Horizontal" Spacing="48">
+            <c:Avatar Classes="sm" Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn">
+              <c:Avatar.Badge><c:AvatarBadge /></c:Avatar.Badge>
+            </c:Avatar>
+            <c:Avatar Source="/Assets/avatar-shadcn.png" Content="CN" AutomationProperties.Name="@shadcn">
+              <c:Avatar.Badge><c:AvatarBadge Background="#16A34A" /></c:Avatar.Badge>
+            </c:Avatar>
+            <c:Avatar Classes="lg" Content="ER">
+              <c:Avatar.Badge>
+                <c:AvatarBadge><a:Icon Kind="plus" Size="8" /></c:AvatarBadge>
+              </c:Avatar.Badge>
+            </c:Avatar>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;48&quot;&gt;&#10;  &lt;c:Avatar Classes=&quot;sm&quot; Source=&quot;/Assets/avatar-shadcn.png&quot; Content=&quot;CN&quot; AutomationProperties.Name=&quot;@shadcn&quot;&gt;&#10;    &lt;c:Avatar.Badge&gt;&lt;c:AvatarBadge /&gt;&lt;/c:Avatar.Badge&gt;&#10;  &lt;/c:Avatar&gt;&#10;  &lt;c:Avatar Source=&quot;/Assets/avatar-shadcn.png&quot; Content=&quot;CN&quot; AutomationProperties.Name=&quot;@shadcn&quot;&gt;&#10;    &lt;c:Avatar.Badge&gt;&lt;c:AvatarBadge Background=&quot;#16A34A&quot; /&gt;&lt;/c:Avatar.Badge&gt;&#10;  &lt;/c:Avatar&gt;&#10;  &lt;c:Avatar Classes=&quot;lg&quot; Content=&quot;ER&quot;&gt;&#10;    &lt;c:Avatar.Badge&gt;&#10;      &lt;c:AvatarBadge&gt;&lt;a:Icon Kind=&quot;plus&quot; Size=&quot;8&quot; /&gt;&lt;/c:AvatarBadge&gt;&#10;    &lt;/c:Avatar.Badge&gt;&#10;  &lt;/c:Avatar&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Group count" />
+      <TextBlock Classes="sm muted" Text="The count closes the group as large as its avatars (24, 32 or 40 px), overlapping the last one by 8 px." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="24">
+            <c:AvatarGroup>
+              <c:Avatar Source="/Assets/avatar-shadcn.png" Content="CN" />
+              <c:Avatar Source="/Assets/avatar-maxleiter.png" Content="LR" />
+              <c:Avatar Source="/Assets/avatar-evilrabbit.png" Content="ER" />
+              <c:AvatarGroupCount Content="+3" />
+            </c:AvatarGroup>
+            <c:AvatarGroup>
+              <c:Avatar Classes="lg" Content="CN" />
+              <c:Avatar Classes="lg" Content="LR" />
+              <c:AvatarGroupCount><a:Icon Kind="plus" Size="20" /></c:AvatarGroupCount>
+            </c:AvatarGroup>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;24&quot;&gt;&#10;  &lt;c:AvatarGroup&gt;&#10;    &lt;c:Avatar Source=&quot;/Assets/avatar-shadcn.png&quot; Content=&quot;CN&quot; /&gt;&#10;    &lt;c:Avatar Source=&quot;/Assets/avatar-maxleiter.png&quot; Content=&quot;LR&quot; /&gt;&#10;    &lt;c:Avatar Source=&quot;/Assets/avatar-evilrabbit.png&quot; Content=&quot;ER&quot; /&gt;&#10;    &lt;c:AvatarGroupCount Content=&quot;+3&quot; /&gt;&#10;  &lt;/c:AvatarGroup&gt;&#10;  &lt;c:AvatarGroup&gt;&#10;    &lt;c:Avatar Classes=&quot;lg&quot; Content=&quot;CN&quot; /&gt;&#10;    &lt;c:Avatar Classes=&quot;lg&quot; Content=&quot;LR&quot; /&gt;&#10;    &lt;c:AvatarGroupCount&gt;&lt;a:Icon Kind=&quot;plus&quot; Size=&quot;20&quot; /&gt;&lt;/c:AvatarGroupCount&gt;&#10;  &lt;/c:AvatarGroup&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="Members come from the model through an item template, each avatar&#x27;s content (the fallback) a text bound to their initials. Source and Content bind on both targets." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <StackPanel Spacing="12">
+            <c:AvatarGroup ItemsSource="{Binding Members}">
+              <c:AvatarGroup.ItemTemplate>
+                <DataTemplate x:DataType="m:Member">
+                  <c:Avatar><TextBlock Text="{Binding Initials}" /></c:Avatar>
+                </DataTemplate>
+              </c:AvatarGroup.ItemTemplate>
+            </c:AvatarGroup>
+            <StackPanel Orientation="Horizontal" Spacing="12">
+              <Button Classes="outline sm" Content="Add member" Command="{Binding AddMemberCommand}" />
+              <TextBlock Classes="sm muted" Text="{Binding MemberCount}" VerticalAlignment="Center" />
+            </StackPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot;&gt;&#10;  &lt;c:AvatarGroup ItemsSource=&quot;{Binding Members}&quot;&gt;&#10;    &lt;c:AvatarGroup.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;m:Member&quot;&gt;&#10;        &lt;c:Avatar&gt;&lt;TextBlock Text=&quot;{Binding Initials}&quot; /&gt;&lt;/c:Avatar&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/c:AvatarGroup.ItemTemplate&gt;&#10;  &lt;/c:AvatarGroup&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;12&quot;&gt;&#10;    &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Add member&quot; Command=&quot;{Binding AddMemberCommand}&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding MemberCount}&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Source" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The image (IImage); the fallback shows while it is null." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Content" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The fallback: what shows without an image, usually initials." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Classes" /><TextBlock Grid.Column="1" Classes="sm muted" Text="sm (24 px), lg (40 px); CornerRadius for rounded squares." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:AvatarGroup" /><TextBlock Grid.Column="1" Classes="sm muted" Text="An ItemsControl overlapping its avatars (items or an ItemTemplate)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Badge" /><TextBlock Grid.Column="1" Classes="sm muted" Text="An avatar&#x27;s badge, usually a c:AvatarBadge (its content an icon, its Background customizable)." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:AvatarGroupCount" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The number of avatars a group leaves out, or an icon, as large as the group&#x27;s avatars." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

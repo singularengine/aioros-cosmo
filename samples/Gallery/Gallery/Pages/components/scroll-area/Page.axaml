@@ -1,0 +1,111 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:StructureExamples"
+             a:Page.Title="Scroll Area" a:Page.Description="Augments native scroll functionality for custom, cross-browser styling.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Scroll Area" />
+      <TextBlock Classes="lead" Text="Augments native scroll functionality for custom, cross-browser styling." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: scroll-area" />
+        <c:Badge Classes="secondary" Content="Avalonia: ScrollViewer.scroll-area" />
+        <c:Badge Classes="secondary" Content="Web: overflow: auto" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <TextBlock Classes="sm muted" Text="The scroll bars show while the pointer is over the area, thin and rounded as Radix&#x27;s." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ScrollViewer Classes="scroll-area" Width="192" Height="288" BorderThickness="1"
+                          BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusMd}">
+              <StackPanel Margin="16">
+                <TextBlock Classes="sm" Text="Tags" FontWeight="Medium" Margin="0,0,0,16" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.50" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.49" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.48" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.47" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.46" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.45" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.44" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.43" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.42" />
+          <Separator Margin="0,8" />
+          <TextBlock Classes="sm" Text="v1.2.0-beta.41" />
+          <Separator Margin="0,8" />
+              </StackPanel>
+            </ScrollViewer>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="  &lt;ScrollViewer Classes=&quot;scroll-area&quot; Width=&quot;192&quot; Height=&quot;288&quot; BorderThickness=&quot;1&quot;&#10;                BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusMd}&quot;&gt;&#10;    &lt;StackPanel Margin=&quot;16&quot;&gt;&#10;      &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Tags&quot; FontWeight=&quot;Medium&quot; Margin=&quot;0,0,0,16&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.50&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.49&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.48&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.47&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.46&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.45&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.44&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.43&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.42&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;&lt;TextBlock Classes=&quot;sm&quot; Text=&quot;v1.2.0-beta.41&quot; /&gt;&#10;&lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/ScrollViewer&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Horizontal" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <ScrollViewer Classes="scroll-area" MaxWidth="384" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"
+                        BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusMd}">
+            <StackPanel Orientation="Horizontal" Spacing="16" Margin="16">
+              <StackPanel>
+                <Border CornerRadius="{DynamicResource CosmoRadiusMd}" ClipToBounds="True">
+                  <Image Source="/Assets/art-binni.png" Width="150" Height="200" Stretch="UniformToFill" />
+                </Border>
+                <TextBlock Classes="xs muted" Margin="0,8,0,0" Text="Photo by Ornella Binni" />
+              </StackPanel>
+              <StackPanel>
+                <Border CornerRadius="{DynamicResource CosmoRadiusMd}" ClipToBounds="True">
+                  <Image Source="/Assets/art-byrom.png" Width="150" Height="200" Stretch="UniformToFill" />
+                </Border>
+                <TextBlock Classes="xs muted" Margin="0,8,0,0" Text="Photo by Tom Byrom" />
+              </StackPanel>
+              <StackPanel>
+                <Border CornerRadius="{DynamicResource CosmoRadiusMd}" ClipToBounds="True">
+                  <Image Source="/Assets/art-malyavko.png" Width="150" Height="200" Stretch="UniformToFill" />
+                </Border>
+                <TextBlock Classes="xs muted" Margin="0,8,0,0" Text="Photo by Vladimir Malyavko" />
+              </StackPanel>
+            </StackPanel>
+          </ScrollViewer>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ScrollViewer Classes=&quot;scroll-area&quot; MaxWidth=&quot;384&quot; HorizontalScrollBarVisibility=&quot;Auto&quot; VerticalScrollBarVisibility=&quot;Disabled&quot;&#10;              BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusMd}&quot;&gt;&#10;  &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;16&quot; Margin=&quot;16&quot;&gt;&#10;    &lt;StackPanel&gt;&#10;      &lt;Border CornerRadius=&quot;{DynamicResource CosmoRadiusMd}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;        &lt;Image Source=&quot;/Assets/art-binni.png&quot; Width=&quot;150&quot; Height=&quot;200&quot; Stretch=&quot;UniformToFill&quot; /&gt;&#10;      &lt;/Border&gt;&#10;      &lt;TextBlock Classes=&quot;xs muted&quot; Margin=&quot;0,8,0,0&quot; Text=&quot;Photo by Ornella Binni&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;    &lt;StackPanel&gt;&#10;      &lt;Border CornerRadius=&quot;{DynamicResource CosmoRadiusMd}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;        &lt;Image Source=&quot;/Assets/art-byrom.png&quot; Width=&quot;150&quot; Height=&quot;200&quot; Stretch=&quot;UniformToFill&quot; /&gt;&#10;      &lt;/Border&gt;&#10;      &lt;TextBlock Classes=&quot;xs muted&quot; Margin=&quot;0,8,0,0&quot; Text=&quot;Photo by Tom Byrom&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;    &lt;StackPanel&gt;&#10;      &lt;Border CornerRadius=&quot;{DynamicResource CosmoRadiusMd}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;        &lt;Image Source=&quot;/Assets/art-malyavko.png&quot; Width=&quot;150&quot; Height=&quot;200&quot; Stretch=&quot;UniformToFill&quot; /&gt;&#10;      &lt;/Border&gt;&#10;      &lt;TextBlock Classes=&quot;xs muted&quot; Margin=&quot;0,8,0,0&quot; Text=&quot;Photo by Vladimir Malyavko&quot; /&gt;&#10;    &lt;/StackPanel&gt;&#10;  &lt;/StackPanel&gt;&#10;&lt;/ScrollViewer&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="The tags come from the model through an item template." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ScrollViewer Classes="scroll-area" Width="192" Height="200" BorderThickness="1"
+                        BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusMd}">
+            <ItemsControl ItemsSource="{Binding Tags}" Margin="16">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                  <StackPanel>
+                    <TextBlock Classes="sm" Text="{Binding}" />
+                    <Separator Margin="0,8" />
+                  </StackPanel>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </ScrollViewer>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;ScrollViewer Classes=&quot;scroll-area&quot; Width=&quot;192&quot; Height=&quot;200&quot; BorderThickness=&quot;1&quot;&#10;              BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusMd}&quot;&gt;&#10;  &lt;ItemsControl ItemsSource=&quot;{Binding Tags}&quot; Margin=&quot;16&quot;&gt;&#10;    &lt;ItemsControl.ItemTemplate&gt;&#10;      &lt;DataTemplate x:DataType=&quot;x:String&quot;&gt;&#10;        &lt;StackPanel&gt;&#10;          &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;{Binding}&quot; /&gt;&#10;          &lt;Separator Margin=&quot;0,8&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/DataTemplate&gt;&#10;    &lt;/ItemsControl.ItemTemplate&gt;&#10;  &lt;/ItemsControl&gt;&#10;&lt;/ScrollViewer&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="ScrollViewer.scroll-area" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Radix&#x27;s scroll area: the content clipped to the rounded border, thin bars shown on hover." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="HorizontalScrollBarVisibility" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Auto for a horizontal area, as shadcn&#x27;s ScrollBar orientation=&quot;horizontal&quot;." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Offset" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The scrolled position, bindable two way on the desktop." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

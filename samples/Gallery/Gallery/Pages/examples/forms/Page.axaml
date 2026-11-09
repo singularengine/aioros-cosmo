@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             x:DataType="m:FormExample" a:Page.Title="Forms"
+             a:Page.Description="A form with validation built with Aioros.Cosmo: fields, descriptions and errors bound to a view model.">
+  <UserControl.Resources>
+    <m:Is x:Key="Is" />
+  </UserControl.Resources>
+  <StackPanel Spacing="28" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Forms" />
+      <TextBlock Classes="lead" Text="A bug report form: an ObservableValidator view model whose data annotations validate each field as it is bound. On the web, Submit posts the form, binds every field into the model and runs the command on the server; the answer shows each error under its field. On the desktop the errors appear as you type." />
+    </StackPanel>
+    <c:Card MaxWidth="448" HorizontalAlignment="Left">
+      <c:CardHeader Title="Bug Report" Description="Help us improve by reporting bugs you encounter." />
+      <c:CardContent>
+        <c:FieldGroup>
+          <c:Field Classes.invalid="{Binding TitleInvalid}">
+            <c:FieldLabel Content="Bug Title" Target="{Binding #title}" />
+            <TextBox Name="title" a:Web.Id="form-title" Text="{Binding Title}" PlaceholderText="Login button not working on mobile" />
+          </c:Field>
+          <c:Field Classes.invalid="{Binding EmailInvalid}">
+            <c:FieldLabel Content="Email" Target="{Binding #email}" />
+            <TextBox Name="email" a:Web.Id="form-email" Text="{Binding Email}" PlaceholderText="you@example.com" />
+            <c:FieldDescription Text="We will reply to this address." />
+          </c:Field>
+          <c:Field>
+            <c:FieldLabel Content="Plan" />
+            <ComboBox ItemsSource="{Binding Plans}" SelectedItem="{Binding Plan}" AutomationProperties.Name="Plan" />
+          </c:Field>
+          <c:Field Classes.invalid="{Binding DescriptionInvalid}">
+            <c:FieldLabel Content="Description" Target="{Binding #description}" />
+            <TextBox Name="description" a:Web.Id="form-description" AcceptsReturn="True" MinHeight="96" Text="{Binding Description}"
+                     PlaceholderText="I'm having an issue with the login button on mobile." />
+            <c:FieldDescription Text="{Binding Count}" />
+          </c:Field>
+          <c:FieldSet>
+            <c:FieldLegend Classes="label" Text="Density of the report view" />
+            <StackPanel Spacing="12">
+              <RadioButton Content="Default" IsChecked="{Binding Priority, Converter={StaticResource Is}, ConverterParameter=Default}" />
+              <RadioButton Content="Comfortable" IsChecked="{Binding Priority, Converter={StaticResource Is}, ConverterParameter=Comfortable}" />
+              <RadioButton Content="Compact" IsChecked="{Binding Priority, Converter={StaticResource Is}, ConverterParameter=Compact}" />
+            </StackPanel>
+          </c:FieldSet>
+          <c:Field Orientation="Horizontal">
+            <ToggleSwitch Name="updates" a:Web.Id="form-updates" IsChecked="{Binding Updates}" />
+            <c:FieldLabel Content="Email me when the bug is fixed" FontWeight="Normal" Target="{Binding #updates}" />
+          </c:Field>
+          <c:Field Classes.invalid="{Binding TermsInvalid}">
+            <CheckBox Content="I accept the terms" IsChecked="{Binding Terms}" />
+            <c:FieldError Text="{Binding TermsError}" IsVisible="{Binding TermsInvalid}" />
+          </c:Field>
+        </c:FieldGroup>
+      </c:CardContent>
+      <c:CardFooter>
+        <StackPanel Spacing="12">
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <Button Classes="outline" Command="{Binding ResetCommand}" Content="Reset" />
+            <Button Command="{Binding SubmitCommand}" Content="Submit" />
+          </StackPanel>
+          <TextBlock Classes="sm muted" Text="{Binding Status}" />
+        </StackPanel>
+      </c:CardFooter>
+    </c:Card>
+  </StackPanel>
+</UserControl>

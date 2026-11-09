@@ -1,0 +1,238 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models"
+             x:DataType="m:WorkspaceExample" a:Page.Title="Workspace"
+             a:Page.Description="A complete app layout made with Aioros.Cosmo: a shell with a collapsible icon sidebar, a breadcrumb header, a command palette and a data table, bound to a view model.">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="8">
+      <TextBlock Classes="h1" Text="Workspace" />
+      <TextBlock Classes="lead" Text="An app shell built with Aioros.Cosmo: the sidebar collapses to its icons (the trigger, the rail, Ctrl+B), its groups come from the model, the header shows where you are, Ctrl+K opens the command palette, and the payments are a data table." />
+      <TextBlock Classes="sm muted" Text="{Binding LastAction}" />
+    </StackPanel>
+    <Border Height="760" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusXl}" ClipToBounds="True">
+      <c:SidebarProvider IsOpen="{Binding SidebarOpen}">
+        <c:Sidebar Collapsible="Icon">
+          <c:SidebarHeader>
+            <c:SidebarMenu>
+              <c:SidebarMenuItem>
+                <c:SidebarMenuButton Classes="lg" Tooltip="Acme Inc">
+                  <DockPanel>
+                    <a:Icon Kind="chevrons-up-down" DockPanel.Dock="Right" Margin="8,0,0,0" />
+                    <Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoSidebarPrimaryBrush}">
+                      <a:Icon Kind="gallery-vertical-end" Foreground="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" />
+                    </Border>
+                    <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                      <TextBlock Text="Acme Inc" FontWeight="Medium" LineHeight="17.5" />
+                      <TextBlock Text="Enterprise" FontSize="12" LineHeight="15" />
+                    </StackPanel>
+                  </DockPanel>
+                  <c:SidebarMenuButton.Flyout>
+                    <MenuFlyout Placement="RightEdgeAlignedTop">
+                      <MenuItem Header="Teams" Classes="label" />
+                      <MenuItem Header="Acme Inc" InputGesture="Ctrl+D1" Command="{Binding ActCommand}" CommandParameter="Switched to Acme Inc" />
+                      <MenuItem Header="Acme Corp." InputGesture="Ctrl+D2" Command="{Binding ActCommand}" CommandParameter="Switched to Acme Corp." />
+                      <MenuItem Header="Evil Corp." InputGesture="Ctrl+D3" Command="{Binding ActCommand}" CommandParameter="Switched to Evil Corp." />
+                    </MenuFlyout>
+                  </c:SidebarMenuButton.Flyout>
+                </c:SidebarMenuButton>
+              </c:SidebarMenuItem>
+            </c:SidebarMenu>
+          </c:SidebarHeader>
+          <c:SidebarContent>
+            <c:SidebarGroup>
+              <c:SidebarGroupLabel Content="Platform" />
+              <c:SidebarMenu>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton Tooltip="Dashboard" Command="{Binding NavigateCommand}" CommandParameter="/workspace">
+                    <StackPanel><a:Icon Kind="layers" /><TextBlock Text="Dashboard" /></StackPanel>
+                  </c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton Tooltip="Payments" IsActive="True" Command="{Binding NavigateCommand}" CommandParameter="/workspace/payments">
+                    <StackPanel><a:Icon Kind="credit-card" /><TextBlock Text="Payments" /></StackPanel>
+                  </c:SidebarMenuButton>
+                  <c:SidebarMenuBadge Content="12" />
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem>
+                  <c:SidebarMenuButton Tooltip="Customers" Command="{Binding NavigateCommand}" CommandParameter="/workspace/customers">
+                    <StackPanel><a:Icon Kind="users" /><TextBlock Text="Customers" /></StackPanel>
+                  </c:SidebarMenuButton>
+                </c:SidebarMenuItem>
+                <c:SidebarMenuItem IsCollapsible="True" IsExpanded="True">
+                  <c:SidebarMenuButton Tooltip="Settings">
+                    <StackPanel><a:Icon Kind="settings-2" /><TextBlock Text="Settings" /></StackPanel>
+                  </c:SidebarMenuButton>
+                  <c:SidebarMenuSub>
+                    <c:SidebarMenuSubButton Content="General" Command="{Binding NavigateCommand}" CommandParameter="/workspace/settings/general" />
+                    <c:SidebarMenuSubButton Content="Team" Command="{Binding NavigateCommand}" CommandParameter="/workspace/settings/team" />
+                    <c:SidebarMenuSubButton Content="Billing" Command="{Binding NavigateCommand}" CommandParameter="/workspace/settings/billing" />
+                  </c:SidebarMenuSub>
+                </c:SidebarMenuItem>
+              </c:SidebarMenu>
+            </c:SidebarGroup>
+            <c:SidebarGroup Classes="icon-hidden">
+              <c:SidebarGroupLabel Content="Projects" />
+              <c:SidebarMenu ItemsSource="{Binding Projects}">
+                <c:SidebarMenu.ItemTemplate>
+                  <DataTemplate x:DataType="m:WorkspacePage">
+                    <c:SidebarMenuItem>
+                      <c:SidebarMenuButton Content="{Binding Title}" CommandParameter="{Binding Path}"
+                                           Command="{Binding $parent[c:SidebarMenu].((m:WorkspaceExample)DataContext).NavigateCommand}" />
+                    </c:SidebarMenuItem>
+                  </DataTemplate>
+                </c:SidebarMenu.ItemTemplate>
+              </c:SidebarMenu>
+            </c:SidebarGroup>
+          </c:SidebarContent>
+          <c:SidebarFooter>
+            <c:SidebarMenu>
+              <c:SidebarMenuItem>
+                <c:SidebarMenuButton Classes="lg" Tooltip="Ada Cole">
+                  <DockPanel>
+                    <a:Icon Kind="chevrons-up-down" DockPanel.Dock="Right" Margin="8,0,0,0" />
+                    <c:Avatar Width="32" Height="32" Content="AC" CornerRadius="{DynamicResource CosmoRadiusLg}" />
+                    <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                      <TextBlock Text="Ada Cole" FontWeight="Medium" LineHeight="17.5" />
+                      <TextBlock Text="ada@example.com" FontSize="12" LineHeight="15" />
+                    </StackPanel>
+                  </DockPanel>
+                  <c:SidebarMenuButton.Flyout>
+                    <MenuFlyout Placement="RightEdgeAlignedBottom">
+                      <MenuItem Header="Account" Command="{Binding ActCommand}" CommandParameter="Opened the account" />
+                      <MenuItem Header="Billing" Command="{Binding NavigateCommand}" CommandParameter="/workspace/settings/billing" />
+                      <MenuItem Header="-" />
+                      <MenuItem Header="Log out" Command="{Binding ActCommand}" CommandParameter="Logged out" />
+                    </MenuFlyout>
+                  </c:SidebarMenuButton.Flyout>
+                </c:SidebarMenuButton>
+              </c:SidebarMenuItem>
+            </c:SidebarMenu>
+          </c:SidebarFooter>
+          <c:SidebarRail />
+        </c:Sidebar>
+        <c:SidebarInset>
+          <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Height="64" Margin="12,0,16,0">
+              <Button DockPanel.Dock="Right" Classes="outline sm has-icon" VerticalAlignment="Center" a:Web.HideBelow="640" Command="{Binding TogglePaletteCommand}" AutomationProperties.Name="Search (Ctrl+K)">
+                <StackPanel><a:Icon Kind="search" /><TextBlock Text="Search..." /><c:Kbd Content="Ctrl K" /></StackPanel>
+              </Button>
+              <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                <c:SidebarTrigger VerticalAlignment="Center" />
+                <Separator Classes="vertical" Height="16" Margin="0,0,8,0" VerticalAlignment="Center" />
+                <c:Breadcrumb VerticalAlignment="Center">
+                  <HyperlinkButton Content="Workspace" />
+                  <c:BreadcrumbPage Text="{Binding Section}" />
+                </c:Breadcrumb>
+              </StackPanel>
+            </DockPanel>
+            <ScrollViewer Classes="scroll-area" HorizontalScrollBarVisibility="Disabled">
+              <StackPanel Margin="16,0,16,16" Spacing="16">
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="16" RowSpacing="16" a:Web.StackBelow="700">
+                  <c:Card>
+                    <c:CardHeader Title="Revenue" Description="This month" />
+                    <c:CardContent><TextBlock Text="$4,568.00" FontSize="24" FontWeight="SemiBold" /></c:CardContent>
+                  </c:Card>
+                  <c:Card Grid.Column="1">
+                    <c:CardHeader Title="Payments" Description="Settled" />
+                    <c:CardContent><TextBlock Text="{Binding Payments.FilteredCount}" FontSize="24" FontWeight="SemiBold" /></c:CardContent>
+                  </c:Card>
+                  <c:Card Grid.Column="2">
+                    <c:CardHeader Title="Selected" Description="Rows checked" />
+                    <c:CardContent><TextBlock Text="{Binding Payments.SelectedCount}" FontSize="24" FontWeight="SemiBold" /></c:CardContent>
+                  </c:Card>
+                </Grid>
+                  <StackPanel>
+                    <DockPanel Margin="0,16">
+                      <Button DockPanel.Dock="Right" Classes="outline has-icon">
+                        <StackPanel><TextBlock Text="Columns" /><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M6 9 l6 6 6-6" /></Viewbox></StackPanel>
+                        <Button.Flyout>
+                          <MenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MenuItem Header="Status" ToggleType="CheckBox" IsChecked="{Binding Payments.Columns[1].IsVisible, Mode=TwoWay}" />
+                            <MenuItem Header="Email" ToggleType="CheckBox" IsChecked="{Binding Payments.Columns[2].IsVisible, Mode=TwoWay}" />
+                            <MenuItem Header="Amount" ToggleType="CheckBox" IsChecked="{Binding Payments.Columns[3].IsVisible, Mode=TwoWay}" />
+                          </MenuFlyout>
+                        </Button.Flyout>
+                      </Button>
+                      <TextBox Width="384" HorizontalAlignment="Left" PlaceholderText="Filter emails..." a:Web.Delay="300" Text="{Binding Payments.FilterText}" />
+                    </DockPanel>
+                    <Border BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusMd}" ClipToBounds="True">
+                      <TableView ItemsSource="{Binding Payments.Rows}" c:DataTable.SelectsRows="True" c:DataTable.State="{Binding Payments.State}">
+                      <TableView.Columns>
+                        <TableViewColumn Width="32.84">
+                          <TableViewColumn.Header><CheckBox IsChecked="{Binding Payments.AllPageRowsSelected}" AutomationProperties.Name="Select all" /></TableViewColumn.Header>
+                          <TableViewColumn.CellTemplate>
+                            <DataTemplate x:DataType="m:Payment"><CheckBox IsChecked="{Binding IsSelected}" AutomationProperties.Name="Select row" /></DataTemplate>
+                          </TableViewColumn.CellTemplate>
+                        </TableViewColumn>
+                        <TableViewColumn Width="119.66" IsVisible="{Binding Payments.Columns[1].IsVisible}">
+                          <TableViewColumn.Header>Status</TableViewColumn.Header>
+                          <TableViewColumn.CellTemplate>
+                            <DataTemplate x:DataType="m:Payment"><TextBlock Text="{Binding Status, Converter={x:Static m:PaymentTable.Capitalize}}" /></DataTemplate>
+                          </TableViewColumn.CellTemplate>
+                        </TableViewColumn>
+                        <TableViewColumn Width="271.55" IsVisible="{Binding Payments.Columns[2].IsVisible}">
+                          <TableViewColumn.Header><Button Classes="ghost has-icon" Command="{Binding Payments.SortCommand}" CommandParameter="email"><StackPanel><TextBlock Text="Email" /><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M21 16 l-4 4-4-4 M17 20V4 M3 8 l4-4 4 4 M7 4v16" /></Viewbox></StackPanel></Button></TableViewColumn.Header>
+                          <TableViewColumn.CellTemplate>
+                            <DataTemplate x:DataType="m:Payment"><TextBlock Text="{Binding Email, Converter={x:Static m:PaymentTable.Lower}}" /></DataTemplate>
+                          </TableViewColumn.CellTemplate>
+                        </TableViewColumn>
+                        <TableViewColumn Width="100.23" IsVisible="{Binding Payments.Columns[3].IsVisible}" HorizontalContentAlignment="Stretch">
+                          <TableViewColumn.Header><TextBlock Text="Amount" HorizontalAlignment="Right" /></TableViewColumn.Header>
+                          <TableViewColumn.CellTemplate>
+                            <DataTemplate x:DataType="m:Payment"><TextBlock Text="{Binding Amount, Converter={x:Static m:PaymentTable.Dollars}}" FontWeight="Medium" HorizontalAlignment="Right" /></DataTemplate>
+                          </TableViewColumn.CellTemplate>
+                        </TableViewColumn>
+                        <TableViewColumn Width="65.72">
+                          <TableViewColumn.Header></TableViewColumn.Header>
+                          <TableViewColumn.CellTemplate>
+                            <DataTemplate x:DataType="m:Payment"><Button Classes="ghost icon-sm" HorizontalAlignment="Left" AutomationProperties.Name="Open menu"><Viewbox Width="16" Height="16"><Path Theme="{DynamicResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="M11,12 A1,1 0 1 1 13,12 A1,1 0 1 1 11,12 Z M18,12 A1,1 0 1 1 20,12 A1,1 0 1 1 18,12 Z M4,12 A1,1 0 1 1 6,12 A1,1 0 1 1 4,12 Z" /></Viewbox><Button.Flyout>
+                    <MenuFlyout Placement="BottomEdgeAlignedRight">
+                      <MenuItem Header="Actions" Classes="label" />
+                      <MenuItem Header="Copy payment ID" />
+                      <Separator />
+                      <MenuItem Header="View customer" />
+                      <MenuItem Header="View payment details" />
+                    </MenuFlyout>
+                  </Button.Flyout></Button></DataTemplate>
+                          </TableViewColumn.CellTemplate>
+                        </TableViewColumn>
+                      </TableView.Columns>
+                      </TableView>
+                    </Border>
+                    <DockPanel Margin="0,16">
+                      <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="8">
+                        <Button Classes="outline sm" Content="Previous" Command="{Binding Payments.PreviousPageCommand}" />
+                        <Button Classes="outline sm" Content="Next" Command="{Binding Payments.NextPageCommand}" />
+                      </StackPanel>
+                      <TextBlock FontSize="14" LineHeight="20" VerticalAlignment="Center" Foreground="{DynamicResource CosmoMutedForegroundBrush}">
+                        <TextBlock.Text>
+                          <MultiBinding StringFormat="{}{0} of {1} row(s) selected.">
+                            <Binding Path="Payments.SelectedCount" />
+                            <Binding Path="Payments.FilteredCount" />
+                          </MultiBinding>
+                        </TextBlock.Text>
+                      </TextBlock>
+                    </DockPanel>
+                  </StackPanel>
+              </StackPanel>
+            </ScrollViewer>
+          </DockPanel>
+        </c:SidebarInset>
+      </c:SidebarProvider>
+    </Border>
+    <c:CommandDialog IsOpen="{Binding PaletteOpen}">
+      <c:Command Text="{Binding PaletteSearch}" Placeholder="Type a command or search...">
+        <c:CommandGroup Header="Pages">
+          <c:CommandItem Command="{Binding NavigateCommand}" CommandParameter="/workspace"><StackPanel><a:Icon Kind="layers" /><TextBlock Text="Dashboard" /></StackPanel></c:CommandItem>
+          <c:CommandItem Command="{Binding NavigateCommand}" CommandParameter="/workspace/payments"><StackPanel><a:Icon Kind="credit-card" /><TextBlock Text="Payments" /></StackPanel></c:CommandItem>
+          <c:CommandItem Command="{Binding NavigateCommand}" CommandParameter="/workspace/customers"><StackPanel><a:Icon Kind="users" /><TextBlock Text="Customers" /></StackPanel></c:CommandItem>
+          <c:CommandItem Command="{Binding NavigateCommand}" CommandParameter="/workspace/settings/billing"><StackPanel><a:Icon Kind="settings" /><TextBlock Text="Billing settings" /></StackPanel></c:CommandItem>
+        </c:CommandGroup>
+        <c:CommandSeparator />
+        <c:CommandGroup Header="Actions">
+          <c:CommandItem Shortcut="Ctrl+B" Command="{Binding ActCommand}" CommandParameter="Toggled the sidebar from the palette"><StackPanel><a:Icon Kind="panel-left" /><TextBlock Text="Toggle the sidebar" /></StackPanel></c:CommandItem>
+          <c:CommandItem Command="{Binding ActCommand}" CommandParameter="Exported the payments"><StackPanel><a:Icon Kind="file-text" /><TextBlock Text="Export payments" /></StackPanel></c:CommandItem>
+        </c:CommandGroup>
+      </c:Command>
+    </c:CommandDialog>
+  </StackPanel>
+</UserControl>

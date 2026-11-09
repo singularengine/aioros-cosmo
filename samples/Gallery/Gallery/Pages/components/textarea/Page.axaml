@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:InputExamples"
+             a:Page.Title="Textarea" a:Page.Description="Displays a form textarea or a component that looks like a textarea.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Textarea" />
+      <TextBlock Classes="lead" Text="Displays a form textarea or a component that looks like a textarea." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: textarea" />
+        <c:Badge Classes="secondary" Content="Avalonia: TextBox AcceptsReturn" />
+        <c:Badge Classes="secondary" Content="Web: &lt;textarea&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Usage" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TextBox AcceptsReturn="True" PlaceholderText="Type your message here." MaxWidth="384" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TextBox AcceptsReturn=&quot;True&quot; PlaceholderText=&quot;Type your message here.&quot; MaxWidth=&quot;384&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="With label" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="384">
+            <Label Content="Your message" Target="{Binding #message}" />
+            <TextBox Name="message" a:Web.Id="message" AcceptsReturn="True" PlaceholderText="Type your message here." />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;384&quot;&gt;&#10;  &lt;Label Content=&quot;Your message&quot; Target=&quot;{Binding #message}&quot; /&gt;&#10;  &lt;TextBox Name=&quot;message&quot; a:Web.Id=&quot;message&quot; AcceptsReturn=&quot;True&quot; PlaceholderText=&quot;Type your message here.&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Disabled" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <TextBox AcceptsReturn="True" IsEnabled="False" PlaceholderText="Type your message here." MaxWidth="384" />
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;TextBox AcceptsReturn=&quot;True&quot; IsEnabled=&quot;False&quot; PlaceholderText=&quot;Type your message here.&quot; MaxWidth=&quot;384&quot; /&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="8" MaxWidth="384">
+            <TextBox AcceptsReturn="True" Text="{Binding Message}" PlaceholderText="Type your message here." AutomationProperties.Name="Message" />
+            <TextBlock Classes="sm muted" Text="{Binding Message.Length, StringFormat='{}{0}/100 characters'}" />
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;8&quot; MaxWidth=&quot;384&quot;&gt;&#10;  &lt;TextBox AcceptsReturn=&quot;True&quot; Text=&quot;{Binding Message}&quot; PlaceholderText=&quot;Type your message here.&quot; AutomationProperties.Name=&quot;Message&quot; /&gt;&#10;  &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding Message.Length, StringFormat=&#x27;{}{0}/100 characters&#x27;}&quot; /&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="AcceptsReturn" /><TextBlock Grid.Column="1" Classes="sm muted" Text="True makes the TextBox shadcn&#x27;s textarea: 64 px minimum height, 8 px vertical padding, wrapping, growing with its content." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="Text" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Two-way bindable text." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

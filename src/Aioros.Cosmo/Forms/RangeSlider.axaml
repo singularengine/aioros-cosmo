@@ -1,0 +1,36 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo">
+  <ControlTheme x:Key="{x:Type c:RangeSlider}" TargetType="c:RangeSlider">
+    <Setter Property="Background" Value="{DynamicResource CosmoMutedBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoPrimaryBrush}" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="AutomationProperties.ControlTypeOverride" Value="Group" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Background="Transparent" a:Web.Range="True">
+          <Slider Name="PART_LowerSlider" Classes="range-lower"
+                  Orientation="{TemplateBinding Orientation}"
+                  Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}"
+                  Value="{TemplateBinding LowerValue, Mode=TwoWay}"
+                  TickFrequency="{TemplateBinding TickFrequency}" IsSnapToTickEnabled="{TemplateBinding IsSnapToTickEnabled}"
+                  Foreground="{TemplateBinding Background}" Background="{TemplateBinding Foreground}" BorderBrush="{TemplateBinding BorderBrush}"
+                  AutomationProperties.Name="Minimum" />
+          <Slider Name="PART_UpperSlider"
+                  Orientation="{TemplateBinding Orientation}"
+                  Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}"
+                  Value="{TemplateBinding UpperValue, Mode=TwoWay}"
+                  TickFrequency="{TemplateBinding TickFrequency}" IsSnapToTickEnabled="{TemplateBinding IsSnapToTickEnabled}"
+                  Foreground="Transparent" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                  AutomationProperties.Name="Maximum" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ Slider:disabled">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

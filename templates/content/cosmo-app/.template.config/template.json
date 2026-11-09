@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Aioros contributors",
+  "classifications": [
+    "Web",
+    "Desktop",
+    "XAML",
+    "Dashboard"
+  ],
+  "identity": "Aioros.Cosmo.App",
+  "name": "Aioros.Cosmo app",
+  "description": "An Aioros app with Aioros.Cosmo's components and themes: a sidebar dashboard with cards, an interactive chart and a data table, on the web and the desktop, with hot reload.",
+  "shortName": "cosmo",
+  "sourceName": "CosmoStarter",
+  "preferNameDirectory": true,
+  "primaryOutputs": [
+    {
+      "path": "CosmoStarter.slnx"
+    },
+    {
+      "path": "CosmoStarter/CosmoStarter.csproj"
+    }
+  ],
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "AiorosVersion": {
+      "type": "parameter",
+      "datatype": "text",
+      "defaultValue": "0.1.0-preview.1",
+      "replaces": "AIOROS_VERSION",
+      "description": "The Aioros package version."
+    },
+    "CosmoVersion": {
+      "type": "parameter",
+      "datatype": "text",
+      "defaultValue": "0.1.0-preview.1",
+      "replaces": "COSMO_VERSION",
+      "description": "The Aioros.Cosmo package version."
+    },
+    "color": {
+      "type": "parameter",
+      "datatype": "choice",
+      "defaultValue": "Neutral",
+      "replaces": "COSMO_COLOR",
+      "description": "The color theme, one of shadcn/ui's twelve.",
+      "choices": [
+        {
+          "choice": "Neutral"
+        },
+        {
+          "choice": "Zinc"
+        },
+        {
+          "choice": "Slate"
+        },
+        {
+          "choice": "Stone"
+        },
+        {
+          "choice": "Gray"
+        },
+        {
+          "choice": "Red"
+        },
+        {
+          "choice": "Rose"
+        },
+        {
+          "choice": "Orange"
+        },
+        {
+          "choice": "Green"
+        },
+        {
+          "choice": "Blue"
+        },
+        {
+          "choice": "Yellow"
+        },
+        {
+          "choice": "Violet"
+        }
+      ]
+    },
+    "radius": {
+      "type": "parameter",
+      "datatype": "choice",
+      "defaultValue": "Default",
+      "replaces": "COSMO_RADIUS",
+      "description": "The radius scale.",
+      "choices": [
+        {
+          "choice": "Default"
+        },
+        {
+          "choice": "None"
+        },
+        {
+          "choice": "Small"
+        },
+        {
+          "choice": "Medium"
+        },
+        {
+          "choice": "Large"
+        },
+        {
+          "choice": "ExtraLarge"
+        }
+      ]
+    }
+  },
+  "postActions": [
+    {
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "description": "Restore packages",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "continueOnError": true
+    }
+  ]
+}

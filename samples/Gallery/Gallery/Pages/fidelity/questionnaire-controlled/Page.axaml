@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:QuestionnaireExamples" a:Page.Title="Fidelity: questionnaire-controlled">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Border x:DataType="m:QuestionnaireExamples" Width="448" HorizontalAlignment="Center">
+      <Grid>
+        <c:Questionnaire ShowProgress="True" SubmitContent="Save workflow" CurrentIndex="{Binding Checkpoint}">
+      <c:QuestionnaireItem Name="scope" Title="What may the agent change?" Description="The host stores the active checkpoint while Questionnaire navigates." IsRequired="True">
+        <c:QuestionnaireChoice Value="component" Content="Only the target component" />
+        <c:QuestionnaireChoice Value="tests" Content="Component and related tests" />
+        <c:QuestionnaireChoice Value="feature" Content="The complete feature area" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="checks" Title="Which verification level should it use?" IsRequired="True">
+        <c:QuestionnaireChoice Value="targeted" Content="Targeted tests" />
+        <c:QuestionnaireChoice Value="package" Content="Package tests and typecheck" />
+        <c:QuestionnaireChoice Value="full" Content="Full workspace verification" />
+      </c:QuestionnaireItem>
+      <c:QuestionnaireItem Name="output" Title="What should the agent return when finished?" IsRequired="True">
+        <c:QuestionnaireChoice Value="summary" Content="Concise summary" />
+        <c:QuestionnaireChoice Value="diff" Content="Summary with changed files" />
+        <c:QuestionnaireChoice Value="handoff" Content="Detailed implementation handoff" />
+      </c:QuestionnaireItem>
+    </c:Questionnaire>
+        <TextBlock Text="{Binding CheckpointText}" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="14" LineHeight="20" Foreground="{DynamicResource CosmoMutedForegroundBrush}" />
+      </Grid>
+    </Border>
+  </Border>
+</UserControl>

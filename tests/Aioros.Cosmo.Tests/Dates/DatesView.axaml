@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" xmlns:t="using:Aioros.Cosmo.Tests.Dates"
+             x:Class="Aioros.Cosmo.Tests.Dates.DatesView" x:DataType="t:DatesModel">
+  <StackPanel Spacing="16" Margin="24" HorizontalAlignment="Left">
+    <Calendar Name="One" DisplayDate="2025-06-12" SelectionMode="SingleDate" SelectedDate="{Binding Day}" />
+    <Calendar Name="Range" DisplayDate="2025-06-12" SelectionMode="SingleRange" c:CalendarSelection.RangeStart="{Binding Start}" c:CalendarSelection.RangeEnd="{Binding End}" />
+    <Calendar Name="Fresh" DisplayDate="2025-06-12" SelectionMode="SingleRange" c:CalendarSelection.RangeStart="{Binding From}" c:CalendarSelection.RangeEnd="{Binding To}" />
+    <Calendar Name="Several" DisplayDate="2025-06-12" SelectionMode="MultipleRange" c:CalendarSelection.Dates="{Binding Days}" />
+  </StackPanel>
+</UserControl>

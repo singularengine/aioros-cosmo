@@ -1,0 +1,678 @@
+{
+ "chart-area-default.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.83
+ },
+ "chart-area-gradient.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.83
+ },
+ "chart-area-stacked.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.82
+ },
+ "chart-area-interactive.light": {
+  "sizes": [
+   [
+    640,
+    457
+   ],
+   [
+    640,
+    457
+   ]
+  ],
+  "matched": 99.75
+ },
+ "chart-bar-default.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.83
+ },
+ "chart-bar-multiple.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.8
+ },
+ "chart-bar-horizontal.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.91
+ },
+ "chart-bar-label.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.83
+ },
+ "chart-bar-interactive.light": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-line-default.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.83
+ },
+ "chart-line-multiple.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.74
+ },
+ "chart-line-dots.light": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.83
+ },
+ "chart-line-interactive.light": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-pie-simple.light": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-pie-donut.light": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-pie-donut-text.light": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-pie-legend.light": {
+  "sizes": [
+   [
+    640,
+    466
+   ],
+   [
+    640,
+    466
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-radar-default.light": {
+  "sizes": [
+   [
+    640,
+    494
+   ],
+   [
+    640,
+    494
+   ]
+  ],
+  "matched": 99.68
+ },
+ "chart-radar-dots.light": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 99.67
+ },
+ "chart-radar-multiple.light": {
+  "sizes": [
+   [
+    640,
+    494
+   ],
+   [
+    640,
+    494
+   ]
+  ],
+  "matched": 99.68
+ },
+ "chart-radial-simple.light": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 94.43
+ },
+ "chart-radial-text.light": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 98.64
+ },
+ "chart-radial-stacked.light": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 97.1
+ },
+ "chart-tooltip-default.light": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 96.47
+ },
+ "chart-tooltip-indicator-line.light": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 96.47
+ },
+ "chart-tooltip-indicator-none.light": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 96.47
+ },
+ "chart-area-default.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.78
+ },
+ "chart-area-gradient.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.81
+ },
+ "chart-area-stacked.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.8
+ },
+ "chart-area-interactive.dark": {
+  "sizes": [
+   [
+    640,
+    457
+   ],
+   [
+    640,
+    457
+   ]
+  ],
+  "matched": 99.4
+ },
+ "chart-bar-default.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.7
+ },
+ "chart-bar-multiple.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.66
+ },
+ "chart-bar-horizontal.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.58
+ },
+ "chart-bar-label.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.67
+ },
+ "chart-bar-interactive.dark": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 99.67
+ },
+ "chart-line-default.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.73
+ },
+ "chart-line-multiple.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.7
+ },
+ "chart-line-dots.dark": {
+  "sizes": [
+   [
+    640,
+    533
+   ],
+   [
+    640,
+    533
+   ]
+  ],
+  "matched": 99.72
+ },
+ "chart-line-interactive.dark": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 99.66
+ },
+ "chart-pie-simple.dark": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-pie-donut.dark": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-pie-donut-text.dark": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-pie-legend.dark": {
+  "sizes": [
+   [
+    640,
+    466
+   ],
+   [
+    640,
+    466
+   ]
+  ],
+  "matched": 100
+ },
+ "chart-radar-default.dark": {
+  "sizes": [
+   [
+    640,
+    494
+   ],
+   [
+    640,
+    494
+   ]
+  ],
+  "matched": 99.69
+ },
+ "chart-radar-dots.dark": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 99.68
+ },
+ "chart-radar-multiple.dark": {
+  "sizes": [
+   [
+    640,
+    494
+   ],
+   [
+    640,
+    494
+   ]
+  ],
+  "matched": 99.69
+ },
+ "chart-radial-simple.dark": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 95.47
+ },
+ "chart-radial-text.dark": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 98.69
+ },
+ "chart-radial-stacked.dark": {
+  "sizes": [
+   [
+    640,
+    478
+   ],
+   [
+    640,
+    478
+   ]
+  ],
+  "matched": 97.05
+ },
+ "chart-tooltip-default.dark": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 96.51
+ },
+ "chart-tooltip-indicator-line.dark": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 96.51
+ },
+ "chart-tooltip-indicator-none.dark": {
+  "sizes": [
+   [
+    640,
+    471
+   ],
+   [
+    640,
+    471
+   ]
+  ],
+  "matched": 96.51
+ }
+}

@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" a:Page.Title="Fidelity: context-menu-open">
+  <UserControl.Styles>
+    <Style Selector="ContextMenu.w-52">
+      <Setter Property="Width" Value="208" />
+    </Style>
+  </UserControl.Styles>
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <Panel Height="400">
+      <Border Width="300" Height="150" CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Border.ContextMenu>
+          <ContextMenu Classes="w-52">
+            <MenuItem Classes="inset" Header="Back" InputGesture="Ctrl+OemOpenBrackets" />
+            <MenuItem Classes="inset" Header="Forward" InputGesture="Ctrl+OemCloseBrackets" IsEnabled="False" />
+            <MenuItem Classes="inset" Header="Reload" InputGesture="Ctrl+R" />
+            <MenuItem Classes="inset" Header="More Tools">
+              <MenuItem Header="Save Page..." />
+              <MenuItem Header="Create Shortcut..." />
+              <MenuItem Header="Name Window..." />
+              <Separator />
+              <MenuItem Header="Developer Tools" />
+              <Separator />
+              <MenuItem Classes="destructive" Header="Delete" />
+            </MenuItem>
+            <Separator />
+            <MenuItem Header="Show Bookmarks" ToggleType="CheckBox" IsChecked="True" />
+            <MenuItem Header="Show Full URLs" ToggleType="CheckBox" />
+            <Separator />
+            <MenuItem Classes="label inset" Header="People" />
+            <MenuItem Header="Pedro Duarte" ToggleType="Radio" GroupName="people" IsChecked="True" />
+            <MenuItem Header="Colm Tuite" ToggleType="Radio" GroupName="people" />
+          </ContextMenu>
+        </Border.ContextMenu>
+        <TextBlock Text="Right click here" FontSize="14" LineHeight="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+      </Border>
+    </Panel>
+  </Border>
+</UserControl>

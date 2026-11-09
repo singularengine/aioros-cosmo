@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: tabs-demo">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <StackPanel Width="384" HorizontalAlignment="Left">
+      <TabControl SelectedIndex="0">
+        <TabItem Header="Account">
+          <c:Card>
+            <c:CardHeader Title="Account" Description="Make changes to your account here. Click save when you're done." />
+            <c:CardContent>
+              <StackPanel Spacing="24">
+                <StackPanel Spacing="12">
+                  <Label Content="Name" />
+                  <TextBox Text="Pedro Duarte" />
+                </StackPanel>
+                <StackPanel Spacing="12">
+                  <Label Content="Username" />
+                  <TextBox Text="@peduarte" />
+                </StackPanel>
+              </StackPanel>
+            </c:CardContent>
+            <c:CardFooter>
+              <Button Content="Save changes" HorizontalAlignment="Left" />
+            </c:CardFooter>
+          </c:Card>
+        </TabItem>
+        <TabItem Header="Password">
+          <c:Card>
+            <c:CardHeader Title="Password" />
+          </c:Card>
+        </TabItem>
+      </TabControl>
+    </StackPanel>
+  </Border>
+</UserControl>

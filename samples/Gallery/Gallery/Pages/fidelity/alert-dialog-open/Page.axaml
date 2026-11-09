@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:OverlayExamples" a:Page.Title="Fidelity: alert-dialog-open">
+  <Panel a:Web.Id="fixture" Width="640" Height="360" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}" c:OverlayHost.IsHost="True">
+    <Border Padding="24">
+      <Panel>
+        <Button Classes="outline" Content="Show Dialog" Command="{Binding ConfirmCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <c:AlertDialog IsOpen="{Binding ConfirmOpen}">
+          <StackPanel Spacing="16">
+            <c:DialogHeader Title="Are you absolutely sure?" Description="This action cannot be undone. This will permanently delete your account and remove your data from our servers." />
+            <c:DialogFooter>
+              <Button Classes="outline" Content="Cancel" IsCancel="True" Command="{Binding AnswerCommand}" CommandParameter="cancel" />
+              <Button Content="Continue" Command="{Binding AnswerCommand}" CommandParameter="continue" />
+            </c:DialogFooter>
+          </StackPanel>
+        </c:AlertDialog>
+      </Panel>
+    </Border>
+  </Panel>
+</UserControl>

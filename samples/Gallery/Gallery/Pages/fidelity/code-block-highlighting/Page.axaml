@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" a:Page.Title="Fidelity: code-block-highlighting">
+  <Border a:Web.Id="fixture" Width="640" Padding="24" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{DynamicResource CosmoBackgroundBrush}">
+    <c:CodeBlock Width="448" HorizontalAlignment="Left" Title="getWeather output">
+
+      <c:CodeBlockContent>
+        <StackPanel>
+          <c:CodeBlockLine><TextBlock><Run Text="{}{" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;location&quot;" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text=": " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;San Francisco&quot;" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text="," Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;temperature&quot;" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text=": " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="18" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text="," Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;unit&quot;" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text=": " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;celsius&quot;" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text="," Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="  " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;conditions&quot;" Foreground="{DynamicResource CosmoCodeConstantBrush}" /><Run Text=": [" Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;fog&quot;" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text=", " Foreground="{DynamicResource CosmoCodeTextBrush}" /><Run Text="&quot;wind&quot;" Foreground="{DynamicResource CosmoCodeStringBrush}" /><Run Text="]" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+          <c:CodeBlockLine><TextBlock><Run Text="}" Foreground="{DynamicResource CosmoCodeTextBrush}" /></TextBlock></c:CodeBlockLine>
+        </StackPanel>
+      </c:CodeBlockContent>
+    </c:CodeBlock>
+  </Border>
+</UserControl>

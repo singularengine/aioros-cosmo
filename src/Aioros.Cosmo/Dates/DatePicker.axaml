@@ -1,0 +1,159 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="https://aioros.dev/cosmo">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Aioros.Cosmo/Display/Icons.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+  <c:DateText x:Key="CosmoDateText" />
+  <StreamGeometry x:Key="CosmoLucideCalendarGeometry">M8 2v4 M16 2v4 M5,4 L19,4 A2,2 0 0 1 21,6 L21,20 A2,2 0 0 1 19,22 L5,22 A2,2 0 0 1 3,20 L3,6 A2,2 0 0 1 5,4 Z M3 10h18</StreamGeometry>
+
+  <ControlTheme x:Key="CosmoDatePickerText" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="MinHeight" Value="0" />
+    <Setter Property="CornerRadius" Value="0" />
+    <Style Selector="^ /template/ Border#PART_BorderElement">
+      <Setter Property="BoxShadow" Value="0 0 0 0 Transparent" />
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="^:focus /template/ Border#PART_BorderElement">
+      <Setter Property="BoxShadow" Value="0 0 0 0 Transparent" />
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="^:pointerover /template/ Border#PART_BorderElement">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="CosmoDatePickerButton" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_Root" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+          <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
+    <Setter Property="Background" Value="{DynamicResource CosmoButtonOutlineBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource CosmoForegroundBrush}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource CosmoMutedForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource CosmoButtonOutlineBorderBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource CosmoRadiusMd}" />
+    <Setter Property="Height" Value="36" />
+    <Setter Property="Padding" Value="12,0" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="SelectedDateFormat" Value="Custom" />
+    <Setter Property="CustomDateFormatString" Value="MMMM d, yyyy" />
+    <Setter Property="TextConverter" Value="{StaticResource CosmoDateText}" />
+    <Setter Property="PlaceholderText" Value="Pick a date" />
+    <Setter Property="IsTodayHighlighted" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Root" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" BoxShadow="{DynamicResource CosmoShadowXs}">
+            <Grid ColumnDefinitions="Auto,*" Margin="{TemplateBinding Padding}">
+              <Viewbox Name="PART_Icon" Width="16" Height="16" Margin="0,0,8,0" VerticalAlignment="Center">
+                <Path Theme="{StaticResource CosmoIcon}" Stroke="{Binding $parent[CalendarDatePicker].Foreground}" Data="{StaticResource CosmoLucideCalendarGeometry}" />
+              </Viewbox>
+              <TextBox Name="PART_TextBox" Grid.Column="1" Theme="{StaticResource CosmoDatePickerText}" IsHitTestVisible="False" Focusable="False"
+                       Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"
+                       PlaceholderText="{TemplateBinding PlaceholderText}" PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                       VerticalContentAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+          </Border>
+          <Button Name="PART_Button" Theme="{StaticResource CosmoDatePickerButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  AutomationProperties.Name="{TemplateBinding PlaceholderText}" />
+          <Popup Name="PART_Popup" PlacementTarget="{TemplateBinding}" Placement="BottomEdgeAlignedLeft" VerticalOffset="4" IsLightDismissEnabled="True">
+            <Border Name="PART_Surface" Background="{DynamicResource CosmoPopoverBrush}" BorderBrush="{DynamicResource CosmoBorderBrush}" BorderThickness="1"
+                    CornerRadius="{DynamicResource CosmoRadiusMd}" BoxShadow="{DynamicResource CosmoShadowMd}" Margin="0,0,8,8">
+              <StackPanel Spacing="8">
+              <ComboBox Name="PART_Presets" IsVisible="False" HorizontalAlignment="Left" PlaceholderText="Select"
+                        ItemsSource="{TemplateBinding c:DatePresets.Items}"
+                        SelectedIndex="{TemplateBinding c:DatePresets.Index, Mode=TwoWay}" />
+              <Border Name="PART_CalendarFrame" CornerRadius="{DynamicResource CosmoRadiusMd}">
+              <Calendar Name="PART_Calendar" Background="Transparent"
+                        FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}" IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
+                        SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}"
+                        DisplayDate="{TemplateBinding DisplayDate}" DisplayDateStart="{TemplateBinding DisplayDateStart}" DisplayDateEnd="{TemplateBinding DisplayDateEnd}" />
+              </Border>
+              </StackPanel>
+            </Border>
+          </Popup>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover /template/ Border#PART_Root">
+      <Setter Property="Background" Value="{DynamicResource CosmoButtonOutlineHoverBrush}" />
+    </Style>
+    <Style Selector="^ /template/ Button#PART_Button:focus-visible">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+    </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_Root">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoRingBrush}" />
+      <Setter Property="BoxShadow" Value="{DynamicResource CosmoFocusRingShadow}" />
+    </Style>
+
+    <Style Selector="^.presets /template/ Border#PART_Surface">
+      <Setter Property="Padding" Value="8" />
+    </Style>
+    <Style Selector="^.presets /template/ ComboBox#PART_Presets">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.presets /template/ Border#PART_CalendarFrame">
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoBorderBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style Selector="^.input">
+      <Setter Property="Background" Value="{DynamicResource CosmoInputBackgroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource CosmoInputBrush}" />
+      <Setter Property="CustomDateFormatString" Value="MMMM dd, yyyy" />
+      <Setter Property="TextConverter" Value="{x:Null}" />
+      <Setter Property="PlaceholderText" Value="" />
+    </Style>
+    <Style Selector="^.input:pointerover /template/ Border#PART_Root">
+      <Setter Property="Background" Value="{DynamicResource CosmoInputBackgroundBrush}" />
+    </Style>
+    <Style Selector="^.input /template/ Viewbox#PART_Icon">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.input /template/ TextBox#PART_TextBox">
+      <Setter Property="IsHitTestVisible" Value="True" />
+      <Setter Property="Focusable" Value="True" />
+      <Setter Property="Margin" Value="0,0,32,0" />
+    </Style>
+    <Style Selector="^.input /template/ Button#PART_Button">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Margin" Value="0,0,8,0" />
+      <Setter Property="Content">
+        <Template>
+          <Viewbox Width="12" Height="12">
+            <Path Theme="{StaticResource CosmoIcon}" Stroke="{DynamicResource CosmoForegroundBrush}" Data="{StaticResource CosmoLucideCalendarGeometry}" />
+          </Viewbox>
+        </Template>
+      </Setter>
+    </Style>
+    <Style Selector="^.input /template/ Button#PART_Button:pointerover">
+      <Setter Property="Background" Value="{DynamicResource CosmoButtonGhostHoverBrush}" />
+    </Style>
+    <Style Selector="^.input /template/ Popup#PART_Popup">
+      <Setter Property="Placement" Value="BottomEdgeAlignedRight" />
+      <Setter Property="HorizontalOffset" Value="8" />
+      <Setter Property="VerticalOffset" Value="10" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

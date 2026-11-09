@@ -1,0 +1,347 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:a="https://aioros.dev" xmlns:c="https://aioros.dev/cosmo" xmlns:m="using:Gallery.Models" x:DataType="m:CompositeExamples"
+             a:Page.Title="Sidebar" a:Page.Description="A composable, themeable and customizable sidebar component.">
+  <StackPanel Spacing="32" MaxWidth="880" HorizontalAlignment="Left">
+    <StackPanel Spacing="10">
+      <TextBlock Classes="h1" Text="Sidebar" />
+      <TextBlock Classes="lead" Text="A composable, themeable and customizable sidebar component." />
+      <WrapPanel ItemSpacing="8" LineSpacing="8">
+        <c:Badge Classes="secondary" Content="shadcn/ui: sidebar" />
+        <c:Badge Classes="secondary" Content="Cosmo: c:SidebarProvider, c:Sidebar and its parts" />
+        <c:Badge Classes="secondary" Content="Web: &lt;nav&gt;" />
+      </WrapPanel>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Collapsible to icons" />
+      <TextBlock Classes="sm muted" Text="The trigger, the rail and Ctrl+B collapse it to its icons (with tips); under 768 px it is a sheet." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="600" Height="400" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+            <c:SidebarProvider>
+              <c:Sidebar Collapsible="Icon" Variant="Sidebar">
+                <c:SidebarHeader>
+                  <c:SidebarMenu>
+                    <c:SidebarMenuItem>
+                      <c:SidebarMenuButton Classes="lg" Tooltip="Acme Inc">
+                        <DockPanel>
+                          <Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoSidebarPrimaryBrush}">
+                            <a:Icon Kind="gallery-vertical-end" Foreground="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" />
+                          </Border>
+                          <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="Acme Inc" FontWeight="Medium" />
+                            <TextBlock Text="Enterprise" FontSize="12" />
+                          </StackPanel>
+                        </DockPanel>
+                      </c:SidebarMenuButton>
+                    </c:SidebarMenuItem>
+                  </c:SidebarMenu>
+                </c:SidebarHeader>
+                <c:SidebarContent>
+                  <c:SidebarGroup>
+                    <c:SidebarGroupLabel Content="Platform" />
+                    <c:SidebarMenu>
+                      <c:SidebarMenuItem IsCollapsible="True" IsExpanded="True">
+                        <c:SidebarMenuButton Tooltip="Playground" IsActive="True"><StackPanel><a:Icon Kind="square-terminal" /><TextBlock Text="Playground" /></StackPanel></c:SidebarMenuButton>
+                        <c:SidebarMenuSub>
+                          <c:SidebarMenuSubButton Content="History" />
+                          <c:SidebarMenuSubButton Content="Starred" />
+                        </c:SidebarMenuSub>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Tooltip="Models"><StackPanel><a:Icon Kind="bot" /><TextBlock Text="Models" /></StackPanel></c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Tooltip="Documentation"><StackPanel><a:Icon Kind="book-open" /><TextBlock Text="Documentation" /></StackPanel></c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                    </c:SidebarMenu>
+                  </c:SidebarGroup>
+                </c:SidebarContent>
+                <c:SidebarRail />
+              </c:Sidebar>
+              <c:SidebarInset>
+                <StackPanel Margin="12,14" Spacing="12">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <c:SidebarTrigger />
+                    <Separator Classes="vertical" Height="16" VerticalAlignment="Center" />
+                    <TextBlock Classes="sm" Text="Playground" VerticalAlignment="Center" />
+                  </StackPanel>
+                  <Border Height="240" CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+                </StackPanel>
+              </c:SidebarInset>
+            </c:SidebarProvider>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;600&quot; Height=&quot;400&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;  &lt;c:SidebarProvider&gt;&#10;    &lt;c:Sidebar Collapsible=&quot;Icon&quot; Variant=&quot;Sidebar&quot;&gt;&#10;      &lt;c:SidebarHeader&gt;&#10;        &lt;c:SidebarMenu&gt;&#10;          &lt;c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuButton Classes=&quot;lg&quot; Tooltip=&quot;Acme Inc&quot;&gt;&#10;              &lt;DockPanel&gt;&#10;                &lt;Border Width=&quot;32&quot; Height=&quot;32&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; Background=&quot;{DynamicResource CosmoSidebarPrimaryBrush}&quot;&gt;&#10;                  &lt;a:Icon Kind=&quot;gallery-vertical-end&quot; Foreground=&quot;{DynamicResource CosmoSidebarPrimaryForegroundBrush}&quot; /&gt;&#10;                &lt;/Border&gt;&#10;                &lt;StackPanel Margin=&quot;8,0,0,0&quot; VerticalAlignment=&quot;Center&quot;&gt;&#10;                  &lt;TextBlock Text=&quot;Acme Inc&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;                  &lt;TextBlock Text=&quot;Enterprise&quot; FontSize=&quot;12&quot; /&gt;&#10;                &lt;/StackPanel&gt;&#10;              &lt;/DockPanel&gt;&#10;            &lt;/c:SidebarMenuButton&gt;&#10;          &lt;/c:SidebarMenuItem&gt;&#10;        &lt;/c:SidebarMenu&gt;&#10;      &lt;/c:SidebarHeader&gt;&#10;      &lt;c:SidebarContent&gt;&#10;        &lt;c:SidebarGroup&gt;&#10;          &lt;c:SidebarGroupLabel Content=&quot;Platform&quot; /&gt;&#10;          &lt;c:SidebarMenu&gt;&#10;            &lt;c:SidebarMenuItem IsCollapsible=&quot;True&quot; IsExpanded=&quot;True&quot;&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Playground&quot; IsActive=&quot;True&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;square-terminal&quot; /&gt;&lt;TextBlock Text=&quot;Playground&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;              &lt;c:SidebarMenuSub&gt;&#10;                &lt;c:SidebarMenuSubButton Content=&quot;History&quot; /&gt;&#10;                &lt;c:SidebarMenuSubButton Content=&quot;Starred&quot; /&gt;&#10;              &lt;/c:SidebarMenuSub&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Models&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;bot&quot; /&gt;&lt;TextBlock Text=&quot;Models&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Documentation&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;book-open&quot; /&gt;&lt;TextBlock Text=&quot;Documentation&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;          &lt;/c:SidebarMenu&gt;&#10;        &lt;/c:SidebarGroup&gt;&#10;      &lt;/c:SidebarContent&gt;&#10;      &lt;c:SidebarRail /&gt;&#10;    &lt;/c:Sidebar&gt;&#10;    &lt;c:SidebarInset&gt;&#10;      &lt;StackPanel Margin=&quot;12,14&quot; Spacing=&quot;12&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;c:SidebarTrigger /&gt;&#10;          &lt;Separator Classes=&quot;vertical&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Playground&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;Border Height=&quot;240&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusXl}&quot; Background=&quot;{DynamicResource CosmoMutedHalfBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:SidebarInset&gt;&#10;  &lt;/c:SidebarProvider&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Floating" />
+      <TextBlock Classes="sm muted" Text="Variant Floating: a rounded, bordered panel 8 px in." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="600" Height="400" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+            <c:SidebarProvider>
+              <c:Sidebar Collapsible="Icon" Variant="Floating">
+                <c:SidebarHeader>
+                  <c:SidebarMenu>
+                    <c:SidebarMenuItem>
+                      <c:SidebarMenuButton Classes="lg" Tooltip="Acme Inc">
+                        <DockPanel>
+                          <Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoSidebarPrimaryBrush}">
+                            <a:Icon Kind="gallery-vertical-end" Foreground="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" />
+                          </Border>
+                          <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="Acme Inc" FontWeight="Medium" />
+                            <TextBlock Text="Enterprise" FontSize="12" />
+                          </StackPanel>
+                        </DockPanel>
+                      </c:SidebarMenuButton>
+                    </c:SidebarMenuItem>
+                  </c:SidebarMenu>
+                </c:SidebarHeader>
+                <c:SidebarContent>
+                  <c:SidebarGroup>
+                    <c:SidebarGroupLabel Content="Platform" />
+                    <c:SidebarMenu>
+                      <c:SidebarMenuItem IsCollapsible="True" IsExpanded="True">
+                        <c:SidebarMenuButton Tooltip="Playground" IsActive="True"><StackPanel><a:Icon Kind="square-terminal" /><TextBlock Text="Playground" /></StackPanel></c:SidebarMenuButton>
+                        <c:SidebarMenuSub>
+                          <c:SidebarMenuSubButton Content="History" />
+                          <c:SidebarMenuSubButton Content="Starred" />
+                        </c:SidebarMenuSub>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Tooltip="Models"><StackPanel><a:Icon Kind="bot" /><TextBlock Text="Models" /></StackPanel></c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Tooltip="Documentation"><StackPanel><a:Icon Kind="book-open" /><TextBlock Text="Documentation" /></StackPanel></c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                    </c:SidebarMenu>
+                  </c:SidebarGroup>
+                </c:SidebarContent>
+                <c:SidebarRail />
+              </c:Sidebar>
+              <c:SidebarInset>
+                <StackPanel Margin="12,14" Spacing="12">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <c:SidebarTrigger />
+                    <Separator Classes="vertical" Height="16" VerticalAlignment="Center" />
+                    <TextBlock Classes="sm" Text="Playground" VerticalAlignment="Center" />
+                  </StackPanel>
+                  <Border Height="240" CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+                </StackPanel>
+              </c:SidebarInset>
+            </c:SidebarProvider>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;600&quot; Height=&quot;400&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;  &lt;c:SidebarProvider&gt;&#10;    &lt;c:Sidebar Collapsible=&quot;Icon&quot; Variant=&quot;Floating&quot;&gt;&#10;      &lt;c:SidebarHeader&gt;&#10;        &lt;c:SidebarMenu&gt;&#10;          &lt;c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuButton Classes=&quot;lg&quot; Tooltip=&quot;Acme Inc&quot;&gt;&#10;              &lt;DockPanel&gt;&#10;                &lt;Border Width=&quot;32&quot; Height=&quot;32&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; Background=&quot;{DynamicResource CosmoSidebarPrimaryBrush}&quot;&gt;&#10;                  &lt;a:Icon Kind=&quot;gallery-vertical-end&quot; Foreground=&quot;{DynamicResource CosmoSidebarPrimaryForegroundBrush}&quot; /&gt;&#10;                &lt;/Border&gt;&#10;                &lt;StackPanel Margin=&quot;8,0,0,0&quot; VerticalAlignment=&quot;Center&quot;&gt;&#10;                  &lt;TextBlock Text=&quot;Acme Inc&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;                  &lt;TextBlock Text=&quot;Enterprise&quot; FontSize=&quot;12&quot; /&gt;&#10;                &lt;/StackPanel&gt;&#10;              &lt;/DockPanel&gt;&#10;            &lt;/c:SidebarMenuButton&gt;&#10;          &lt;/c:SidebarMenuItem&gt;&#10;        &lt;/c:SidebarMenu&gt;&#10;      &lt;/c:SidebarHeader&gt;&#10;      &lt;c:SidebarContent&gt;&#10;        &lt;c:SidebarGroup&gt;&#10;          &lt;c:SidebarGroupLabel Content=&quot;Platform&quot; /&gt;&#10;          &lt;c:SidebarMenu&gt;&#10;            &lt;c:SidebarMenuItem IsCollapsible=&quot;True&quot; IsExpanded=&quot;True&quot;&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Playground&quot; IsActive=&quot;True&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;square-terminal&quot; /&gt;&lt;TextBlock Text=&quot;Playground&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;              &lt;c:SidebarMenuSub&gt;&#10;                &lt;c:SidebarMenuSubButton Content=&quot;History&quot; /&gt;&#10;                &lt;c:SidebarMenuSubButton Content=&quot;Starred&quot; /&gt;&#10;              &lt;/c:SidebarMenuSub&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Models&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;bot&quot; /&gt;&lt;TextBlock Text=&quot;Models&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Documentation&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;book-open&quot; /&gt;&lt;TextBlock Text=&quot;Documentation&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;          &lt;/c:SidebarMenu&gt;&#10;        &lt;/c:SidebarGroup&gt;&#10;      &lt;/c:SidebarContent&gt;&#10;      &lt;c:SidebarRail /&gt;&#10;    &lt;/c:Sidebar&gt;&#10;    &lt;c:SidebarInset&gt;&#10;      &lt;StackPanel Margin=&quot;12,14&quot; Spacing=&quot;12&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;c:SidebarTrigger /&gt;&#10;          &lt;Separator Classes=&quot;vertical&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Playground&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;Border Height=&quot;240&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusXl}&quot; Background=&quot;{DynamicResource CosmoMutedHalfBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:SidebarInset&gt;&#10;  &lt;/c:SidebarProvider&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Inset" />
+      <TextBlock Classes="sm muted" Text="Variant Inset: the content is a card on the sidebar&#x27;s color." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="600" Height="400" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+            <c:SidebarProvider>
+              <c:Sidebar Collapsible="Icon" Variant="Inset">
+                <c:SidebarHeader>
+                  <c:SidebarMenu>
+                    <c:SidebarMenuItem>
+                      <c:SidebarMenuButton Classes="lg" Tooltip="Acme Inc">
+                        <DockPanel>
+                          <Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoSidebarPrimaryBrush}">
+                            <a:Icon Kind="gallery-vertical-end" Foreground="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" />
+                          </Border>
+                          <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="Acme Inc" FontWeight="Medium" />
+                            <TextBlock Text="Enterprise" FontSize="12" />
+                          </StackPanel>
+                        </DockPanel>
+                      </c:SidebarMenuButton>
+                    </c:SidebarMenuItem>
+                  </c:SidebarMenu>
+                </c:SidebarHeader>
+                <c:SidebarContent>
+                  <c:SidebarGroup>
+                    <c:SidebarGroupLabel Content="Platform" />
+                    <c:SidebarMenu>
+                      <c:SidebarMenuItem IsCollapsible="True" IsExpanded="True">
+                        <c:SidebarMenuButton Tooltip="Playground" IsActive="True"><StackPanel><a:Icon Kind="square-terminal" /><TextBlock Text="Playground" /></StackPanel></c:SidebarMenuButton>
+                        <c:SidebarMenuSub>
+                          <c:SidebarMenuSubButton Content="History" />
+                          <c:SidebarMenuSubButton Content="Starred" />
+                        </c:SidebarMenuSub>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Tooltip="Models"><StackPanel><a:Icon Kind="bot" /><TextBlock Text="Models" /></StackPanel></c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Tooltip="Documentation"><StackPanel><a:Icon Kind="book-open" /><TextBlock Text="Documentation" /></StackPanel></c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                    </c:SidebarMenu>
+                  </c:SidebarGroup>
+                </c:SidebarContent>
+                <c:SidebarRail />
+              </c:Sidebar>
+              <c:SidebarInset>
+                <StackPanel Margin="12,14" Spacing="12">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <c:SidebarTrigger />
+                    <Separator Classes="vertical" Height="16" VerticalAlignment="Center" />
+                    <TextBlock Classes="sm" Text="Playground" VerticalAlignment="Center" />
+                  </StackPanel>
+                  <Border Height="240" CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+                </StackPanel>
+              </c:SidebarInset>
+            </c:SidebarProvider>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;600&quot; Height=&quot;400&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;  &lt;c:SidebarProvider&gt;&#10;    &lt;c:Sidebar Collapsible=&quot;Icon&quot; Variant=&quot;Inset&quot;&gt;&#10;      &lt;c:SidebarHeader&gt;&#10;        &lt;c:SidebarMenu&gt;&#10;          &lt;c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuButton Classes=&quot;lg&quot; Tooltip=&quot;Acme Inc&quot;&gt;&#10;              &lt;DockPanel&gt;&#10;                &lt;Border Width=&quot;32&quot; Height=&quot;32&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; Background=&quot;{DynamicResource CosmoSidebarPrimaryBrush}&quot;&gt;&#10;                  &lt;a:Icon Kind=&quot;gallery-vertical-end&quot; Foreground=&quot;{DynamicResource CosmoSidebarPrimaryForegroundBrush}&quot; /&gt;&#10;                &lt;/Border&gt;&#10;                &lt;StackPanel Margin=&quot;8,0,0,0&quot; VerticalAlignment=&quot;Center&quot;&gt;&#10;                  &lt;TextBlock Text=&quot;Acme Inc&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;                  &lt;TextBlock Text=&quot;Enterprise&quot; FontSize=&quot;12&quot; /&gt;&#10;                &lt;/StackPanel&gt;&#10;              &lt;/DockPanel&gt;&#10;            &lt;/c:SidebarMenuButton&gt;&#10;          &lt;/c:SidebarMenuItem&gt;&#10;        &lt;/c:SidebarMenu&gt;&#10;      &lt;/c:SidebarHeader&gt;&#10;      &lt;c:SidebarContent&gt;&#10;        &lt;c:SidebarGroup&gt;&#10;          &lt;c:SidebarGroupLabel Content=&quot;Platform&quot; /&gt;&#10;          &lt;c:SidebarMenu&gt;&#10;            &lt;c:SidebarMenuItem IsCollapsible=&quot;True&quot; IsExpanded=&quot;True&quot;&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Playground&quot; IsActive=&quot;True&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;square-terminal&quot; /&gt;&lt;TextBlock Text=&quot;Playground&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;              &lt;c:SidebarMenuSub&gt;&#10;                &lt;c:SidebarMenuSubButton Content=&quot;History&quot; /&gt;&#10;                &lt;c:SidebarMenuSubButton Content=&quot;Starred&quot; /&gt;&#10;              &lt;/c:SidebarMenuSub&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Models&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;bot&quot; /&gt;&lt;TextBlock Text=&quot;Models&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Documentation&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;book-open&quot; /&gt;&lt;TextBlock Text=&quot;Documentation&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;          &lt;/c:SidebarMenu&gt;&#10;        &lt;/c:SidebarGroup&gt;&#10;      &lt;/c:SidebarContent&gt;&#10;      &lt;c:SidebarRail /&gt;&#10;    &lt;/c:Sidebar&gt;&#10;    &lt;c:SidebarInset&gt;&#10;      &lt;StackPanel Margin=&quot;12,14&quot; Spacing=&quot;12&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;c:SidebarTrigger /&gt;&#10;          &lt;Separator Classes=&quot;vertical&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Playground&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;Border Height=&quot;240&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusXl}&quot; Background=&quot;{DynamicResource CosmoMutedHalfBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:SidebarInset&gt;&#10;  &lt;/c:SidebarProvider&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Offcanvas" />
+      <TextBlock Classes="sm muted" Text="Collapsible Offcanvas: it slides out of the window." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <Border MaxWidth="600" Height="400" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+            <c:SidebarProvider>
+              <c:Sidebar Collapsible="Offcanvas" Variant="Sidebar">
+                <c:SidebarHeader>
+                  <c:SidebarMenu>
+                    <c:SidebarMenuItem>
+                      <c:SidebarMenuButton Classes="lg" Tooltip="Acme Inc">
+                        <DockPanel>
+                          <Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoSidebarPrimaryBrush}">
+                            <a:Icon Kind="gallery-vertical-end" Foreground="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" />
+                          </Border>
+                          <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="Acme Inc" FontWeight="Medium" />
+                            <TextBlock Text="Enterprise" FontSize="12" />
+                          </StackPanel>
+                        </DockPanel>
+                      </c:SidebarMenuButton>
+                    </c:SidebarMenuItem>
+                  </c:SidebarMenu>
+                </c:SidebarHeader>
+                <c:SidebarContent>
+                  <c:SidebarGroup>
+                    <c:SidebarGroupLabel Content="Platform" />
+                    <c:SidebarMenu>
+                      <c:SidebarMenuItem IsCollapsible="True" IsExpanded="True">
+                        <c:SidebarMenuButton Tooltip="Playground" IsActive="True"><StackPanel><a:Icon Kind="square-terminal" /><TextBlock Text="Playground" /></StackPanel></c:SidebarMenuButton>
+                        <c:SidebarMenuSub>
+                          <c:SidebarMenuSubButton Content="History" />
+                          <c:SidebarMenuSubButton Content="Starred" />
+                        </c:SidebarMenuSub>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Tooltip="Models"><StackPanel><a:Icon Kind="bot" /><TextBlock Text="Models" /></StackPanel></c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Tooltip="Documentation"><StackPanel><a:Icon Kind="book-open" /><TextBlock Text="Documentation" /></StackPanel></c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                    </c:SidebarMenu>
+                  </c:SidebarGroup>
+                </c:SidebarContent>
+                <c:SidebarRail />
+              </c:Sidebar>
+              <c:SidebarInset>
+                <StackPanel Margin="12,14" Spacing="12">
+                  <StackPanel Orientation="Horizontal" Spacing="8">
+                    <c:SidebarTrigger />
+                    <Separator Classes="vertical" Height="16" VerticalAlignment="Center" />
+                    <TextBlock Classes="sm" Text="Playground" VerticalAlignment="Center" />
+                  </StackPanel>
+                  <Border Height="240" CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+                </StackPanel>
+              </c:SidebarInset>
+            </c:SidebarProvider>
+          </Border>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;Border MaxWidth=&quot;600&quot; Height=&quot;400&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;  &lt;c:SidebarProvider&gt;&#10;    &lt;c:Sidebar Collapsible=&quot;Offcanvas&quot; Variant=&quot;Sidebar&quot;&gt;&#10;      &lt;c:SidebarHeader&gt;&#10;        &lt;c:SidebarMenu&gt;&#10;          &lt;c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuButton Classes=&quot;lg&quot; Tooltip=&quot;Acme Inc&quot;&gt;&#10;              &lt;DockPanel&gt;&#10;                &lt;Border Width=&quot;32&quot; Height=&quot;32&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; Background=&quot;{DynamicResource CosmoSidebarPrimaryBrush}&quot;&gt;&#10;                  &lt;a:Icon Kind=&quot;gallery-vertical-end&quot; Foreground=&quot;{DynamicResource CosmoSidebarPrimaryForegroundBrush}&quot; /&gt;&#10;                &lt;/Border&gt;&#10;                &lt;StackPanel Margin=&quot;8,0,0,0&quot; VerticalAlignment=&quot;Center&quot;&gt;&#10;                  &lt;TextBlock Text=&quot;Acme Inc&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;                  &lt;TextBlock Text=&quot;Enterprise&quot; FontSize=&quot;12&quot; /&gt;&#10;                &lt;/StackPanel&gt;&#10;              &lt;/DockPanel&gt;&#10;            &lt;/c:SidebarMenuButton&gt;&#10;          &lt;/c:SidebarMenuItem&gt;&#10;        &lt;/c:SidebarMenu&gt;&#10;      &lt;/c:SidebarHeader&gt;&#10;      &lt;c:SidebarContent&gt;&#10;        &lt;c:SidebarGroup&gt;&#10;          &lt;c:SidebarGroupLabel Content=&quot;Platform&quot; /&gt;&#10;          &lt;c:SidebarMenu&gt;&#10;            &lt;c:SidebarMenuItem IsCollapsible=&quot;True&quot; IsExpanded=&quot;True&quot;&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Playground&quot; IsActive=&quot;True&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;square-terminal&quot; /&gt;&lt;TextBlock Text=&quot;Playground&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;              &lt;c:SidebarMenuSub&gt;&#10;                &lt;c:SidebarMenuSubButton Content=&quot;History&quot; /&gt;&#10;                &lt;c:SidebarMenuSubButton Content=&quot;Starred&quot; /&gt;&#10;              &lt;/c:SidebarMenuSub&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Models&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;bot&quot; /&gt;&lt;TextBlock Text=&quot;Models&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Tooltip=&quot;Documentation&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;book-open&quot; /&gt;&lt;TextBlock Text=&quot;Documentation&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;          &lt;/c:SidebarMenu&gt;&#10;        &lt;/c:SidebarGroup&gt;&#10;      &lt;/c:SidebarContent&gt;&#10;      &lt;c:SidebarRail /&gt;&#10;    &lt;/c:Sidebar&gt;&#10;    &lt;c:SidebarInset&gt;&#10;      &lt;StackPanel Margin=&quot;12,14&quot; Spacing=&quot;12&quot;&gt;&#10;        &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;          &lt;c:SidebarTrigger /&gt;&#10;          &lt;Separator Classes=&quot;vertical&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Playground&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;        &lt;Border Height=&quot;240&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusXl}&quot; Background=&quot;{DynamicResource CosmoMutedHalfBrush}&quot; /&gt;&#10;      &lt;/StackPanel&gt;&#10;    &lt;/c:SidebarInset&gt;&#10;  &lt;/c:SidebarProvider&gt;&#10;&lt;/Border&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="Binding" />
+      <TextBlock Classes="sm muted" Text="IsOpen and the Playground item&#x27;s IsExpanded bind two way; a StateStore (SidebarFileStore on the desktop) keeps IsOpen between runs under StateKey." />
+      <Border Classes="preview">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Center">
+          <StackPanel Spacing="12" MaxWidth="600">
+            <Border Height="400" BorderThickness="1" BorderBrush="{DynamicResource CosmoBorderBrush}" CornerRadius="{DynamicResource CosmoRadiusLg}" ClipToBounds="True">
+              <c:SidebarProvider IsOpen="{Binding SidebarOpen}">
+                <c:Sidebar Collapsible="Icon" Variant="Sidebar">
+                  <c:SidebarHeader>
+                    <c:SidebarMenu>
+                      <c:SidebarMenuItem>
+                        <c:SidebarMenuButton Classes="lg" Tooltip="Acme Inc">
+                          <DockPanel>
+                            <Border Width="32" Height="32" CornerRadius="{DynamicResource CosmoRadiusLg}" Background="{DynamicResource CosmoSidebarPrimaryBrush}">
+                              <a:Icon Kind="gallery-vertical-end" Foreground="{DynamicResource CosmoSidebarPrimaryForegroundBrush}" />
+                            </Border>
+                            <StackPanel Margin="8,0,0,0" VerticalAlignment="Center">
+                              <TextBlock Text="Acme Inc" FontWeight="Medium" />
+                              <TextBlock Text="Enterprise" FontSize="12" />
+                            </StackPanel>
+                          </DockPanel>
+                        </c:SidebarMenuButton>
+                      </c:SidebarMenuItem>
+                    </c:SidebarMenu>
+                  </c:SidebarHeader>
+                  <c:SidebarContent>
+                    <c:SidebarGroup>
+                      <c:SidebarGroupLabel Content="Platform" />
+                      <c:SidebarMenu>
+                        <c:SidebarMenuItem IsCollapsible="True" IsExpanded="{Binding PlaygroundOpen}">
+                          <c:SidebarMenuButton Tooltip="Playground" IsActive="True"><StackPanel><a:Icon Kind="square-terminal" /><TextBlock Text="Playground" /></StackPanel></c:SidebarMenuButton>
+                          <c:SidebarMenuSub>
+                            <c:SidebarMenuSubButton Content="History" />
+                            <c:SidebarMenuSubButton Content="Starred" />
+                          </c:SidebarMenuSub>
+                        </c:SidebarMenuItem>
+                        <c:SidebarMenuItem>
+                          <c:SidebarMenuButton Tooltip="Models"><StackPanel><a:Icon Kind="bot" /><TextBlock Text="Models" /></StackPanel></c:SidebarMenuButton>
+                        </c:SidebarMenuItem>
+                        <c:SidebarMenuItem>
+                          <c:SidebarMenuButton Tooltip="Documentation"><StackPanel><a:Icon Kind="book-open" /><TextBlock Text="Documentation" /></StackPanel></c:SidebarMenuButton>
+                        </c:SidebarMenuItem>
+                      </c:SidebarMenu>
+                    </c:SidebarGroup>
+                  </c:SidebarContent>
+                  <c:SidebarRail />
+                </c:Sidebar>
+                <c:SidebarInset>
+                  <StackPanel Margin="12,14" Spacing="12">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                      <c:SidebarTrigger />
+                      <Separator Classes="vertical" Height="16" VerticalAlignment="Center" />
+                      <TextBlock Classes="sm" Text="Playground" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <Border Height="240" CornerRadius="{DynamicResource CosmoRadiusXl}" Background="{DynamicResource CosmoMutedHalfBrush}" />
+                  </StackPanel>
+                </c:SidebarInset>
+              </c:SidebarProvider>
+            </Border>
+            <WrapPanel ItemSpacing="12" LineSpacing="8">
+              <Button Classes="outline sm" Content="Toggle from the model" Command="{Binding ToggleSidebarCommand}" />
+              <TextBlock Classes="sm muted" Text="{Binding SidebarText}" VerticalAlignment="Center" />
+              <TextBlock Classes="sm muted" Text="{Binding PlaygroundText}" VerticalAlignment="Center" />
+            </WrapPanel>
+          </StackPanel>
+        </Border>
+      </Border>
+      <Border Classes="code"><TextBlock Text="&lt;StackPanel Spacing=&quot;12&quot; MaxWidth=&quot;600&quot;&gt;&#10;  &lt;Border Height=&quot;400&quot; BorderThickness=&quot;1&quot; BorderBrush=&quot;{DynamicResource CosmoBorderBrush}&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; ClipToBounds=&quot;True&quot;&gt;&#10;    &lt;c:SidebarProvider IsOpen=&quot;{Binding SidebarOpen}&quot;&gt;&#10;      &lt;c:Sidebar Collapsible=&quot;Icon&quot; Variant=&quot;Sidebar&quot;&gt;&#10;        &lt;c:SidebarHeader&gt;&#10;          &lt;c:SidebarMenu&gt;&#10;            &lt;c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuButton Classes=&quot;lg&quot; Tooltip=&quot;Acme Inc&quot;&gt;&#10;                &lt;DockPanel&gt;&#10;                  &lt;Border Width=&quot;32&quot; Height=&quot;32&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusLg}&quot; Background=&quot;{DynamicResource CosmoSidebarPrimaryBrush}&quot;&gt;&#10;                    &lt;a:Icon Kind=&quot;gallery-vertical-end&quot; Foreground=&quot;{DynamicResource CosmoSidebarPrimaryForegroundBrush}&quot; /&gt;&#10;                  &lt;/Border&gt;&#10;                  &lt;StackPanel Margin=&quot;8,0,0,0&quot; VerticalAlignment=&quot;Center&quot;&gt;&#10;                    &lt;TextBlock Text=&quot;Acme Inc&quot; FontWeight=&quot;Medium&quot; /&gt;&#10;                    &lt;TextBlock Text=&quot;Enterprise&quot; FontSize=&quot;12&quot; /&gt;&#10;                  &lt;/StackPanel&gt;&#10;                &lt;/DockPanel&gt;&#10;              &lt;/c:SidebarMenuButton&gt;&#10;            &lt;/c:SidebarMenuItem&gt;&#10;          &lt;/c:SidebarMenu&gt;&#10;        &lt;/c:SidebarHeader&gt;&#10;        &lt;c:SidebarContent&gt;&#10;          &lt;c:SidebarGroup&gt;&#10;            &lt;c:SidebarGroupLabel Content=&quot;Platform&quot; /&gt;&#10;            &lt;c:SidebarMenu&gt;&#10;              &lt;c:SidebarMenuItem IsCollapsible=&quot;True&quot; IsExpanded=&quot;{Binding PlaygroundOpen}&quot;&gt;&#10;                &lt;c:SidebarMenuButton Tooltip=&quot;Playground&quot; IsActive=&quot;True&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;square-terminal&quot; /&gt;&lt;TextBlock Text=&quot;Playground&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;                &lt;c:SidebarMenuSub&gt;&#10;                  &lt;c:SidebarMenuSubButton Content=&quot;History&quot; /&gt;&#10;                  &lt;c:SidebarMenuSubButton Content=&quot;Starred&quot; /&gt;&#10;                &lt;/c:SidebarMenuSub&gt;&#10;              &lt;/c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuItem&gt;&#10;                &lt;c:SidebarMenuButton Tooltip=&quot;Models&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;bot&quot; /&gt;&lt;TextBlock Text=&quot;Models&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;              &lt;/c:SidebarMenuItem&gt;&#10;              &lt;c:SidebarMenuItem&gt;&#10;                &lt;c:SidebarMenuButton Tooltip=&quot;Documentation&quot;&gt;&lt;StackPanel&gt;&lt;a:Icon Kind=&quot;book-open&quot; /&gt;&lt;TextBlock Text=&quot;Documentation&quot; /&gt;&lt;/StackPanel&gt;&lt;/c:SidebarMenuButton&gt;&#10;              &lt;/c:SidebarMenuItem&gt;&#10;            &lt;/c:SidebarMenu&gt;&#10;          &lt;/c:SidebarGroup&gt;&#10;        &lt;/c:SidebarContent&gt;&#10;        &lt;c:SidebarRail /&gt;&#10;      &lt;/c:Sidebar&gt;&#10;      &lt;c:SidebarInset&gt;&#10;        &lt;StackPanel Margin=&quot;12,14&quot; Spacing=&quot;12&quot;&gt;&#10;          &lt;StackPanel Orientation=&quot;Horizontal&quot; Spacing=&quot;8&quot;&gt;&#10;            &lt;c:SidebarTrigger /&gt;&#10;            &lt;Separator Classes=&quot;vertical&quot; Height=&quot;16&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;            &lt;TextBlock Classes=&quot;sm&quot; Text=&quot;Playground&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;          &lt;/StackPanel&gt;&#10;          &lt;Border Height=&quot;240&quot; CornerRadius=&quot;{DynamicResource CosmoRadiusXl}&quot; Background=&quot;{DynamicResource CosmoMutedHalfBrush}&quot; /&gt;&#10;        &lt;/StackPanel&gt;&#10;      &lt;/c:SidebarInset&gt;&#10;    &lt;/c:SidebarProvider&gt;&#10;  &lt;/Border&gt;&#10;  &lt;WrapPanel ItemSpacing=&quot;12&quot; LineSpacing=&quot;8&quot;&gt;&#10;    &lt;Button Classes=&quot;outline sm&quot; Content=&quot;Toggle from the model&quot; Command=&quot;{Binding ToggleSidebarCommand}&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding SidebarText}&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;    &lt;TextBlock Classes=&quot;sm muted&quot; Text=&quot;{Binding PlaygroundText}&quot; VerticalAlignment=&quot;Center&quot; /&gt;&#10;  &lt;/WrapPanel&gt;&#10;&lt;/StackPanel&gt;" /></Border>
+    </StackPanel>
+    <StackPanel Spacing="12">
+      <TextBlock Classes="h2" Text="API" />
+      <StackPanel>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:SidebarProvider" /><TextBlock Grid.Column="1" Classes="sm muted" Text="IsOpen and IsMobileOpen (two way), IsMobile, MobileBreakpoint (768), ToggleGesture (Ctrl+B), ToggleCommand, StateStore, StateKey." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:Sidebar" /><TextBlock Grid.Column="1" Classes="sm muted" Text="Side (Left, Right), Variant (Sidebar, Floating, Inset), Collapsible (Offcanvas, Icon, None); SidebarHeader, SidebarContent, SidebarFooter, SidebarRail." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:SidebarGroup" /><TextBlock Grid.Column="1" Classes="sm muted" Text="SidebarGroupLabel and a SidebarMenu; the icon-hidden class hides it while collapsed to icons." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:SidebarMenuItem" /><TextBlock Grid.Column="1" Classes="sm muted" Text="IsCollapsible, IsExpanded (two way): a SidebarMenuButton (IsActive, Tooltip, sm, lg, outline), SidebarMenuSub, SidebarMenuAction, SidebarMenuBadge." /></Grid></Border>
+        <Border Classes="row"><Grid ColumnDefinitions="200,*" ColumnSpacing="16"><TextBlock Classes="sm" FontWeight="Medium" Text="c:SidebarTrigger, c:SidebarInset" /><TextBlock Grid.Column="1" Classes="sm muted" Text="The toggle button and the main area beside the sidebar." /></Grid></Border>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

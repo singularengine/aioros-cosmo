@@ -1,0 +1,8 @@
+<Application xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="https://aioros.dev/cosmo" x:Class="CosmoStarter.App">
+  <Application.Styles>
+    <FluentTheme />
+    <c:CosmoTheme Color="COSMO_COLOR" Radius="COSMO_RADIUS" />
+    <c:CosmoChartsTheme />
+  </Application.Styles>
+</Application>
